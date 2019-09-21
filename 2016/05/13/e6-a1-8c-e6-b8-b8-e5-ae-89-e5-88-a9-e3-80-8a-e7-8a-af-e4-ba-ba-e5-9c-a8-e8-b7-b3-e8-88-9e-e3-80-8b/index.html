@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="经过朋友消息得知了这款桌游， 看着挺有意思。这里放一下说明规则  游戏名称:《犯人在跳舞》/《犯人は踊る》/《Criminal Dance》 建议游戏人数：3~8人  《犯人在跳舞》是一款类似杀人游戏的游戏，你可以把他理解成蛇精病版的杀人游戏…… 当然啦，说蛇精病不是没理由的，大家从游戏名称就可看出这是一款“抓贼”类游戏。 但是与“杀人”、“狼人”这类游戏不同的是，在《犯人在跳舞》中每个人的身份">
+<meta name="keywords" content="软件,游戏,动漫,二次元,软妹币玩家,RMBGames,RMBPlayer,软妹币玩家博客,软妹币博客,RMB博客,编程,开发,C#,winform,wpf,.NET,RMBGame">
+<meta property="og:type" content="article">
+<meta property="og:title" content="桌游安利《犯人在跳舞》~">
+<meta property="og:url" content="https://blog.rmbgame.net/2016/05/13/e6-a1-8c-e6-b8-b8-e5-ae-89-e5-88-a9-e3-80-8a-e7-8a-af-e4-ba-ba-e5-9c-a8-e8-b7-b3-e8-88-9e-e3-80-8b/index.html">
+<meta property="og:site_name" content="软软&#39;s Blog">
+<meta property="og:description" content="经过朋友消息得知了这款桌游， 看着挺有意思。这里放一下说明规则  游戏名称:《犯人在跳舞》/《犯人は踊る》/《Criminal Dance》 建议游戏人数：3~8人  《犯人在跳舞》是一款类似杀人游戏的游戏，你可以把他理解成蛇精病版的杀人游戏…… 当然啦，说蛇精病不是没理由的，大家从游戏名称就可看出这是一款“抓贼”类游戏。 但是与“杀人”、“狼人”这类游戏不同的是，在《犯人在跳舞》中每个人的身份">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/05/20140520_872759.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/05/20131022_711530.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/05/20131022_711531.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/05/20131029_716945.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/05/20131029_716943.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/05/20131029_716942.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/05/c303df63b5c69d60f92cb96be493cbeb.jpg">
+<meta property="og:updated_time" content="2019-09-21T10:15:47.776Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="桌游安利《犯人在跳舞》~">
+<meta name="twitter:description" content="经过朋友消息得知了这款桌游， 看着挺有意思。这里放一下说明规则  游戏名称:《犯人在跳舞》/《犯人は踊る》/《Criminal Dance》 建议游戏人数：3~8人  《犯人在跳舞》是一款类似杀人游戏的游戏，你可以把他理解成蛇精病版的杀人游戏…… 当然啦，说蛇精病不是没理由的，大家从游戏名称就可看出这是一款“抓贼”类游戏。 但是与“杀人”、“狼人”这类游戏不同的是，在《犯人在跳舞》中每个人的身份">
+<meta name="twitter:image" content="http://rmbgame.net/wp-content/uploads/2016/05/20140520_872759.png">
+  <link rel="canonical" href="https://blog.rmbgame.net/2016/05/13/e6-a1-8c-e6-b8-b8-e5-ae-89-e5-88-a9-e3-80-8a-e7-8a-af-e4-ba-ba-e5-9c-a8-e8-b7-b3-e8-88-9e-e3-80-8b/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>桌游安利《犯人在跳舞》~ | 软软's Blog</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">软软's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/05/13/e6-a1-8c-e6-b8-b8-e5-ae-89-e5-88-a9-e3-80-8a-e7-8a-af-e4-ba-ba-e5-9c-a8-e8-b7-b3-e8-88-9e-e3-80-8b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">桌游安利《犯人在跳舞》~
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2016-05-13 14:49:35" itemprop="dateCreated datePublished" datetime="2016-05-13T14:49:35+08:00">2016-05-13</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/游戏分享/" itemprop="url" rel="index"><span itemprop="name">游戏分享</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="http://rmbgame.net/wp-content/uploads/2016/05/20140520_872759.png" alt="20140520_872759"> 经过朋友消息得知了这款桌游， 看着挺有意思。这里放一下说明规则</p>
+<ul>
+<li>游戏名称:<strong>《犯人在跳舞》/《犯人は踊る》/《Criminal Dance》</strong></li>
+<li>建议游戏人数：<strong>3~8人</strong></li>
+</ul>
+<p>《犯人在跳舞》是一款类似杀人游戏的游戏，你可以把他理解成蛇精病版的杀人游戏…… 当然啦，说蛇精病不是没理由的，大家从游戏名称就可看出这是一款“抓贼”类游戏。 但是与“杀人”、“狼人”这类游戏不同的是，在《犯人在跳舞》中<strong>每个人的身份角色都是在随时变化的</strong>，直到游戏的最后一刻你才能知道谁赢谁输，谁是犯人。 再加上游戏的核心内容除了<strong>“猜测身份</strong>”以外，还有<strong>“交换手牌”</strong>，所以大大加强了随机性。 而且这款游戏不会出现像“杀人”这样被首刀后发呆半小时的尴尬场面，提高了每个人的参与度。 同时该游戏<strong>文字量极少</strong>，也不需要过多发言，手牌数永远小于等于四张，流程简单，计分省力，节奏明快。</p>
+<h4 id="1：游戏准备"><a href="#1：游戏准备" class="headerlink" title="1：游戏准备"></a>1：游戏准备</h4><p>好，说了那么多，这游戏到底咋玩呢？ <img src="http://rmbgame.net/wp-content/uploads/2016/05/20131022_711530.png" alt="20131022_711530"> 上图大致意思就是在必备卡牌的基础上根据人数加入一定数目的随机卡牌，以达到最终每人能拿到四张手牌。 把按照上述原则选出来的牌库<strong>打乱</strong>后开始<strong>发牌</strong>，正好每人4张。 Tips:大家可以在一到三局游戏过后<strong>更换随机部分</strong>的卡牌，以提高趣味性(这在每个人都熟悉游戏后是<strong>非常必要</strong>的)。</p>
+<h4 id="2：游戏流程"><a href="#2：游戏流程" class="headerlink" title="2：游戏流程"></a>2：游戏流程</h4><p><img src="http://rmbgame.net/wp-content/uploads/2016/05/20131022_711531.png" alt="20131022_711531"> 别看画的很复杂，其实炒鸡简单，你只要记住，你需要做的就是:</p>
+<ul>
+<li>出一张牌</li>
+<li>照牌上说的做</li>
+<li>然后下一家继续重复上述动作……</li>
+</ul>
+<p>Tips：当你有手牌时，<strong>必须出牌</strong>。当你没有手牌时，不需要出牌，也无需因为“情报交换”、“交易”或者“谣言”来给别人手牌。</p>
+<h4 id="3：胜负判定"><a href="#3：胜负判定" class="headerlink" title="3：胜负判定"></a>3：胜负判定</h4><p>游戏可大致分为“犯人、共犯”，以及“其他人”两个阵营。</p>
+<p>当有人打出“犯人”卡时，游戏结束，犯人阵营胜利。 当通过“侦探”/神犬”卡的效果推测/抓住犯人时，除“犯人、共犯”以外的“其他人”胜利。</p>
+<p>胜利后根据计分表给各个阵营的人加分，计分表如下：</p>
+<p>计分规则： 进行3-4局游戏     先赢得5分的玩家获胜 进行6-8局游戏    先赢得10分的玩家获胜 结算情况： 1.最后一次使用侦探牌的玩家得到2分，被该侦探牌抓到的犯人玩家以及身份为共犯的玩家得到0分，剩下的玩家得到1分。 2.最后一次使用神犬牌的玩家得到3分，被该神犬牌咬到的犯人玩家以及身份为共犯的玩家得到0分，剩下的玩家得到1分。 3.打出犯人牌的玩家以及身份为共犯的玩家得到2分，剩下的玩家得到0分。  </p>
+<h4 id="4：牌类使用条件及效果"><a href="#4：牌类使用条件及效果" class="headerlink" title="4：牌类使用条件及效果"></a>4：牌类使用条件及效果</h4><p><img src="http://rmbgame.net/wp-content/uploads/2016/05/20131029_716945.png" alt="20131029_716945"> <strong>第一发现者</strong>：游戏从拿到这张卡牌的玩家<strong>开始</strong>，由该玩家打出这张牌后，<strong>顺时针</strong>依次出牌。 <strong>犯人</strong>：该卡牌只能作为<strong>最后一张</strong>手牌时打出，即当你没有其他手牌时，才能打出“犯人”，一旦打出这张牌，则游戏结束，“犯人”以及“共犯”获胜。 <strong>不在场证明</strong>：打出该牌无任何效果。当你拥有该卡牌时，你被视作<strong>不是</strong>犯人。这牌其实就是一块免死金牌，无论你手里有没有“犯人”卡，只要你有“不在场证明”，那你就是好人。 也就是说，当别人侦探你，并且让你承认自己是“犯人”，需要满足两个条件，一个条件是你手里有“犯人”牌，另一个条件便是你手里没“不在场证明”。   <img src="http://rmbgame.net/wp-content/uploads/2016/05/20131029_716943.png" alt="20131029_716943"> <strong>情报交换:</strong>当你打出该牌后，由你开始沿顺时针方向，每个玩家依次自行选择一张手牌，并且传递给他左手边的玩家， 接收到的牌请卡背朝上放在自己面前，直到所有人传递牌结束后再拿起放入手牌。 <strong>谣言</strong>：当你打出该牌后，由你开始沿<strong>顺时针</strong>方向，每个玩家依次向他右手边的人那里<strong>随机抽</strong>一张牌， 抽到的牌请<strong>卡背朝上放在自己面前</strong>，直到所有人抽牌结束后再拿起放入手牌。 这样做是为了防止下家抽走你从上家抽的牌。当然啦，大家熟悉规则和游戏后就变成了同时抽右手边玩家的一张卡了…… <strong>交易</strong>：打出该牌后指定一名玩家，双方各自选择一张自己的手牌进行交换。无论双方有无手牌，都可交易。 比方说当你打出交易后如果<strong>没手牌</strong>了，那你仍然可以得到对方的一张牌，对方却不能得到任何牌，反之亦然。 <img src="http://rmbgame.net/wp-content/uploads/2016/05/20131029_716942.png" alt="20131029_716942"> <strong>神犬</strong>：打出该牌时指定一名玩家，被指定的玩家自行选择一张手牌并且弃掉， 接下来被指定的玩家可以把对方打出的那张“神犬”卡<strong>收进手牌</strong>也可以把“神犬”也同时<strong>一起弃掉</strong>。 当被指定玩家丢弃的牌是“犯人”牌时，游戏结束，好人阵营以及神犬获胜。 <strong>一般人</strong>：打出前打出后都无任何效果。 <strong>目击者</strong>：打出该牌后可指定一名除你以外的玩家，<strong>单独观看</strong>他的所有手牌。  </p>
+<h4 id="5：变体规则"><a href="#5：变体规则" class="headerlink" title="5：变体规则"></a>5：变体规则</h4><p>华语版本中，日本的设计师特意为我们设计了两张新卡牌：“警部”和“少年”，还有相应的变体规则。 <img src="http://rmbgame.net/wp-content/uploads/2016/05/c303df63b5c69d60f92cb96be493cbeb.jpg" alt="c303df63b5c69d60f92cb96be493cbeb"> <strong>少年</strong>：打出之后，系统会通知该玩家现在犯人牌在哪个玩家手中。 直接打出此卡牌无任何效果。拥有此卡牌的玩家在游戏开始前知道烦人卡在哪位玩家手中。 <strong>警部</strong>：手牌拥有此卡牌的玩儿家。一直保持此卡牌正面朝向其他玩家(展示)，将此卡牌打在你认为是犯人的玩儿家面(lian)前(shang)，游戏结束时，如果该玩家成为犯人，妳赢得游戏。(3分)   打算同时尝试一下这款游戏的开发。~   目前正在设计中~~</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2016/05/13/e8-bf-99-e9-87-8c-e5-88-86-e4-ba-ab-e4-b8-80-e4-b8-aa-e8-87-aa-e5-b7-b1-e5-86-99-e7-9a-84-e5-a3-81-e7-ba-b8-e8-8e-b7-e5-8f-96-e5-8a-a0-e6-9b-b4-e6-8d-a2-e7-9a-84-e8-bd-af-e4-bb-b6-trashed/" rel="next" title="这里分享一个自己写的壁纸获取加更换的软件~">
+                  <i class="fa fa-chevron-left"></i> 这里分享一个自己写的壁纸获取加更换的软件~
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2016/05/13/e3-80-90-e5-b0-8f-e7-99-bd-e4-bb-a3-e7-a0-81-e4-b8-91-e3-80-91-e8-b4-b4-e4-b8-80-e4-b8-aa-e5-8e-bb-e5-b9-b4-e5-86-99-e7-9a-84rc4-e5-8a-a0-e5-af-86-e5-b7-a5-e5-85-b7-ef-bc-88-e9-99-84-e6-ba-90/" rel="prev" title="【小白代码丑】贴一个去年写的RC4加密工具（附源码）">
+                  【小白代码丑】贴一个去年写的RC4加密工具（附源码） <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1：游戏准备"><span class="nav-number">1.</span> <span class="nav-text">1：游戏准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2：游戏流程"><span class="nav-number">2.</span> <span class="nav-text">2：游戏流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3：胜负判定"><span class="nav-number">3.</span> <span class="nav-text">3：胜负判定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4：牌类使用条件及效果"><span class="nav-number">4.</span> <span class="nav-text">4：牌类使用条件及效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5：变体规则"><span class="nav-number">5.</span> <span class="nav-text">5：变体规则</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/face.png"
+      alt="软妹币玩家">
+  <p class="site-author-name" itemprop="name">软妹币玩家</p>
+  <div class="site-description" itemprop="description">软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">软妹币玩家</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

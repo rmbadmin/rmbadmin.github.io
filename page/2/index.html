@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+<meta name="keywords" content="软件,游戏,动漫,二次元,软妹币玩家,RMBGames,RMBPlayer,软妹币玩家博客,软妹币博客,RMB博客,编程,开发,C#,winform,wpf,.NET,RMBGame">
+<meta property="og:type" content="website">
+<meta property="og:title" content="软软&#39;s Blog">
+<meta property="og:url" content="https://blog.rmbgame.net/page/2/index.html">
+<meta property="og:site_name" content="软软&#39;s Blog">
+<meta property="og:description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软软&#39;s Blog">
+<meta name="twitter:description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+  <link rel="canonical" href="https://blog.rmbgame.net/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>软软's Blog</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">软软's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+  <div id="posts" class="posts-expand">
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2017/08/16/react-weui-e4-b8-adtab-e3-80-81tabbaritem-e9-81-87-e5-88-b0-e7-9a-84-e5-9d-91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2017/08/16/react-weui-e4-b8-adtab-e3-80-81tabbaritem-e9-81-87-e5-88-b0-e7-9a-84-e5-9d-91/" class="post-title-link" itemprop="url">react-weui中Tab、TabBarItem遇到的坑</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-08-16 17:42:40" itemprop="dateCreated datePublished" datetime="2017-08-16T17:42:40+08:00">2017-08-16</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/水的一笔/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>近期在琢磨React,  同时需要开发微信端的东西使用了react-weui 结果发现react-weui的文档说明真的是不全, 遇到好几个坑 在这里记录一下 在使用TabBarItem前观看了 <a href="https://weui.github.io/react-weui/docs/#/react-weui/docs/page/0/articles/0" target="_blank" rel="noopener">react-weui 文档 </a> <img src="http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816173155-1024x589.png" alt> 可以根据active属性 得知设定是否激活，默认为fasle <tab type="tabbar"> &lt;TabBarItem icon={<img>} label=”11” active={true}/&gt; &lt;TabBarItem icon={<img>} label=”22” active={true}/&gt; </tab> 照上面代码看应该会两个都是高亮激活的样式       但在实际使用中我设置了fasle和true都没有反应 郁闷的找了很久的原因 最后在还是在React-Weui的源码中发现了问题所在 因为TabBarItme是写在Tab组件里用的 【官方例子也是这样的】 然后Tab组件里有个props属性 “defaultindex” <img src="http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816173612.png" alt> <img src="http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816173622.png" alt> 该属性会影响子节点的active ,导致在TabBarItme里设置active在一开始是会被Tab组件里的defaultindex刷掉的= =   所以最后应该 把初始要激活的菜单写在tab组件的 defaultindex props属性里 <tab type="tabbar" defaultindex="{0}"> &lt;TabBarItem icon={<img>} label=”11” active={true}/&gt; &lt;TabBarItem icon={<img>} label=”22” active={true}/&gt; </tab>   然而在文档中Tab组件是没有props属性的… <img src="http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816174152-1024x703.png" alt>   </p>
+<p><img src="file:///C:%5CUsers%5CDark%5CAppData%5CRoaming%5CTencent%5CQQ%5CTemp_8Y%5BT0S$NV~B$Q_CDNWY" alt>I1.jpg)<img src="http://rmbgame.net/wp-content/uploads/2017/08/8YT0SNVBQ_CDNWYI1.jpg" alt><img src="http://rmbgame.net/wp-content/uploads/2017/08/8YT0SNVBQ_CDNWYI1.jpg" alt><img src="http://rmbgame.net/wp-content/uploads/2017/08/8YT0SNVBQ_CDNWYI1.jpg" alt></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2017/05/04/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91unity-e5-bc-95-e6-93-8edll-e6-96-87-e4-bb-b6-e7-9a-84-e5-bc-95-e7-94-a8-e6-96-b9-e5-bc-8f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2017/05/04/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91unity-e5-bc-95-e6-93-8edll-e6-96-87-e4-bb-b6-e7-9a-84-e5-bc-95-e7-94-a8-e6-96-b9-e5-bc-8f/" class="post-title-link" itemprop="url">【小白向】Unity引擎DLL文件的引用方式</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-05-04 11:18:52" itemprop="dateCreated datePublished" datetime="2017-05-04T11:18:52+08:00">2017-05-04</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/" itemprop="url" rel="index"><span itemprop="name">Csharp</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/其它语言/" itemprop="url" rel="index"><span itemprop="name">其它语言</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近需要在Unity引擎中使用网络通信，奈何直接引用.NET的TCP Client类似乎没什么效果，所以想到打包成DLL再调用，于是在网上找了如何在Unity中使用DLL文件，但是似乎都没什么用。刚刚在Unity的官方文档里找到了<a href="https://docs.unity3d.com/Manual/UsingDLL.html" target="_blank" rel="noopener">“官方”的解决方案</a>，整理如下。 <strong>DLL**</strong>文件的生成** 关于编译器： 如果你要编译的模块不依赖与Unity的API，则选择合适的编译器编译即可，如果需要与Unity引擎交互，可以引用UnityEngine.dll和UnityEditor.dll这两个DLL文件。它们的位置为：</p>
+<p>Windows：Program Files\Unity\Editor\Data\Managed\</p>
+<p>macOS：Applications/Unity/Unity.app/Contents/Frameworks/Managed/</p>
+<p><em>注：根据我遇到的情况，编译的DLL如果使用了.NET库，.NET版本不要高于3.5。</em> <strong>DLL**</strong>文件的使用** 将DLL文件拷贝至Unity引擎的Assets文件夹中，然后在C#脚本的开头处加入using。如，对与DLLTest.dll来说，应加入“using DLLTest;”。当将脚本添加到场景中的一个对象上后，点击播放即可发现脚本已经在工作了。 <em>注：网上有很多说要放在什么Scripts文件夹或者Plugins文件夹下的，但是根据我的情况，放在那些地方都会导致编译器找不到dll，还是要放在根目录下。就是这个地方把我坑惨了……</em> 关于使用MonoDevelop调试，需要将mdb文件复制进Assets或Plugins文件夹。VS编译的DLL没有mdb文件，可以使用工具进行转换，位置如下：</p>
+<p>Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\pdb2mdb.exe</p>
+<p>其命令行参数为pdb文件，会在同一目录下生成对应的mdb。 打开Tools菜单（Windows）或MonoDevelop-Unity menu (macOS)，调整设置Add-in Manager &gt; Installed tab &gt; Unity &gt; select Mono Soft Debugger Support for Unity &gt; Enable之后即可开始调试。</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2017/03/31/e7-ac-ac-e4-b8-89-e6-96-b9-e8-af-84-e8-ae-ba-e7-a4-be-e5-8c-ba-e7-9a-84-e6-9b-b4-e6-8d-a2-e6-88-90-e7-bd-91-e6-98-93-e4-ba-91-e8-b7-9f-e5-b8-96beta/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2017/03/31/e7-ac-ac-e4-b8-89-e6-96-b9-e8-af-84-e8-ae-ba-e7-a4-be-e5-8c-ba-e7-9a-84-e6-9b-b4-e6-8d-a2-e6-88-90-e7-bd-91-e6-98-93-e4-ba-91-e8-b7-9f-e5-b8-96beta/" class="post-title-link" itemprop="url">第三方评论社区的更换成网易云跟帖Beta</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-31 17:46:31" itemprop="dateCreated datePublished" datetime="2017-03-31T17:46:31+08:00">2017-03-31</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>多说因为某些原因即将关闭了。【是什么原因我反正是不知道的.. 感到很遗憾啊，也对多说表示感谢。 在多说之前也用过disqus，然而使用没有多久disqus就被墙了。真是尴尬。 在网上寻找了一番后 发现了网易云跟帖，导出了多说的评论直接导入到网易云跟帖中。 使用时发现 用QQ帐号登陆好像还没法改名，我是没有找到在哪改，而且还没有办法与现有的网易帐号绑定，这导致我现在使用极度不方便啊。 而且也没有发现插件有本地同步评论的功能。不过后台里倒是有数据回推的设置，但我这wordpress也怎么设置接口我也不知道了。。。。 不弄上本地同步评论 首页上看到的文章评论数就不会变化了。。唉。 此前评论的匿名用户都变成了有态度的网友XXXX 后台的评论管理感觉有点简陋了，不过我也不怎么用的着，倒是无所谓。</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2017/03/23/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91uwp-e5-bc-80-e5-8f-91-e4-b8-ad-e7-9a-84json-e5-a4-84-e7-90-86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2017/03/23/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91uwp-e5-bc-80-e5-8f-91-e4-b8-ad-e7-9a-84json-e5-a4-84-e7-90-86/" class="post-title-link" itemprop="url">【小白向】UWP开发中的Json处理</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-23 21:31:57" itemprop="dateCreated datePublished" datetime="2017-03-23T21:31:57+08:00">2017-03-23</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/" itemprop="url" rel="index"><span itemprop="name">Csharp</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>首先声明，本人纯粹小白，之前没正经学过C#，没正经学过UWP，也没接触过Json，本文涉及的内容中可能充满了错误，所以请读者在阅读时自行判断。 事情的起因是这样的，我想写一个第三方的客户端，然后发现从服务器读回来的数据全都是Json格式的，我要想简单的提取出所需的信息就需要处理Json内容（否则我就只能一点点处理字符串了，那真的会非常麻烦）。 本来网上有关C#序列化或反序列化Json的博文有很多，但是不知道是我没搜索合适的关键字还是怎样，并没有找到合适的内容，很多都是针对传统桌面程序的库，后来忘了在哪（可能是MSDN吧）突然发现了一个叫Windows.Data.Json的命名空间，一下子点醒了我，而且这个也是非常好用，非常傻瓜式的。 其中我用到的几个类大概是JsonObject和JsonArray，几个方法大概是Parse、GetObjectAt和GetNamedString等一大票GetNamed开头的方法，每个的使用方法大同小异，大概一说，相信各位编程老手在VS里一敲，靠着Intellisense就足以搞清其用法了。 JsonObject是最常用的一个类了，其对象就是一个Json结构，可以通过Parse方法，传入一个字符串（也就是我从服务器上接收到的那堆东西）来初始化 当我要从中得到某个字段的值时，根据字段的属性，是字符串还是个JSon数组或是别的什么，分别调用GetNamedString、GetNamedArray方法即可，参数是一个字符串，存放着字段的名字。 对于Json数组，也就是用“[”和“]”包裹起来的那堆东西，直接使用JsonArray类型就可以处理，然后分别提取其中的某个对象可以使用GetXXXXAt这个方法，获取到对象之后的操作，就和之前的没什么区别了。</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2017/01/19/xna-e4-b8-8ewinform-e5-90-8c-e6-97-b6-e5-b7-a5-e4-bd-9c-e7-9a-84-e5-ae-9e-e7-8e-b0-e6-96-b9-e6-b3-95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2017/01/19/xna-e4-b8-8ewinform-e5-90-8c-e6-97-b6-e5-b7-a5-e4-bd-9c-e7-9a-84-e5-ae-9e-e7-8e-b0-e6-96-b9-e6-b3-95/" class="post-title-link" itemprop="url">Xna与WinForm同时工作的实现方法</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-01-19 00:08:13" itemprop="dateCreated datePublished" datetime="2017-01-19T00:08:13+08:00">2017-01-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/" itemprop="url" rel="index"><span itemprop="name">Csharp</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/心得技巧/" itemprop="url" rel="index"><span itemprop="name">心得技巧</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/心得技巧/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近我游戏项目的引擎设计告一段落，是时候开始设计具体的游戏内容。而其首先要解决的就是地图设计问题。 在有一个比较好的地图生成算法之前，地图还是得手工绘制，因此想要制作一个地图编辑器来方便进行地图设计。在经过一番比对后，我选择Xna+WinForm的方式来设计编辑器，然后又经过一番寻找，最终找到了官方给的一个例子。链接将在最后放上。 OK，那么先来解读官方给的例子，再设计我们自己的项目 官方的例子是将Xna以控件的形式加入到WinForm中去，这刚好符合我的想法 注：由于本人技术原因，一些东西的工作原理并不是很清楚，所以基本上是依葫芦画瓢←_← <strong>1.解读部分</strong> 首先看到GraphicsDeviceService类。 这个类实现了IGraphicsDeviceService接口，根据注释，这个接口提供了对GraphicsDevice对象的索引。这个接口包含1个属性和四个事件，他们分别是：  </p>
+<p>GraphicsDevice</p>
+<p>GraphicsDevice { get; }<br>event EventHandler<eventargs> DeviceCreated;<br>event EventHandler<eventargs> DeviceDisposing;<br>event EventHandler<eventargs> DeviceReset;<br>event EventHandler<eventargs> DeviceResetting;</eventargs></eventargs></eventargs></eventargs></p>
+<pre><code>第一个属性就是要提供的GraphicsDevice对象，后面四个事件的作用从名字就可以知道 在GraphicsDeviceService类的实现中，GraphicsDevice属性返回一个GraphicsDevice类型的字段graphicsDevice，这个字段的初始化实现在类的私有构造函数中。其余四个事件仅仅是简单的实现了一下。 通过公有静态方法AddRef以及私有静态字段singletonInstance来看，此处实现了一个单例模式。虽然不知道具体原因，但我猜测是由于GraphicsDevice不能有多个实例，因此采用单例模式来避免出现问题。 现在将目光转向私有的构造函数：  </code></pre><p>GraphicsDeviceService(IntPtr windowHandle, int width, int height)<br>{<br> parameters = new PresentationParameters();</p>
+<p> parameters.BackBufferWidth = Math.Max(width, 1);<br> parameters.BackBufferHeight = Math.Max(height, 1);<br> parameters.BackBufferFormat = SurfaceFormat.Color;<br> parameters.DepthStencilFormat = DepthFormat.Depth24;<br> parameters.DeviceWindowHandle = windowHandle;<br> parameters.PresentationInterval = PresentInterval.Immediate;<br> parameters.IsFullScreen = false;</p>
+<p> graphicsDevice = new GraphicsDevice(GraphicsAdapter.DefaultAdapter,<br> GraphicsProfile.Reach,<br> parameters);<br>}</p>
+<pre><code>构造函数中初始化了graphicsDevice字段，根据其构造函数签名，初始化了字段parameters，并且设置了此字段的各项属性。包括： 后背缓冲区的尺寸（BackBufferWidth，BackBufferHeight属性） 后背缓冲区的格式（BackBufferFormat属性，值为SurfaceFormat.Color，解释为：32位的ARGB色彩格式） 深度模板数据格式（DepthStencilFormat属性，值为DepthFormat.Depth24，解释为：包括24-bit的深度数据。看起来是用于计算图像深度的） 设备窗口句柄（DeviceWindowHandle属性，值为构造函数的参数windowHandle，也就是之后我们设计的控件的句柄） 呈现的时间间隔（PresentationInterval属性，值为PresentInterval.Immediate，不是很清楚这是干什么的） 是否全屏（IsFullScreen属性，值为false） 然后是另外两个参数，分别是GraphicsAdapter类型和GraphicsProfile类型，值分别为GraphicsAdapter.DefaultAdapter和GraphicsProfile.Reach。关于第二个参数，应该就是Xna工程中在Properties里设置的Game profile。 我们关注的东西基本就是以上那些，其余的几个方法就简单介绍一下：</code></pre><p>public static GraphicsDeviceService AddRef(IntPtr windowHandle,int width, int height)</p>
+<p>  返回对singletonInstance的引用，同时使引用计数+1。如果之前计数为0，就用传进来的三个参数初始化singletonInstance。</p>
+<p>public void Release(bool disposing)</p>
+<p>  使引用计数-1，计数为0时根据disposing的值选择是否销毁graphicsDevice</p>
+<p>public void ResetDevice(int width, int height)</p>
+<p>  重新设置parameters字段的后背缓冲区尺寸，并重置graphicsDevice字段。 接下来，看到我们的重点：GraphicsDeviceControl类 此类继承至Control类，同时又是抽象类，是之后SpriteFontControl类和SpinningTriangleControl类的父类。 它包含了个字段和属性：  </p>
+<p>GraphicsDeviceService graphicsDeviceService;</p>
+<p>ServiceContainer services = new ServiceContainer();</p>
+<p>public GraphicsDevice GraphicsDevice<br>{<br> get { return graphicsDeviceService.GraphicsDevice; }<br>}</p>
+<p>public ServiceContainer Services<br>{<br> get { return services; }<br>}</p>
+<pre><code>第一个字段和第一个属性不需要解释了，第二个字段则是一个实现了IServiceProvider接口的类的实例。IServiceProvider是FCL（**F**ramework **C**lass **L**ibrary，即Framework类库）内定义的接口，按照官方的说明，是</code></pre><blockquote>
+<p>定义一种检索服务对象的机制，服务对象是为其他对象提供自定义支持的对象。</p>
+</blockquote>
+<p>看起来是一种解耦的设计，不过不是很清楚在哪些地方发挥了作用。在这个例子中，它将作为ContentManager构造函数的一个参数来创建ContentManager类型实例。 GraphicsDeviceControl类重写了几个Control父类的方法，其中值得注意的是OnCreateControl、OnPaint、OnPaintBackground这三个方法。</p>
+<p>protected override void OnCreateControl()</p>
+<p>  在OnCreateControl方法中，代码用父类的Handle、ClientSize.Width、ClientSize.Height这三个属性初始化了graphicsDeviceService字段，并且将其作为参数调用了services.AddService<igraphicsdeviceservice>方法，最后调用了定义的抽象方法Initialize。</igraphicsdeviceservice></p>
+<p>protected override void OnPaint(PaintEventArgs e)</p>
+<p>  在OnPaint方法中，代码首先判断了调用定义的BeginDraw方法的返回值是否为空，然后依次调用Draw、EndDraw方法。如果不为空，则调用PaintUsingSystemDrawing方法用GDI+打印出错误信息。</p>
+<p>protected override void OnPaintBackground(PaintEventArgs pevent)</p>
+<p>  OnPaintBackground方法比较特殊，它什么内容也没有，目的是防止绘制的时候闪屏。</p>
+<p>string BeginDraw(）<br>void EndDraw()<br>string HandleDeviceReset()</p>
+<p>  在BeginDraw方法中，调用了定义的HandleDeviceReset方法，这个方法用于处理graphicsDevice的重置问题，根据其GraphicsDeviceStatus属性的值，分别选择返回错误信息或者重新设置后背缓冲区的尺寸。紧接着，BeginDraw方法又创建了Viewport类型的实例，这个类主要管理显示的区域。代码设置了要显示的区域在缓冲区中的坐标以及大小，并且设置了层深值的取值范围。最后将其传给了graphicsDevice的Viewport属性。之后再调用定义的抽象方法Draw，最后调用EndDraw方法将绘制结果呈现出来。 至此，所有的准备工作基本完成，接下来就是创建GraphicsDeviceControl类的子类SpriteFontControl和SpinningTriangleControl。这两个类中的代码都是很明显的，我就不再多说。 解读到此为止。 <strong>2.实现自己的项目</strong> 这个没什么好多讲的，基本抄袭官方代码按照解读来做就好了←_← 才不会告诉你是因为懒所以不想写了←_← <strong>3.最后的效果：</strong> <img src="http://rmbgame.net/wp-content/uploads/2017/01/test.png" alt> 看起来好像和一般的Xna工程一样嘛 官方例子的链接： <a href="http://pan.baidu.com/s/1gf7MHMF" target="_blank" rel="noopener">http://pan.baidu.com/s/1gf7MHMF</a></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/12/31/e5-ae-8c-e7-be-8e-e5-a4-87-e4-bb-bdwin8-e5-92-8cwin10-e5-8c-85-e6-8b-acoffice-e6-bf-80-e6-b4-bb-e4-bf-a1-e6-81-af/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2016/12/31/e5-ae-8c-e7-be-8e-e5-a4-87-e4-bb-bdwin8-e5-92-8cwin10-e5-8c-85-e6-8b-acoffice-e6-bf-80-e6-b4-bb-e4-bf-a1-e6-81-af/" class="post-title-link" itemprop="url">完美备份WIN8和WIN10包括Office激活信息</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-31 20:31:20" itemprop="dateCreated datePublished" datetime="2016-12-31T20:31:20+08:00">2016-12-31</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天是2016的最后一天啦<del>，各位跨年快乐</del>   该方法仅在Windows8.1企业版、专业版（批量）Windows10企业版测试，其他版本自测   前期准备你系统和Office激活且装好驱动   一：将系统镜像解压的install.wim提取到D盘根目录。   二：D盘先建立一个文件夹install   三：管理员命令提示符Dism /mount-image /imageFile:D:\install.wim /index:1 /mountdir:D:\install   四：cache.dat、data.dat、tokens.dat三个文件替换，替换D盘的D: \install \Windows\System32\spp\store\2.0 三个文件信息地址C:\Windows\System32\spp\store\2.0 <img src="http://rmbgame.net/wp-content/uploads/2016/12/back8.png" alt> <img src="http://rmbgame.net/wp-content/uploads/2016/12/back10.png" alt>       五：Dism /Image:D:\install /Set-ProductKey: xxxxx-xxxxx-xxxxx-xxxxx-xxxxx（windows密钥）   六：Dism /unmount-wim /mountdir:D:\install /commit   七：install替换系统镜像里的install.wim     八：完工。安装系统去吧。   九：安装系统后，打上所有驱动，安装Office输入office密钥即可激活 如找不到输入Office密钥的地方则管理员命令提示符slmgr.vbs -ipk xxxxx-xxxxx-xxxxx-xxxxx-xxxxx（Office密钥）,打开Office任意组件关掉Office提示的激活窗口，文件–账户–更换密钥，即可激活Office</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/" class="post-title-link" itemprop="url">简单的网易云音乐搜索下载API</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-29 12:32:33" itemprop="dateCreated datePublished" datetime="2016-12-29T12:32:33+08:00">2016-12-29</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/心得技巧/" itemprop="url" rel="index"><span itemprop="name">心得技巧</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/心得技巧/日常/" itemprop="url" rel="index"><span itemprop="name">日常</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/心得技巧/日常/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>只是随便很简单就能抓到的接口啦。     【播放此文章顶部的音乐食用更佳啦~<strong>↑↑↑↑↑↑↑↑↑</strong> 不过跟PC  android 的接口应该是不一样的。 具体发现这个接口也是无意之间。 正文开始： 发现接口更新了必须加上version=1 否则都是失效的歌曲地址！！！！ ==============================================================   网易旗下有个 网易博客 跟 LOFTER ， 在发表日志什么的时候，可以插入音乐 <img src="http://rmbgame.net/wp-content/uploads/2016/12/20161229111308.png" alt>   没错， 就是这里。  我们打开浏览器F12 转到 NetWork 然后在随便输入一个歌曲名   <img src="http://rmbgame.net/wp-content/uploads/2016/12/20161229111512-1024x675.jpg" alt> 然后， 就是这么简单啦啊哈。我们就得到了这个搜索音乐的API。 简化一下接口 接口地址为： <a href="http://s.music.163.com/search/get/" target="_blank" rel="noopener">http://s.music.163.com/search/get/</a> 对应参数：</p>
+<p>名称</p>
+<p>值</p>
+<p>作用</p>
+<p>version</p>
+<p>1</p>
+<p>必填，不然查询到的歌曲地址是失效的。</p>
+<p>src</p>
+<p>blog</p>
+<p>这个也不是必填，网易博客是blog，lofter就是lofter</p>
+<p>type</p>
+<p>1</p>
+<p>这是个必填的，默认就好了~</p>
+<p>s</p>
+<p>卡农</p>
+<p>搜索内容不用多说啦， 搜索歌名， 歌手名， 专辑名， 应该事都没问题的~</p>
+<p>limit</p>
+<p>10</p>
+<p>返回搜索结果数量， 我也没有找上限是多少。自己试试吧</p>
+<p>offset</p>
+<p>0</p>
+<p>搜索结果页数~，一页显示不完就有多几页啦。 从0开始哟</p>
+<p>例： <a href="http://s.music.163.com/search/get/?type=1&s=Frontier&limit=10&offset=0" target="_blank" rel="noopener">http://s.music.163.com/search/get/?type=1&amp;s=Frontier&amp;limit=10&amp;offset=0</a>   返回格式为 JSON   结果太长 取短的一条随便说下</p>
+<p>{<br>    \“result\“:{<br>        \“songCount\“:2589,<br>//搜索到的相关歌曲总数</p>
+<pre><code>\\&quot;songs\\&quot;:\[
+    {
+        \\&quot;id\\&quot;:30512839,</code></pre><p>//歌曲网易云ID</p>
+<pre><code>\\&quot;name\\&quot;:\\&quot;Frontier\\&quot;,</code></pre><p>//名字</p>
+<pre><code>\\&quot;artists\\&quot;:\[</code></pre><p>//歌手信息 多个歌手都显示在底下</p>
+<pre><code>    {
+        \\&quot;id\\&quot;:1049952,   
+        \\&quot;name\\&quot;:\\&quot;Krale\\&quot;,
+        \\&quot;picUrl\\&quot;:null
+    },
+    {
+        \\&quot;id\\&quot;:0,
+        \\&quot;name\\&quot;:\\&quot;Jasmina Lin\\&quot;,
+        \\&quot;picUrl\\&quot;:null
+    },
+    {
+        \\&quot;id\\&quot;:0,
+        \\&quot;name\\&quot;:\\&quot;Jay Christopher\\&quot;,
+        \\&quot;picUrl\\&quot;:null
+    }
+\],
+\\&quot;album\\&quot;:{</code></pre><p>//专辑信息</p>
+<pre><code>\\&quot;id\\&quot;:3102519,
+\\&quot;name\\&quot;:\\&quot;Frontier \\&quot;,
+\\&quot;artist\\&quot;:{
+    \\&quot;id\\&quot;:0,
+    \\&quot;name\\&quot;:\\&quot;\\&quot;,
+    \\&quot;picUrl\\&quot;:null
+},</code></pre><p>//歌曲封面</p>
+<pre><code>    \\&quot;picUrl\\&quot;:\\&quot;http://p1.music.126.net/kNwudenOgsyb63jEVPcm3g==/2537672839489753.jpg\\&quot;    
+},</code></pre><p>//歌曲直链地址，可外链播放 也可以直接下载</p>
+<pre><code>\\&quot;audio\\&quot;:\\&quot;http://m2.music.126.net/rRvsLcWtFtPalq_yPmJ0eg==/7826323766722669.mp3\\&quot;,
+\\&quot;djProgramId\\&quot;:0,</code></pre><p>//歌曲网易云音乐页</p>
+<pre><code>            \\&quot;page\\&quot;:\\&quot;http://music.163.com/m/song/30512839\\&quot;
+        }
+    \]
+},
+\\&quot;code\\&quot;:200</code></pre><p>}</p>
+<p>  左侧不是有个music网页嘛【飘着云，一直都没有做后续的那个 其实我本来就是想加上这个接口把页面做完的233，不过一直没弄完2333   而且本文章顶部的音乐直链也是这样取到的哟。 完~</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" class="post-title-link" itemprop="url">Windows 10 149XX 中 Shadowsocks-Windows （Shadowsocks-GUI） 无法正常使用的解决方案</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-06 17:57:30" itemprop="dateCreated datePublished" datetime="2016-12-06T17:57:30+08:00">2016-12-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/水的一笔/软件分享/" itemprop="url" rel="index"><span itemprop="name">软件分享</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>更新了最近的几个预览版后一直在使用的Shadowsocks-GUI都不能用了，无奈之下转了ShadowsocksR，刚刚查了Github上的issue，发现这个问题是最近的预览版中Win10的一个网络配置API挂了。具体的情况参见<a href="https://github.com/shadowsocks/shadowsocks-windows/issues/814" target="_blank" rel="noopener">这里</a>。 临时解决方案是：</p>
+<p>一、换用ShadowsocksR，这个客户端使用的注册表的方法配置代理，不受API挂掉的影响。</p>
+<p>二、手动在设置APP里配置代理，填写代理服务器127.0.0.1，以及SS客户端的端口。暂时还没解决PAC问题，只能全局。</p>
+<p><em>PAC读下源码应该能看到是怎么实现的，照着手动模仿一个应该也行，然而期末考试期间还是不作死了……哪位大神有空看看呗……</em> 2016-12-25 更新： 忽然发现这个问题已经修复，不知道是SS改了代理设置方法还是微软终于修复了那个API的错误。现在<a href="https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso" target="_blank" rel="noopener">更新到14986版系统</a>，搭配<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">最新版SS</a>是可以使用的。（SSR就不用再用了）</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/11/03/e8-bd-af-e5-a6-b9-e5-b8-81-e5-8d-9a-e5-ae-a2-e6-90-ac-e5-ae-b6-e5-ae-8c-e6-88-90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2016/11/03/e8-bd-af-e5-a6-b9-e5-b8-81-e5-8d-9a-e5-ae-a2-e6-90-ac-e5-ae-b6-e5-ae-8c-e6-88-90/" class="post-title-link" itemprop="url">软妹币博客搬家完成!</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2016-11-03 17:03:39" itemprop="dateCreated datePublished" datetime="2016-11-03T17:03:39+08:00">2016-11-03</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/" itemprop="url" rel="index"><span itemprop="name">日常</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/未来计划/" itemprop="url" rel="index"><span itemprop="name">未来计划</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/未来计划/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>服务器搬家啦<del>~   又到了一年的 年底了， 过的浑浑噩噩。 中间还休息了会   考了个驾照。   2016就快过了。 距离定位的目标也并没有前进多少。 <img src="http://rmbgame.net/wp-content/uploads/2016/10/RSlJhKc.png" alt="rsljhkc"> 博客也经常偷懒都不上来写写东西， 有时候打算写也不知道说什么。。   都是泪啊QAQ   这里给我新搬过来的新香港服务器宣传下。   新搬到了<a href="https://www.diyvm.com/page.aspx?c=referral&u=62720" target="_blank" rel="noopener">DIYVM</a>上。（跟conoha说再见了呢，主要是速度 不稳加上最近的日元涨价，服务器都等于变相涨价了..） 突然发现被价格和配置所吸引， 浅浅的了解下就入坑了。 暂时先用段时间看看吧。（不作不死） <img src="http://rmbgame.net/wp-content/uploads/2016/11/A071KQ345JADJBXGZW.jpg" alt="a071kq345jadjbxgzw"> 目前<a href="https://www.diyvm.com/page.aspx?c=referral&u=62720" target="_blank" rel="noopener">DIYVM</a>有活动， 也顺便推广下。 点击<a href="https://www.diyvm.com/page.aspx?c=referral&u=62720" target="_blank" rel="noopener">DIYVM</a>进入后先注册帐号即可使用优惠码。 活动貌似仅限11月。 <img src="http://rmbgame.net/wp-content/uploads/2016/11/QQ20161103170108.png" alt="qq20161103170108"> 互动价格和配置还是很吸引人的吧。 有意向的小伙伴可以点击我的推广链接进去试试</del> <a href="https://www.diyvm.com/page.aspx?c=referral&u=62720" target="_blank" rel="noopener">https://www.diyvm.com/page.aspx?c=referral&amp;u=62720</a> 注册帐号在购买哦~</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/10/30/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91c-e4-b8-adstatic-e7-9a-84-e7-94-a8-e6-b3-95-e6-80-bb-e7-bb-93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2016/10/30/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91c-e4-b8-adstatic-e7-9a-84-e7-94-a8-e6-b3-95-e6-80-bb-e7-bb-93/" class="post-title-link" itemprop="url">【小白向】C++中static的用法总结</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2016-10-30 22:16:04" itemprop="dateCreated datePublished" datetime="2016-10-30T22:16:04+08:00">2016-10-30</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其它语言/" itemprop="url" rel="index"><span itemprop="name">其它语言</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>毕竟我是小白嘛，和站长大大没法比，所以只好写一些这类的粗浅文章了，如果有帮助到初学的朋友就好了。 关于static关键字的用法，网上写的文章大多冗长，看了以后感觉所有的情况都可以用最简单的几句话来推导，所以总结如下。</p>
+<p>1.static限定的变量在全局数据段中，仅限本文件访问，而且只会初始化一次（缺省为0），整个程序只有一份。</p>
+<p>2.static修饰的函数，只在声明它的文件中可见。对于对象的成员函数如果被它修饰，那么它针对的是整个类，不再具有缺省的this指针。</p>
+<p>只是小白的总结，如果有错误还请指正…… 求轻喷……</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/face.png"
+      alt="软妹币玩家">
+  <p class="site-author-name" itemprop="name">软妹币玩家</p>
+  <div class="site-description" itemprop="description">软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">软妹币玩家</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

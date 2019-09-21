@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="今年早些时候，很多结尾带G的老型号核显进入了Legacy Support阶段，基本算是该淘汰的程度了，然而某想的电脑上仍然大量采用了这类老型号显卡，坑了一大批人。这些电脑在运行Windows 10的时候，系统有时候会单独给独显更新显卡驱动（独显是支持新驱动的），但是因为核显的存在（貌似独显的输出是接到核显上的）这些机器在更新时可能会出现自动重启，然后无法进入系统。或者是有些同学加入Windows">
+<meta name="keywords" content="软件,游戏,动漫,二次元,软妹币玩家,RMBGames,RMBPlayer,软妹币玩家博客,软妹币博客,RMB博客,编程,开发,C#,winform,wpf,.NET,RMBGame">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AMD老型号核显驱动更新导致系统崩溃的解决方法">
+<meta property="og:url" content="https://blog.rmbgame.net/2016/08/14/amd-e8-80-81-e5-9e-8b-e5-8f-b7-e6-a0-b8-e6-98-be-e9-a9-b1-e5-8a-a8-e6-9b-b4-e6-96-b0-e5-af-bc-e8-87-b4-e7-b3-bb-e7-bb-9f-e5-b4-a9-e6-ba-83-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/index.html">
+<meta property="og:site_name" content="软软&#39;s Blog">
+<meta property="og:description" content="今年早些时候，很多结尾带G的老型号核显进入了Legacy Support阶段，基本算是该淘汰的程度了，然而某想的电脑上仍然大量采用了这类老型号显卡，坑了一大批人。这些电脑在运行Windows 10的时候，系统有时候会单独给独显更新显卡驱动（独显是支持新驱动的），但是因为核显的存在（貌似独显的输出是接到核显上的）这些机器在更新时可能会出现自动重启，然后无法进入系统。或者是有些同学加入Windows">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/08/WP_20160812_13_10_15_Pro.jpg">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/08/1.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/08/2.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/08/3.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/08/7.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/08/8.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/08/9.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/08/4.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/08/5.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/08/6.png">
+<meta property="og:image" content="http://rmbgame.net/wp-content/uploads/2016/08/10.png">
+<meta property="og:updated_time" content="2019-09-21T10:15:47.777Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AMD老型号核显驱动更新导致系统崩溃的解决方法">
+<meta name="twitter:description" content="今年早些时候，很多结尾带G的老型号核显进入了Legacy Support阶段，基本算是该淘汰的程度了，然而某想的电脑上仍然大量采用了这类老型号显卡，坑了一大批人。这些电脑在运行Windows 10的时候，系统有时候会单独给独显更新显卡驱动（独显是支持新驱动的），但是因为核显的存在（貌似独显的输出是接到核显上的）这些机器在更新时可能会出现自动重启，然后无法进入系统。或者是有些同学加入Windows">
+<meta name="twitter:image" content="http://rmbgame.net/wp-content/uploads/2016/08/WP_20160812_13_10_15_Pro.jpg">
+  <link rel="canonical" href="https://blog.rmbgame.net/2016/08/14/amd-e8-80-81-e5-9e-8b-e5-8f-b7-e6-a0-b8-e6-98-be-e9-a9-b1-e5-8a-a8-e6-9b-b4-e6-96-b0-e5-af-bc-e8-87-b4-e7-b3-bb-e7-bb-9f-e5-b4-a9-e6-ba-83-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>AMD老型号核显驱动更新导致系统崩溃的解决方法 | 软软's Blog</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">软软's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/08/14/amd-e8-80-81-e5-9e-8b-e5-8f-b7-e6-a0-b8-e6-98-be-e9-a9-b1-e5-8a-a8-e6-9b-b4-e6-96-b0-e5-af-bc-e8-87-b4-e7-b3-bb-e7-bb-9f-e5-b4-a9-e6-ba-83-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">AMD老型号核显驱动更新导致系统崩溃的解决方法
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2016-08-14 11:23:51" itemprop="dateCreated datePublished" datetime="2016-08-14T11:23:51+08:00">2016-08-14</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>今年早些时候，很多结尾带G的老型号核显进入了Legacy Support阶段，基本算是该淘汰的程度了，然而某想的电脑上仍然大量采用了这类老型号显卡，坑了一大批人。这些电脑在运行Windows 10的时候，系统有时候会单独给独显更新显卡驱动（独显是支持新驱动的），但是因为核显的存在（貌似独显的输出是接到核显上的）这些机器在更新时可能会出现自动重启，然后无法进入系统。或者是有些同学加入Windows Insider计划之后，系统更新可能导致驱动一起更新或者驱动被卸载重装的情况，这样也会出现之前的问题。在被这个问题折磨了好久之后，摸索很久找到一个可以解决的方案，贴出来，希望能对遇到同样问题的朋友有所帮助。 我的机器：Lenovo Y485P, 显卡：AMD Radeon HD 8650G + HD 8790M Dual Graphics。 言简意赅的说，停止驱动更新，卸载显卡驱动及其管理软件，一定要全删光，包括没有卸载程序的那部分，手动删除，否则会出现装好驱动后全屏视频和程序崩溃的现象！ 问题分为两个阶段：停止驱动更新，安装正确的显卡驱动。 一、停止驱动更新。 这个问题其实网上有不少的解决方案，这里推荐一下这个办法。 首先，刚装系统的时候推送的显卡驱动一般是没事的，所以不需要一开始就把驱动更新关了，等到出现问题的时候通常我们其他驱动都是好的，所以可以简单点直接屏蔽所有的驱动更新推送，方法如下。（如果只想屏蔽显卡更新，可以百度搜一下用组策略屏蔽驱动更新的办法，或使用微软发布的屏蔽更新的疑难解答程序）（这个有时候会失败，不知道为什么，似乎有点看脸的意思，如果关了这个还是推送驱动更新的的话可以试试其他方法屏蔽更新） 1.进入安全模式。系统崩溃后无法开机，会出现自动重启的现象，连续3次会进入修复计算机的阶段，等到提示出现“你的电脑无法正确启动”，这个时候会有两个选项，选择“高级启动”。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/WP_20160812_13_10_15_Pro.jpg" alt> 然后在后面的提示选择“疑难解答”，然后找“高级启动”或者“启动选项”之类的东西，反正能看到有安全模式的选项。找对了地方那里有个重启按钮，点击，重启后按4就能进入安全模式。 2.卸载所有显卡驱动。 按下Windows + X或右键开始菜单，选择“设备管理器”，找到显示适配器，把独显和核显的驱动全部卸载，并勾选“同时删除驱动程序文件”。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/1.png" alt="1"> <img src="http://rmbgame.net/wp-content/uploads/2016/08/2.png" alt="2"> 然后重启计算机，这时候应该就能进入系统了。 3.重启后时刻关注自动更新。重启进入系统后先打开设置，进入更新页面，这时候要时刻注意着，一旦这里提示“正在准备安装更新”，而更新名又是显卡驱动的话，停止一切操作，直接开始，重启计算机，防止再度打上那个大坑驱动。通常重启后这里会显示安装失败，这样就安全了，一时半会不会再打这个驱动了，可以放心进行下面的操作。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/3.png" alt="3"> 4.关闭驱动更新。 右键开始，或者Window + X，选择“系统”。在弹出的窗口中选择左侧“高级系统设置”。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/7.png" alt> 找到“硬件”选项卡，点击“设备安装设置”。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/8.png" alt="8"> 选择“否（你的设备可能无法正常工作）”，并保存更改。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/9.png" alt="9"> 5.关闭自动更新服务。右键开始，或者Window + X，选择“计算机管理”。在打开的计算机管理中，查看各个服务的状况，找到“Windows Update”的服务。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/4.png" alt="4"> 双击，在弹出的窗口中把启动方式更改为“手动”，然后“停用”，确定。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/5.png" alt="5"> 6.删除更新缓存。进入“C:\Windows\SoftwareDistribution\Download”文件夹下，删除所有文件。 7.启动Windows Update服务。右键开始或者Windows + X选择“计算机管理” ，找到Windows Update，双击，选择“启动”。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/6.png" alt="6"> 到现在就已经关掉了驱动更新了，可以安心收拾驱动而不用担心再次系统崩溃了。 二、安装合适的驱动。 1. 重复步骤“一-2”的操作，删除全部显卡驱动。注意不要选回滚，回滚了可能重新装完显卡驱动后会出现全屏幕视频和软件崩溃的情况。 2.卸载驱动管理工具。右键开始或Windows + X，打开“程序和功能”，卸载AMD驱动相关全部软件。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/10.png" alt="10"> 3.手动删除其他AMD相关文件。打开任务管理器（右键任务栏即可），可以根据描述来结束相应进程。 然后删除C:\Program Files下的AMD和ATI Technology的文件夹以及C:\AMD文件夹，然后从开始菜单找到显卡相关快捷方式，用“打开文件位置”找到对应的文件夹，删除全部文件，如果提示某个程序正在运行，可以再回到任务管理器把刚才漏下的程序结束进程。这时候可能会报什么Qt5的库dll缺失，不用管。反正尽量把相关的软件都卸载了或者手动删除掉。 4.重新安装兼容的驱动。我安装的是WHQL的15.7.1，这个是最后一个兼容的WHQL驱动，Beta版的16.3.2我没有试过，各位可以自己试试看能不能用。前面三步都是为了防止出现重装驱动后全屏幕的程序和网页视频什么的都崩溃的情况。如果你安装找个网页视频测试，可以全屏程序不崩溃的话就成功了。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2016/07/18/uwp-e5-bc-80-e5-8f-91-e7-ac-94-e8-ae-b0-e5-9b-be-e6-a0-87-e7-9b-b8-e5-85-b3-e4-bd-bf-e7-94-a8/" rel="next" title="UWP开发笔记 图标相关使用">
+                  <i class="fa fa-chevron-left"></i> UWP开发笔记 图标相关使用
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2016/10/30/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91c-e4-b8-adstatic-e7-9a-84-e7-94-a8-e6-b3-95-e6-80-bb-e7-bb-93/" rel="prev" title="【小白向】C++中static的用法总结">
+                  【小白向】C++中static的用法总结 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/face.png"
+      alt="软妹币玩家">
+  <p class="site-author-name" itemprop="name">软妹币玩家</p>
+  <div class="site-description" itemprop="description">软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">软妹币玩家</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.0</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
