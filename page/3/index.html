@@ -217,7 +217,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/08/14/amd-e8-80-81-e5-9e-8b-e5-8f-b7-e6-a0-b8-e6-98-be-e9-a9-b1-e5-8a-a8-e6-9b-b4-e6-96-b0-e5-af-bc-e8-87-b4-e7-b3-bb-e7-bb-9f-e5-b4-a9-e6-ba-83-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/01/25/wpf-e5-8a-a0-e8-bd-bd-e7-9b-b8-e5-af-b9-e8-b7-af-e5-be-84-e7-9a-84-e5-9b-be-e7-89-87-e8-ae-be-e8-ae-a1-e5-99-a8-e8-83-bd-e7-9c-8b-e5-88-b0-e8-bf-90-e8-a1-8c-e4-b8-8d-e6-98-be-e7-a4-ba-e7-9a-84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="软妹币玩家">
@@ -231,7 +231,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2016/08/14/amd-e8-80-81-e5-9e-8b-e5-8f-b7-e6-a0-b8-e6-98-be-e9-a9-b1-e5-8a-a8-e6-9b-b4-e6-96-b0-e5-af-bc-e8-87-b4-e7-b3-bb-e7-bb-9f-e5-b4-a9-e6-ba-83-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/" class="post-title-link" itemprop="url">AMD老型号核显驱动更新导致系统崩溃的解决方法</a>
+            <a href="/2016/01/25/wpf-e5-8a-a0-e8-bd-bd-e7-9b-b8-e5-af-b9-e8-b7-af-e5-be-84-e7-9a-84-e5-9b-be-e7-89-87-e8-ae-be-e8-ae-a1-e5-99-a8-e8-83-bd-e7-9c-8b-e5-88-b0-e8-bf-90-e8-a1-8c-e4-b8-8d-e6-98-be-e7-a4-ba-e7-9a-84/" class="post-title-link" itemprop="url">WPF加载相对路径的图片设计器能看到 运行不显示 的解决方法</a>
           
         </h1>
 
@@ -246,101 +246,7 @@
                 
               
 
-              <time title="创建时间：2016-08-14 11:23:51" itemprop="dateCreated datePublished" datetime="2016-08-14T11:23:51+08:00">2016-08-14</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今年早些时候，很多结尾带G的老型号核显进入了Legacy Support阶段，基本算是该淘汰的程度了，然而某想的电脑上仍然大量采用了这类老型号显卡，坑了一大批人。这些电脑在运行Windows 10的时候，系统有时候会单独给独显更新显卡驱动（独显是支持新驱动的），但是因为核显的存在（貌似独显的输出是接到核显上的）这些机器在更新时可能会出现自动重启，然后无法进入系统。或者是有些同学加入Windows Insider计划之后，系统更新可能导致驱动一起更新或者驱动被卸载重装的情况，这样也会出现之前的问题。在被这个问题折磨了好久之后，摸索很久找到一个可以解决的方案，贴出来，希望能对遇到同样问题的朋友有所帮助。 我的机器：Lenovo Y485P, 显卡：AMD Radeon HD 8650G + HD 8790M Dual Graphics。 言简意赅的说，停止驱动更新，卸载显卡驱动及其管理软件，一定要全删光，包括没有卸载程序的那部分，手动删除，否则会出现装好驱动后全屏视频和程序崩溃的现象！ 问题分为两个阶段：停止驱动更新，安装正确的显卡驱动。 一、停止驱动更新。 这个问题其实网上有不少的解决方案，这里推荐一下这个办法。 首先，刚装系统的时候推送的显卡驱动一般是没事的，所以不需要一开始就把驱动更新关了，等到出现问题的时候通常我们其他驱动都是好的，所以可以简单点直接屏蔽所有的驱动更新推送，方法如下。（如果只想屏蔽显卡更新，可以百度搜一下用组策略屏蔽驱动更新的办法，或使用微软发布的屏蔽更新的疑难解答程序）（这个有时候会失败，不知道为什么，似乎有点看脸的意思，如果关了这个还是推送驱动更新的的话可以试试其他方法屏蔽更新） 1.进入安全模式。系统崩溃后无法开机，会出现自动重启的现象，连续3次会进入修复计算机的阶段，等到提示出现“你的电脑无法正确启动”，这个时候会有两个选项，选择“高级启动”。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/WP_20160812_13_10_15_Pro.jpg" alt> 然后在后面的提示选择“疑难解答”，然后找“高级启动”或者“启动选项”之类的东西，反正能看到有安全模式的选项。找对了地方那里有个重启按钮，点击，重启后按4就能进入安全模式。 2.卸载所有显卡驱动。 按下Windows + X或右键开始菜单，选择“设备管理器”，找到显示适配器，把独显和核显的驱动全部卸载，并勾选“同时删除驱动程序文件”。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/1.png" alt="1"> <img src="http://rmbgame.net/wp-content/uploads/2016/08/2.png" alt="2"> 然后重启计算机，这时候应该就能进入系统了。 3.重启后时刻关注自动更新。重启进入系统后先打开设置，进入更新页面，这时候要时刻注意着，一旦这里提示“正在准备安装更新”，而更新名又是显卡驱动的话，停止一切操作，直接开始，重启计算机，防止再度打上那个大坑驱动。通常重启后这里会显示安装失败，这样就安全了，一时半会不会再打这个驱动了，可以放心进行下面的操作。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/3.png" alt="3"> 4.关闭驱动更新。 右键开始，或者Window + X，选择“系统”。在弹出的窗口中选择左侧“高级系统设置”。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/7.png" alt> 找到“硬件”选项卡，点击“设备安装设置”。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/8.png" alt="8"> 选择“否（你的设备可能无法正常工作）”，并保存更改。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/9.png" alt="9"> 5.关闭自动更新服务。右键开始，或者Window + X，选择“计算机管理”。在打开的计算机管理中，查看各个服务的状况，找到“Windows Update”的服务。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/4.png" alt="4"> 双击，在弹出的窗口中把启动方式更改为“手动”，然后“停用”，确定。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/5.png" alt="5"> 6.删除更新缓存。进入“C:\Windows\SoftwareDistribution\Download”文件夹下，删除所有文件。 7.启动Windows Update服务。右键开始或者Windows + X选择“计算机管理” ，找到Windows Update，双击，选择“启动”。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/6.png" alt="6"> 到现在就已经关掉了驱动更新了，可以安心收拾驱动而不用担心再次系统崩溃了。 二、安装合适的驱动。 1. 重复步骤“一-2”的操作，删除全部显卡驱动。注意不要选回滚，回滚了可能重新装完显卡驱动后会出现全屏幕视频和软件崩溃的情况。 2.卸载驱动管理工具。右键开始或Windows + X，打开“程序和功能”，卸载AMD驱动相关全部软件。 <img src="http://rmbgame.net/wp-content/uploads/2016/08/10.png" alt="10"> 3.手动删除其他AMD相关文件。打开任务管理器（右键任务栏即可），可以根据描述来结束相应进程。 然后删除C:\Program Files下的AMD和ATI Technology的文件夹以及C:\AMD文件夹，然后从开始菜单找到显卡相关快捷方式，用“打开文件位置”找到对应的文件夹，删除全部文件，如果提示某个程序正在运行，可以再回到任务管理器把刚才漏下的程序结束进程。这时候可能会报什么Qt5的库dll缺失，不用管。反正尽量把相关的软件都卸载了或者手动删除掉。 4.重新安装兼容的驱动。我安装的是WHQL的15.7.1，这个是最后一个兼容的WHQL驱动，Beta版的16.3.2我没有试过，各位可以自己试试看能不能用。前面三步都是为了防止出现重装驱动后全屏幕的程序和网页视频什么的都崩溃的情况。如果你安装找个网页视频测试，可以全屏程序不崩溃的话就成功了。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/07/18/uwp-e5-bc-80-e5-8f-91-e7-ac-94-e8-ae-b0-e5-9b-be-e6-a0-87-e7-9b-b8-e5-85-b3-e4-bd-bf-e7-94-a8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="软妹币玩家">
-      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
-      <meta itemprop="image" content="/images/face.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="软软's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2016/07/18/uwp-e5-bc-80-e5-8f-91-e7-ac-94-e8-ae-b0-e5-9b-be-e6-a0-87-e7-9b-b8-e5-85-b3-e4-bd-bf-e7-94-a8/" class="post-title-link" itemprop="url">UWP开发笔记 图标相关使用</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2016-07-18 17:15:45" itemprop="dateCreated datePublished" datetime="2016-07-18T17:15:45+08:00">2016-07-18</time>
+              <time title="创建时间：2016-01-25 09:33:34" itemprop="dateCreated datePublished" datetime="2016-01-25T09:33:34+08:00">2016-01-25</time>
             </span>
           
             
@@ -365,13 +271,6 @@
 
                 
                 
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
-
-                
-                
               
             </span>
           
@@ -387,7 +286,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>玩了一段时间，差不多玩够了，开始打算写一款UWP应用试试~ 这里记录开发过程中所需要的笔记和遇到的问题。 首先是对于各种图标的使用。 微软本身内置了很多图标  关于内置图标具体可以在 <a href="https://msdn.microsoft.com/zh-cn/library/windows/apps/windows.ui.xaml.controls.symbol.aspx" target="_blank" rel="noopener">https://msdn.microsoft.com/zh-cn/library/windows/apps/windows.ui.xaml.controls.symbol.aspx</a> 查看 内置图标使用 <img src="http://rmbgame.net/wp-content/uploads/2016/07/nIBFRjQ.png" alt="nIBFRjQ"> 然后也可以使用字体图标 web常用的<a href="http://fontawesome.io/icons/" target="_blank" rel="noopener">http://fontawesome.io/icons/</a> 亦或者是微软推荐的<a href="https://msdn.microsoft.com/windows/uwp/controls-and-patterns/segoe-ui-symbol-font" target="_blank" rel="noopener">https://msdn.microsoft.com/windows/uwp/controls-and-patterns/segoe-ui-symbol-font</a> 字体图标使用 就是添加资源文件对应字体，然后使用字体图标对应的unicode的编码设置FontIcon的Glyph属性即可。</p>
+          <p>相对路径： 在项目中添加一个文件夹Image，在文件夹下添加一个background.jpg的图片，打开图片文件的属性，将“复制到输出目录”选中“始终复制”，将“生成操作”选择为“内容”，这样，编译后，会在bin/debug目录下生成一个含有background图片的名为Image的文件夹。</p>
+<p>this.HeadImg.Source = new BitmapImage(new Uri(@\“default.jpg\“, UriKind.Relative));</p>
+<p>//绝对路径：就很简单了，获取到工作目录，附加相对路径<br>this.HeadImg.Source = new BitmapImage(newUri(Path.GetDirectoryName(Application.ResourceAssembly.Location)<br>+ @\“default.jpg\“, UriKind.Absolute));</p>
 
         
       
@@ -412,7 +313,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/07/14/e6-95-85-e5-9c-b0-e9-87-8d-e6-b8-b8/">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2015/12/29/e5-88-9d-e9-9b-aa-e6-a8-b1-e9-80-9a-e5-85-b3-e6-84-9f-e6-83-b3-e8-a1-a8-e7-99-bd-e5-b0-8f-e5-9d-82-e4-ba-95-e7-bb-ab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="软妹币玩家">
@@ -426,7 +327,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2016/07/14/e6-95-85-e5-9c-b0-e9-87-8d-e6-b8-b8/" class="post-title-link" itemprop="url">故地重游</a>
+            <a href="/2015/12/29/e5-88-9d-e9-9b-aa-e6-a8-b1-e9-80-9a-e5-85-b3-e6-84-9f-e6-83-b3-e8-a1-a8-e7-99-bd-e5-b0-8f-e5-9d-82-e4-ba-95-e7-bb-ab/" class="post-title-link" itemprop="url">初雪樱通关感想(表白小坂井绫)</a>
           
         </h1>
 
@@ -441,7 +342,7 @@
                 
               
 
-              <time title="创建时间：2016-07-14 19:57:07" itemprop="dateCreated datePublished" datetime="2016-07-14T19:57:07+08:00">2016-07-14</time>
+              <time title="创建时间：2015-12-29 04:35:16" itemprop="dateCreated datePublished" datetime="2015-12-29T04:35:16+08:00">2015-12-29</time>
             </span>
           
             
@@ -462,7 +363,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/吐槽盘点/" itemprop="url" rel="index"><span itemprop="name">吐槽盘点</span></a></span>
 
                 
                 
@@ -481,7 +382,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>黑云压城，墨色的天空昭示着一场即将到来的大雨，我独自一人走在灰暗的街上。 向前走了不知多久，我来到一个不起眼的洋铁皮小门前，拉开门，走了进去。一进门，我便被这强烈的灯光晃了一下，略一闭眼，稍微适应了一下这比外面强烈百倍的灯光，我看清了这里似乎是一个巨大的地下广场。足有两百米宽的道路均被青灰色的光亮的水泥所覆盖，刺眼的冷光灯打在地面上，映出一个一个光点，头顶上方各种管道交通错杂，黑色的管道与泛着淡蓝色的天花板形成鲜明对比。一进门的不远处，站这一群人，黑色军装，荷枪实弹，地上还有几个弹药箱，整个广场看起来就像是一个巨大的机库，让我有种置身某个秘密的军事基地感觉。 “你终于来了！”正在我打量着这陌生，却又有些熟悉的地方的时候，一个大汉走上来拍了我的肩膀一把，“这次不比上次，我们务必要安静的潜入进去。”说着揽着我的肩膀走向一旁的弹药箱。 上次？我不禁有些茫然，我曾经来过这里？ 不等我想明白，我已经被那大汉绑上了一身的装备，背后是一把沉甸甸的狙击步枪，胸前的口袋和腰上还塞着不少的弹药，然后便被那一群人夹着向前走。出了广场，我认出我们是在一个巨大的地下通道里，还是青灰色的水泥地，和高高挂起的黑色管道，却不再有那么强烈的灯光。一群人静悄悄的前进，不多时，便到了另外一处像是地下室一样的地方。房间中有几台巨大的机器，似乎是某种备用发电机一类的设备。 我们到达的位置是一个居高临下的平台，大部分人都分小队潜伏了下去，只有我和那大汉两人留在二楼。莫名地，我感到一缕似曾相识的味道。下意识的摘下背后的狙击步枪，下意识的瞄准到了一个站在死角的人。或许他是我的敌人吧，又或许不是，但我下意识的扣下了扳机。 “噗！”子弹从装着消音器的枪口窜了出去，正中那人的头颅。顾不得看血花四溅的场面，我的手以远超出我大脑思考的速度移动着瞄准镜，扣下扳机，就像以前演练过无数次一样，按照预定的顺序依次将各个目标击杀。放下枪我不禁有些发楞，我曾经来过这里吗？我曾经执行过类似的任务吗？为什么他们的站位我如此熟悉，甚至连隐藏在机器阴影里的暗哨我也能发现并轻松击杀呢？还有，我什么时候学会的枪械射击？？ 大汉在我旁边赞道：“不错，比上次强多了，准备的应急小队也没用上。” 我知道，这大汉一定是知道什么，正想发问，突然我就昏死了过去，人事不省。 …… 再次醒来，我已是在另外的场景了。我躺在地上， 被足有两三公分的绿草所包围，睁眼看到的天空依然是阴沉着的，但却没有那么压抑，风吹过带了一丝清爽。我从地上爬起来，又一次被眼前的景象震撼到。我所在的地方是一个沿湖的草原，满地是深绿色的鲜草，空气中弥漫着草木的清香。草地的边沿一直延伸到湖水，清澈的水面如同深蓝色的镜子一般倒映着远处的高山。我似乎是在一个海拔很高的高原之上，那山峰上已有积雪，白色的积雪中也不时有裸露的黑色岩石，甚是好看。这一切都是那么的和谐，宁静，然而等我看向左侧的山峰时，画风却形成了鲜明的对比。被鲜绿色植被覆盖的山体上，悬泉瀑布飞漱其间，一道白链从山顶一直砸落到水面上，将水面也击打出白色的水花。阳光经过层云的阻隔柔顺的撒了下来，落在植被上，瀑布上，水上，草上，显得十分宁静祥和。 在我右手几步的地方，站着一个女子，我看不清她的身形，人就站在那里，每一个细节都如此清晰，我却不能描绘出一个完整的身形来。那女子想是听到了我起来的声音，慢慢转过身来，望向我：“你醒了？” 她的脸如同她的身子一样，让人看不清，倒是声音让我有些熟悉，我想，我一定是见过他，甚至还和她很熟，但她是谁呢？为什么我还是想不起来？ “这可是难得一见的美景呢。”她说着，走到我身边来，“国内可很难看到如此美景。” “国内？我在哪？”我被她的话惊到了，我是何时出的国？ 为什么老是遇到奇怪的事情呢？ 那女子并没有回答我，只是静静地站在我的旁边。我莫名的感到一阵心安，好像慢慢从刚刚偷袭的紧张气氛中缓了过来。 但这还没有完，画面又一次从我眼前消失…… …… 再次醒来，我已经是在自动扶梯上了，手里拿着一张打印纸，似乎是某种表格，背上背着我的书包。这里是一个戒备森严的国家机关，忽然脑海中闪过进门时层层安检的画面。到了上一层下了扶梯，映入眼帘的是一个白色的机器和穿着白色制服的工作人员。我走上前递上手中的表单，便在一旁排队等候。我前面和后面似乎有几个人是我的同学，但我却想不起他们是谁。我前面一位正在一个机器里接受检查。就像在医院照X光一样，那位同学站在一个圆形的一人宽的平台上，身后是足有两三架三角钢琴大的机器，似乎是在进行着某种扫描。 “下一位。”工作人员叫号到了我。 我走上前去，生硬机械地不知道自己在做些什么。很快检查结束了，工作人员把表单给我，和颜悦色地让我去下一个地方排队。 这次是出了这栋建筑。出了门回头看，天上已是在下倾盆大雨了，我把书包顶在头上向前走。 背后的大楼表面被玻璃幕墙所覆盖，在玄青色天空的映衬下变成了深灰色，夸张的弧形表面显示出了大楼主人的财力与地位。我的目的地是大楼前面的一个圆形小屋。原型的建筑有超过半周的墙面是透亮的玻璃，在暴雨的天气里，窗户里透出的光显得格外明亮。 我走进屋，迎面见到的是一台红色的，老旧的油漆都有些剥落的厚铁皮取号机。机器上有三个扁平的长方形按钮， 每个上方都有一行白色油漆标注的外国文字。我看不懂这上面写的什么，便先按了右边的按钮，一张字条被打印了出来，“0”。我又按了左边的按钮，又一条字条打印了出来，显示的是当前的排队号。我大致明白了，这机器的三个按钮分别是打印当前排号，领取新排号和重置。我有点慌了，我竟然一不小心按下了重置按钮，那排在我前面的人怎么办，也许他们马上就要轮到了。 我急忙找来工作人员，诚惶诚恐地向她赔礼道歉，请求她的原谅。她平静的看了一眼取号机，按了中间的按钮，取出了一张两百多号的票交给我，略有些不耐烦的说：“这不没事吗，真是。”然后嘀嘀咕咕的走了。 我在排着队，当我离那个机器越来越近的时候，我知道原来这里是生产某种证件的地方，要把证件和照片一起压膜进去。可我没有带照片，不由得有些慌乱，眼看着就要到我了。这时，一个同学告诉我，“你手画一张就行，他们根本不看的，直接压模”。我一听，忽然想起来我电脑里还有两张一寸照片的电子版，或许还来得及洗一张出来。于是便冒着雨狂奔到大街上，找到了一家打印店。打印店店面不大，门口两扇玻璃门，一扇上面还挂着“拍照”“快照”的牌子。我推门进去，已经有几个人在店里了。 “老板，您这能洗照片吗？” 老板娘抬头看了我一眼，愣了一下道：”能。你等等，我这里好像有你的照片。“ 有我的照片？我也愣住了，老板娘从柜台下面拿出一个黑夹子，打开了各种照片琳琅满目，翻到某一页，老板娘取下一张照片，正是我。我一头乱发蹲在一棵树旁边，我一下子想起来了。这地方我是来过，去年的同一时刻我也来过这里，也是填报办证没有照片，于是找了老板娘在附近的树林里现照的，便是这么一张照片。我也想起来了，这里是北京，那大楼是有关部门，我去年已经来过一次了。 谢过老板娘，拿了照片我便出了门。 这时候与已经很大了，我躲在打印店的屋檐下，突然想起来走的时候看见柜台上有一只笔和我的一模一样，不会是落下了吧，急忙摘下书包掏出铅笔盒检查，好在只是一样，并不是我的落下了。于是和旁边一起躲雨的朋友聊了起来，一问才知道，原来他也是武汉来的，也是来办证在这里拍照片的。正聊天呢，眼前一黑，画面又一次切换了。 …… 我从床上醒来，每一块骨头都像被车轧了一遍一样的疼，想来是昨晚没睡好觉，之前那些应该i是梦吧，也许我之前曾经梦到过那里，这也算是故地重游了吧。看了眼表，是时候起床了，还有好些活没干呢……</p>
+          <p>最喜欢的CG，最爱的绫 <img src="http://rmbgame.net/wp-content/uploads/2015/12/%E5%B0%8F%E5%9D%82%E4%BA%95%E7%BB%AB-Fourteen-1024x576.png" alt="小坂井绫"> www米娜桑好<del>哇嘞哇丶木下灬秀吉！ 这次是游戏推荐哦</del>大名鼎鼎的初雪(出血)樱！ ….好像有什么不对不过也不用去在意啦 ….说起来笔者知道这个游戏的方式很特别呢，当时啊在逛后宫动漫吧，然后看到某位仙贝的小尾巴：<strong>春夏秋冬四季交替，完结的1095日， 是如Ghost般消逝了呢，还是虚幻地走过然后完结了呢， 但愿就如樱花般，残留着向着未来再次绽放的预感。</strong> ….噢噢噢Sakura，然后就去找了游戏….不，请不要在意这个，有时候人啊是会很冲动的哦~ ….之后没玩多久游戏就崩了，存档也没了….不  我没有在哭哦，这是高兴的眼泪，第一次写感想 再次打开的时候距离那天应该有两个月了吧、因为很无聊所以才会玩，坦白说，这是当时的心情 之后，我遇上了我大概会喜欢一辈子的人、 小坂井绫 ….不对..这个之后再说 嗯，三天就玩通了。小坂井绫，虽然只是配角，连属于自己的路线都没有，却最让人震撼。 最开始的绫，很有大姐姐的风范，对于不成熟的男主有诸多照顾、初雪虽然嘴上说着烦人，多管闲事什么的，其实很 关心她哦www，….嘛他对每个人都是这样的吧 往后的剧情里，慢慢地我们看到了绫的少女心，虽然是前辈但是就和同级的女孩一样，让人小鹿乱撞，心跳不已。并没有什么一见钟情，而是在这平淡而又温馨的的日常中，渐渐倾心于她。 <img src="http://rmbgame.net/wp-content/uploads/2015/12/%E5%B0%8F%E5%9D%82%E4%BA%95%E7%BB%AB-ten-1024x576.png" alt="小坂井绫"> 再往后的剧情，我们逐渐接触到了绫的家庭关系。在此之前，印象中的绫就如前文所说，是一个可靠的大姐姐，即使很烦恼，有很多苦，也不会让我们看到、是啊，真是可靠呢、啊，顺便一说这也让人心碎，同时也让我心动。我、真想成为守护她的人，如果能跨越次元 绫的第一个故事，发生在所有路线之前。虽然失忆了，失去了那充满回忆的记忆，就连初雪，我绫最喜欢的人也忘记了，但是在最后的毕业典礼后，她微笑的与初雪打了招呼    白白    。啊啊，虽然不记得了，不过那时候的我    大概和初雪一样，泪流….才没有哭呢！这是幸福的眼泪 <img src="http://rmbgame.net/wp-content/uploads/2015/12/Aya-Fifteen-1024x576.png" alt="Aya">   ….绫最后的物语….不太想多回忆。因为那并不是一个美好的结局，即使对她来说已经满足了，作为第三者却无论如何也接受不了。。。我果然也成为了新岛夕受害者之一呢_ 虽然故事并不是以完美的形式落下帷幕，虽然故事的剧情在后期跳跃太大以至于争议纷纷。虽然啊、虽然啊….但是初雪樱仍给我留下不可忘却的痕迹，那是即使在黑夜中也闪闪发耀的，樱色的灵魂 最后的最后，我要说：“绫，我爱你，我们结婚吧” “….嗯，我好高兴” PS: (….因为游戏最开始并没有给出绫的名字….只有浪人….所以就自称浪人啦！) ——浪人红</p>
 
         
       
@@ -506,7 +407,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/06/06/e3-80-90-e6-96-b0-e6-89-8b-e5-90-91-e3-80-91uwp-e5-bc-80-e5-8f-91-e5-85-a5-e9-97-a8-e8-b5-84-e6-ba-90/">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2015/12/26/57/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="软妹币玩家">
@@ -520,7 +421,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2016/06/06/e3-80-90-e6-96-b0-e6-89-8b-e5-90-91-e3-80-91uwp-e5-bc-80-e5-8f-91-e5-85-a5-e9-97-a8-e8-b5-84-e6-ba-90/" class="post-title-link" itemprop="url">【新手向】UWP开发入门资源(2016.6.21更新)</a>
+            <a href="/2015/12/26/57/" class="post-title-link" itemprop="url">hurtworld 初体验~</a>
           
         </h1>
 
@@ -535,1102 +436,7 @@
                 
               
 
-              <time title="创建时间：2016-06-06 13:26:54" itemprop="dateCreated datePublished" datetime="2016-06-06T13:26:54+08:00">2016-06-06</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/" itemprop="url" rel="index"><span itemprop="name">Csharp</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/其它语言/" itemprop="url" rel="index"><span itemprop="name">其它语言</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>假设你有C++或者C#基础，现在要入门UWP开发，推荐以下资源。   C++版本：<a href="https://msdn.microsoft.com/en-us/windows/uwp/get-started/create-a-basic-windows-10-app-in-cpp" target="_blank" rel="noopener">点击这里</a> C#版本：<a href="https://msdn.microsoft.com/library/windows/apps/dn765018.aspx" target="_blank" rel="noopener">点击这里</a> 详细的开发文档<a href="https://msdn.microsoft.com/library/windows/apps/xaml/mt244352.aspx" target="_blank" rel="noopener">在这里</a>，这个是完整的文档应该。 这两篇都是微软的官网教程，以经典的Hello World为例入门UWP开发，简单的程序但是涉及了很多新手需要知道的地方。最重要的是每个语法或者用法都有链接可以点开，里面会有更详细的说明。另外，这里还提供了UWP与传统桌面应用开发的对比，方便已经有一定桌面应用开发经验的开发者迅速掌握两者的异同点，更快入门。 <em>P.S. 貌似C#的版本比C++的要简单一点，心累。</em> <em>再P.S. 我一点桌面开发经验都没有怎么办……</em> 更新2016.6.1x：</p>
-<p><a href="https://mva.microsoft.com/en-US/training-courses/a-developers-guide-to-windows-10-12618?l=IV8HDBpRB_9005095281" target="_blank" rel="noopener">Windows10开发入门视频教程</a><em>（虽然我是不会看的，视频太慢了……）</em></p>
-<p><a href="https://msdn.microsoft.com/windows/uwp/layout/navigation-basics" target="_blank" rel="noopener">Win10导航设计基础</a></p>
-<p>更新2016.6.21：</p>
-<p><a href="https://github.com/Microsoft/Windows-universal-samples" target="_blank" rel="noopener">例程</a></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/05/26/adobe-acrobat-e4-b8-ad-e5-ad-97-e4-bd-93-e4-b8-8d-e6-b8-85-e6-99-b0-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="软妹币玩家">
-      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
-      <meta itemprop="image" content="/images/face.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="软软's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2016/05/26/adobe-acrobat-e4-b8-ad-e5-ad-97-e4-bd-93-e4-b8-8d-e6-b8-85-e6-99-b0-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/" class="post-title-link" itemprop="url">Adobe Acrobat 中字体不清晰的解决方法</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2016-05-26 01:03:05" itemprop="dateCreated datePublished" datetime="2016-05-26T01:03:05+08:00">2016-05-26</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>前不久把电脑上的PDF阅读器从福昕换到了Acrobat，发现字体全都出现了很多的锯齿，但是因为懒一直没管它，今天终于打算决心解决这个问题，百度了一下没找到解决方案，所以自己翻了下各种设置，最后找到了，在这里贴出来帮助下遇到了同样的问题却没有解决的同学。 <em>PS：我这里是英文版的，可能中文版翻译不一样，但是相信聪明的你看位置应该也能找到相关设置的~</em> <img src="http://rmbgame.net/wp-content/uploads/2016/05/1.png" alt="1"></p>
-<p>图1 破碎的字体</p>
-<pre><code>1.打开“编辑”菜单，选择“首选项”（或者“偏好设置”什么的，大概这个意思，反正就是最下面的位置和设置有关的东东……） ![2](http://rmbgame.net/wp-content/uploads/2016/05/2.png)</code></pre><p>图2 打开设置。</p>
-<pre><code>2.在设置窗口的左侧列表中选择“页展示”（或者“文档显示”之类的……），看到右边渲染那一块，有一个“平滑文字”的选项，默认是无，拉下来，选择适合自己的，我是笔记本，所以选择了第三个。第二个是CRT显示器（大屁股的显示器或者大屁股电视之类的……），第三个还包括液晶屏。 ![3](http://rmbgame.net/wp-content/uploads/2016/05/3.png)</code></pre><p>图3 修改“平滑文字”设置</p>
-<pre><code>3.点击确定，然后再来看看，应该字体已经好了。 ![4](http://rmbgame.net/wp-content/uploads/2016/05/4.png)</code></pre><p>图4 修改后的效果</p>
-<pre><code>_PS：不要问我为什么截图时间跨度这么大，我是不会告诉你我下午截图手残只截了一半刚刚才看到的……_</code></pre>
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/05/24/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91c-e4-b8-ad-e5-87-bd-e6-95-b0-e6-8c-87-e9-92-88-e4-bd-bf-e7-94-a8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="软妹币玩家">
-      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
-      <meta itemprop="image" content="/images/face.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="软软's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2016/05/24/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91c-e4-b8-ad-e5-87-bd-e6-95-b0-e6-8c-87-e9-92-88-e4-bd-bf-e7-94-a8/" class="post-title-link" itemprop="url">【小白向】C中函数指针使用</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2016-05-24 01:48:35" itemprop="dateCreated datePublished" datetime="2016-05-24T01:48:35+08:00">2016-05-24</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其它语言/" itemprop="url" rel="index"><span itemprop="name">其它语言</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>之前学了好久C竟然一直不知道函数指针的用法……这里秀下下限，传一个速查一类的东西。 定义：返回类型 (<em>指针名)(参数列表)； 作用：可指向同返回类型、参数列表的函数。 变——函数指针数组的定义：返回类型 (</em>指针名[数组元素个数])(参数列表)； 赋值：函数指针=&amp;函数; //和普通指针赋值方法一样。 赋值方法2；函数指针=函数; 使用：(*函数指针)(传参); 使用方式2：函数指针(传参); PS:这些方法是从网上搜刮的，稍加整理，并没有全部试验过啊，错了别说我太坑……（虽然估计不会错吧……）</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="软妹币玩家">
-      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
-      <meta itemprop="image" content="/images/face.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="软软's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/" class="post-title-link" itemprop="url">.NET IL 指令详解</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2016-05-19 19:33:04" itemprop="dateCreated datePublished" datetime="2016-05-19T19:33:04+08:00">2016-05-19</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/" itemprop="url" rel="index"><span itemprop="name">Csharp</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/心得技巧/" itemprop="url" rel="index"><span itemprop="name">心得技巧</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/心得技巧/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>名称</p>
-<p>说明</p>
-<p>Add</p>
-<p>将两个值相加并将结果推送到计算堆栈上。</p>
-<p>Add.Ovf</p>
-<p>将两个整数相加，执行溢出检查，并且将结果推送到计算堆栈上。</p>
-<p>Add.Ovf.Un</p>
-<p>将两个无符号整数值相加，执行溢出检查，并且将结果推送到计算堆栈上。</p>
-<p>And</p>
-<p>计算两个值的按位“与”并将结果推送到计算堆栈上。</p>
-<p>Arglist</p>
-<p>返回指向当前方法的参数列表的非托管指针。</p>
-<p>Beq</p>
-<p>如果两个值相等，则将控制转移到目标指令。</p>
-<p>Beq.S</p>
-<p>如果两个值相等，则将控制转移到目标指令（短格式）。</p>
-<p>Bge</p>
-<p>如果第一个值大于或等于第二个值，则将控制转移到目标指令。</p>
-<p>Bge.S</p>
-<p>如果第一个值大于或等于第二个值，则将控制转移到目标指令（短格式）。</p>
-<p>Bge.Un</p>
-<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令。</p>
-<p>Bge.Un.S</p>
-<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。</p>
-<p>Bgt</p>
-<p>如果第一个值大于第二个值，则将控制转移到目标指令。</p>
-<p>Bgt.S</p>
-<p>如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。</p>
-<p>Bgt.Un</p>
-<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令。</p>
-<p>Bgt.Un.S</p>
-<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。</p>
-<p>Ble</p>
-<p>如果第一个值小于或等于第二个值，则将控制转移到目标指令。</p>
-<p>Ble.S</p>
-<p>如果第一个值小于或等于第二个值，则将控制转移到目标指令（短格式）。</p>
-<p>Ble.Un</p>
-<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于或等于第二个值，则将控制转移到目标指令。</p>
-<p>Ble.Un.S</p>
-<p>当比较无符号整数值或不可排序的浮点值时，如果第一个值小于或等于第二个值，则将控制权转移到目标指令（短格式）。</p>
-<p>Blt</p>
-<p>如果第一个值小于第二个值，则将控制转移到目标指令。</p>
-<p>Blt.S</p>
-<p>如果第一个值小于第二个值，则将控制转移到目标指令（短格式）。</p>
-<p>Blt.Un</p>
-<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于第二个值，则将控制转移到目标指令。</p>
-<p>Blt.Un.S</p>
-<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于第二个值，则将控制转移到目标指令（短格式）。</p>
-<p>Bne.Un</p>
-<p>当两个无符号整数值或不可排序的浮点型值不相等时，将控制转移到目标指令。</p>
-<p>Bne.Un.S</p>
-<p>当两个无符号整数值或不可排序的浮点型值不相等时，将控制转移到目标指令（短格式）。</p>
-<p>Box</p>
-<p>将值类转换为对象引用（O 类型）。</p>
-<p>Br</p>
-<p>无条件地将控制转移到目标指令。</p>
-<p>Br.S</p>
-<p>无条件地将控制转移到目标指令（短格式）。</p>
-<p>Break</p>
-<p>向公共语言结构 (CLI) 发出信号以通知调试器已撞上了一个断点。</p>
-<p>Brfalse</p>
-<p>如果 value 为 false、空引用（Visual Basic 中的 Nothing）或零，则将控制转移到目标指令。</p>
-<p>Brfalse.S</p>
-<p>如果 value 为 false、空引用或零，则将控制转移到目标指令。</p>
-<p>Brtrue</p>
-<p>如果 value 为 true、非空或非零，则将控制转移到目标指令。</p>
-<p>Brtrue.S</p>
-<p>如果 value 为 true、非空或非零，则将控制转移到目标指令（短格式）。</p>
-<p>Call</p>
-<p>调用由传递的方法说明符指示的方法。</p>
-<p>Calli</p>
-<p>通过调用约定描述的参数调用在计算堆栈上指示的方法（作为指向入口点的指针）。</p>
-<p>Callvirt</p>
-<p>对对象调用后期绑定方法，并且将返回值推送到计算堆栈上。</p>
-<p>Castclass</p>
-<p>尝试将引用传递的对象转换为指定的类。</p>
-<p>Ceq</p>
-<p>比较两个值。如果这两个值相等，则将整数值 1 (int32) 推送到计算堆栈上；否则，将 0 (int32) 推送到计算堆栈上。</p>
-<p>Cgt</p>
-<p>比较两个值。如果第一个值大于第二个值，则将整数值 1 (int32) 推送到计算堆栈上；反之，将 0 (int32) 推送到计算堆栈上。</p>
-<p>Cgt.Un</p>
-<p>比较两个无符号的或不可排序的值。如果第一个值大于第二个值，则将整数值 1 (int32) 推送到计算堆栈上；反之，将 0 (int32) 推送到计算堆栈上。</p>
-<p>Ckfinite</p>
-<p>如果值不是有限数，则引发 ArithmeticException。</p>
-<p>Clt</p>
-<p>比较两个值。如果第一个值小于第二个值，则将整数值 1 (int32) 推送到计算堆栈上；反之，将 0 (int32) 推送到计算堆栈上。</p>
-<p>Clt.Un</p>
-<p>比较无符号的或不可排序的值 value1 和 value2。如果 value1 小于 value2，则将整数值 1 (int32 ) 推送到计算堆栈上；反之，将 0 ( int32 ) 推送到计算堆栈上。</p>
-<p>Constrained</p>
-<p>约束要对其进行虚方法调用的类型。</p>
-<p>Conv.I</p>
-<p>将位于计算堆栈顶部的值转换为 native int。</p>
-<p>Conv.I1</p>
-<p>将位于计算堆栈顶部的值转换为 int8，然后将其扩展（填充）为 int32。</p>
-<p>Conv.I2</p>
-<p>将位于计算堆栈顶部的值转换为 int16，然后将其扩展（填充）为 int32。</p>
-<p>Conv.I4</p>
-<p>将位于计算堆栈顶部的值转换为 int32。</p>
-<p>Conv.I8</p>
-<p>将位于计算堆栈顶部的值转换为 int64。</p>
-<p>Conv.Ovf.I</p>
-<p>将位于计算堆栈顶部的有符号值转换为有符号 native int，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.I.Un</p>
-<p>将位于计算堆栈顶部的无符号值转换为有符号 native int，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.I1</p>
-<p>将位于计算堆栈顶部的有符号值转换为有符号 int8 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.I1.Un</p>
-<p>将位于计算堆栈顶部的无符号值转换为有符号 int8 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.I2</p>
-<p>将位于计算堆栈顶部的有符号值转换为有符号 int16 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.I2.Un</p>
-<p>将位于计算堆栈顶部的无符号值转换为有符号 int16 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.I4</p>
-<p>将位于计算堆栈顶部的有符号值转换为有符号 int32，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.I4.Un</p>
-<p>将位于计算堆栈顶部的无符号值转换为有符号 int32，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.I8</p>
-<p>将位于计算堆栈顶部的有符号值转换为有符号 int64，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.I8.Un</p>
-<p>将位于计算堆栈顶部的无符号值转换为有符号 int64，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.U</p>
-<p>将位于计算堆栈顶部的有符号值转换为 unsigned native int，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.U.Un</p>
-<p>将位于计算堆栈顶部的无符号值转换为 unsigned native int，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.U1</p>
-<p>将位于计算堆栈顶部的有符号值转换为 unsigned int8 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.U1.Un</p>
-<p>将位于计算堆栈顶部的无符号值转换为 unsigned int8 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.U2</p>
-<p>将位于计算堆栈顶部的有符号值转换为 unsigned int16 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.U2.Un</p>
-<p>将位于计算堆栈顶部的无符号值转换为 unsigned int16 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.U4</p>
-<p>将位于计算堆栈顶部的有符号值转换为 unsigned int32，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.U4.Un</p>
-<p>将位于计算堆栈顶部的无符号值转换为 unsigned int32，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.U8</p>
-<p>将位于计算堆栈顶部的有符号值转换为 unsigned int64，并在溢出时引发 OverflowException。</p>
-<p>Conv.Ovf.U8.Un</p>
-<p>将位于计算堆栈顶部的无符号值转换为 unsigned int64，并在溢出时引发 OverflowException。</p>
-<p>Conv.R.Un</p>
-<p>将位于计算堆栈顶部的无符号整数值转换为 float32。</p>
-<p>Conv.R4</p>
-<p>将位于计算堆栈顶部的值转换为 float32。</p>
-<p>Conv.R8</p>
-<p>将位于计算堆栈顶部的值转换为 float64。</p>
-<p>Conv.U</p>
-<p>将位于计算堆栈顶部的值转换为 unsigned native int，然后将其扩展为 native int。</p>
-<p>Conv.U1</p>
-<p>将位于计算堆栈顶部的值转换为 unsigned int8，然后将其扩展为 int32。</p>
-<p>Conv.U2</p>
-<p>将位于计算堆栈顶部的值转换为 unsigned int16，然后将其扩展为 int32。</p>
-<p>Conv.U4</p>
-<p>将位于计算堆栈顶部的值转换为 unsigned int32，然后将其扩展为 int32。</p>
-<p>Conv.U8</p>
-<p>将位于计算堆栈顶部的值转换为 unsigned int64，然后将其扩展为 int64。</p>
-<p>Cpblk</p>
-<p>将指定数目的字节从源地址复制到目标地址。</p>
-<p>Cpobj</p>
-<p>将位于对象（&amp;、* 或 native int 类型）地址的值类型复制到目标对象（&amp;、* 或 native int 类型）的地址。</p>
-<p>Div</p>
-<p>将两个值相除并将结果作为浮点（F 类型）或商（int32 类型）推送到计算堆栈上。</p>
-<p>Div.Un</p>
-<p>两个无符号整数值相除并将结果 ( int32 ) 推送到计算堆栈上。</p>
-<p>Dup</p>
-<p>复制计算堆栈上当前最顶端的值，然后将副本推送到计算堆栈上。</p>
-<p>Endfilter</p>
-<p>将控制从异常的 filter 子句转移回公共语言结构 (CLI) 异常处理程序。</p>
-<p>Endfinally</p>
-<p>将控制从异常块的 fault 或 finally 子句转移回公共语言结构 (CLI) 异常处理程序。</p>
-<p>Initblk</p>
-<p>将位于特定地址的内存的指定块初始化为给定大小和初始值。</p>
-<p>Initobj</p>
-<p>将位于指定地址的值类型的每个字段初始化为空引用或适当的基元类型的 0。</p>
-<p>Isinst</p>
-<p>测试对象引用（O 类型）是否为特定类的实例。</p>
-<p>Jmp</p>
-<p>退出当前方法并跳至指定方法。</p>
-<p>Ldarg</p>
-<p>将参数（由指定索引值引用）加载到堆栈上。</p>
-<p>Ldarg.0</p>
-<p>将索引为 0 的参数加载到计算堆栈上。</p>
-<p>Ldarg.1</p>
-<p>将索引为 1 的参数加载到计算堆栈上。</p>
-<p>Ldarg.2</p>
-<p>将索引为 2 的参数加载到计算堆栈上。</p>
-<p>Ldarg.3</p>
-<p>将索引为 3 的参数加载到计算堆栈上。</p>
-<p>Ldarg.S</p>
-<p>将参数（由指定的短格式索引引用）加载到计算堆栈上。</p>
-<p>Ldarga</p>
-<p>将参数地址加载到计算堆栈上。</p>
-<p>Ldarga.S</p>
-<p>以短格式将参数地址加载到计算堆栈上。</p>
-<p>Ldc.I4</p>
-<p>将所提供的 int32 类型的值作为 int32 推送到计算堆栈上。</p>
-<p>Ldc.I4.0</p>
-<p>将整数值 0 作为 int32 推送到计算堆栈上。</p>
-<p>Ldc.I4.1</p>
-<p>将整数值 1 作为 int32 推送到计算堆栈上。</p>
-<p>Ldc.I4.2</p>
-<p>将整数值 2 作为 int32 推送到计算堆栈上。</p>
-<p>Ldc.I4.3</p>
-<p>将整数值 3 作为 int32 推送到计算堆栈上。</p>
-<p>Ldc.I4.4</p>
-<p>将整数值 4 作为 int32 推送到计算堆栈上。</p>
-<p>Ldc.I4.5</p>
-<p>将整数值 5 作为 int32 推送到计算堆栈上。</p>
-<p>Ldc.I4.6</p>
-<p>将整数值 6 作为 int32 推送到计算堆栈上。</p>
-<p>Ldc.I4.7</p>
-<p>将整数值 7 作为 int32 推送到计算堆栈上。</p>
-<p>Ldc.I4.8</p>
-<p>将整数值 8 作为 int32 推送到计算堆栈上。</p>
-<p>Ldc.I4.M1</p>
-<p>将整数值 -1 作为 int32 推送到计算堆栈上。</p>
-<p>Ldc.I4.S</p>
-<p>将提供的 int8 值作为 int32 推送到计算堆栈上（短格式）。</p>
-<p>Ldc.I8</p>
-<p>将所提供的 int64 类型的值作为 int64 推送到计算堆栈上。</p>
-<p>Ldc.R4</p>
-<p>将所提供的 float32 类型的值作为 F (float) 类型推送到计算堆栈上。</p>
-<p>Ldc.R8</p>
-<p>将所提供的 float64 类型的值作为 F (float) 类型推送到计算堆栈上。</p>
-<p>Ldelem</p>
-<p>按照指令中指定的类型，将指定数组索引中的元素加载到计算堆栈的顶部。</p>
-<p>Ldelem.I</p>
-<p>将位于指定数组索引处的 native int 类型的元素作为 native int 加载到计算堆栈的顶部。</p>
-<p>Ldelem.I1</p>
-<p>将位于指定数组索引处的 int8 类型的元素作为 int32 加载到计算堆栈的顶部。</p>
-<p>Ldelem.I2</p>
-<p>将位于指定数组索引处的 int16 类型的元素作为 int32 加载到计算堆栈的顶部。</p>
-<p>Ldelem.I4</p>
-<p>将位于指定数组索引处的 int32 类型的元素作为 int32 加载到计算堆栈的顶部。</p>
-<p>Ldelem.I8</p>
-<p>将位于指定数组索引处的 int64 类型的元素作为 int64 加载到计算堆栈的顶部。</p>
-<p>Ldelem.R4</p>
-<p>将位于指定数组索引处的 float32 类型的元素作为 F 类型（浮点型）加载到计算堆栈的顶部。</p>
-<p>Ldelem.R8</p>
-<p>将位于指定数组索引处的 float64 类型的元素作为 F 类型（浮点型）加载到计算堆栈的顶部。</p>
-<p>Ldelem.Ref</p>
-<p>将位于指定数组索引处的包含对象引用的元素作为 O 类型（对象引用）加载到计算堆栈的顶部。</p>
-<p>Ldelem.U1</p>
-<p>将位于指定数组索引处的 unsigned int8 类型的元素作为 int32 加载到计算堆栈的顶部。</p>
-<p>Ldelem.U2</p>
-<p>将位于指定数组索引处的 unsigned int16 类型的元素作为 int32 加载到计算堆栈的顶部。</p>
-<p>Ldelem.U4</p>
-<p>将位于指定数组索引处的 unsigned int32 类型的元素作为 int32 加载到计算堆栈的顶部。</p>
-<p>Ldelema</p>
-<p>将位于指定数组索引的数组元素的地址作为 &amp; 类型（托管指针）加载到计算堆栈的顶部。</p>
-<p>Ldfld</p>
-<p>查找对象中其引用当前位于计算堆栈的字段的值。</p>
-<p>Ldflda</p>
-<p>查找对象中其引用当前位于计算堆栈的字段的地址。</p>
-<p>Ldftn</p>
-<p>将指向实现特定方法的本机代码的非托管指针（native int 类型）推送到计算堆栈上。</p>
-<p>Ldind.I</p>
-<p>将 native int 类型的值作为 native int 间接加载到计算堆栈上。</p>
-<p>Ldind.I1</p>
-<p>将 int8 类型的值作为 int32 间接加载到计算堆栈上。</p>
-<p>Ldind.I2</p>
-<p>将 int16 类型的值作为 int32 间接加载到计算堆栈上。</p>
-<p>Ldind.I4</p>
-<p>将 int32 类型的值作为 int32 间接加载到计算堆栈上。</p>
-<p>Ldind.I8</p>
-<p>将 int64 类型的值作为 int64 间接加载到计算堆栈上。</p>
-<p>Ldind.R4</p>
-<p>将 float32 类型的值作为 F (float) 类型间接加载到计算堆栈上。</p>
-<p>Ldind.R8</p>
-<p>将 float64 类型的值作为 F (float) 类型间接加载到计算堆栈上。</p>
-<p>Ldind.Ref</p>
-<p>将对象引用作为 O（对象引用）类型间接加载到计算堆栈上。</p>
-<p>Ldind.U1</p>
-<p>将 unsigned int8 类型的值作为 int32 间接加载到计算堆栈上。</p>
-<p>Ldind.U2</p>
-<p>将 unsigned int16 类型的值作为 int32 间接加载到计算堆栈上。</p>
-<p>Ldind.U4</p>
-<p>将 unsigned int32 类型的值作为 int32 间接加载到计算堆栈上。</p>
-<p>Ldlen</p>
-<p>将从零开始的、一维数组的元素的数目推送到计算堆栈上。</p>
-<p>Ldloc</p>
-<p>将指定索引处的局部变量加载到计算堆栈上。</p>
-<p>Ldloc.0</p>
-<p>将索引 0 处的局部变量加载到计算堆栈上。</p>
-<p>Ldloc.1</p>
-<p>将索引 1 处的局部变量加载到计算堆栈上。</p>
-<p>Ldloc.2</p>
-<p>将索引 2 处的局部变量加载到计算堆栈上。</p>
-<p>Ldloc.3</p>
-<p>将索引 3 处的局部变量加载到计算堆栈上。</p>
-<p>Ldloc.S</p>
-<p>将特定索引处的局部变量加载到计算堆栈上（短格式）。</p>
-<p>Ldloca</p>
-<p>将位于特定索引处的局部变量的地址加载到计算堆栈上。</p>
-<p>Ldloca.S</p>
-<p>将位于特定索引处的局部变量的地址加载到计算堆栈上（短格式）。</p>
-<p>Ldnull</p>
-<p>将空引用（O 类型）推送到计算堆栈上。</p>
-<p>Ldobj</p>
-<p>将地址指向的值类型对象复制到计算堆栈的顶部。</p>
-<p>Ldsfld</p>
-<p>将静态字段的值推送到计算堆栈上。</p>
-<p>Ldsflda</p>
-<p>将静态字段的地址推送到计算堆栈上。</p>
-<p>Ldstr</p>
-<p>推送对元数据中存储的字符串的新对象引用。</p>
-<p>Ldtoken</p>
-<p>将元数据标记转换为其运行时表示形式，并将其推送到计算堆栈上。</p>
-<p>Ldvirtftn</p>
-<p>将指向实现与指定对象关联的特定虚方法的本机代码的非托管指针（native int 类型）推送到计算堆栈上。</p>
-<p>Leave</p>
-<p>退出受保护的代码区域，无条件将控制转移到特定目标指令。</p>
-<p>Leave.S</p>
-<p>退出受保护的代码区域，无条件将控制转移到目标指令（缩写形式）。</p>
-<p>Localloc</p>
-<p>从本地动态内存池分配特定数目的字节并将第一个分配的字节的地址（瞬态指针，* 类型）推送到计算堆栈上。</p>
-<p>Mkrefany</p>
-<p>将对特定类型实例的类型化引用推送到计算堆栈上。</p>
-<p>Mul</p>
-<p>将两个值相乘并将结果推送到计算堆栈上。</p>
-<p>Mul.Ovf</p>
-<p>将两个整数值相乘，执行溢出检查，并将结果推送到计算堆栈上。</p>
-<p>Mul.Ovf.Un</p>
-<p>将两个无符号整数值相乘，执行溢出检查，并将结果推送到计算堆栈上。</p>
-<p>Neg</p>
-<p>对一个值执行求反并将结果推送到计算堆栈上。</p>
-<p>Newarr</p>
-<p>将对新的从零开始的一维数组（其元素属于特定类型）的对象引用推送到计算堆栈上。</p>
-<p>Newobj</p>
-<p>创建一个值类型的新对象或新实例，并将对象引用（O 类型）推送到计算堆栈上。</p>
-<p>Nop</p>
-<p>如果修补操作码，则填充空间。尽管可能消耗处理周期，但未执行任何有意义的操作。</p>
-<p>Not</p>
-<p>计算堆栈顶部整数值的按位求补并将结果作为相同的类型推送到计算堆栈上。</p>
-<p>Or</p>
-<p>计算位于堆栈顶部的两个整数值的按位求补并将结果推送到计算堆栈上。</p>
-<p>Pop</p>
-<p>移除当前位于计算堆栈顶部的值。</p>
-<p>Prefix1</p>
-<p>基础结构。此指令为保留指令。</p>
-<p>Prefix2</p>
-<p>基础结构。此指令为保留指令。</p>
-<p>Prefix3</p>
-<p>基础结构。此指令为保留指令。</p>
-<p>Prefix4</p>
-<p>基础结构。此指令为保留指令。</p>
-<p>Prefix5</p>
-<p>基础结构。此指令为保留指令。</p>
-<p>Prefix6</p>
-<p>基础结构。此指令为保留指令。</p>
-<p>Prefix7</p>
-<p>基础结构。此指令为保留指令。</p>
-<p>Prefixref</p>
-<p>基础结构。此指令为保留指令。</p>
-<p>Readonly</p>
-<p>指定后面的数组地址操作在运行时不执行类型检查，并且返回可变性受限的托管指针。</p>
-<p>Refanytype</p>
-<p>检索嵌入在类型化引用内的类型标记。</p>
-<p>Refanyval</p>
-<p>检索嵌入在类型化引用内的地址（&amp; 类型）。</p>
-<p>Rem</p>
-<p>将两个值相除并将余数推送到计算堆栈上。</p>
-<p>Rem.Un</p>
-<p>将两个无符号值相除并将余数推送到计算堆栈上。</p>
-<p>Ret</p>
-<p>从当前方法返回，并将返回值（如果存在）从调用方的计算堆栈推送到被调用方的计算堆栈上。</p>
-<p>Rethrow</p>
-<p>再次引发当前异常。</p>
-<p>Shl</p>
-<p>将整数值左移（用零填充）指定的位数，并将结果推送到计算堆栈上。</p>
-<p>Shr</p>
-<p>将整数值右移（保留符号）指定的位数，并将结果推送到计算堆栈上。</p>
-<p>Shr.Un</p>
-<p>将无符号整数值右移（用零填充）指定的位数，并将结果推送到计算堆栈上。</p>
-<p>Sizeof</p>
-<p>将提供的值类型的大小（以字节为单位）推送到计算堆栈上。</p>
-<p>Starg</p>
-<p>将位于计算堆栈顶部的值存储到位于指定索引的参数槽中。</p>
-<p>Starg.S</p>
-<p>将位于计算堆栈顶部的值存储在参数槽中的指定索引处（短格式）。</p>
-<p>Stelem</p>
-<p>用计算堆栈中的值替换给定索引处的数组元素，其类型在指令中指定。</p>
-<p>Stelem.I</p>
-<p>用计算堆栈上的 native int 值替换给定索引处的数组元素。</p>
-<p>Stelem.I1</p>
-<p>用计算堆栈上的 int8 值替换给定索引处的数组元素。</p>
-<p>Stelem.I2</p>
-<p>用计算堆栈上的 int16 值替换给定索引处的数组元素。</p>
-<p>Stelem.I4</p>
-<p>用计算堆栈上的 int32 值替换给定索引处的数组元素。</p>
-<p>Stelem.I8</p>
-<p>用计算堆栈上的 int64 值替换给定索引处的数组元素。</p>
-<p>Stelem.R4</p>
-<p>用计算堆栈上的 float32 值替换给定索引处的数组元素。</p>
-<p>Stelem.R8</p>
-<p>用计算堆栈上的 float64 值替换给定索引处的数组元素。</p>
-<p>Stelem.Ref</p>
-<p>用计算堆栈上的对象 ref 值（O 类型）替换给定索引处的数组元素。</p>
-<p>Stfld</p>
-<p>用新值替换在对象引用或指针的字段中存储的值。</p>
-<p>Stind.I</p>
-<p>在所提供的地址存储 native int 类型的值。</p>
-<p>Stind.I1</p>
-<p>在所提供的地址存储 int8 类型的值。</p>
-<p>Stind.I2</p>
-<p>在所提供的地址存储 int16 类型的值。</p>
-<p>Stind.I4</p>
-<p>在所提供的地址存储 int32 类型的值。</p>
-<p>Stind.I8</p>
-<p>在所提供的地址存储 int64 类型的值。</p>
-<p>Stind.R4</p>
-<p>在所提供的地址存储 float32 类型的值。</p>
-<p>Stind.R8</p>
-<p>在所提供的地址存储 float64 类型的值。</p>
-<p>Stind.Ref</p>
-<p>存储所提供地址处的对象引用值。</p>
-<p>Stloc</p>
-<p>从计算堆栈的顶部弹出当前值并将其存储到指定索引处的局部变量列表中。</p>
-<p>Stloc.0</p>
-<p>从计算堆栈的顶部弹出当前值并将其存储到索引 0 处的局部变量列表中。</p>
-<p>Stloc.1</p>
-<p>从计算堆栈的顶部弹出当前值并将其存储到索引 1 处的局部变量列表中。</p>
-<p>Stloc.2</p>
-<p>从计算堆栈的顶部弹出当前值并将其存储到索引 2 处的局部变量列表中。</p>
-<p>Stloc.3</p>
-<p>从计算堆栈的顶部弹出当前值并将其存储到索引 3 处的局部变量列表中。</p>
-<p>Stloc.S</p>
-<p>从计算堆栈的顶部弹出当前值并将其存储在局部变量列表中的 index 处（短格式）。</p>
-<p>Stobj</p>
-<p>将指定类型的值从计算堆栈复制到所提供的内存地址中。</p>
-<p>Stsfld</p>
-<p>用来自计算堆栈的值替换静态字段的值。</p>
-<p>Sub</p>
-<p>从其他值中减去一个值并将结果推送到计算堆栈上。</p>
-<p>Sub.Ovf</p>
-<p>从另一值中减去一个整数值，执行溢出检查，并且将结果推送到计算堆栈上。</p>
-<p>Sub.Ovf.Un</p>
-<p>从另一值中减去一个无符号整数值，执行溢出检查，并且将结果推送到计算堆栈上。</p>
-<p>Switch</p>
-<p>实现跳转表。</p>
-<p>Tailcall</p>
-<p>执行后缀的方法调用指令，以便在执行实际调用指令前移除当前方法的堆栈帧。</p>
-<p>Throw</p>
-<p>引发当前位于计算堆栈上的异常对象。</p>
-<p>Unaligned</p>
-<p>指示当前位于计算堆栈上的地址可能没有与紧接的 ldind、stind、ldfld、stfld、ldobj、stobj、initblk 或 cpblk 指令的自然大小对齐。</p>
-<p>Unbox</p>
-<p>将值类型的已装箱的表示形式转换为其未装箱的形式。</p>
-<p>Unbox.Any</p>
-<p>将指令中指定类型的已装箱的表示形式转换成未装箱形式。</p>
-<p>Volatile</p>
-<p>指定当前位于计算堆栈顶部的地址可以是易失的，并且读取该位置的结果不能被缓存，或者对该地址的多个存储区不能被取消。</p>
-<p>Xor</p>
-<p>计算位于计算堆栈顶部的两个值的按位异或，并且将结果推送到计算堆栈上。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="软妹币玩家">
-      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
-      <meta itemprop="image" content="/images/face.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="软软's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/" class="post-title-link" itemprop="url">2016最新webQQ协议分析</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2016-05-19 10:21:39" itemprop="dateCreated datePublished" datetime="2016-05-19T10:21:39+08:00">2016-05-19</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/心得技巧/" itemprop="url" rel="index"><span itemprop="name">心得技巧</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/心得技巧/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近打开以前的webqq协议项目 结果发现貌似挂了。 重新抓包分析了下。这里贴一下接口 做个记录。</p>
-<p>1、第一次登陆</p>
-<p>方法：Get</p>
-<p>地址： \“<a href="https://ssl.ptlogin2.qq.com/ptqrshow?appid=501004106&amp;" target="_blank" rel="noopener">https://ssl.ptlogin2.qq.com/ptqrshow?appid=501004106&amp;</a><br>e=0&amp;l=M&amp;s=5&amp;d=72&amp;v=4&amp;t=0.\“ + 随机9位数 + 随机7位数;</p>
-<p>地址返回结果是个二维码， 扫描二维码登陆。 这期间循环 2.验证登陆状态。</p>
-<p>访问后记录Cookie后面要用到.</p>
-<p>2、验证登陆状态</p>
-<p>方法：POST</p>
-<p>地址：<a href="https://ssl.ptlogin2.qq.com/ptqrlogin" target="_blank" rel="noopener">https://ssl.ptlogin2.qq.com/ptqrlogin</a></p>
-<p>参数：webqq_type=10&amp;remember_uin=1&amp;login2qq=1&amp;aid=501004106&amp;<br>u1=http%3A%2F%2Fw.qq.com%2Fproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&amp;<br>ptredirect=0&amp;ptlang=2052&amp;daid=164&amp;from_ui=1&amp;pttype=1&amp;<br>dumy=&amp;fp=loginerroralert&amp;action=0-0-18099&amp;<br>mibao_css=m_webqq&amp;t=1&amp;g=1&amp;<br>js_type=0&amp;js_ver=10135&amp;login_sig=&amp;pt_randsalt=0</p>
-<p>返回结果为：ptuiCB(\‘66\‘,\‘0\‘,\‘\‘,\‘0\‘,\‘二维码未失效。(1891650816)\‘, \‘\‘);<br>ptuiCB(\‘67\‘,\‘0\‘,\‘\‘,\‘0\‘,\‘二维码认证中。(1891650816)\‘, \‘\‘);<br>ptuiCB(\‘0\‘,\‘0\‘,\‘<a href="http://ptlogin4.web2.qq.com/check_sig?pttype=1&amp;uin=【QQ号码】&amp;service=ptqrlogin&amp;nodirect=0&amp;" target="_blank" rel="noopener">http://ptlogin4.web2.qq.com/check_sig?pttype=1&amp;uin=【QQ号码】&amp;service=ptqrlogin&amp;nodirect=0&amp;</a><br>ptsigx=c4b277a9cbb5ec2e9dbcdf25645ac2b36e27aeffe18395a8c10316f65bdc116f<br>846fd8b5d4893696a58ce4a0663111fbded905eb3f27c1b309e6a3af49d989b6&amp;<br>s_url=http%3A%2F%2Fw.qq.com%2Fproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&amp;<br>f_url=&amp;ptlang=2052&amp;ptredirect=100&amp;aid=501004106&amp;daid=164&amp;<br>j_later=0&amp;low_login_hour=0&amp;regmaster=0&amp;pt_login_type=3&amp;<br>pt_aid=0&amp;pt_aaid=16&amp;pt_light=0&amp;pt_3rd_aid=0\‘,\‘0\‘,\‘登录成功！\‘, \‘XX\‘);</p>
-<p>所以这里检测开头第一个数字是0 就好了。 随后取出中间的网址并进行3、第一次登陆成功后返回回调地址。</p>
-<p>3、第一次登陆成功后返回回调地址</p>
-<p>方法：Get</p>
-<p>地址：在上一个步骤返回的回调地址</p>
-<p>直接访问一次即可，随后进入4、第二次登陆.</p>
-<p>4、第二次登陆</p>
-<p>方法：Post</p>
-<p>地址：<a href="http://d1.web2.qq.com/channel/login2" target="_blank" rel="noopener">http://d1.web2.qq.com/channel/login2</a></p>
-<p>参数：r={ {\“ptwebqq\“:\“[这里填之前cookie记录的 ptwebqq 的值]\“<br>,\“clientid\“:53999199,\“psessionid\“:\“\“,\“status\“:\“online\“}}</p>
-<p>返回结果是个json 取其中psessionid</p>
-<p>然后这里还需要获取vfwebqq值<br>地址： <a href="http://s.web2.qq.com/api/getvfwebqq" target="_blank" rel="noopener">http://s.web2.qq.com/api/getvfwebqq</a></p>
-<p>方法：post</p>
-<p>参数：ptwebqq=[之前cookie的ptwebqq值]&amp;clientid=[53999199]&amp;psessionid=&amp;t=[13位时间戳]</p>
-<p>返回json中取值：vfwebqq</p>
-<p>记录好这一部存下的值 psessionid 和 vfwebqq<br>到这一步 登陆就已经成功了。</p>
-<p>之后就是获取好友 获取群组 获取消息 和 发送消息了。 先只搞到这 orz..</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/05/13/e3-80-90-e5-b0-8f-e7-99-bd-e4-bb-a3-e7-a0-81-e4-b8-91-e3-80-91-e8-b4-b4-e4-b8-80-e4-b8-aa-e5-8e-bb-e5-b9-b4-e5-86-99-e7-9a-84rc4-e5-8a-a0-e5-af-86-e5-b7-a5-e5-85-b7-ef-bc-88-e9-99-84-e6-ba-90/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="软妹币玩家">
-      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
-      <meta itemprop="image" content="/images/face.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="软软's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2016/05/13/e3-80-90-e5-b0-8f-e7-99-bd-e4-bb-a3-e7-a0-81-e4-b8-91-e3-80-91-e8-b4-b4-e4-b8-80-e4-b8-aa-e5-8e-bb-e5-b9-b4-e5-86-99-e7-9a-84rc4-e5-8a-a0-e5-af-86-e5-b7-a5-e5-85-b7-ef-bc-88-e9-99-84-e6-ba-90/" class="post-title-link" itemprop="url">【小白代码丑】贴一个去年写的RC4加密工具（附源码）</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2016-05-13 18:37:51" itemprop="dateCreated datePublished" datetime="2016-05-13T18:37:51+08:00">2016-05-13</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其它语言/" itemprop="url" rel="index"><span itemprop="name">其它语言</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其它语言/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>去年学密码学课的时候，最后要求写一个加密工具，AES，DES都太复杂，人丑写不出来，只好挑了个简单的RC4写了，忘了有没有加短块处理了，不过只要是完整字节的应该都能加密。 PS：没测试很多次，不过应该出问题的几率不大，别拿来加密重要文件…… 再PS：源码是C++的，代码写得丑请轻喷，请各位大佬来挑错…… 又PS：刚刚发现这玩意报毒……去年还不报的，为什么过完年就报毒了……</p>
-<hr>
-<p>程序下载地址：<a href="https://yunpan.cn/cSsYSK6R3KqUK" target="_blank" rel="noopener">https://yunpan.cn/cSsYSK6R3KqUK</a> （提取码：43c4） 源码下载地址：<a href="https://yunpan.cn/cSsYRWRdiSAXL" target="_blank" rel="noopener">https://yunpan.cn/cSsYRWRdiSAXL</a> （提取码：41b0）</p>
-<hr>
-<p>使用说明</p>
-<p>一、直接运行 直接输入密码，输入文件路径，输出文件路径，即可开始加解密。 二、控制台传参 三个参数，依次为密码，输入文件路径，输出文件路径，调用即可加解密。</p>
-<p>更新日志</p>
-<p>v1.2 2016.1.25 16:30 1.封装了VC运行库。 2.修复了输入密钥时回车影响密钥的问题。 3.去除了控制台模式下需要按回车使程序继续运行的设置。</p>
-<p>v1.1 2016.1.25 6:20 1.修复了密钥只能是4的倍数的错误。 2.支持路径中含有中文字符。 3.修复了控制台传参时的路径错误。</p>
-<p>v1.0 2016.1.25 4:50 可以用直接输入方式加密，但路径中不能含有中文字符。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/05/13/e6-a1-8c-e6-b8-b8-e5-ae-89-e5-88-a9-e3-80-8a-e7-8a-af-e4-ba-ba-e5-9c-a8-e8-b7-b3-e8-88-9e-e3-80-8b/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="软妹币玩家">
-      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
-      <meta itemprop="image" content="/images/face.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="软软's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2016/05/13/e6-a1-8c-e6-b8-b8-e5-ae-89-e5-88-a9-e3-80-8a-e7-8a-af-e4-ba-ba-e5-9c-a8-e8-b7-b3-e8-88-9e-e3-80-8b/" class="post-title-link" itemprop="url">桌游安利《犯人在跳舞》~</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2016-05-13 14:49:35" itemprop="dateCreated datePublished" datetime="2016-05-13T14:49:35+08:00">2016-05-13</time>
+              <time title="创建时间：2015-12-26 11:30:10" itemprop="dateCreated datePublished" datetime="2015-12-26T11:30:10+08:00">2015-12-26</time>
             </span>
           
             
@@ -1670,26 +476,101 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="http://rmbgame.net/wp-content/uploads/2016/05/20140520_872759.png" alt="20140520_872759"> 经过朋友消息得知了这款桌游， 看着挺有意思。这里放一下说明规则</p>
-<ul>
-<li>游戏名称:<strong>《犯人在跳舞》/《犯人は踊る》/《Criminal Dance》</strong></li>
-<li>建议游戏人数：<strong>3~8人</strong></li>
-</ul>
-<p>《犯人在跳舞》是一款类似杀人游戏的游戏，你可以把他理解成蛇精病版的杀人游戏…… 当然啦，说蛇精病不是没理由的，大家从游戏名称就可看出这是一款“抓贼”类游戏。 但是与“杀人”、“狼人”这类游戏不同的是，在《犯人在跳舞》中<strong>每个人的身份角色都是在随时变化的</strong>，直到游戏的最后一刻你才能知道谁赢谁输，谁是犯人。 再加上游戏的核心内容除了<strong>“猜测身份</strong>”以外，还有<strong>“交换手牌”</strong>，所以大大加强了随机性。 而且这款游戏不会出现像“杀人”这样被首刀后发呆半小时的尴尬场面，提高了每个人的参与度。 同时该游戏<strong>文字量极少</strong>，也不需要过多发言，手牌数永远小于等于四张，流程简单，计分省力，节奏明快。</p>
-<h4 id="1：游戏准备"><a href="#1：游戏准备" class="headerlink" title="1：游戏准备"></a>1：游戏准备</h4><p>好，说了那么多，这游戏到底咋玩呢？ <img src="http://rmbgame.net/wp-content/uploads/2016/05/20131022_711530.png" alt="20131022_711530"> 上图大致意思就是在必备卡牌的基础上根据人数加入一定数目的随机卡牌，以达到最终每人能拿到四张手牌。 把按照上述原则选出来的牌库<strong>打乱</strong>后开始<strong>发牌</strong>，正好每人4张。 Tips:大家可以在一到三局游戏过后<strong>更换随机部分</strong>的卡牌，以提高趣味性(这在每个人都熟悉游戏后是<strong>非常必要</strong>的)。</p>
-<h4 id="2：游戏流程"><a href="#2：游戏流程" class="headerlink" title="2：游戏流程"></a>2：游戏流程</h4><p><img src="http://rmbgame.net/wp-content/uploads/2016/05/20131022_711531.png" alt="20131022_711531"> 别看画的很复杂，其实炒鸡简单，你只要记住，你需要做的就是:</p>
-<ul>
-<li>出一张牌</li>
-<li>照牌上说的做</li>
-<li>然后下一家继续重复上述动作……</li>
-</ul>
-<p>Tips：当你有手牌时，<strong>必须出牌</strong>。当你没有手牌时，不需要出牌，也无需因为“情报交换”、“交易”或者“谣言”来给别人手牌。</p>
-<h4 id="3：胜负判定"><a href="#3：胜负判定" class="headerlink" title="3：胜负判定"></a>3：胜负判定</h4><p>游戏可大致分为“犯人、共犯”，以及“其他人”两个阵营。</p>
-<p>当有人打出“犯人”卡时，游戏结束，犯人阵营胜利。 当通过“侦探”/神犬”卡的效果推测/抓住犯人时，除“犯人、共犯”以外的“其他人”胜利。</p>
-<p>胜利后根据计分表给各个阵营的人加分，计分表如下：</p>
-<p>计分规则： 进行3-4局游戏     先赢得5分的玩家获胜 进行6-8局游戏    先赢得10分的玩家获胜 结算情况： 1.最后一次使用侦探牌的玩家得到2分，被该侦探牌抓到的犯人玩家以及身份为共犯的玩家得到0分，剩下的玩家得到1分。 2.最后一次使用神犬牌的玩家得到3分，被该神犬牌咬到的犯人玩家以及身份为共犯的玩家得到0分，剩下的玩家得到1分。 3.打出犯人牌的玩家以及身份为共犯的玩家得到2分，剩下的玩家得到0分。  </p>
-<h4 id="4：牌类使用条件及效果"><a href="#4：牌类使用条件及效果" class="headerlink" title="4：牌类使用条件及效果"></a>4：牌类使用条件及效果</h4><p><img src="http://rmbgame.net/wp-content/uploads/2016/05/20131029_716945.png" alt="20131029_716945"> <strong>第一发现者</strong>：游戏从拿到这张卡牌的玩家<strong>开始</strong>，由该玩家打出这张牌后，<strong>顺时针</strong>依次出牌。 <strong>犯人</strong>：该卡牌只能作为<strong>最后一张</strong>手牌时打出，即当你没有其他手牌时，才能打出“犯人”，一旦打出这张牌，则游戏结束，“犯人”以及“共犯”获胜。 <strong>不在场证明</strong>：打出该牌无任何效果。当你拥有该卡牌时，你被视作<strong>不是</strong>犯人。这牌其实就是一块免死金牌，无论你手里有没有“犯人”卡，只要你有“不在场证明”，那你就是好人。 也就是说，当别人侦探你，并且让你承认自己是“犯人”，需要满足两个条件，一个条件是你手里有“犯人”牌，另一个条件便是你手里没“不在场证明”。   <img src="http://rmbgame.net/wp-content/uploads/2016/05/20131029_716943.png" alt="20131029_716943"> <strong>情报交换:</strong>当你打出该牌后，由你开始沿顺时针方向，每个玩家依次自行选择一张手牌，并且传递给他左手边的玩家， 接收到的牌请卡背朝上放在自己面前，直到所有人传递牌结束后再拿起放入手牌。 <strong>谣言</strong>：当你打出该牌后，由你开始沿<strong>顺时针</strong>方向，每个玩家依次向他右手边的人那里<strong>随机抽</strong>一张牌， 抽到的牌请<strong>卡背朝上放在自己面前</strong>，直到所有人抽牌结束后再拿起放入手牌。 这样做是为了防止下家抽走你从上家抽的牌。当然啦，大家熟悉规则和游戏后就变成了同时抽右手边玩家的一张卡了…… <strong>交易</strong>：打出该牌后指定一名玩家，双方各自选择一张自己的手牌进行交换。无论双方有无手牌，都可交易。 比方说当你打出交易后如果<strong>没手牌</strong>了，那你仍然可以得到对方的一张牌，对方却不能得到任何牌，反之亦然。 <img src="http://rmbgame.net/wp-content/uploads/2016/05/20131029_716942.png" alt="20131029_716942"> <strong>神犬</strong>：打出该牌时指定一名玩家，被指定的玩家自行选择一张手牌并且弃掉， 接下来被指定的玩家可以把对方打出的那张“神犬”卡<strong>收进手牌</strong>也可以把“神犬”也同时<strong>一起弃掉</strong>。 当被指定玩家丢弃的牌是“犯人”牌时，游戏结束，好人阵营以及神犬获胜。 <strong>一般人</strong>：打出前打出后都无任何效果。 <strong>目击者</strong>：打出该牌后可指定一名除你以外的玩家，<strong>单独观看</strong>他的所有手牌。  </p>
-<h4 id="5：变体规则"><a href="#5：变体规则" class="headerlink" title="5：变体规则"></a>5：变体规则</h4><p>华语版本中，日本的设计师特意为我们设计了两张新卡牌：“警部”和“少年”，还有相应的变体规则。 <img src="http://rmbgame.net/wp-content/uploads/2016/05/c303df63b5c69d60f92cb96be493cbeb.jpg" alt="c303df63b5c69d60f92cb96be493cbeb"> <strong>少年</strong>：打出之后，系统会通知该玩家现在犯人牌在哪个玩家手中。 直接打出此卡牌无任何效果。拥有此卡牌的玩家在游戏开始前知道烦人卡在哪位玩家手中。 <strong>警部</strong>：手牌拥有此卡牌的玩儿家。一直保持此卡牌正面朝向其他玩家(展示)，将此卡牌打在你认为是犯人的玩儿家面(lian)前(shang)，游戏结束时，如果该玩家成为犯人，妳赢得游戏。(3分)   打算同时尝试一下这款游戏的开发。~   目前正在设计中~~</p>
+          <p>昨天圣诞节，  愉快的剁手买游戏=v= 新入了个hurtworld     目前正在摸索怎么玩233 晚点上图，让我在浪一会~ 恩，好，实时的编辑更新=v=， 首先进入游戏我稍微改了改画质设定~ <img src="http://rmbgame.net/wp-content/uploads/2015/12/20151226114515-1024x658.png" alt="20151226114515"> 然后想表达一下，是我配置不够好还是怎么，开高了还略卡233   然后找服务器进行体验~ <img src="http://rmbgame.net/wp-content/uploads/2015/12/20151226114820-620x280.png" alt="20151226114820">   服务器还是很多的。 随便找个进去先~ <img src="http://rmbgame.net/wp-content/uploads/2015/12/20151226115122-1024x638.png" alt="20151226115122">   刚进来乱按了一下 按键，  发现 打开背包是Tab    然后其余跑走跳 都差不多， F2   切换第一第三人称视角~  刚进来看到只兔子大概吧<del>~ 截个图  地上的木头和石头可以捡的，貌似刚开始也只能捡东西</del> (我就发现我空手什么都不能干！！)   过了一会，我捡了好多木头和石头 合成一个斧子也不能砍树，还只能打大一点的地上的木材，  而且突然天黑了，人物一直冷的哆嗦2333  左下角出现了寒冷状态！！！ <img src="http://rmbgame.net/wp-content/uploads/2015/12/20151226115626-1024x639.png" alt="20151226115626">   卧槽我要冷死了，先不更！   差点就冷死拉！ 在寒冷的持续掉血和呻吟中熬过了黑夜QAQ <img src="http://rmbgame.net/wp-content/uploads/2015/12/20151226120219-1024x571.png" alt="20151226120219"></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2015/12/25/merry-christmas-to-all/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2015/12/25/merry-christmas-to-all/" class="post-title-link" itemprop="url">Merry Christmas To All!!!</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2015-12-25 08:29:47" itemprop="dateCreated datePublished" datetime="2015-12-25T08:29:47+08:00">2015-12-25</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Single dog ~ single dog ~ single all the day. See AV, hit the plane, they are doing all the day. Hey! Single dog , single dog , why not be a gay? No more wait, no more afraid, make him be a gay!   <img src="http://rmbgame.net/wp-content/uploads/2015/12/20151225082359-300x169.png" alt="20151225082359"></p>
 
         
       
@@ -1713,7 +594,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
 
 
@@ -1761,7 +642,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1818,17 +699,7 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span>
         
       </div>
@@ -1885,21 +756,7 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span>
         
       </div>

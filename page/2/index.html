@@ -217,7 +217,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2017/08/16/react-weui-e4-b8-adtab-e3-80-81tabbaritem-e9-81-87-e5-88-b0-e7-9a-84-e5-9d-91/">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="软妹币玩家">
@@ -231,7 +231,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2017/08/16/react-weui-e4-b8-adtab-e3-80-81tabbaritem-e9-81-87-e5-88-b0-e7-9a-84-e5-9d-91/" class="post-title-link" itemprop="url">react-weui中Tab、TabBarItem遇到的坑</a>
+            <a href="/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/" class="post-title-link" itemprop="url">.NET IL 指令详解</a>
           
         </h1>
 
@@ -246,417 +246,7 @@
                 
               
 
-              <time title="创建时间：2017-08-16 17:42:40" itemprop="dateCreated datePublished" datetime="2017-08-16T17:42:40+08:00">2017-08-16</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/水的一笔/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>近期在琢磨React,  同时需要开发微信端的东西使用了react-weui 结果发现react-weui的文档说明真的是不全, 遇到好几个坑 在这里记录一下 在使用TabBarItem前观看了 <a href="https://weui.github.io/react-weui/docs/#/react-weui/docs/page/0/articles/0" target="_blank" rel="noopener">react-weui 文档 </a> <img src="http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816173155-1024x589.png" alt> 可以根据active属性 得知设定是否激活，默认为fasle <tab type="tabbar"> &lt;TabBarItem icon={<img>} label=”11” active={true}/&gt; &lt;TabBarItem icon={<img>} label=”22” active={true}/&gt; </tab> 照上面代码看应该会两个都是高亮激活的样式       但在实际使用中我设置了fasle和true都没有反应 郁闷的找了很久的原因 最后在还是在React-Weui的源码中发现了问题所在 因为TabBarItme是写在Tab组件里用的 【官方例子也是这样的】 然后Tab组件里有个props属性 “defaultindex” <img src="http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816173612.png" alt> <img src="http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816173622.png" alt> 该属性会影响子节点的active ,导致在TabBarItme里设置active在一开始是会被Tab组件里的defaultindex刷掉的= =   所以最后应该 把初始要激活的菜单写在tab组件的 defaultindex props属性里 <tab type="tabbar" defaultindex="{0}"> &lt;TabBarItem icon={<img>} label=”11” active={true}/&gt; &lt;TabBarItem icon={<img>} label=”22” active={true}/&gt; </tab>   然而在文档中Tab组件是没有props属性的… <img src="http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816174152-1024x703.png" alt>   </p>
-<p><img src="file:///C:%5CUsers%5CDark%5CAppData%5CRoaming%5CTencent%5CQQ%5CTemp_8Y%5BT0S$NV~B$Q_CDNWY" alt>I1.jpg)<img src="http://rmbgame.net/wp-content/uploads/2017/08/8YT0SNVBQ_CDNWYI1.jpg" alt><img src="http://rmbgame.net/wp-content/uploads/2017/08/8YT0SNVBQ_CDNWYI1.jpg" alt><img src="http://rmbgame.net/wp-content/uploads/2017/08/8YT0SNVBQ_CDNWYI1.jpg" alt></p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2017/05/04/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91unity-e5-bc-95-e6-93-8edll-e6-96-87-e4-bb-b6-e7-9a-84-e5-bc-95-e7-94-a8-e6-96-b9-e5-bc-8f/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="软妹币玩家">
-      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
-      <meta itemprop="image" content="/images/face.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="软软's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/05/04/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91unity-e5-bc-95-e6-93-8edll-e6-96-87-e4-bb-b6-e7-9a-84-e5-bc-95-e7-94-a8-e6-96-b9-e5-bc-8f/" class="post-title-link" itemprop="url">【小白向】Unity引擎DLL文件的引用方式</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2017-05-04 11:18:52" itemprop="dateCreated datePublished" datetime="2017-05-04T11:18:52+08:00">2017-05-04</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/" itemprop="url" rel="index"><span itemprop="name">Csharp</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/其它语言/" itemprop="url" rel="index"><span itemprop="name">其它语言</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近需要在Unity引擎中使用网络通信，奈何直接引用.NET的TCP Client类似乎没什么效果，所以想到打包成DLL再调用，于是在网上找了如何在Unity中使用DLL文件，但是似乎都没什么用。刚刚在Unity的官方文档里找到了<a href="https://docs.unity3d.com/Manual/UsingDLL.html" target="_blank" rel="noopener">“官方”的解决方案</a>，整理如下。 <strong>DLL**</strong>文件的生成** 关于编译器： 如果你要编译的模块不依赖与Unity的API，则选择合适的编译器编译即可，如果需要与Unity引擎交互，可以引用UnityEngine.dll和UnityEditor.dll这两个DLL文件。它们的位置为：</p>
-<p>Windows：Program Files\Unity\Editor\Data\Managed\</p>
-<p>macOS：Applications/Unity/Unity.app/Contents/Frameworks/Managed/</p>
-<p><em>注：根据我遇到的情况，编译的DLL如果使用了.NET库，.NET版本不要高于3.5。</em> <strong>DLL**</strong>文件的使用** 将DLL文件拷贝至Unity引擎的Assets文件夹中，然后在C#脚本的开头处加入using。如，对与DLLTest.dll来说，应加入“using DLLTest;”。当将脚本添加到场景中的一个对象上后，点击播放即可发现脚本已经在工作了。 <em>注：网上有很多说要放在什么Scripts文件夹或者Plugins文件夹下的，但是根据我的情况，放在那些地方都会导致编译器找不到dll，还是要放在根目录下。就是这个地方把我坑惨了……</em> 关于使用MonoDevelop调试，需要将mdb文件复制进Assets或Plugins文件夹。VS编译的DLL没有mdb文件，可以使用工具进行转换，位置如下：</p>
-<p>Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\pdb2mdb.exe</p>
-<p>其命令行参数为pdb文件，会在同一目录下生成对应的mdb。 打开Tools菜单（Windows）或MonoDevelop-Unity menu (macOS)，调整设置Add-in Manager &gt; Installed tab &gt; Unity &gt; select Mono Soft Debugger Support for Unity &gt; Enable之后即可开始调试。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2017/03/31/e7-ac-ac-e4-b8-89-e6-96-b9-e8-af-84-e8-ae-ba-e7-a4-be-e5-8c-ba-e7-9a-84-e6-9b-b4-e6-8d-a2-e6-88-90-e7-bd-91-e6-98-93-e4-ba-91-e8-b7-9f-e5-b8-96beta/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="软妹币玩家">
-      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
-      <meta itemprop="image" content="/images/face.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="软软's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/03/31/e7-ac-ac-e4-b8-89-e6-96-b9-e8-af-84-e8-ae-ba-e7-a4-be-e5-8c-ba-e7-9a-84-e6-9b-b4-e6-8d-a2-e6-88-90-e7-bd-91-e6-98-93-e4-ba-91-e8-b7-9f-e5-b8-96beta/" class="post-title-link" itemprop="url">第三方评论社区的更换成网易云跟帖Beta</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2017-03-31 17:46:31" itemprop="dateCreated datePublished" datetime="2017-03-31T17:46:31+08:00">2017-03-31</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>多说因为某些原因即将关闭了。【是什么原因我反正是不知道的.. 感到很遗憾啊，也对多说表示感谢。 在多说之前也用过disqus，然而使用没有多久disqus就被墙了。真是尴尬。 在网上寻找了一番后 发现了网易云跟帖，导出了多说的评论直接导入到网易云跟帖中。 使用时发现 用QQ帐号登陆好像还没法改名，我是没有找到在哪改，而且还没有办法与现有的网易帐号绑定，这导致我现在使用极度不方便啊。 而且也没有发现插件有本地同步评论的功能。不过后台里倒是有数据回推的设置，但我这wordpress也怎么设置接口我也不知道了。。。。 不弄上本地同步评论 首页上看到的文章评论数就不会变化了。。唉。 此前评论的匿名用户都变成了有态度的网友XXXX 后台的评论管理感觉有点简陋了，不过我也不怎么用的着，倒是无所谓。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2017/03/23/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91uwp-e5-bc-80-e5-8f-91-e4-b8-ad-e7-9a-84json-e5-a4-84-e7-90-86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="软妹币玩家">
-      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
-      <meta itemprop="image" content="/images/face.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="软软's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/03/23/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91uwp-e5-bc-80-e5-8f-91-e4-b8-ad-e7-9a-84json-e5-a4-84-e7-90-86/" class="post-title-link" itemprop="url">【小白向】UWP开发中的Json处理</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2017-03-23 21:31:57" itemprop="dateCreated datePublished" datetime="2017-03-23T21:31:57+08:00">2017-03-23</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/" itemprop="url" rel="index"><span itemprop="name">Csharp</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>首先声明，本人纯粹小白，之前没正经学过C#，没正经学过UWP，也没接触过Json，本文涉及的内容中可能充满了错误，所以请读者在阅读时自行判断。 事情的起因是这样的，我想写一个第三方的客户端，然后发现从服务器读回来的数据全都是Json格式的，我要想简单的提取出所需的信息就需要处理Json内容（否则我就只能一点点处理字符串了，那真的会非常麻烦）。 本来网上有关C#序列化或反序列化Json的博文有很多，但是不知道是我没搜索合适的关键字还是怎样，并没有找到合适的内容，很多都是针对传统桌面程序的库，后来忘了在哪（可能是MSDN吧）突然发现了一个叫Windows.Data.Json的命名空间，一下子点醒了我，而且这个也是非常好用，非常傻瓜式的。 其中我用到的几个类大概是JsonObject和JsonArray，几个方法大概是Parse、GetObjectAt和GetNamedString等一大票GetNamed开头的方法，每个的使用方法大同小异，大概一说，相信各位编程老手在VS里一敲，靠着Intellisense就足以搞清其用法了。 JsonObject是最常用的一个类了，其对象就是一个Json结构，可以通过Parse方法，传入一个字符串（也就是我从服务器上接收到的那堆东西）来初始化 当我要从中得到某个字段的值时，根据字段的属性，是字符串还是个JSon数组或是别的什么，分别调用GetNamedString、GetNamedArray方法即可，参数是一个字符串，存放着字段的名字。 对于Json数组，也就是用“[”和“]”包裹起来的那堆东西，直接使用JsonArray类型就可以处理，然后分别提取其中的某个对象可以使用GetXXXXAt这个方法，获取到对象之后的操作，就和之前的没什么区别了。</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2017/01/19/xna-e4-b8-8ewinform-e5-90-8c-e6-97-b6-e5-b7-a5-e4-bd-9c-e7-9a-84-e5-ae-9e-e7-8e-b0-e6-96-b9-e6-b3-95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="软妹币玩家">
-      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
-      <meta itemprop="image" content="/images/face.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="软软's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2017/01/19/xna-e4-b8-8ewinform-e5-90-8c-e6-97-b6-e5-b7-a5-e4-bd-9c-e7-9a-84-e5-ae-9e-e7-8e-b0-e6-96-b9-e6-b3-95/" class="post-title-link" itemprop="url">Xna与WinForm同时工作的实现方法</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2017-01-19 00:08:13" itemprop="dateCreated datePublished" datetime="2017-01-19T00:08:13+08:00">2017-01-19</time>
+              <time title="创建时间：2016-05-19 19:33:04" itemprop="dateCreated datePublished" datetime="2016-05-19T19:33:04+08:00">2016-05-19</time>
             </span>
           
             
@@ -710,34 +300,460 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>最近我游戏项目的引擎设计告一段落，是时候开始设计具体的游戏内容。而其首先要解决的就是地图设计问题。 在有一个比较好的地图生成算法之前，地图还是得手工绘制，因此想要制作一个地图编辑器来方便进行地图设计。在经过一番比对后，我选择Xna+WinForm的方式来设计编辑器，然后又经过一番寻找，最终找到了官方给的一个例子。链接将在最后放上。 OK，那么先来解读官方给的例子，再设计我们自己的项目 官方的例子是将Xna以控件的形式加入到WinForm中去，这刚好符合我的想法 注：由于本人技术原因，一些东西的工作原理并不是很清楚，所以基本上是依葫芦画瓢←_← <strong>1.解读部分</strong> 首先看到GraphicsDeviceService类。 这个类实现了IGraphicsDeviceService接口，根据注释，这个接口提供了对GraphicsDevice对象的索引。这个接口包含1个属性和四个事件，他们分别是：  </p>
-<p>GraphicsDevice</p>
-<p>GraphicsDevice { get; }<br>event EventHandler<eventargs> DeviceCreated;<br>event EventHandler<eventargs> DeviceDisposing;<br>event EventHandler<eventargs> DeviceReset;<br>event EventHandler<eventargs> DeviceResetting;</eventargs></eventargs></eventargs></eventargs></p>
-<pre><code>第一个属性就是要提供的GraphicsDevice对象，后面四个事件的作用从名字就可以知道 在GraphicsDeviceService类的实现中，GraphicsDevice属性返回一个GraphicsDevice类型的字段graphicsDevice，这个字段的初始化实现在类的私有构造函数中。其余四个事件仅仅是简单的实现了一下。 通过公有静态方法AddRef以及私有静态字段singletonInstance来看，此处实现了一个单例模式。虽然不知道具体原因，但我猜测是由于GraphicsDevice不能有多个实例，因此采用单例模式来避免出现问题。 现在将目光转向私有的构造函数：  </code></pre><p>GraphicsDeviceService(IntPtr windowHandle, int width, int height)<br>{<br> parameters = new PresentationParameters();</p>
-<p> parameters.BackBufferWidth = Math.Max(width, 1);<br> parameters.BackBufferHeight = Math.Max(height, 1);<br> parameters.BackBufferFormat = SurfaceFormat.Color;<br> parameters.DepthStencilFormat = DepthFormat.Depth24;<br> parameters.DeviceWindowHandle = windowHandle;<br> parameters.PresentationInterval = PresentInterval.Immediate;<br> parameters.IsFullScreen = false;</p>
-<p> graphicsDevice = new GraphicsDevice(GraphicsAdapter.DefaultAdapter,<br> GraphicsProfile.Reach,<br> parameters);<br>}</p>
-<pre><code>构造函数中初始化了graphicsDevice字段，根据其构造函数签名，初始化了字段parameters，并且设置了此字段的各项属性。包括： 后背缓冲区的尺寸（BackBufferWidth，BackBufferHeight属性） 后背缓冲区的格式（BackBufferFormat属性，值为SurfaceFormat.Color，解释为：32位的ARGB色彩格式） 深度模板数据格式（DepthStencilFormat属性，值为DepthFormat.Depth24，解释为：包括24-bit的深度数据。看起来是用于计算图像深度的） 设备窗口句柄（DeviceWindowHandle属性，值为构造函数的参数windowHandle，也就是之后我们设计的控件的句柄） 呈现的时间间隔（PresentationInterval属性，值为PresentInterval.Immediate，不是很清楚这是干什么的） 是否全屏（IsFullScreen属性，值为false） 然后是另外两个参数，分别是GraphicsAdapter类型和GraphicsProfile类型，值分别为GraphicsAdapter.DefaultAdapter和GraphicsProfile.Reach。关于第二个参数，应该就是Xna工程中在Properties里设置的Game profile。 我们关注的东西基本就是以上那些，其余的几个方法就简单介绍一下：</code></pre><p>public static GraphicsDeviceService AddRef(IntPtr windowHandle,int width, int height)</p>
-<p>  返回对singletonInstance的引用，同时使引用计数+1。如果之前计数为0，就用传进来的三个参数初始化singletonInstance。</p>
-<p>public void Release(bool disposing)</p>
-<p>  使引用计数-1，计数为0时根据disposing的值选择是否销毁graphicsDevice</p>
-<p>public void ResetDevice(int width, int height)</p>
-<p>  重新设置parameters字段的后背缓冲区尺寸，并重置graphicsDevice字段。 接下来，看到我们的重点：GraphicsDeviceControl类 此类继承至Control类，同时又是抽象类，是之后SpriteFontControl类和SpinningTriangleControl类的父类。 它包含了个字段和属性：  </p>
-<p>GraphicsDeviceService graphicsDeviceService;</p>
-<p>ServiceContainer services = new ServiceContainer();</p>
-<p>public GraphicsDevice GraphicsDevice<br>{<br> get { return graphicsDeviceService.GraphicsDevice; }<br>}</p>
-<p>public ServiceContainer Services<br>{<br> get { return services; }<br>}</p>
-<pre><code>第一个字段和第一个属性不需要解释了，第二个字段则是一个实现了IServiceProvider接口的类的实例。IServiceProvider是FCL（**F**ramework **C**lass **L**ibrary，即Framework类库）内定义的接口，按照官方的说明，是</code></pre><blockquote>
-<p>定义一种检索服务对象的机制，服务对象是为其他对象提供自定义支持的对象。</p>
-</blockquote>
-<p>看起来是一种解耦的设计，不过不是很清楚在哪些地方发挥了作用。在这个例子中，它将作为ContentManager构造函数的一个参数来创建ContentManager类型实例。 GraphicsDeviceControl类重写了几个Control父类的方法，其中值得注意的是OnCreateControl、OnPaint、OnPaintBackground这三个方法。</p>
-<p>protected override void OnCreateControl()</p>
-<p>  在OnCreateControl方法中，代码用父类的Handle、ClientSize.Width、ClientSize.Height这三个属性初始化了graphicsDeviceService字段，并且将其作为参数调用了services.AddService<igraphicsdeviceservice>方法，最后调用了定义的抽象方法Initialize。</igraphicsdeviceservice></p>
-<p>protected override void OnPaint(PaintEventArgs e)</p>
-<p>  在OnPaint方法中，代码首先判断了调用定义的BeginDraw方法的返回值是否为空，然后依次调用Draw、EndDraw方法。如果不为空，则调用PaintUsingSystemDrawing方法用GDI+打印出错误信息。</p>
-<p>protected override void OnPaintBackground(PaintEventArgs pevent)</p>
-<p>  OnPaintBackground方法比较特殊，它什么内容也没有，目的是防止绘制的时候闪屏。</p>
-<p>string BeginDraw(）<br>void EndDraw()<br>string HandleDeviceReset()</p>
-<p>  在BeginDraw方法中，调用了定义的HandleDeviceReset方法，这个方法用于处理graphicsDevice的重置问题，根据其GraphicsDeviceStatus属性的值，分别选择返回错误信息或者重新设置后背缓冲区的尺寸。紧接着，BeginDraw方法又创建了Viewport类型的实例，这个类主要管理显示的区域。代码设置了要显示的区域在缓冲区中的坐标以及大小，并且设置了层深值的取值范围。最后将其传给了graphicsDevice的Viewport属性。之后再调用定义的抽象方法Draw，最后调用EndDraw方法将绘制结果呈现出来。 至此，所有的准备工作基本完成，接下来就是创建GraphicsDeviceControl类的子类SpriteFontControl和SpinningTriangleControl。这两个类中的代码都是很明显的，我就不再多说。 解读到此为止。 <strong>2.实现自己的项目</strong> 这个没什么好多讲的，基本抄袭官方代码按照解读来做就好了←_← 才不会告诉你是因为懒所以不想写了←_← <strong>3.最后的效果：</strong> <img src="http://rmbgame.net/wp-content/uploads/2017/01/test.png" alt> 看起来好像和一般的Xna工程一样嘛 官方例子的链接： <a href="http://pan.baidu.com/s/1gf7MHMF" target="_blank" rel="noopener">http://pan.baidu.com/s/1gf7MHMF</a></p>
+          <p>名称</p>
+<p>说明</p>
+<p>Add</p>
+<p>将两个值相加并将结果推送到计算堆栈上。</p>
+<p>Add.Ovf</p>
+<p>将两个整数相加，执行溢出检查，并且将结果推送到计算堆栈上。</p>
+<p>Add.Ovf.Un</p>
+<p>将两个无符号整数值相加，执行溢出检查，并且将结果推送到计算堆栈上。</p>
+<p>And</p>
+<p>计算两个值的按位“与”并将结果推送到计算堆栈上。</p>
+<p>Arglist</p>
+<p>返回指向当前方法的参数列表的非托管指针。</p>
+<p>Beq</p>
+<p>如果两个值相等，则将控制转移到目标指令。</p>
+<p>Beq.S</p>
+<p>如果两个值相等，则将控制转移到目标指令（短格式）。</p>
+<p>Bge</p>
+<p>如果第一个值大于或等于第二个值，则将控制转移到目标指令。</p>
+<p>Bge.S</p>
+<p>如果第一个值大于或等于第二个值，则将控制转移到目标指令（短格式）。</p>
+<p>Bge.Un</p>
+<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令。</p>
+<p>Bge.Un.S</p>
+<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。</p>
+<p>Bgt</p>
+<p>如果第一个值大于第二个值，则将控制转移到目标指令。</p>
+<p>Bgt.S</p>
+<p>如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。</p>
+<p>Bgt.Un</p>
+<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令。</p>
+<p>Bgt.Un.S</p>
+<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。</p>
+<p>Ble</p>
+<p>如果第一个值小于或等于第二个值，则将控制转移到目标指令。</p>
+<p>Ble.S</p>
+<p>如果第一个值小于或等于第二个值，则将控制转移到目标指令（短格式）。</p>
+<p>Ble.Un</p>
+<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于或等于第二个值，则将控制转移到目标指令。</p>
+<p>Ble.Un.S</p>
+<p>当比较无符号整数值或不可排序的浮点值时，如果第一个值小于或等于第二个值，则将控制权转移到目标指令（短格式）。</p>
+<p>Blt</p>
+<p>如果第一个值小于第二个值，则将控制转移到目标指令。</p>
+<p>Blt.S</p>
+<p>如果第一个值小于第二个值，则将控制转移到目标指令（短格式）。</p>
+<p>Blt.Un</p>
+<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于第二个值，则将控制转移到目标指令。</p>
+<p>Blt.Un.S</p>
+<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于第二个值，则将控制转移到目标指令（短格式）。</p>
+<p>Bne.Un</p>
+<p>当两个无符号整数值或不可排序的浮点型值不相等时，将控制转移到目标指令。</p>
+<p>Bne.Un.S</p>
+<p>当两个无符号整数值或不可排序的浮点型值不相等时，将控制转移到目标指令（短格式）。</p>
+<p>Box</p>
+<p>将值类转换为对象引用（O 类型）。</p>
+<p>Br</p>
+<p>无条件地将控制转移到目标指令。</p>
+<p>Br.S</p>
+<p>无条件地将控制转移到目标指令（短格式）。</p>
+<p>Break</p>
+<p>向公共语言结构 (CLI) 发出信号以通知调试器已撞上了一个断点。</p>
+<p>Brfalse</p>
+<p>如果 value 为 false、空引用（Visual Basic 中的 Nothing）或零，则将控制转移到目标指令。</p>
+<p>Brfalse.S</p>
+<p>如果 value 为 false、空引用或零，则将控制转移到目标指令。</p>
+<p>Brtrue</p>
+<p>如果 value 为 true、非空或非零，则将控制转移到目标指令。</p>
+<p>Brtrue.S</p>
+<p>如果 value 为 true、非空或非零，则将控制转移到目标指令（短格式）。</p>
+<p>Call</p>
+<p>调用由传递的方法说明符指示的方法。</p>
+<p>Calli</p>
+<p>通过调用约定描述的参数调用在计算堆栈上指示的方法（作为指向入口点的指针）。</p>
+<p>Callvirt</p>
+<p>对对象调用后期绑定方法，并且将返回值推送到计算堆栈上。</p>
+<p>Castclass</p>
+<p>尝试将引用传递的对象转换为指定的类。</p>
+<p>Ceq</p>
+<p>比较两个值。如果这两个值相等，则将整数值 1 (int32) 推送到计算堆栈上；否则，将 0 (int32) 推送到计算堆栈上。</p>
+<p>Cgt</p>
+<p>比较两个值。如果第一个值大于第二个值，则将整数值 1 (int32) 推送到计算堆栈上；反之，将 0 (int32) 推送到计算堆栈上。</p>
+<p>Cgt.Un</p>
+<p>比较两个无符号的或不可排序的值。如果第一个值大于第二个值，则将整数值 1 (int32) 推送到计算堆栈上；反之，将 0 (int32) 推送到计算堆栈上。</p>
+<p>Ckfinite</p>
+<p>如果值不是有限数，则引发 ArithmeticException。</p>
+<p>Clt</p>
+<p>比较两个值。如果第一个值小于第二个值，则将整数值 1 (int32) 推送到计算堆栈上；反之，将 0 (int32) 推送到计算堆栈上。</p>
+<p>Clt.Un</p>
+<p>比较无符号的或不可排序的值 value1 和 value2。如果 value1 小于 value2，则将整数值 1 (int32 ) 推送到计算堆栈上；反之，将 0 ( int32 ) 推送到计算堆栈上。</p>
+<p>Constrained</p>
+<p>约束要对其进行虚方法调用的类型。</p>
+<p>Conv.I</p>
+<p>将位于计算堆栈顶部的值转换为 native int。</p>
+<p>Conv.I1</p>
+<p>将位于计算堆栈顶部的值转换为 int8，然后将其扩展（填充）为 int32。</p>
+<p>Conv.I2</p>
+<p>将位于计算堆栈顶部的值转换为 int16，然后将其扩展（填充）为 int32。</p>
+<p>Conv.I4</p>
+<p>将位于计算堆栈顶部的值转换为 int32。</p>
+<p>Conv.I8</p>
+<p>将位于计算堆栈顶部的值转换为 int64。</p>
+<p>Conv.Ovf.I</p>
+<p>将位于计算堆栈顶部的有符号值转换为有符号 native int，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.I.Un</p>
+<p>将位于计算堆栈顶部的无符号值转换为有符号 native int，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.I1</p>
+<p>将位于计算堆栈顶部的有符号值转换为有符号 int8 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.I1.Un</p>
+<p>将位于计算堆栈顶部的无符号值转换为有符号 int8 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.I2</p>
+<p>将位于计算堆栈顶部的有符号值转换为有符号 int16 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.I2.Un</p>
+<p>将位于计算堆栈顶部的无符号值转换为有符号 int16 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.I4</p>
+<p>将位于计算堆栈顶部的有符号值转换为有符号 int32，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.I4.Un</p>
+<p>将位于计算堆栈顶部的无符号值转换为有符号 int32，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.I8</p>
+<p>将位于计算堆栈顶部的有符号值转换为有符号 int64，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.I8.Un</p>
+<p>将位于计算堆栈顶部的无符号值转换为有符号 int64，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.U</p>
+<p>将位于计算堆栈顶部的有符号值转换为 unsigned native int，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.U.Un</p>
+<p>将位于计算堆栈顶部的无符号值转换为 unsigned native int，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.U1</p>
+<p>将位于计算堆栈顶部的有符号值转换为 unsigned int8 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.U1.Un</p>
+<p>将位于计算堆栈顶部的无符号值转换为 unsigned int8 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.U2</p>
+<p>将位于计算堆栈顶部的有符号值转换为 unsigned int16 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.U2.Un</p>
+<p>将位于计算堆栈顶部的无符号值转换为 unsigned int16 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.U4</p>
+<p>将位于计算堆栈顶部的有符号值转换为 unsigned int32，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.U4.Un</p>
+<p>将位于计算堆栈顶部的无符号值转换为 unsigned int32，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.U8</p>
+<p>将位于计算堆栈顶部的有符号值转换为 unsigned int64，并在溢出时引发 OverflowException。</p>
+<p>Conv.Ovf.U8.Un</p>
+<p>将位于计算堆栈顶部的无符号值转换为 unsigned int64，并在溢出时引发 OverflowException。</p>
+<p>Conv.R.Un</p>
+<p>将位于计算堆栈顶部的无符号整数值转换为 float32。</p>
+<p>Conv.R4</p>
+<p>将位于计算堆栈顶部的值转换为 float32。</p>
+<p>Conv.R8</p>
+<p>将位于计算堆栈顶部的值转换为 float64。</p>
+<p>Conv.U</p>
+<p>将位于计算堆栈顶部的值转换为 unsigned native int，然后将其扩展为 native int。</p>
+<p>Conv.U1</p>
+<p>将位于计算堆栈顶部的值转换为 unsigned int8，然后将其扩展为 int32。</p>
+<p>Conv.U2</p>
+<p>将位于计算堆栈顶部的值转换为 unsigned int16，然后将其扩展为 int32。</p>
+<p>Conv.U4</p>
+<p>将位于计算堆栈顶部的值转换为 unsigned int32，然后将其扩展为 int32。</p>
+<p>Conv.U8</p>
+<p>将位于计算堆栈顶部的值转换为 unsigned int64，然后将其扩展为 int64。</p>
+<p>Cpblk</p>
+<p>将指定数目的字节从源地址复制到目标地址。</p>
+<p>Cpobj</p>
+<p>将位于对象（&amp;、* 或 native int 类型）地址的值类型复制到目标对象（&amp;、* 或 native int 类型）的地址。</p>
+<p>Div</p>
+<p>将两个值相除并将结果作为浮点（F 类型）或商（int32 类型）推送到计算堆栈上。</p>
+<p>Div.Un</p>
+<p>两个无符号整数值相除并将结果 ( int32 ) 推送到计算堆栈上。</p>
+<p>Dup</p>
+<p>复制计算堆栈上当前最顶端的值，然后将副本推送到计算堆栈上。</p>
+<p>Endfilter</p>
+<p>将控制从异常的 filter 子句转移回公共语言结构 (CLI) 异常处理程序。</p>
+<p>Endfinally</p>
+<p>将控制从异常块的 fault 或 finally 子句转移回公共语言结构 (CLI) 异常处理程序。</p>
+<p>Initblk</p>
+<p>将位于特定地址的内存的指定块初始化为给定大小和初始值。</p>
+<p>Initobj</p>
+<p>将位于指定地址的值类型的每个字段初始化为空引用或适当的基元类型的 0。</p>
+<p>Isinst</p>
+<p>测试对象引用（O 类型）是否为特定类的实例。</p>
+<p>Jmp</p>
+<p>退出当前方法并跳至指定方法。</p>
+<p>Ldarg</p>
+<p>将参数（由指定索引值引用）加载到堆栈上。</p>
+<p>Ldarg.0</p>
+<p>将索引为 0 的参数加载到计算堆栈上。</p>
+<p>Ldarg.1</p>
+<p>将索引为 1 的参数加载到计算堆栈上。</p>
+<p>Ldarg.2</p>
+<p>将索引为 2 的参数加载到计算堆栈上。</p>
+<p>Ldarg.3</p>
+<p>将索引为 3 的参数加载到计算堆栈上。</p>
+<p>Ldarg.S</p>
+<p>将参数（由指定的短格式索引引用）加载到计算堆栈上。</p>
+<p>Ldarga</p>
+<p>将参数地址加载到计算堆栈上。</p>
+<p>Ldarga.S</p>
+<p>以短格式将参数地址加载到计算堆栈上。</p>
+<p>Ldc.I4</p>
+<p>将所提供的 int32 类型的值作为 int32 推送到计算堆栈上。</p>
+<p>Ldc.I4.0</p>
+<p>将整数值 0 作为 int32 推送到计算堆栈上。</p>
+<p>Ldc.I4.1</p>
+<p>将整数值 1 作为 int32 推送到计算堆栈上。</p>
+<p>Ldc.I4.2</p>
+<p>将整数值 2 作为 int32 推送到计算堆栈上。</p>
+<p>Ldc.I4.3</p>
+<p>将整数值 3 作为 int32 推送到计算堆栈上。</p>
+<p>Ldc.I4.4</p>
+<p>将整数值 4 作为 int32 推送到计算堆栈上。</p>
+<p>Ldc.I4.5</p>
+<p>将整数值 5 作为 int32 推送到计算堆栈上。</p>
+<p>Ldc.I4.6</p>
+<p>将整数值 6 作为 int32 推送到计算堆栈上。</p>
+<p>Ldc.I4.7</p>
+<p>将整数值 7 作为 int32 推送到计算堆栈上。</p>
+<p>Ldc.I4.8</p>
+<p>将整数值 8 作为 int32 推送到计算堆栈上。</p>
+<p>Ldc.I4.M1</p>
+<p>将整数值 -1 作为 int32 推送到计算堆栈上。</p>
+<p>Ldc.I4.S</p>
+<p>将提供的 int8 值作为 int32 推送到计算堆栈上（短格式）。</p>
+<p>Ldc.I8</p>
+<p>将所提供的 int64 类型的值作为 int64 推送到计算堆栈上。</p>
+<p>Ldc.R4</p>
+<p>将所提供的 float32 类型的值作为 F (float) 类型推送到计算堆栈上。</p>
+<p>Ldc.R8</p>
+<p>将所提供的 float64 类型的值作为 F (float) 类型推送到计算堆栈上。</p>
+<p>Ldelem</p>
+<p>按照指令中指定的类型，将指定数组索引中的元素加载到计算堆栈的顶部。</p>
+<p>Ldelem.I</p>
+<p>将位于指定数组索引处的 native int 类型的元素作为 native int 加载到计算堆栈的顶部。</p>
+<p>Ldelem.I1</p>
+<p>将位于指定数组索引处的 int8 类型的元素作为 int32 加载到计算堆栈的顶部。</p>
+<p>Ldelem.I2</p>
+<p>将位于指定数组索引处的 int16 类型的元素作为 int32 加载到计算堆栈的顶部。</p>
+<p>Ldelem.I4</p>
+<p>将位于指定数组索引处的 int32 类型的元素作为 int32 加载到计算堆栈的顶部。</p>
+<p>Ldelem.I8</p>
+<p>将位于指定数组索引处的 int64 类型的元素作为 int64 加载到计算堆栈的顶部。</p>
+<p>Ldelem.R4</p>
+<p>将位于指定数组索引处的 float32 类型的元素作为 F 类型（浮点型）加载到计算堆栈的顶部。</p>
+<p>Ldelem.R8</p>
+<p>将位于指定数组索引处的 float64 类型的元素作为 F 类型（浮点型）加载到计算堆栈的顶部。</p>
+<p>Ldelem.Ref</p>
+<p>将位于指定数组索引处的包含对象引用的元素作为 O 类型（对象引用）加载到计算堆栈的顶部。</p>
+<p>Ldelem.U1</p>
+<p>将位于指定数组索引处的 unsigned int8 类型的元素作为 int32 加载到计算堆栈的顶部。</p>
+<p>Ldelem.U2</p>
+<p>将位于指定数组索引处的 unsigned int16 类型的元素作为 int32 加载到计算堆栈的顶部。</p>
+<p>Ldelem.U4</p>
+<p>将位于指定数组索引处的 unsigned int32 类型的元素作为 int32 加载到计算堆栈的顶部。</p>
+<p>Ldelema</p>
+<p>将位于指定数组索引的数组元素的地址作为 &amp; 类型（托管指针）加载到计算堆栈的顶部。</p>
+<p>Ldfld</p>
+<p>查找对象中其引用当前位于计算堆栈的字段的值。</p>
+<p>Ldflda</p>
+<p>查找对象中其引用当前位于计算堆栈的字段的地址。</p>
+<p>Ldftn</p>
+<p>将指向实现特定方法的本机代码的非托管指针（native int 类型）推送到计算堆栈上。</p>
+<p>Ldind.I</p>
+<p>将 native int 类型的值作为 native int 间接加载到计算堆栈上。</p>
+<p>Ldind.I1</p>
+<p>将 int8 类型的值作为 int32 间接加载到计算堆栈上。</p>
+<p>Ldind.I2</p>
+<p>将 int16 类型的值作为 int32 间接加载到计算堆栈上。</p>
+<p>Ldind.I4</p>
+<p>将 int32 类型的值作为 int32 间接加载到计算堆栈上。</p>
+<p>Ldind.I8</p>
+<p>将 int64 类型的值作为 int64 间接加载到计算堆栈上。</p>
+<p>Ldind.R4</p>
+<p>将 float32 类型的值作为 F (float) 类型间接加载到计算堆栈上。</p>
+<p>Ldind.R8</p>
+<p>将 float64 类型的值作为 F (float) 类型间接加载到计算堆栈上。</p>
+<p>Ldind.Ref</p>
+<p>将对象引用作为 O（对象引用）类型间接加载到计算堆栈上。</p>
+<p>Ldind.U1</p>
+<p>将 unsigned int8 类型的值作为 int32 间接加载到计算堆栈上。</p>
+<p>Ldind.U2</p>
+<p>将 unsigned int16 类型的值作为 int32 间接加载到计算堆栈上。</p>
+<p>Ldind.U4</p>
+<p>将 unsigned int32 类型的值作为 int32 间接加载到计算堆栈上。</p>
+<p>Ldlen</p>
+<p>将从零开始的、一维数组的元素的数目推送到计算堆栈上。</p>
+<p>Ldloc</p>
+<p>将指定索引处的局部变量加载到计算堆栈上。</p>
+<p>Ldloc.0</p>
+<p>将索引 0 处的局部变量加载到计算堆栈上。</p>
+<p>Ldloc.1</p>
+<p>将索引 1 处的局部变量加载到计算堆栈上。</p>
+<p>Ldloc.2</p>
+<p>将索引 2 处的局部变量加载到计算堆栈上。</p>
+<p>Ldloc.3</p>
+<p>将索引 3 处的局部变量加载到计算堆栈上。</p>
+<p>Ldloc.S</p>
+<p>将特定索引处的局部变量加载到计算堆栈上（短格式）。</p>
+<p>Ldloca</p>
+<p>将位于特定索引处的局部变量的地址加载到计算堆栈上。</p>
+<p>Ldloca.S</p>
+<p>将位于特定索引处的局部变量的地址加载到计算堆栈上（短格式）。</p>
+<p>Ldnull</p>
+<p>将空引用（O 类型）推送到计算堆栈上。</p>
+<p>Ldobj</p>
+<p>将地址指向的值类型对象复制到计算堆栈的顶部。</p>
+<p>Ldsfld</p>
+<p>将静态字段的值推送到计算堆栈上。</p>
+<p>Ldsflda</p>
+<p>将静态字段的地址推送到计算堆栈上。</p>
+<p>Ldstr</p>
+<p>推送对元数据中存储的字符串的新对象引用。</p>
+<p>Ldtoken</p>
+<p>将元数据标记转换为其运行时表示形式，并将其推送到计算堆栈上。</p>
+<p>Ldvirtftn</p>
+<p>将指向实现与指定对象关联的特定虚方法的本机代码的非托管指针（native int 类型）推送到计算堆栈上。</p>
+<p>Leave</p>
+<p>退出受保护的代码区域，无条件将控制转移到特定目标指令。</p>
+<p>Leave.S</p>
+<p>退出受保护的代码区域，无条件将控制转移到目标指令（缩写形式）。</p>
+<p>Localloc</p>
+<p>从本地动态内存池分配特定数目的字节并将第一个分配的字节的地址（瞬态指针，* 类型）推送到计算堆栈上。</p>
+<p>Mkrefany</p>
+<p>将对特定类型实例的类型化引用推送到计算堆栈上。</p>
+<p>Mul</p>
+<p>将两个值相乘并将结果推送到计算堆栈上。</p>
+<p>Mul.Ovf</p>
+<p>将两个整数值相乘，执行溢出检查，并将结果推送到计算堆栈上。</p>
+<p>Mul.Ovf.Un</p>
+<p>将两个无符号整数值相乘，执行溢出检查，并将结果推送到计算堆栈上。</p>
+<p>Neg</p>
+<p>对一个值执行求反并将结果推送到计算堆栈上。</p>
+<p>Newarr</p>
+<p>将对新的从零开始的一维数组（其元素属于特定类型）的对象引用推送到计算堆栈上。</p>
+<p>Newobj</p>
+<p>创建一个值类型的新对象或新实例，并将对象引用（O 类型）推送到计算堆栈上。</p>
+<p>Nop</p>
+<p>如果修补操作码，则填充空间。尽管可能消耗处理周期，但未执行任何有意义的操作。</p>
+<p>Not</p>
+<p>计算堆栈顶部整数值的按位求补并将结果作为相同的类型推送到计算堆栈上。</p>
+<p>Or</p>
+<p>计算位于堆栈顶部的两个整数值的按位求补并将结果推送到计算堆栈上。</p>
+<p>Pop</p>
+<p>移除当前位于计算堆栈顶部的值。</p>
+<p>Prefix1</p>
+<p>基础结构。此指令为保留指令。</p>
+<p>Prefix2</p>
+<p>基础结构。此指令为保留指令。</p>
+<p>Prefix3</p>
+<p>基础结构。此指令为保留指令。</p>
+<p>Prefix4</p>
+<p>基础结构。此指令为保留指令。</p>
+<p>Prefix5</p>
+<p>基础结构。此指令为保留指令。</p>
+<p>Prefix6</p>
+<p>基础结构。此指令为保留指令。</p>
+<p>Prefix7</p>
+<p>基础结构。此指令为保留指令。</p>
+<p>Prefixref</p>
+<p>基础结构。此指令为保留指令。</p>
+<p>Readonly</p>
+<p>指定后面的数组地址操作在运行时不执行类型检查，并且返回可变性受限的托管指针。</p>
+<p>Refanytype</p>
+<p>检索嵌入在类型化引用内的类型标记。</p>
+<p>Refanyval</p>
+<p>检索嵌入在类型化引用内的地址（&amp; 类型）。</p>
+<p>Rem</p>
+<p>将两个值相除并将余数推送到计算堆栈上。</p>
+<p>Rem.Un</p>
+<p>将两个无符号值相除并将余数推送到计算堆栈上。</p>
+<p>Ret</p>
+<p>从当前方法返回，并将返回值（如果存在）从调用方的计算堆栈推送到被调用方的计算堆栈上。</p>
+<p>Rethrow</p>
+<p>再次引发当前异常。</p>
+<p>Shl</p>
+<p>将整数值左移（用零填充）指定的位数，并将结果推送到计算堆栈上。</p>
+<p>Shr</p>
+<p>将整数值右移（保留符号）指定的位数，并将结果推送到计算堆栈上。</p>
+<p>Shr.Un</p>
+<p>将无符号整数值右移（用零填充）指定的位数，并将结果推送到计算堆栈上。</p>
+<p>Sizeof</p>
+<p>将提供的值类型的大小（以字节为单位）推送到计算堆栈上。</p>
+<p>Starg</p>
+<p>将位于计算堆栈顶部的值存储到位于指定索引的参数槽中。</p>
+<p>Starg.S</p>
+<p>将位于计算堆栈顶部的值存储在参数槽中的指定索引处（短格式）。</p>
+<p>Stelem</p>
+<p>用计算堆栈中的值替换给定索引处的数组元素，其类型在指令中指定。</p>
+<p>Stelem.I</p>
+<p>用计算堆栈上的 native int 值替换给定索引处的数组元素。</p>
+<p>Stelem.I1</p>
+<p>用计算堆栈上的 int8 值替换给定索引处的数组元素。</p>
+<p>Stelem.I2</p>
+<p>用计算堆栈上的 int16 值替换给定索引处的数组元素。</p>
+<p>Stelem.I4</p>
+<p>用计算堆栈上的 int32 值替换给定索引处的数组元素。</p>
+<p>Stelem.I8</p>
+<p>用计算堆栈上的 int64 值替换给定索引处的数组元素。</p>
+<p>Stelem.R4</p>
+<p>用计算堆栈上的 float32 值替换给定索引处的数组元素。</p>
+<p>Stelem.R8</p>
+<p>用计算堆栈上的 float64 值替换给定索引处的数组元素。</p>
+<p>Stelem.Ref</p>
+<p>用计算堆栈上的对象 ref 值（O 类型）替换给定索引处的数组元素。</p>
+<p>Stfld</p>
+<p>用新值替换在对象引用或指针的字段中存储的值。</p>
+<p>Stind.I</p>
+<p>在所提供的地址存储 native int 类型的值。</p>
+<p>Stind.I1</p>
+<p>在所提供的地址存储 int8 类型的值。</p>
+<p>Stind.I2</p>
+<p>在所提供的地址存储 int16 类型的值。</p>
+<p>Stind.I4</p>
+<p>在所提供的地址存储 int32 类型的值。</p>
+<p>Stind.I8</p>
+<p>在所提供的地址存储 int64 类型的值。</p>
+<p>Stind.R4</p>
+<p>在所提供的地址存储 float32 类型的值。</p>
+<p>Stind.R8</p>
+<p>在所提供的地址存储 float64 类型的值。</p>
+<p>Stind.Ref</p>
+<p>存储所提供地址处的对象引用值。</p>
+<p>Stloc</p>
+<p>从计算堆栈的顶部弹出当前值并将其存储到指定索引处的局部变量列表中。</p>
+<p>Stloc.0</p>
+<p>从计算堆栈的顶部弹出当前值并将其存储到索引 0 处的局部变量列表中。</p>
+<p>Stloc.1</p>
+<p>从计算堆栈的顶部弹出当前值并将其存储到索引 1 处的局部变量列表中。</p>
+<p>Stloc.2</p>
+<p>从计算堆栈的顶部弹出当前值并将其存储到索引 2 处的局部变量列表中。</p>
+<p>Stloc.3</p>
+<p>从计算堆栈的顶部弹出当前值并将其存储到索引 3 处的局部变量列表中。</p>
+<p>Stloc.S</p>
+<p>从计算堆栈的顶部弹出当前值并将其存储在局部变量列表中的 index 处（短格式）。</p>
+<p>Stobj</p>
+<p>将指定类型的值从计算堆栈复制到所提供的内存地址中。</p>
+<p>Stsfld</p>
+<p>用来自计算堆栈的值替换静态字段的值。</p>
+<p>Sub</p>
+<p>从其他值中减去一个值并将结果推送到计算堆栈上。</p>
+<p>Sub.Ovf</p>
+<p>从另一值中减去一个整数值，执行溢出检查，并且将结果推送到计算堆栈上。</p>
+<p>Sub.Ovf.Un</p>
+<p>从另一值中减去一个无符号整数值，执行溢出检查，并且将结果推送到计算堆栈上。</p>
+<p>Switch</p>
+<p>实现跳转表。</p>
+<p>Tailcall</p>
+<p>执行后缀的方法调用指令，以便在执行实际调用指令前移除当前方法的堆栈帧。</p>
+<p>Throw</p>
+<p>引发当前位于计算堆栈上的异常对象。</p>
+<p>Unaligned</p>
+<p>指示当前位于计算堆栈上的地址可能没有与紧接的 ldind、stind、ldfld、stfld、ldobj、stobj、initblk 或 cpblk 指令的自然大小对齐。</p>
+<p>Unbox</p>
+<p>将值类型的已装箱的表示形式转换为其未装箱的形式。</p>
+<p>Unbox.Any</p>
+<p>将指令中指定类型的已装箱的表示形式转换成未装箱形式。</p>
+<p>Volatile</p>
+<p>指定当前位于计算堆栈顶部的地址可以是易失的，并且读取该位置的结果不能被缓存，或者对该地址的多个存储区不能被取消。</p>
+<p>Xor</p>
+<p>计算位于计算堆栈顶部的两个值的按位异或，并且将结果推送到计算堆栈上。</p>
 
         
       
@@ -762,7 +778,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/12/31/e5-ae-8c-e7-be-8e-e5-a4-87-e4-bb-bdwin8-e5-92-8cwin10-e5-8c-85-e6-8b-acoffice-e6-bf-80-e6-b4-bb-e4-bf-a1-e6-81-af/">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="软妹币玩家">
@@ -776,7 +792,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2016/12/31/e5-ae-8c-e7-be-8e-e5-a4-87-e4-bb-bdwin8-e5-92-8cwin10-e5-8c-85-e6-8b-acoffice-e6-bf-80-e6-b4-bb-e4-bf-a1-e6-81-af/" class="post-title-link" itemprop="url">完美备份WIN8和WIN10包括Office激活信息</a>
+            <a href="/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/" class="post-title-link" itemprop="url">2016最新webQQ协议分析</a>
           
         </h1>
 
@@ -791,101 +807,7 @@
                 
               
 
-              <time title="创建时间：2016-12-31 20:31:20" itemprop="dateCreated datePublished" datetime="2016-12-31T20:31:20+08:00">2016-12-31</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今天是2016的最后一天啦<del>，各位跨年快乐</del>   该方法仅在Windows8.1企业版、专业版（批量）Windows10企业版测试，其他版本自测   前期准备你系统和Office激活且装好驱动   一：将系统镜像解压的install.wim提取到D盘根目录。   二：D盘先建立一个文件夹install   三：管理员命令提示符Dism /mount-image /imageFile:D:\install.wim /index:1 /mountdir:D:\install   四：cache.dat、data.dat、tokens.dat三个文件替换，替换D盘的D: \install \Windows\System32\spp\store\2.0 三个文件信息地址C:\Windows\System32\spp\store\2.0 <img src="http://rmbgame.net/wp-content/uploads/2016/12/back8.png" alt> <img src="http://rmbgame.net/wp-content/uploads/2016/12/back10.png" alt>       五：Dism /Image:D:\install /Set-ProductKey: xxxxx-xxxxx-xxxxx-xxxxx-xxxxx（windows密钥）   六：Dism /unmount-wim /mountdir:D:\install /commit   七：install替换系统镜像里的install.wim     八：完工。安装系统去吧。   九：安装系统后，打上所有驱动，安装Office输入office密钥即可激活 如找不到输入Office密钥的地方则管理员命令提示符slmgr.vbs -ipk xxxxx-xxxxx-xxxxx-xxxxx-xxxxx（Office密钥）,打开Office任意组件关掉Office提示的激活窗口，文件–账户–更换密钥，即可激活Office</p>
-
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-        <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="软妹币玩家">
-      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
-      <meta itemprop="image" content="/images/face.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="软软's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-            
-            <a href="/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/" class="post-title-link" itemprop="url">简单的网易云音乐搜索下载API</a>
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2016-12-29 12:32:33" itemprop="dateCreated datePublished" datetime="2016-12-29T12:32:33+08:00">2016-12-29</time>
+              <time title="创建时间：2016-05-19 10:21:39" itemprop="dateCreated datePublished" datetime="2016-05-19T10:21:39+08:00">2016-05-19</time>
             </span>
           
             
@@ -913,14 +835,7 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/心得技巧/日常/" itemprop="url" rel="index"><span itemprop="name">日常</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/心得技巧/日常/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/心得技巧/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
 
                 
                 
@@ -939,69 +854,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>只是随便很简单就能抓到的接口啦。     【播放此文章顶部的音乐食用更佳啦~<strong>↑↑↑↑↑↑↑↑↑</strong> 不过跟PC  android 的接口应该是不一样的。 具体发现这个接口也是无意之间。 正文开始： 发现接口更新了必须加上version=1 否则都是失效的歌曲地址！！！！ ==============================================================   网易旗下有个 网易博客 跟 LOFTER ， 在发表日志什么的时候，可以插入音乐 <img src="http://rmbgame.net/wp-content/uploads/2016/12/20161229111308.png" alt>   没错， 就是这里。  我们打开浏览器F12 转到 NetWork 然后在随便输入一个歌曲名   <img src="http://rmbgame.net/wp-content/uploads/2016/12/20161229111512-1024x675.jpg" alt> 然后， 就是这么简单啦啊哈。我们就得到了这个搜索音乐的API。 简化一下接口 接口地址为： <a href="http://s.music.163.com/search/get/" target="_blank" rel="noopener">http://s.music.163.com/search/get/</a> 对应参数：</p>
-<p>名称</p>
-<p>值</p>
-<p>作用</p>
-<p>version</p>
-<p>1</p>
-<p>必填，不然查询到的歌曲地址是失效的。</p>
-<p>src</p>
-<p>blog</p>
-<p>这个也不是必填，网易博客是blog，lofter就是lofter</p>
-<p>type</p>
-<p>1</p>
-<p>这是个必填的，默认就好了~</p>
-<p>s</p>
-<p>卡农</p>
-<p>搜索内容不用多说啦， 搜索歌名， 歌手名， 专辑名， 应该事都没问题的~</p>
-<p>limit</p>
-<p>10</p>
-<p>返回搜索结果数量， 我也没有找上限是多少。自己试试吧</p>
-<p>offset</p>
-<p>0</p>
-<p>搜索结果页数~，一页显示不完就有多几页啦。 从0开始哟</p>
-<p>例： <a href="http://s.music.163.com/search/get/?type=1&s=Frontier&limit=10&offset=0" target="_blank" rel="noopener">http://s.music.163.com/search/get/?type=1&amp;s=Frontier&amp;limit=10&amp;offset=0</a>   返回格式为 JSON   结果太长 取短的一条随便说下</p>
-<p>{<br>    \“result\“:{<br>        \“songCount\“:2589,<br>//搜索到的相关歌曲总数</p>
-<pre><code>\\&quot;songs\\&quot;:\[
-    {
-        \\&quot;id\\&quot;:30512839,</code></pre><p>//歌曲网易云ID</p>
-<pre><code>\\&quot;name\\&quot;:\\&quot;Frontier\\&quot;,</code></pre><p>//名字</p>
-<pre><code>\\&quot;artists\\&quot;:\[</code></pre><p>//歌手信息 多个歌手都显示在底下</p>
-<pre><code>    {
-        \\&quot;id\\&quot;:1049952,   
-        \\&quot;name\\&quot;:\\&quot;Krale\\&quot;,
-        \\&quot;picUrl\\&quot;:null
-    },
-    {
-        \\&quot;id\\&quot;:0,
-        \\&quot;name\\&quot;:\\&quot;Jasmina Lin\\&quot;,
-        \\&quot;picUrl\\&quot;:null
-    },
-    {
-        \\&quot;id\\&quot;:0,
-        \\&quot;name\\&quot;:\\&quot;Jay Christopher\\&quot;,
-        \\&quot;picUrl\\&quot;:null
-    }
-\],
-\\&quot;album\\&quot;:{</code></pre><p>//专辑信息</p>
-<pre><code>\\&quot;id\\&quot;:3102519,
-\\&quot;name\\&quot;:\\&quot;Frontier \\&quot;,
-\\&quot;artist\\&quot;:{
-    \\&quot;id\\&quot;:0,
-    \\&quot;name\\&quot;:\\&quot;\\&quot;,
-    \\&quot;picUrl\\&quot;:null
-},</code></pre><p>//歌曲封面</p>
-<pre><code>    \\&quot;picUrl\\&quot;:\\&quot;http://p1.music.126.net/kNwudenOgsyb63jEVPcm3g==/2537672839489753.jpg\\&quot;    
-},</code></pre><p>//歌曲直链地址，可外链播放 也可以直接下载</p>
-<pre><code>\\&quot;audio\\&quot;:\\&quot;http://m2.music.126.net/rRvsLcWtFtPalq_yPmJ0eg==/7826323766722669.mp3\\&quot;,
-\\&quot;djProgramId\\&quot;:0,</code></pre><p>//歌曲网易云音乐页</p>
-<pre><code>            \\&quot;page\\&quot;:\\&quot;http://music.163.com/m/song/30512839\\&quot;
-        }
-    \]
-},
-\\&quot;code\\&quot;:200</code></pre><p>}</p>
-<p>  左侧不是有个music网页嘛【飘着云，一直都没有做后续的那个 其实我本来就是想加上这个接口把页面做完的233，不过一直没弄完2333   而且本文章顶部的音乐直链也是这样取到的哟。 完~</p>
+          <p>最近打开以前的webqq协议项目 结果发现貌似挂了。 重新抓包分析了下。这里贴一下接口 做个记录。</p>
+<p>1、第一次登陆</p>
+<p>方法：Get</p>
+<p>地址： \“<a href="https://ssl.ptlogin2.qq.com/ptqrshow?appid=501004106&amp;" target="_blank" rel="noopener">https://ssl.ptlogin2.qq.com/ptqrshow?appid=501004106&amp;</a><br>e=0&amp;l=M&amp;s=5&amp;d=72&amp;v=4&amp;t=0.\“ + 随机9位数 + 随机7位数;</p>
+<p>地址返回结果是个二维码， 扫描二维码登陆。 这期间循环 2.验证登陆状态。</p>
+<p>访问后记录Cookie后面要用到.</p>
+<p>2、验证登陆状态</p>
+<p>方法：POST</p>
+<p>地址：<a href="https://ssl.ptlogin2.qq.com/ptqrlogin" target="_blank" rel="noopener">https://ssl.ptlogin2.qq.com/ptqrlogin</a></p>
+<p>参数：webqq_type=10&amp;remember_uin=1&amp;login2qq=1&amp;aid=501004106&amp;<br>u1=http%3A%2F%2Fw.qq.com%2Fproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&amp;<br>ptredirect=0&amp;ptlang=2052&amp;daid=164&amp;from_ui=1&amp;pttype=1&amp;<br>dumy=&amp;fp=loginerroralert&amp;action=0-0-18099&amp;<br>mibao_css=m_webqq&amp;t=1&amp;g=1&amp;<br>js_type=0&amp;js_ver=10135&amp;login_sig=&amp;pt_randsalt=0</p>
+<p>返回结果为：ptuiCB(\‘66\‘,\‘0\‘,\‘\‘,\‘0\‘,\‘二维码未失效。(1891650816)\‘, \‘\‘);<br>ptuiCB(\‘67\‘,\‘0\‘,\‘\‘,\‘0\‘,\‘二维码认证中。(1891650816)\‘, \‘\‘);<br>ptuiCB(\‘0\‘,\‘0\‘,\‘<a href="http://ptlogin4.web2.qq.com/check_sig?pttype=1&amp;uin=【QQ号码】&amp;service=ptqrlogin&amp;nodirect=0&amp;" target="_blank" rel="noopener">http://ptlogin4.web2.qq.com/check_sig?pttype=1&amp;uin=【QQ号码】&amp;service=ptqrlogin&amp;nodirect=0&amp;</a><br>ptsigx=c4b277a9cbb5ec2e9dbcdf25645ac2b36e27aeffe18395a8c10316f65bdc116f<br>846fd8b5d4893696a58ce4a0663111fbded905eb3f27c1b309e6a3af49d989b6&amp;<br>s_url=http%3A%2F%2Fw.qq.com%2Fproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&amp;<br>f_url=&amp;ptlang=2052&amp;ptredirect=100&amp;aid=501004106&amp;daid=164&amp;<br>j_later=0&amp;low_login_hour=0&amp;regmaster=0&amp;pt_login_type=3&amp;<br>pt_aid=0&amp;pt_aaid=16&amp;pt_light=0&amp;pt_3rd_aid=0\‘,\‘0\‘,\‘登录成功！\‘, \‘XX\‘);</p>
+<p>所以这里检测开头第一个数字是0 就好了。 随后取出中间的网址并进行3、第一次登陆成功后返回回调地址。</p>
+<p>3、第一次登陆成功后返回回调地址</p>
+<p>方法：Get</p>
+<p>地址：在上一个步骤返回的回调地址</p>
+<p>直接访问一次即可，随后进入4、第二次登陆.</p>
+<p>4、第二次登陆</p>
+<p>方法：Post</p>
+<p>地址：<a href="http://d1.web2.qq.com/channel/login2" target="_blank" rel="noopener">http://d1.web2.qq.com/channel/login2</a></p>
+<p>参数：r={ {\“ptwebqq\“:\“[这里填之前cookie记录的 ptwebqq 的值]\“<br>,\“clientid\“:53999199,\“psessionid\“:\“\“,\“status\“:\“online\“}}</p>
+<p>返回结果是个json 取其中psessionid</p>
+<p>然后这里还需要获取vfwebqq值<br>地址： <a href="http://s.web2.qq.com/api/getvfwebqq" target="_blank" rel="noopener">http://s.web2.qq.com/api/getvfwebqq</a></p>
+<p>方法：post</p>
+<p>参数：ptwebqq=[之前cookie的ptwebqq值]&amp;clientid=[53999199]&amp;psessionid=&amp;t=[13位时间戳]</p>
+<p>返回json中取值：vfwebqq</p>
+<p>记录好这一部存下的值 psessionid 和 vfwebqq<br>到这一步 登陆就已经成功了。</p>
+<p>之后就是获取好友 获取群组 获取消息 和 发送消息了。 先只搞到这 orz..</p>
 
         
       
@@ -1026,7 +905,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/05/13/e6-a1-8c-e6-b8-b8-e5-ae-89-e5-88-a9-e3-80-8a-e7-8a-af-e4-ba-ba-e5-9c-a8-e8-b7-b3-e8-88-9e-e3-80-8b/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="软妹币玩家">
@@ -1040,7 +919,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" class="post-title-link" itemprop="url">Windows 10 149XX 中 Shadowsocks-Windows （Shadowsocks-GUI） 无法正常使用的解决方案</a>
+            <a href="/2016/05/13/e6-a1-8c-e6-b8-b8-e5-ae-89-e5-88-a9-e3-80-8a-e7-8a-af-e4-ba-ba-e5-9c-a8-e8-b7-b3-e8-88-9e-e3-80-8b/" class="post-title-link" itemprop="url">桌游安利《犯人在跳舞》~</a>
           
         </h1>
 
@@ -1055,7 +934,223 @@
                 
               
 
-              <time title="创建时间：2016-12-06 17:57:30" itemprop="dateCreated datePublished" datetime="2016-12-06T17:57:30+08:00">2016-12-06</time>
+              <time title="创建时间：2016-05-13 14:49:35" itemprop="dateCreated datePublished" datetime="2016-05-13T14:49:35+08:00">2016-05-13</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/游戏分享/" itemprop="url" rel="index"><span itemprop="name">游戏分享</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="http://rmbgame.net/wp-content/uploads/2016/05/20140520_872759.png" alt="20140520_872759"> 经过朋友消息得知了这款桌游， 看着挺有意思。这里放一下说明规则</p>
+<ul>
+<li>游戏名称:<strong>《犯人在跳舞》/《犯人は踊る》/《Criminal Dance》</strong></li>
+<li>建议游戏人数：<strong>3~8人</strong></li>
+</ul>
+<p>《犯人在跳舞》是一款类似杀人游戏的游戏，你可以把他理解成蛇精病版的杀人游戏…… 当然啦，说蛇精病不是没理由的，大家从游戏名称就可看出这是一款“抓贼”类游戏。 但是与“杀人”、“狼人”这类游戏不同的是，在《犯人在跳舞》中<strong>每个人的身份角色都是在随时变化的</strong>，直到游戏的最后一刻你才能知道谁赢谁输，谁是犯人。 再加上游戏的核心内容除了<strong>“猜测身份</strong>”以外，还有<strong>“交换手牌”</strong>，所以大大加强了随机性。 而且这款游戏不会出现像“杀人”这样被首刀后发呆半小时的尴尬场面，提高了每个人的参与度。 同时该游戏<strong>文字量极少</strong>，也不需要过多发言，手牌数永远小于等于四张，流程简单，计分省力，节奏明快。</p>
+<h4 id="1：游戏准备"><a href="#1：游戏准备" class="headerlink" title="1：游戏准备"></a>1：游戏准备</h4><p>好，说了那么多，这游戏到底咋玩呢？ <img src="http://rmbgame.net/wp-content/uploads/2016/05/20131022_711530.png" alt="20131022_711530"> 上图大致意思就是在必备卡牌的基础上根据人数加入一定数目的随机卡牌，以达到最终每人能拿到四张手牌。 把按照上述原则选出来的牌库<strong>打乱</strong>后开始<strong>发牌</strong>，正好每人4张。 Tips:大家可以在一到三局游戏过后<strong>更换随机部分</strong>的卡牌，以提高趣味性(这在每个人都熟悉游戏后是<strong>非常必要</strong>的)。</p>
+<h4 id="2：游戏流程"><a href="#2：游戏流程" class="headerlink" title="2：游戏流程"></a>2：游戏流程</h4><p><img src="http://rmbgame.net/wp-content/uploads/2016/05/20131022_711531.png" alt="20131022_711531"> 别看画的很复杂，其实炒鸡简单，你只要记住，你需要做的就是:</p>
+<ul>
+<li>出一张牌</li>
+<li>照牌上说的做</li>
+<li>然后下一家继续重复上述动作……</li>
+</ul>
+<p>Tips：当你有手牌时，<strong>必须出牌</strong>。当你没有手牌时，不需要出牌，也无需因为“情报交换”、“交易”或者“谣言”来给别人手牌。</p>
+<h4 id="3：胜负判定"><a href="#3：胜负判定" class="headerlink" title="3：胜负判定"></a>3：胜负判定</h4><p>游戏可大致分为“犯人、共犯”，以及“其他人”两个阵营。</p>
+<p>当有人打出“犯人”卡时，游戏结束，犯人阵营胜利。 当通过“侦探”/神犬”卡的效果推测/抓住犯人时，除“犯人、共犯”以外的“其他人”胜利。</p>
+<p>胜利后根据计分表给各个阵营的人加分，计分表如下：</p>
+<p>计分规则： 进行3-4局游戏     先赢得5分的玩家获胜 进行6-8局游戏    先赢得10分的玩家获胜 结算情况： 1.最后一次使用侦探牌的玩家得到2分，被该侦探牌抓到的犯人玩家以及身份为共犯的玩家得到0分，剩下的玩家得到1分。 2.最后一次使用神犬牌的玩家得到3分，被该神犬牌咬到的犯人玩家以及身份为共犯的玩家得到0分，剩下的玩家得到1分。 3.打出犯人牌的玩家以及身份为共犯的玩家得到2分，剩下的玩家得到0分。  </p>
+<h4 id="4：牌类使用条件及效果"><a href="#4：牌类使用条件及效果" class="headerlink" title="4：牌类使用条件及效果"></a>4：牌类使用条件及效果</h4><p><img src="http://rmbgame.net/wp-content/uploads/2016/05/20131029_716945.png" alt="20131029_716945"> <strong>第一发现者</strong>：游戏从拿到这张卡牌的玩家<strong>开始</strong>，由该玩家打出这张牌后，<strong>顺时针</strong>依次出牌。 <strong>犯人</strong>：该卡牌只能作为<strong>最后一张</strong>手牌时打出，即当你没有其他手牌时，才能打出“犯人”，一旦打出这张牌，则游戏结束，“犯人”以及“共犯”获胜。 <strong>不在场证明</strong>：打出该牌无任何效果。当你拥有该卡牌时，你被视作<strong>不是</strong>犯人。这牌其实就是一块免死金牌，无论你手里有没有“犯人”卡，只要你有“不在场证明”，那你就是好人。 也就是说，当别人侦探你，并且让你承认自己是“犯人”，需要满足两个条件，一个条件是你手里有“犯人”牌，另一个条件便是你手里没“不在场证明”。   <img src="http://rmbgame.net/wp-content/uploads/2016/05/20131029_716943.png" alt="20131029_716943"> <strong>情报交换:</strong>当你打出该牌后，由你开始沿顺时针方向，每个玩家依次自行选择一张手牌，并且传递给他左手边的玩家， 接收到的牌请卡背朝上放在自己面前，直到所有人传递牌结束后再拿起放入手牌。 <strong>谣言</strong>：当你打出该牌后，由你开始沿<strong>顺时针</strong>方向，每个玩家依次向他右手边的人那里<strong>随机抽</strong>一张牌， 抽到的牌请<strong>卡背朝上放在自己面前</strong>，直到所有人抽牌结束后再拿起放入手牌。 这样做是为了防止下家抽走你从上家抽的牌。当然啦，大家熟悉规则和游戏后就变成了同时抽右手边玩家的一张卡了…… <strong>交易</strong>：打出该牌后指定一名玩家，双方各自选择一张自己的手牌进行交换。无论双方有无手牌，都可交易。 比方说当你打出交易后如果<strong>没手牌</strong>了，那你仍然可以得到对方的一张牌，对方却不能得到任何牌，反之亦然。 <img src="http://rmbgame.net/wp-content/uploads/2016/05/20131029_716942.png" alt="20131029_716942"> <strong>神犬</strong>：打出该牌时指定一名玩家，被指定的玩家自行选择一张手牌并且弃掉， 接下来被指定的玩家可以把对方打出的那张“神犬”卡<strong>收进手牌</strong>也可以把“神犬”也同时<strong>一起弃掉</strong>。 当被指定玩家丢弃的牌是“犯人”牌时，游戏结束，好人阵营以及神犬获胜。 <strong>一般人</strong>：打出前打出后都无任何效果。 <strong>目击者</strong>：打出该牌后可指定一名除你以外的玩家，<strong>单独观看</strong>他的所有手牌。  </p>
+<h4 id="5：变体规则"><a href="#5：变体规则" class="headerlink" title="5：变体规则"></a>5：变体规则</h4><p>华语版本中，日本的设计师特意为我们设计了两张新卡牌：“警部”和“少年”，还有相应的变体规则。 <img src="http://rmbgame.net/wp-content/uploads/2016/05/c303df63b5c69d60f92cb96be493cbeb.jpg" alt="c303df63b5c69d60f92cb96be493cbeb"> <strong>少年</strong>：打出之后，系统会通知该玩家现在犯人牌在哪个玩家手中。 直接打出此卡牌无任何效果。拥有此卡牌的玩家在游戏开始前知道烦人卡在哪位玩家手中。 <strong>警部</strong>：手牌拥有此卡牌的玩儿家。一直保持此卡牌正面朝向其他玩家(展示)，将此卡牌打在你认为是犯人的玩儿家面(lian)前(shang)，游戏结束时，如果该玩家成为犯人，妳赢得游戏。(3分)   打算同时尝试一下这款游戏的开发。~   目前正在设计中~~</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/05/13/e8-bf-99-e9-87-8c-e5-88-86-e4-ba-ab-e4-b8-80-e4-b8-aa-e8-87-aa-e5-b7-b1-e5-86-99-e7-9a-84-e5-a3-81-e7-ba-b8-e8-8e-b7-e5-8f-96-e5-8a-a0-e6-9b-b4-e6-8d-a2-e7-9a-84-e8-bd-af-e4-bb-b6-trashed/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2016/05/13/e8-bf-99-e9-87-8c-e5-88-86-e4-ba-ab-e4-b8-80-e4-b8-aa-e8-87-aa-e5-b7-b1-e5-86-99-e7-9a-84-e5-a3-81-e7-ba-b8-e8-8e-b7-e5-8f-96-e5-8a-a0-e6-9b-b4-e6-8d-a2-e7-9a-84-e8-bd-af-e4-bb-b6-trashed/" class="post-title-link" itemprop="url">这里分享一个自己写的壁纸获取加更换的软件~</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2016-05-13 09:41:29" itemprop="dateCreated datePublished" datetime="2016-05-13T09:41:29+08:00">2016-05-13</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/" itemprop="url" rel="index"><span itemprop="name">编程</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/编程/软件分享/" itemprop="url" rel="index"><span itemprop="name">软件分享</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>一个壁纸用久了总会腻，想经常换新壁纸。但是又经常懒得找，就能使用这款小软件了，比较方便嘿嘿嘿 自动识别当前电脑分辨率然后找相同分辨率的图片。 <del>~ 保证都是高清图嘿嘿嘿。 截图在下面 使用说明应该也不用详细介绍，很简单。  双击可查看大图，右键有复制图片， 复制图片地址 （外链网址） 保存图片（就是下载下来）  设置背景 <img src="http://rmbgame.net/wp-content/uploads/2016/05/QQjt20160513093915.png" alt="QQjt20160513093915"> 底下有两个单选按钮可以 换 动漫 或游戏的。       红色地方按钮在滚动条移动到底部时候单击可加载新图片出来， 理论上 可以无限加载下去</del>   查看高清图截图： <img src="http://rmbgame.net/wp-content/uploads/2016/05/QQjt20160513093924.png" alt="QQjt20160513093924"> 完全绿色纯净， 无任何广告病毒~ 有好的建议可以告诉我~ </p>
+<p><img src="file:///H:QQUsers469574284ImageGroupImage4IUUXIZ%5DI6(3QPG$QSHG)81D.jpg" alt></p>
+<p><img src="file:///H:QQUsers469574284ImageGroupImage4IUUXIZ%5DI6(3QPG$QSHG)81D.jpg" alt>链接: <a href="http://pan.baidu.com/s/1c1UzMnA" target="_blank" rel="noopener">http://pan.baidu.com/s/1c1UzMnA</a> 密码: 7x24</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/05/12/e5-b8-a6virtio-e9-a9-b1-e5-8a-a8-e7-9a-84-e6-9c-8d-e5-8a-a1-e5-99-a8-e7-b3-bb-e7-bb-9f-e9-95-9c-e5-83-8f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2016/05/12/e5-b8-a6virtio-e9-a9-b1-e5-8a-a8-e7-9a-84-e6-9c-8d-e5-8a-a1-e5-99-a8-e7-b3-bb-e7-bb-9f-e9-95-9c-e5-83-8f/" class="post-title-link" itemprop="url">带Virtio驱动 的 服务器系统镜像</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2016-05-12 02:57:17" itemprop="dateCreated datePublished" datetime="2016-05-12T02:57:17+08:00">2016-05-12</time>
             </span>
           
             
@@ -1080,13 +1175,6 @@
 
                 
                 
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/水的一笔/软件分享/" itemprop="url" rel="index"><span itemprop="name">软件分享</span></a></span>
-
-                
-                
               
             </span>
           
@@ -1102,10 +1190,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>更新了最近的几个预览版后一直在使用的Shadowsocks-GUI都不能用了，无奈之下转了ShadowsocksR，刚刚查了Github上的issue，发现这个问题是最近的预览版中Win10的一个网络配置API挂了。具体的情况参见<a href="https://github.com/shadowsocks/shadowsocks-windows/issues/814" target="_blank" rel="noopener">这里</a>。 临时解决方案是：</p>
-<p>一、换用ShadowsocksR，这个客户端使用的注册表的方法配置代理，不受API挂掉的影响。</p>
-<p>二、手动在设置APP里配置代理，填写代理服务器127.0.0.1，以及SS客户端的端口。暂时还没解决PAC问题，只能全局。</p>
-<p><em>PAC读下源码应该能看到是怎么实现的，照着手动模仿一个应该也行，然而期末考试期间还是不作死了……哪位大神有空看看呗……</em> 2016-12-25 更新： 忽然发现这个问题已经修复，不知道是SS改了代理设置方法还是微软终于修复了那个API的错误。现在<a href="https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso" target="_blank" rel="noopener">更新到14986版系统</a>，搭配<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">最新版SS</a>是可以使用的。（SSR就不用再用了）</p>
+          <p>Windows 8.1, 8, 7, XP, Server 2012, 2008, 2003的ISO镜像 <a href="http://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_x64_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.iso" target="_blank" rel="noopener">http://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_x64_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.iso</a> <a href="http://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.iso" target="_blank" rel="noopener">http://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.iso</a> <a href="http://dl03.miefen.com/os/en_win_xp_pro_x64_with_sp2_vl_incl_virtio_X13-140502-homemade-by-Jetso.iso" target="_blank" rel="noopener">http://dl03.miefen.com/os/en_win_xp_pro_x64_with_sp2_vl_incl_virtio_X13-140502-homemade-by-Jetso.iso</a> <a href="http://dl03.miefen.com/os/zh-hans_windows_xp_professional_with_service_pack_3_x86_cd_vl_incl_virtio_x14-140508-homemade-by-Jetso.iso" target="_blank" rel="noopener">http://dl03.miefen.com/os/zh-hans_windows_xp_professional_with_service_pack_3_x86_cd_vl_incl_virtio_x14-140508-homemade-by-Jetso.iso</a> <a href="http://dl03.miefen.com/os/cn_windows_server_2008_r2_standard_enterprise_datacenter_and_web_with_sp1_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso" target="_blank" rel="noopener">http://dl03.miefen.com/os/cn_windows_server_2008_r2_standard_enterprise_datacenter_and_web_with_sp1_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href="http://dl02.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x86_dvd_u_incl_virtio-140506-homemade-by-Jetso.iso" target="_blank" rel="noopener">http://dl02.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x86_dvd_u_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href="http://dl02.miefen.com/os/cn_windows_8_1_pro_vl_x86_dvd_incl_virtio-140506-homemade-by-Jetso.iso" target="_blank" rel="noopener">http://dl02.miefen.com/os/cn_windows_8_1_pro_vl_x86_dvd_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href="http://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_x64_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.isohttp://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.isohttp://dl03.miefen.com/os/en_win_xp_pro_x64_with_sp2_vl_incl_virtio_X13-140502-homemade-by-Jetso.isohttp://dl03.miefen.com/os/zh-hans_windows_xp_professional_with_service_pack_3_x86_cd_vl_incl_virtio_x14-140508-homemade-by-Jetso.isohttp://dl03.miefen.com/os/cn_windows_server_2008_r2_standard_enterprise_datacenter_and_web_with_sp1_x64_dvd_incl_virtio-140506-homemade-by-Jetso.isohttp://dl02.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x86_dvd_u_incl_virtio-140506-homemade-by-Jetso.isohttp://dl02.miefen.com/os/cn_windows_8_1_pro_vl_x86_dvd_incl_virtio-140506-homemade-by-Jetso.isohttp://dl02.miefen.com/os/cn_windows_8_pro_vl_x86_dvd_incl_virtio-140506-homemade-by-Jetso.isohttp://dl01.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x64_dvd_u_incl_virtio-140506-homemade-by-Jetso.isohttp://dl01.miefen.com/os/cn_windows_8_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.isohttp://dl01.miefen.com/os/cn_windows_8_1_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.isohttp://dl01.miefen.com/os/cn_windows_server_2012_r2_x64_dvd_incl_virtio-140505-homemade-by-Jetso.iso" target="_blank" rel="noopener">http://dl02.miefen.com/os/cn_windows_8_pro_vl_x86_dvd_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href="http://dl01.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x64_dvd_u_incl_virtio-140506-homemade-by-Jetso.iso" target="_blank" rel="noopener">http://dl01.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x64_dvd_u_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href="http://dl01.miefen.com/os/cn_windows_8_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso" target="_blank" rel="noopener">http://dl01.miefen.com/os/cn_windows_8_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href="http://dl01.miefen.com/os/cn_windows_8_1_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso" target="_blank" rel="noopener">http://dl01.miefen.com/os/cn_windows_8_1_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href="http://dl01.miefen.com/os/cn_windows_server_2012_r2_x64_dvd_incl_virtio-140505-homemade-by-Jetso.iso" target="_blank" rel="noopener">http://dl01.miefen.com/os/cn_windows_server_2012_r2_x64_dvd_incl_virtio-140505-homemade-by-Jetso.iso</a>   记录一下。 补充一下server 2012 r2安装秘钥</p>
+<p>ServerStandard = NB4WH-BBBYV-3MPPC-9RCMV-46XCB<br>ServerStandardCore = NB4WH-BBBYV-3MPPC-9RCMV-46XCB<br>ServerDatacenter = BH9T4-4N7CW-67J3M-64J36-WW98Y<br>ServerDatacenterCore = BH9T4-4N7CW-67J3M-64J36-WW98Y<br>ServerHyperCore = Q8R8C-T2W6H-7MGPB-4CQ9R-KR36H<br>ServerWinFoundation = 7JGXN-BW8X3-DTJCK-WG7XB-YWP26<br>ServerStorageStandard = H2K4M-QNKQ2-64699-FYQHD-2WDYT<br>ServerStorageWorkgroup = 8N7PM-D3C64-RQVYF-MX8T7-G6MB2<br>ServerSolutionCore = 326N4-6GMBX-PD2QT-M7HX4-TVHM8gvlk<br>ServerSolutionCore = KNC87-3J2TX-XB4WP-VCPJV-M4FWM</p>
 
         
       
@@ -1130,7 +1216,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/11/03/e8-bd-af-e5-a6-b9-e5-b8-81-e5-8d-9a-e5-ae-a2-e6-90-ac-e5-ae-b6-e5-ae-8c-e6-88-90/">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/05/11/vc14vc2015-e5-ae-89-e8-a3-85-e5-a4-b1-e8-b4-a50x80240017-e6-9c-aa-e6-8c-87-e5-ae-9a-e7-9a-84-e9-94-99-e8-af-af-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="软妹币玩家">
@@ -1144,7 +1230,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2016/11/03/e8-bd-af-e5-a6-b9-e5-b8-81-e5-8d-9a-e5-ae-a2-e6-90-ac-e5-ae-b6-e5-ae-8c-e6-88-90/" class="post-title-link" itemprop="url">软妹币博客搬家完成!</a>
+            <a href="/2016/05/11/vc14vc2015-e5-ae-89-e8-a3-85-e5-a4-b1-e8-b4-a50x80240017-e6-9c-aa-e6-8c-87-e5-ae-9a-e7-9a-84-e9-94-99-e8-af-af-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/" class="post-title-link" itemprop="url">VC14(VC2015)安装失败,0x80240017 - 未指定的错误 解决办法</a>
           
         </h1>
 
@@ -1159,7 +1245,7 @@
                 
               
 
-              <time title="创建时间：2016-11-03 17:03:39" itemprop="dateCreated datePublished" datetime="2016-11-03T17:03:39+08:00">2016-11-03</time>
+              <time title="创建时间：2016-05-11 12:09:58" itemprop="dateCreated datePublished" datetime="2016-05-11T12:09:58+08:00">2016-05-11</time>
             </span>
           
             
@@ -1180,21 +1266,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/" itemprop="url" rel="index"><span itemprop="name">日常</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/未来计划/" itemprop="url" rel="index"><span itemprop="name">未来计划</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/日常/未来计划/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/心得技巧/" itemprop="url" rel="index"><span itemprop="name">心得技巧</span></a></span>
 
                 
                 
@@ -1213,7 +1285,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>服务器搬家啦<del>~   又到了一年的 年底了， 过的浑浑噩噩。 中间还休息了会   考了个驾照。   2016就快过了。 距离定位的目标也并没有前进多少。 <img src="http://rmbgame.net/wp-content/uploads/2016/10/RSlJhKc.png" alt="rsljhkc"> 博客也经常偷懒都不上来写写东西， 有时候打算写也不知道说什么。。   都是泪啊QAQ   这里给我新搬过来的新香港服务器宣传下。   新搬到了<a href="https://www.diyvm.com/page.aspx?c=referral&u=62720" target="_blank" rel="noopener">DIYVM</a>上。（跟conoha说再见了呢，主要是速度 不稳加上最近的日元涨价，服务器都等于变相涨价了..） 突然发现被价格和配置所吸引， 浅浅的了解下就入坑了。 暂时先用段时间看看吧。（不作不死） <img src="http://rmbgame.net/wp-content/uploads/2016/11/A071KQ345JADJBXGZW.jpg" alt="a071kq345jadjbxgzw"> 目前<a href="https://www.diyvm.com/page.aspx?c=referral&u=62720" target="_blank" rel="noopener">DIYVM</a>有活动， 也顺便推广下。 点击<a href="https://www.diyvm.com/page.aspx?c=referral&u=62720" target="_blank" rel="noopener">DIYVM</a>进入后先注册帐号即可使用优惠码。 活动貌似仅限11月。 <img src="http://rmbgame.net/wp-content/uploads/2016/11/QQ20161103170108.png" alt="qq20161103170108"> 互动价格和配置还是很吸引人的吧。 有意向的小伙伴可以点击我的推广链接进去试试</del> <a href="https://www.diyvm.com/page.aspx?c=referral&u=62720" target="_blank" rel="noopener">https://www.diyvm.com/page.aspx?c=referral&amp;u=62720</a> 注册帐号在购买哦~</p>
+          <p>闲的蛋疼升级PHP7  然而遇到VC14无法安装的问题。按照如下方法解决了。 （但是目前发现云签到系统没法在PHP7下运行，貌似我又要换回去QAQ） 找到了解决方法，给云签专门挂了PHP5。<del>~</del>   ——————————————————————————————————————–   VC2015、VC14 在 Windows 2012 R2 安装失败,0x80240017 - 未指定的错误，解决办法 据朋友反应VC2013一样存在这个问题……; <img src="http://www.iszip.com/uploads/allimg/160112/1-1601121AH01W.jpg" alt> 查资料说是没有安装 KB2999226 补丁，查看错误日志文件，里面有一行C:\ProgramData\Package Cache\FC6260C33678BB17FB8B88536C476B4015B7C5E9\packages\Patch\x64\Windows8.1-KB2999226-x64.msu” /quiet /norestart’</p>
+<p>可见，该补丁是带了的，而它安装失败，直接去点击这个补丁，弹出错误：此更新不适用你的计算机。 <img src="http://www.iszip.com/uploads/allimg/160112/1-1601121A934Z4.jpg" alt>可见，安装此补丁失败的原因是，它又需要前置条件，原文摘录如下：</p>
+<p>系统必备组件</p>
+<p>若要安装此更新，您必须 2014 年 4 月累积更新 Windows RT 8.1、 Windows 8.1 和 Windows Server 2012 R2 (2919355) 安装在 Windows 8.1 或 Windows Server 2012 R2 上。或者安装 Windows 7 的 Windows Server 2008 R2 的 Service Pack 1.或者安装 Service Pack 2 适用于 Windows Vista 和 Windows server 2008.</p>
+<p>那么，需要安装 2919355 号补丁，页面地址<a href="https://support.microsoft.com/zh-cn/kb/2919355" target="_blank" rel="noopener">https://support.microsoft.com/zh-cn/kb/2919355</a></p>
+<p>下载页面在：<a href="https://www.microsoft.com/en-us/download/details.aspx?id=42334" target="_blank" rel="noopener">https://www.microsoft.com/en-us/download/details.aspx?id=42334</a></p>
+<p>以下复制该问题的解决办法之二：</p>
+<blockquote>
+<h3 id="Microsoft-下载中心"><a href="#Microsoft-下载中心" class="headerlink" title="Microsoft 下载中心"></a>Microsoft 下载中心</h3><p>您还可以获得通过 Microsoft 下载中心的独立更新软件包。 <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=47b21d89-3f78-477f-9402-8021e61bef59" target="_blank" rel="noopener">立即下载基于 x86 的 Windows 8.1 更新软件包。</a> <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=f2917221-a8b3-4024-b755-818ad0e7703d" target="_blank" rel="noopener">立即下载基于 x64 的 Windows 8.1 更新软件包。</a> <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=373b1bb0-6d55-462e-98b7-6cb7d9ef1448" target="_blank" rel="noopener">立即下载基于 x64 的 Windows Server 2012 R2 更新软件包。</a> 注意:适用于Windows RT 8.1的更新只能从Windows Update获取。 注意:必须按以下顺序安装更新: clearcompressionflag.exe、 KB2919355、 KB2932046、 KB2959977、 KB2937592、 KB2938439 和 KB2934018。</p>
+</blockquote>
+<p>然后，KB2919355，又需要前置补丁KB2919442，<a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=42153" target="_blank" rel="noopener">立即下载基于 x64 的 Windows Server 2012 R2 的KB2919442补丁</a>。 解决办法之一：就是开启Windows自动更新，打全补丁，估计微软是为了告诉我们：他们不但修补了漏洞还增加了新功能。 注：补丁必须按照顺序安装.   转自：<a href="http://www.iszip.com/post/VC14setupfailed.html" target="_blank" rel="noopener">http://www.iszip.com/post/VC14setupfailed.html</a></p>
 
         
       
@@ -1238,7 +1320,7 @@
   
   
   <div class="post-block home">
-    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/10/30/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91c-e4-b8-adstatic-e7-9a-84-e7-94-a8-e6-b3-95-e6-80-bb-e7-bb-93/">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/04/21/e4-bb-a3-e7-a0-81-e5-b0-91-e5-a5-b3collection-e8-af-95-e7-8e-a9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="软妹币玩家">
@@ -1252,7 +1334,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
             
-            <a href="/2016/10/30/e3-80-90-e5-b0-8f-e7-99-bd-e5-90-91-e3-80-91c-e4-b8-adstatic-e7-9a-84-e7-94-a8-e6-b3-95-e6-80-bb-e7-bb-93/" class="post-title-link" itemprop="url">【小白向】C++中static的用法总结</a>
+            <a href="/2016/04/21/e4-bb-a3-e7-a0-81-e5-b0-91-e5-a5-b3collection-e8-af-95-e7-8e-a9/" class="post-title-link" itemprop="url">代码少女Collection 试玩</a>
           
         </h1>
 
@@ -1267,7 +1349,7 @@
                 
               
 
-              <time title="创建时间：2016-10-30 22:16:04" itemprop="dateCreated datePublished" datetime="2016-10-30T22:16:04+08:00">2016-10-30</time>
+              <time title="创建时间：2016-04-21 10:07:12" itemprop="dateCreated datePublished" datetime="2016-04-21T10:07:12+08:00">2016-04-21</time>
             </span>
           
             
@@ -1288,7 +1370,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其它语言/" itemprop="url" rel="index"><span itemprop="name">其它语言</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/游戏分享/" itemprop="url" rel="index"><span itemprop="name">游戏分享</span></a></span>
 
                 
                 
@@ -1307,10 +1389,320 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>毕竟我是小白嘛，和站长大大没法比，所以只好写一些这类的粗浅文章了，如果有帮助到初学的朋友就好了。 关于static关键字的用法，网上写的文章大多冗长，看了以后感觉所有的情况都可以用最简单的几句话来推导，所以总结如下。</p>
-<p>1.static限定的变量在全局数据段中，仅限本文件访问，而且只会初始化一次（缺省为0），整个程序只有一份。</p>
-<p>2.static修饰的函数，只在声明它的文件中可见。对于对象的成员函数如果被它修饰，那么它针对的是整个类，不再具有缺省的this指针。</p>
-<p>只是小白的总结，如果有错误还请指正…… 求轻喷……</p>
+          <p>首先 看到这个名字 就瞬间 被惊讶 。 <img src="https://rmbgame.net/wp-content/uploads/2016/04/codecollection-2.jpg" alt="codecollection"> <img src="https://rmbgame.net/wp-content/uploads/2016/04/codecollection-3.jpg" alt="codecollection"> CodeGirlCollection     红红火火恍恍惚惚 广大技术宅福音 简直     放几张体验图 <img src="https://rmbgame.net/wp-content/uploads/2016/04/codecollection-1.jpg" alt="codecollection"> <img src="https://rmbgame.net/wp-content/uploads/2016/04/codecollection-1.png" alt="codecollection">   简直学习编程利器，  虽然只有 php 和ruby   不知道以后能支持更多语言吗 233333 ps： 游戏已经更新啦！ 现在有了java 和python 了哦<del>~   游戏地址链接:    <a href="https://paiza.jp/cgc" target="_blank" rel="noopener">https://paiza.jp/cgc</a>   注册很简单， 只要填写 邮箱 昵称 密码   验证邮箱完成 即可游玩</del></p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/04/02/e5-b0-8f-e7-99-bd-e7-9a-84-e9-ab-98-e6-80-a7-e8-83-bd-e8-ae-a1-e7-ae-97-e5-ad-a6-e4-b9-a0-e4-b9-8b-e6-97-85-ef-bc-88-e4-b8-80-ef-bc-89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2016/04/02/e5-b0-8f-e7-99-bd-e7-9a-84-e9-ab-98-e6-80-a7-e8-83-bd-e8-ae-a1-e7-ae-97-e5-ad-a6-e4-b9-a0-e4-b9-8b-e6-97-85-ef-bc-88-e4-b8-80-ef-bc-89/" class="post-title-link" itemprop="url">小白的高性能计算学习之旅（一）</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2016-04-02 02:48:08" itemprop="dateCreated datePublished" datetime="2016-04-02T02:48:08+08:00">2016-04-02</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/心得技巧/" itemprop="url" rel="index"><span itemprop="name">心得技巧</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/心得技巧/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>因为项目需要，今天就初步了解下高性能计算的部分内容，很多东西是我看完网上得到的资料口胡的，如果有不对的地方还请指正和包涵哈J   一、平台选定 初一接触高性能计算，我们有两个平台可以选择，CUDA和Open CL。首先来说CUDA是Nvidia公司推出的耳熟能详地运行于其自家GPU上的基于C的并行编程平台，其局限性在于只能运行于老黄家的显卡，而对ARM、AMD、Intel的平台统统不支持。然后来看Open CL，这似乎是一个更为开放的平台，或者说，这是一个各家厂商共同遵循的标准，几乎支持AMD、ARM、Intel、Nvidia等公司的所有芯片，所以某种程度上讲，它的程序可以更为广泛的运行在更多的地方，独立或者一起工作。 查过一些资料后，我暂时决定先了解CUDA。因为根据网上所能找到的描述来看，CUDA和Open CL比起来，CUDA更像是高级语言，它与硬件无关，对于一个初学者来说，CUDA因其为N 卡定制而更容易获得更高的运行效率。反观Open CL，这是个更接近底层的语言，虽然也是基于C语言，但掌握起来更慢一些。考虑到在有限的时间里获得更好的学习效果，我暂且选择CUDA。   二、CUDA入门 决定了是CUDA，先来了解下CUDA的基本情况。CUDA上的程序分为两部分，一部分在host端（CPU）上运行，叫做kernel，用来准备送给GPU的数据，并在计算结束后从GPU上取回结果；另一部分在Device(GPU)上运行，也就是并行计算的部分。 GPU部分程序的最小单位是线程（Thread）；几个线程组成一个块（block），一个块里的线程公用一个存储空间，所以相比较不同块中的线程，块内线程合作程度还是比较大的；几个块可以组成一个网格（Grid）。个人感觉，似乎线程是具体的执行单元，根据GPU物理性能的限制我们把线程分成块，通过几个块循环执行来实现所需要的功能，然后相同任务的块合起来叫做网格，一个网格完成一个特定的任务。 需要注意的是CPU和GPU之间传输数据必须通过PCI Express口，速度有限，所以应该尽量减少这部分程序内容。   三、安装CUDA开发环境 N家的官网上下载页面如下：<a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads</a> 进去首先是选择自己的平台，这里我选择了我的电脑所使用的操作系统的版本，Win10 64位版。 <img src="http://rmbgame.net/wp-content/uploads/2016/04/1.png" alt="1"> 图1 选择开发平台 <img src="http://rmbgame.net/wp-content/uploads/2016/04/2.png" alt="2"> 图2 下载链接 可以看到这里竟然还有一个简单的安装说明，虽然说了和没说没什么区别…… Nvidia竟然还在这里提供了一篇入门手册，简直贴心，下载地址如下： <a href="http://developer.download.nvidia.com/compute/cuda/7.5/Prod/docs/sidebar/CUDA_Quick_Start_Guide.pdf" target="_blank" rel="noopener">http://developer.download.nvidia.com/compute/cuda/7.5/Prod/docs/sidebar/CUDA_Quick_Start_Guide.pdf</a> 这里有一篇更为详细的安装说明。我们先来读一下手册。 <em>2.2本地安装</em> <em>1.启动下载的安装包。</em> <em>2.阅读并接受终端用户使用协议。</em> <em>3.点击下一步来安装所有组件。</em> <em>4.一旦安装完成，点击下一步来查看Nsight VS版安装报告。</em> <em>5.点击“关闭”来关闭安装程序。</em> <em>6.导航到CUDA实例Nbody目录。</em> <em>7.打开nbody的VS解决方案（老版本称为项目）文件，这里可能有多个，运行与你的VS版本相符的版本。</em> <em>8.打开VS的 “编译”菜单，并点击“编译解决方案”。</em> <em>9.打开CUDA实例的编译目录并运行实例。</em>   这里给出了一个CUDA的示例，可以直接编译运行代码检查安装是否正确。不过我有些担心，因为我的电脑是AMD的显卡，应该是不支持CUDA的，不过听说有一个模拟器可以运行CUDA程序，等会我试一下。废话不多说，我去安装了。 <img src="http://rmbgame.net/wp-content/uploads/2016/04/3.png" alt="3"> 图3 选择安装程序解压目录 首先会弹出一个对话框，询问安装程序的解压目录，看来下载的安装包是压缩文件，这里默认解压到临时文件夹就好，应该不需要更改。 <img src="http://rmbgame.net/wp-content/uploads/2016/04/4.png" alt="4"> 图4 检查兼容性 果然，检查兼容性这里报错了，说没有找到N家的显卡硬件，可能不能运行CUDA应用。不管了，强行装一波。 <img src="http://rmbgame.net/wp-content/uploads/2016/04/5.png" alt="5"> 图5 Visual Studio一体化插件 又卡在了奇怪的地方。这里是检查VS版本，估计是CUDA7.5还不支持我用的VS2015版，搞不好装完了也不能运行……没办法，先装吧，不行我再降级到2013…… 终于开始安装了，再不报一个错我心都要碎了…… <img src="http://rmbgame.net/wp-content/uploads/2016/04/6.png" alt="6"> 图6 安装过程 <img src="http://rmbgame.net/wp-content/uploads/2016/04/7.png" alt="7"> 图7 安装结果 果然是不支持VS2015，不管了，我先就这样了，不行就以后重装一个…… <em>更新：这里有Nsight的VS2015支持包，单独安装下……</em> <em>下载地址：<a href="https://developer.nvidia.com/nvidia-nsight-visual-studio-edition" target="_blank" rel="noopener">https://developer.nvidia.com/nvidia-nsight-visual-studio-edition</a></em> <em>PS__：需要注册一个Nvidia的开发者账户。</em> 后面有选项，可以查看文档和实例，这里先不看，反正这些东西在开始菜单里都有，以后用到再说。且先让我看一波VS，看看到底能不能运行Nsight插件。 确实能在VS中看到Nsight的菜单了，但是在打开解决方案的时候所有文件都报了加载错误，有可能是因为实例工程是VS2010的版本，这个留到明天再解决吧。 检查了，还是不能用，已换VS2012，GG了…… 不早了，各位晚安。   参考资料：</p>
+<ol>
+<li><a href="http://blog.csdn.net/babyfacer/article/details/6863572，《CUDA与Open" target="_blank" rel="noopener">http://blog.csdn.net/babyfacer/article/details/6863572，《CUDA与Open</a> CL区别》，Babyfacer。</li>
+<li><a href="http://www2.kimicat.com/cuda簡介，《CADA简介》，Hotball。" target="_blank" rel="noopener">http://www2.kimicat.com/cuda簡介，《CADA简介》，Hotball。</a></li>
+</ol>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/03/22/e6-9c-80-e8-bf-91-e7-a2-b0-e5-88-b0-e7-9a-84-e8-ae-b8-e5-a4-9a-e5-a5-87-e6-80-aa-e9-97-ae-e9-a2-98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2016/03/22/e6-9c-80-e8-bf-91-e7-a2-b0-e5-88-b0-e7-9a-84-e8-ae-b8-e5-a4-9a-e5-a5-87-e6-80-aa-e9-97-ae-e9-a2-98/" class="post-title-link" itemprop="url">最近碰到的许多奇怪问题~</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2016-03-22 03:55:55" itemprop="dateCreated datePublished" datetime="2016-03-22T03:55:55+08:00">2016-03-22</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/心得技巧/" itemprop="url" rel="index"><span itemprop="name">心得技巧</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/心得技巧/水的一笔/" itemprop="url" rel="index"><span itemprop="name">水的一笔</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近 经常小改动博客， 结果时不时也遇到奇怪问题，这里总结下奇怪问题。   首先最开始 再一次关服务器备份之后， 重启服务器之后，  打开wordpress 就看见 \“建立数据库连接时出错\“ what the hell !!? 情急之下我看了下数据库， 嗯？  mysql 服务没启动，手动启动一下发现 启动不了， 错误1069 考虑 用户权限问题， 右键 属性 更换用户到 administrator  启动成功了。 数据库 启动好以后 依然 \“建立数据库连接时出错\“  这下 我就无语了，  打开IIS 看权限测试，发现对wordpress 路径 身份验证出现问题， 再次指定用户 administrator   问题解决。   之后挂博客 不到5天  ， 遇见第二个 奇怪的问题。 iis应用程序池 频繁自动停止，  打开之后一访问 博客就停， 页面显示错误为503.. 试了网上的改 Net Service 依然 没用， 最后在IIS 新建网站 在把博客放进去就好了， 问题不明。。。   博客好了没几天， 出现上传图片 http错误 ，   修复了几下没用 最后无奈还原 备份。   sigh.. 真是奇怪</p>
+
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+        <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block home">
+    <link itemprop="mainEntityOfPage" href="https://blog.rmbgame.net/2016/03/16/e5-85-b3-e4-ba-8ec-e6-97-a0-e8-be-b9-e6-a1-86-e7-aa-97-e4-bd-93-e7-9a-84-e6-8b-96-e6-8b-bd-e5-ae-9e-e7-8e-b0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="软妹币玩家">
+      <meta itemprop="description" content="软件|游戏|动漫|二次元|编程|软妹币玩家的分享博客。虽然技术不是很厉害，但是总想做点什么呢.. 这里是一个记录， 分享 成长过程的博客。">
+      <meta itemprop="image" content="/images/face.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="软软's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+            
+            <a href="/2016/03/16/e5-85-b3-e4-ba-8ec-e6-97-a0-e8-be-b9-e6-a1-86-e7-aa-97-e4-bd-93-e7-9a-84-e6-8b-96-e6-8b-bd-e5-ae-9e-e7-8e-b0/" class="post-title-link" itemprop="url">关于C# 无边框窗体的拖拽实现</a>
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2016-03-16 08:43:18" itemprop="dateCreated datePublished" datetime="2016-03-16T08:43:18+08:00">2016-03-16</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-21 18:15:47" itemprop="dateModified" datetime="2019-09-21T18:15:47+08:00">2019-09-21</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/" itemprop="url" rel="index"><span itemprop="name">Csharp</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Csharp/心得技巧/" itemprop="url" rel="index"><span itemprop="name">心得技巧</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>每个窗口会有一个称为窗口过程的回调函数(WndProc)，它带有四个参数，分别为： 窗口句柄(Window Handle) HWND, 消息ID(Message ID) UINT, 和两个消息参数(wParam, lParam)WPARAM、LPARAM, WndProc的第一个参数hWnd就是当前接收消息的窗口句柄，第二个参数就是被传送过来的消息，第三、第四个参数都是附加在消息上的数据，这和MSG结构体是一样的。 代码如下：</p>
+<p>//窗口拖拽<br>protected override void WndProc(ref Message m)<br>{<br>const int WM_NCHITTEST = 0x84;<br>const int HTCLIENT = 0x01;<br>const int HTCAPTION = 0x02;<br>const int WM_NCLBUTTONDBLCLK = 0xA3;<br>switch (m.Msg)<br>{<br>case 0x4e:<br>case 0xd:<br>case 0xe:<br>case 0x14:<br>base.WndProc(ref m);<br>break;<br>case WM_NCHITTEST://鼠标点任意位置后可以拖动窗体</p>
+<p>this.DefWndProc(ref m);<br>if (m.Result.ToInt32() == HTCLIENT)<br>{<br>m.Result = new IntPtr(HTCAPTION);<br>return;<br>}<br>break;<br>case WM_NCLBUTTONDBLCLK://禁止双击最大化<br>Console.WriteLine(this.WindowState);</p>
+<p>return;</p>
+<p>default:</p>
+<p>base.WndProc(ref m);<br>break;<br>}<br>}</p>
+<p>  亦或者可以使用其它方法 比如窗口鼠标点击事件和移动事件。 ~ PS： 其实我就是想看看代码插件效果</p>
 
         
       
@@ -1334,7 +1726,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1382,7 +1774,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1439,17 +1831,7 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span>
         
       </div>
@@ -1506,21 +1888,7 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span>
         
       </div>
