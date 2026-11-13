@@ -1,0 +1,1001 @@
+{
+  "posts": [
+    {
+      "url": "/2017/08/30/nvidia-e5-ae-89-e8-a3-85-e7-a8-8b-e5-ba-8f-e6-97-a0-e6-b3-95-e7-bb-a7-e7-bb-ad-e3-80-82-e9-9c-80-e8-a6-81-e9-87-8d-e6-96-b0-e5-90-af-e5-8a-a8-e7-b3-bb-e7-bb-9f-e3-80-82/",
+      "title": "NVIDIA安装程序无法继续。 需要重新启动系统。",
+      "date": "2017-08-30",
+      "html": "\n\n      \n        <p>在昨天晚上因为想更新显卡驱动，结果发现一直都没法装上，如下提示： <img src=\"http://rmbgame.net/wp-content/uploads/2017/08/8c31c9177f3e67090298b1fe3cc79f3df9dc554a.png\" alt> 【因为我已经解决了问题装完了，所以这图是随便找到，版本号不要在意。。】 看到提示后我也重启过N遍电脑了，打开都是这个提示，然后我开始了卸载驱动。 没想到卸载驱动还是这个提示，不过在用了别的方法强制卸载后。发现还是一直提示重启。 没有办法完成安装。   最后发现是注册表里有个Nvidia_Reboot_Required来标记你的机子是否重启，一直没有被删除导致。 手动删除他就能安装驱动了。 1.WIN+R打开运行 2.键入 “regedit” 3.点开“HKEY_LOCAL_MACHINE\\SOFTWARE” 4.在底下找到“Nvidia_Reboot_Required”（或类似的名称），并将其删除。   然后再打开你的nvidia安装程序，问题解决了~</p>\n\n    ",
+      "text": "在昨天晚上因为想更新显卡驱动，结果发现一直都没法装上，如下提示： 【因为我已经解决了问题装完了，所以这图是随便找到，版本号不要在意。。】 看到提示后我也重启过N遍电脑了，打开都是这个提示，然后我开始了卸载驱动。 没想到卸载驱动还是这个提示，不过在用了别的方法强制卸载后。发现还是一直提示重启。 没有办法完成安装。 最后发现是注册表里有个Nvidia_Reboot_Required来标记你的机子是否重启，一直没有被删除导致。 手动删除他就能安装驱动了。 1.WIN+R打开运行 2.键入 “regedit” 3.点开“HKEY_LOCAL_MACHINE\\SOFTWARE” 4.在底下找到“Nvidia_Reboot_Required”（或类似的名称），并将其删除。 然后再打开你的nvidia安装程序，问题解决了~",
+      "categories": [
+        {
+          "name": "日常",
+          "url": "/categories/日常/"
+        },
+        {
+          "name": "水的一笔",
+          "url": "/categories/日常/水的一笔/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "NVIDIA",
+          "url": "/tags/NVIDIA/"
+        },
+        {
+          "name": "故障处理",
+          "url": "/tags/故障处理/"
+        },
+        {
+          "name": "驱动",
+          "url": "/tags/驱动/"
+        }
+      ]
+    },
+    {
+      "url": "/2017/08/16/react-weui-e4-b8-adtab-e3-80-81tabbaritem-e9-81-87-e5-88-b0-e7-9a-84-e5-9d-91/",
+      "title": "react-weui中Tab、TabBarItem遇到的坑",
+      "date": "2017-08-16",
+      "html": "\n\n      \n        <p>近期在琢磨React,  同时需要开发微信端的东西使用了react-weui 结果发现react-weui的文档说明真的是不全, 遇到好几个坑 在这里记录一下 在使用TabBarItem前观看了 <a href=\"https://weui.github.io/react-weui/docs/#/react-weui/docs/page/0/articles/0\" target=\"_blank\" rel=\"noopener\">react-weui 文档 </a> <img src=\"http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816173155-1024x589.png\" alt> 可以根据active属性 得知设定是否激活，默认为fasle <tab type=\"tabbar\"> &lt;TabBarItem icon={<img>} label=”11” active={true}/&gt; &lt;TabBarItem icon={<img>} label=”22” active={true}/&gt; </tab> 照上面代码看应该会两个都是高亮激活的样式       但在实际使用中我设置了fasle和true都没有反应 郁闷的找了很久的原因 最后在还是在React-Weui的源码中发现了问题所在 因为TabBarItme是写在Tab组件里用的 【官方例子也是这样的】 然后Tab组件里有个props属性 “defaultindex” <img src=\"http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816173612.png\" alt> <img src=\"http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816173622.png\" alt> 该属性会影响子节点的active ,导致在TabBarItme里设置active在一开始是会被Tab组件里的defaultindex刷掉的= =   所以最后应该 把初始要激活的菜单写在tab组件的 defaultindex props属性里 <tab type=\"tabbar\" defaultindex=\"{0}\"> &lt;TabBarItem icon={<img>} label=”11” active={true}/&gt; &lt;TabBarItem icon={<img>} label=”22” active={true}/&gt; </tab>   然而在文档中Tab组件是没有props属性的… <img src=\"http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816174152-1024x703.png\" alt>   </p>\n<p><img src=\"file:///C:%5CUsers%5CDark%5CAppData%5CRoaming%5CTencent%5CQQ%5CTemp_8Y%5BT0S$NV~B$Q_CDNWY\" alt>I1.jpg)<img src=\"http://rmbgame.net/wp-content/uploads/2017/08/8YT0SNVBQ_CDNWYI1.jpg\" alt><img src=\"http://rmbgame.net/wp-content/uploads/2017/08/8YT0SNVBQ_CDNWYI1.jpg\" alt><img src=\"http://rmbgame.net/wp-content/uploads/2017/08/8YT0SNVBQ_CDNWYI1.jpg\" alt></p>\n\n    ",
+      "text": "近期在琢磨React, 同时需要开发微信端的东西使用了react-weui 结果发现react-weui的文档说明真的是不全, 遇到好几个坑 在这里记录一下 在使用TabBarItem前观看了 react-weui 文档 可以根据active属性 得知设定是否激活，默认为fasle <TabBarItem icon={} label=”11” active={true}/> <TabBarItem icon={} label=”22” active={true}/> 照上面代码看应该会两个都是高亮激活的样式 但在实际使用中我设置了fasle和true都没有反应 郁闷的找了很久的原因 最后在还是在React-Weui的源码中发现了问题所在 因为TabBarItme是写在Tab组件里用的 【官方例子也是这样的】 然后Tab组件里有个props属性 “defaultindex” 该属性会影响子节点的active ,导致在TabBarItme里设置active在一开始是会被Tab组件里的defaultindex刷掉的= = 所以最后应该 把初始要激活的菜单写在tab组件的 defaultindex props属性里 <TabBarItem icon={} label=”11” active={true}/> <TabBarItem icon={} label=”22” active={true}/> 然而在文档中Tab组件是没有props属性的… I1.jpg)",
+      "categories": [
+        {
+          "name": "前端",
+          "url": "/categories/前端/"
+        },
+        {
+          "name": "水的一笔",
+          "url": "/categories/前端/水的一笔/"
+        },
+        {
+          "name": "编程",
+          "url": "/categories/前端/水的一笔/编程/"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "url": "/2016/12/31/e5-ae-8c-e7-be-8e-e5-a4-87-e4-bb-bdwin8-e5-92-8cwin10-e5-8c-85-e6-8b-acoffice-e6-bf-80-e6-b4-bb-e4-bf-a1-e6-81-af/",
+      "title": "完美备份WIN8和WIN10包括Office激活信息",
+      "date": "2016-12-31",
+      "html": "\n\n      \n        <p>今天是2016的最后一天啦<del>，各位跨年快乐</del>   该方法仅在Windows8.1企业版、专业版（批量）Windows10企业版测试，其他版本自测   前期准备你系统和Office激活且装好驱动   一：将系统镜像解压的install.wim提取到D盘根目录。   二：D盘先建立一个文件夹install   三：管理员命令提示符Dism /mount-image /imageFile:D:\\install.wim /index:1 /mountdir:D:\\install   四：cache.dat、data.dat、tokens.dat三个文件替换，替换D盘的D: \\install \\Windows\\System32\\spp\\store\\2.0 三个文件信息地址C:\\Windows\\System32\\spp\\store\\2.0 <img src=\"http://rmbgame.net/wp-content/uploads/2016/12/back8.png\" alt> <img src=\"http://rmbgame.net/wp-content/uploads/2016/12/back10.png\" alt>       五：Dism /Image:D:\\install /Set-ProductKey: xxxxx-xxxxx-xxxxx-xxxxx-xxxxx（windows密钥）   六：Dism /unmount-wim /mountdir:D:\\install /commit   七：install替换系统镜像里的install.wim     八：完工。安装系统去吧。   九：安装系统后，打上所有驱动，安装Office输入office密钥即可激活 如找不到输入Office密钥的地方则管理员命令提示符slmgr.vbs -ipk xxxxx-xxxxx-xxxxx-xxxxx-xxxxx（Office密钥）,打开Office任意组件关掉Office提示的激活窗口，文件–账户–更换密钥，即可激活Office</p>\n\n    ",
+      "text": "今天是2016的最后一天啦，各位跨年快乐 该方法仅在Windows8.1企业版、专业版（批量）Windows10企业版测试，其他版本自测 前期准备你系统和Office激活且装好驱动 一：将系统镜像解压的install.wim提取到D盘根目录。 二：D盘先建立一个文件夹install 三：管理员命令提示符Dism /mount-image /imageFile:D:\\install.wim /index:1 /mountdir:D:\\install 四：cache.dat、data.dat、tokens.dat三个文件替换，替换D盘的D: \\install \\Windows\\System32\\spp\\store\\2.0 三个文件信息地址C:\\Windows\\System32\\spp\\store\\2.0 五：Dism /Image:D:\\install /Set-ProductKey: xxxxx-xxxxx-xxxxx-xxxxx-xxxxx（windows密钥） 六：Dism /unmount-wim /mountdir:D:\\install /commit 七：install替换系统镜像里的install.wim 八：完工。安装系统去吧。 九：安装系统后，打上所有驱动，安装Office输入office密钥即可激活 如找不到输入Office密钥的地方则管理员命令提示符slmgr.vbs -ipk xxxxx-xxxxx-xxxxx-xxxxx-xxxxx（Office密钥）,打开Office任意组件关掉Office提示的激活窗口，文件–账户–更换密钥，即可激活Office",
+      "categories": [
+        {
+          "name": "水的一笔",
+          "url": "/categories/水的一笔/"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "url": "/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/",
+      "title": "简单的网易云音乐搜索下载API",
+      "date": "2016-12-29",
+      "html": "\n\n      \n        <p>只是随便很简单就能抓到的接口啦。     【播放此文章顶部的音乐食用更佳啦~<strong>↑↑↑↑↑↑↑↑↑</strong> 不过跟PC  android 的接口应该是不一样的。 具体发现这个接口也是无意之间。 正文开始： 发现接口更新了必须加上version=1 否则都是失效的歌曲地址！！！！ ==============================================================   网易旗下有个 网易博客 跟 LOFTER ， 在发表日志什么的时候，可以插入音乐 <img src=\"http://rmbgame.net/wp-content/uploads/2016/12/20161229111308.png\" alt>   没错， 就是这里。  我们打开浏览器F12 转到 NetWork 然后在随便输入一个歌曲名   <img src=\"http://rmbgame.net/wp-content/uploads/2016/12/20161229111512-1024x675.jpg\" alt> 然后， 就是这么简单啦啊哈。我们就得到了这个搜索音乐的API。 简化一下接口 接口地址为： <a href=\"http://s.music.163.com/search/get/\" target=\"_blank\" rel=\"noopener\">http://s.music.163.com/search/get/</a> 对应参数：</p>\n<p>名称</p>\n<p>值</p>\n<p>作用</p>\n<p>version</p>\n<p>1</p>\n<p>必填，不然查询到的歌曲地址是失效的。</p>\n<p>src</p>\n<p>blog</p>\n<p>这个也不是必填，网易博客是blog，lofter就是lofter</p>\n<p>type</p>\n<p>1</p>\n<p>这是个必填的，默认就好了~</p>\n<p>s</p>\n<p>卡农</p>\n<p>搜索内容不用多说啦， 搜索歌名， 歌手名， 专辑名， 应该事都没问题的~</p>\n<p>limit</p>\n<p>10</p>\n<p>返回搜索结果数量， 我也没有找上限是多少。自己试试吧</p>\n<p>offset</p>\n<p>0</p>\n<p>搜索结果页数~，一页显示不完就有多几页啦。 从0开始哟</p>\n<p>例： <a href=\"http://s.music.163.com/search/get/?type=1&amp;s=Frontier&amp;limit=10&amp;offset=0\" target=\"_blank\" rel=\"noopener\">http://s.music.163.com/search/get/?type=1&amp;s=Frontier&amp;limit=10&amp;offset=0</a>   返回格式为 JSON   结果太长 取短的一条随便说下</p>\n<p>{<br>    \\“result\\“:{<br>        \\“songCount\\“:2589,<br>//搜索到的相关歌曲总数</p>\n<pre><code>\\\\\"songs\\\\\":\\[\n    {\n        \\\\\"id\\\\\":30512839,</code></pre><p>//歌曲网易云ID</p>\n<pre><code>\\\\\"name\\\\\":\\\\\"Frontier\\\\\",</code></pre><p>//名字</p>\n<pre><code>\\\\\"artists\\\\\":\\[</code></pre><p>//歌手信息 多个歌手都显示在底下</p>\n<pre><code>    {\n        \\\\\"id\\\\\":1049952,   \n        \\\\\"name\\\\\":\\\\\"Krale\\\\\",\n        \\\\\"picUrl\\\\\":null\n    },\n    {\n        \\\\\"id\\\\\":0,\n        \\\\\"name\\\\\":\\\\\"Jasmina Lin\\\\\",\n        \\\\\"picUrl\\\\\":null\n    },\n    {\n        \\\\\"id\\\\\":0,\n        \\\\\"name\\\\\":\\\\\"Jay Christopher\\\\\",\n        \\\\\"picUrl\\\\\":null\n    }\n\\],\n\\\\\"album\\\\\":{</code></pre><p>//专辑信息</p>\n<pre><code>\\\\\"id\\\\\":3102519,\n\\\\\"name\\\\\":\\\\\"Frontier \\\\\",\n\\\\\"artist\\\\\":{\n    \\\\\"id\\\\\":0,\n    \\\\\"name\\\\\":\\\\\"\\\\\",\n    \\\\\"picUrl\\\\\":null\n},</code></pre><p>//歌曲封面</p>\n<pre><code>    \\\\\"picUrl\\\\\":\\\\\"http://p1.music.126.net/kNwudenOgsyb63jEVPcm3g==/2537672839489753.jpg\\\\\"    \n},</code></pre><p>//歌曲直链地址，可外链播放 也可以直接下载</p>\n<pre><code>\\\\\"audio\\\\\":\\\\\"http://m2.music.126.net/rRvsLcWtFtPalq_yPmJ0eg==/7826323766722669.mp3\\\\\",\n\\\\\"djProgramId\\\\\":0,</code></pre><p>//歌曲网易云音乐页</p>\n<pre><code>            \\\\\"page\\\\\":\\\\\"http://music.163.com/m/song/30512839\\\\\"\n        }\n    \\]\n},\n\\\\\"code\\\\\":200</code></pre><p>}</p>\n<p>  左侧不是有个music网页嘛【飘着云，一直都没有做后续的那个 其实我本来就是想加上这个接口把页面做完的233，不过一直没弄完2333   而且本文章顶部的音乐直链也是这样取到的哟。 完~</p>\n\n    ",
+      "text": "只是随便很简单就能抓到的接口啦。 【播放此文章顶部的音乐食用更佳啦~↑↑↑↑↑↑↑↑↑ 不过跟PC android 的接口应该是不一样的。 具体发现这个接口也是无意之间。 正文开始： 发现接口更新了必须加上version=1 否则都是失效的歌曲地址！！！！ ============================================================== 网易旗下有个 网易博客 跟 LOFTER ， 在发表日志什么的时候，可以插入音乐 没错， 就是这里。 我们打开浏览器F12 转到 NetWork 然后在随便输入一个歌曲名 然后， 就是这么简单啦啊哈。我们就得到了这个搜索音乐的API。 简化一下接口 接口地址为： http://s.music.163.com/search/get/ 对应参数： 名称 值 作用 version 1 必填，不然查询到的歌曲地址是失效的。 src blog 这个也不是必填，网易博客是blog，lofter就是lofter type 1 这是个必填的，默认就好了~ s 卡农 搜索内容不用多说啦， 搜索歌名， 歌手名， 专辑名， 应该事都没问题的~ limit 10 返回搜索结果数量， 我也没有找上限是多少。自己试试吧 offset 0 搜索结果页数~，一页显示不完就有多几页啦。 从0开始哟 例： http://s.music.163.com/search/get/?type=1&s=Frontier&limit=10&offset=0 返回格式为 JSON 结果太长 取短的一条随便说下 { \\“result\\“:{ \\“songCount\\“:2589,//搜索到的相关歌曲总数 \\\\\"songs\\\\\":\\[ { \\\\\"id\\\\\":30512839,//歌曲网易云ID \\\\\"name\\\\\":\\\\\"Frontier\\\\\",//名字 \\\\\"artists\\\\\":\\[//歌手信息 多个歌手都显示在底下 { \\\\\"id\\\\\":1049952, \\\\\"name\\\\\":\\\\\"Krale\\\\\", \\\\\"picUrl\\\\\":null }, { \\\\\"id\\\\\":0, \\\\\"name\\\\\":\\\\\"Jasmina Lin\\\\\", \\\\\"picUrl\\\\\":null }, { \\\\\"id\\\\\":0, \\\\\"name\\\\\":\\\\\"Jay Christopher\\\\\", \\\\\"picUrl\\\\\":null } \\], \\\\\"album\\\\\":{//专辑信息 \\\\\"id\\\\\":3102519, \\\\\"name\\\\\":\\\\\"Frontier \\\\\", \\\\\"artist\\\\\":{ \\\\\"id\\\\\":0, \\\\\"name\\\\\":\\\\\"\\\\\", \\\\\"picUrl\\\\\":null },//歌曲封面 \\\\\"picUrl\\\\\":\\\\\"http://p1.music.126.net/kNwudenOgsyb63jEVPcm3g==/2537672839489753.jpg\\\\\" },//歌曲直链地址，可外链播放 也可以直接下载 \\\\\"audio\\\\\":\\\\\"http://m2.music.126.net/rRvsLcWtFtPalq_yPmJ0eg==/7826323766722669.mp3\\\\\", \\\\\"djProgramId\\\\\":0,//歌曲网易云音乐页 \\\\\"page\\\\\":\\\\\"http://music.163.com/m/song/30512839\\\\\" } \\] }, \\\\\"code\\\\\":200} 左侧不是有个music网页嘛【飘着云，一直都没有做后续的那个 其实我本来就是想加上这个接口把页面做完的233，不过一直没弄完2333 而且本文章顶部的音乐直链也是这样取到的哟。 完~",
+      "categories": [
+        {
+          "name": "心得技巧",
+          "url": "/categories/心得技巧/"
+        },
+        {
+          "name": "日常",
+          "url": "/categories/心得技巧/日常/"
+        },
+        {
+          "name": "水的一笔",
+          "url": "/categories/心得技巧/日常/水的一笔/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "API",
+          "url": "/tags/API/"
+        },
+        {
+          "name": "JSON",
+          "url": "/tags/JSON/"
+        },
+        {
+          "name": "网易云音乐",
+          "url": "/tags/网易云音乐/"
+        }
+      ]
+    },
+    {
+      "url": "/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/",
+      "title": "Windows 10 149XX 中 Shadowsocks-Windows （Shadowsocks-GUI） 无法正常使用的解决方案",
+      "date": "2016-12-06",
+      "html": "\n\n      \n        <p>更新了最近的几个预览版后一直在使用的Shadowsocks-GUI都不能用了，无奈之下转了ShadowsocksR，刚刚查了Github上的issue，发现这个问题是最近的预览版中Win10的一个网络配置API挂了。具体的情况参见<a href=\"https://github.com/shadowsocks/shadowsocks-windows/issues/814\" target=\"_blank\" rel=\"noopener\">这里</a>。 临时解决方案是：</p>\n<p>一、换用ShadowsocksR，这个客户端使用的注册表的方法配置代理，不受API挂掉的影响。</p>\n<p>二、手动在设置APP里配置代理，填写代理服务器127.0.0.1，以及SS客户端的端口。暂时还没解决PAC问题，只能全局。</p>\n<p><em>PAC读下源码应该能看到是怎么实现的，照着手动模仿一个应该也行，然而期末考试期间还是不作死了……哪位大神有空看看呗……</em> 2016-12-25 更新： 忽然发现这个问题已经修复，不知道是SS改了代理设置方法还是微软终于修复了那个API的错误。现在<a href=\"https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso\" target=\"_blank\" rel=\"noopener\">更新到14986版系统</a>，搭配<a href=\"https://github.com/shadowsocks/shadowsocks-windows/releases\" target=\"_blank\" rel=\"noopener\">最新版SS</a>是可以使用的。（SSR就不用再用了）</p>\n\n    ",
+      "text": "更新了最近的几个预览版后一直在使用的Shadowsocks-GUI都不能用了，无奈之下转了ShadowsocksR，刚刚查了Github上的issue，发现这个问题是最近的预览版中Win10的一个网络配置API挂了。具体的情况参见这里。 临时解决方案是： 一、换用ShadowsocksR，这个客户端使用的注册表的方法配置代理，不受API挂掉的影响。 二、手动在设置APP里配置代理，填写代理服务器127.0.0.1，以及SS客户端的端口。暂时还没解决PAC问题，只能全局。 PAC读下源码应该能看到是怎么实现的，照着手动模仿一个应该也行，然而期末考试期间还是不作死了……哪位大神有空看看呗…… 2016-12-25 更新： 忽然发现这个问题已经修复，不知道是SS改了代理设置方法还是微软终于修复了那个API的错误。现在更新到14986版系统，搭配最新版SS是可以使用的。（SSR就不用再用了）",
+      "categories": [
+        {
+          "name": "水的一笔",
+          "url": "/categories/水的一笔/"
+        },
+        {
+          "name": "软件分享",
+          "url": "/categories/水的一笔/软件分享/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "Preview",
+          "url": "/tags/Preview/"
+        },
+        {
+          "name": "Shadowsocks",
+          "url": "/tags/Shadowsocks/"
+        },
+        {
+          "name": "Windows 10",
+          "url": "/tags/Windows-10/"
+        },
+        {
+          "name": "Windows Insider",
+          "url": "/tags/Windows-Insider/"
+        },
+        {
+          "name": "预览版",
+          "url": "/tags/预览版/"
+        }
+      ]
+    },
+    {
+      "url": "/2016/08/14/amd-e8-80-81-e5-9e-8b-e5-8f-b7-e6-a0-b8-e6-98-be-e9-a9-b1-e5-8a-a8-e6-9b-b4-e6-96-b0-e5-af-bc-e8-87-b4-e7-b3-bb-e7-bb-9f-e5-b4-a9-e6-ba-83-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/",
+      "title": "AMD老型号核显驱动更新导致系统崩溃的解决方法",
+      "date": "2016-08-14",
+      "html": "\n\n      \n        <p>今年早些时候，很多结尾带G的老型号核显进入了Legacy Support阶段，基本算是该淘汰的程度了，然而某想的电脑上仍然大量采用了这类老型号显卡，坑了一大批人。这些电脑在运行Windows 10的时候，系统有时候会单独给独显更新显卡驱动（独显是支持新驱动的），但是因为核显的存在（貌似独显的输出是接到核显上的）这些机器在更新时可能会出现自动重启，然后无法进入系统。或者是有些同学加入Windows Insider计划之后，系统更新可能导致驱动一起更新或者驱动被卸载重装的情况，这样也会出现之前的问题。在被这个问题折磨了好久之后，摸索很久找到一个可以解决的方案，贴出来，希望能对遇到同样问题的朋友有所帮助。 我的机器：Lenovo Y485P, 显卡：AMD Radeon HD 8650G + HD 8790M Dual Graphics。 言简意赅的说，停止驱动更新，卸载显卡驱动及其管理软件，一定要全删光，包括没有卸载程序的那部分，手动删除，否则会出现装好驱动后全屏视频和程序崩溃的现象！ 问题分为两个阶段：停止驱动更新，安装正确的显卡驱动。 一、停止驱动更新。 这个问题其实网上有不少的解决方案，这里推荐一下这个办法。 首先，刚装系统的时候推送的显卡驱动一般是没事的，所以不需要一开始就把驱动更新关了，等到出现问题的时候通常我们其他驱动都是好的，所以可以简单点直接屏蔽所有的驱动更新推送，方法如下。（如果只想屏蔽显卡更新，可以百度搜一下用组策略屏蔽驱动更新的办法，或使用微软发布的屏蔽更新的疑难解答程序）（这个有时候会失败，不知道为什么，似乎有点看脸的意思，如果关了这个还是推送驱动更新的的话可以试试其他方法屏蔽更新） 1.进入安全模式。系统崩溃后无法开机，会出现自动重启的现象，连续3次会进入修复计算机的阶段，等到提示出现“你的电脑无法正确启动”，这个时候会有两个选项，选择“高级启动”。 <img src=\"http://rmbgame.net/wp-content/uploads/2016/08/WP_20160812_13_10_15_Pro.jpg\" alt> 然后在后面的提示选择“疑难解答”，然后找“高级启动”或者“启动选项”之类的东西，反正能看到有安全模式的选项。找对了地方那里有个重启按钮，点击，重启后按4就能进入安全模式。 2.卸载所有显卡驱动。 按下Windows + X或右键开始菜单，选择“设备管理器”，找到显示适配器，把独显和核显的驱动全部卸载，并勾选“同时删除驱动程序文件”。 <img src=\"http://rmbgame.net/wp-content/uploads/2016/08/1.png\" alt=\"1\"> <img src=\"http://rmbgame.net/wp-content/uploads/2016/08/2.png\" alt=\"2\"> 然后重启计算机，这时候应该就能进入系统了。 3.重启后时刻关注自动更新。重启进入系统后先打开设置，进入更新页面，这时候要时刻注意着，一旦这里提示“正在准备安装更新”，而更新名又是显卡驱动的话，停止一切操作，直接开始，重启计算机，防止再度打上那个大坑驱动。通常重启后这里会显示安装失败，这样就安全了，一时半会不会再打这个驱动了，可以放心进行下面的操作。 <img src=\"http://rmbgame.net/wp-content/uploads/2016/08/3.png\" alt=\"3\"> 4.关闭驱动更新。 右键开始，或者Window + X，选择“系统”。在弹出的窗口中选择左侧“高级系统设置”。 <img src=\"http://rmbgame.net/wp-content/uploads/2016/08/7.png\" alt> 找到“硬件”选项卡，点击“设备安装设置”。 <img src=\"http://rmbgame.net/wp-content/uploads/2016/08/8.png\" alt=\"8\"> 选择“否（你的设备可能无法正常工作）”，并保存更改。 <img src=\"http://rmbgame.net/wp-content/uploads/2016/08/9.png\" alt=\"9\"> 5.关闭自动更新服务。右键开始，或者Window + X，选择“计算机管理”。在打开的计算机管理中，查看各个服务的状况，找到“Windows Update”的服务。 <img src=\"http://rmbgame.net/wp-content/uploads/2016/08/4.png\" alt=\"4\"> 双击，在弹出的窗口中把启动方式更改为“手动”，然后“停用”，确定。 <img src=\"http://rmbgame.net/wp-content/uploads/2016/08/5.png\" alt=\"5\"> 6.删除更新缓存。进入“C:\\Windows\\SoftwareDistribution\\Download”文件夹下，删除所有文件。 7.启动Windows Update服务。右键开始或者Windows + X选择“计算机管理” ，找到Windows Update，双击，选择“启动”。 <img src=\"http://rmbgame.net/wp-content/uploads/2016/08/6.png\" alt=\"6\"> 到现在就已经关掉了驱动更新了，可以安心收拾驱动而不用担心再次系统崩溃了。 二、安装合适的驱动。 1. 重复步骤“一-2”的操作，删除全部显卡驱动。注意不要选回滚，回滚了可能重新装完显卡驱动后会出现全屏幕视频和软件崩溃的情况。 2.卸载驱动管理工具。右键开始或Windows + X，打开“程序和功能”，卸载AMD驱动相关全部软件。 <img src=\"http://rmbgame.net/wp-content/uploads/2016/08/10.png\" alt=\"10\"> 3.手动删除其他AMD相关文件。打开任务管理器（右键任务栏即可），可以根据描述来结束相应进程。 然后删除C:\\Program Files下的AMD和ATI Technology的文件夹以及C:\\AMD文件夹，然后从开始菜单找到显卡相关快捷方式，用“打开文件位置”找到对应的文件夹，删除全部文件，如果提示某个程序正在运行，可以再回到任务管理器把刚才漏下的程序结束进程。这时候可能会报什么Qt5的库dll缺失，不用管。反正尽量把相关的软件都卸载了或者手动删除掉。 4.重新安装兼容的驱动。我安装的是WHQL的15.7.1，这个是最后一个兼容的WHQL驱动，Beta版的16.3.2我没有试过，各位可以自己试试看能不能用。前面三步都是为了防止出现重装驱动后全屏幕的程序和网页视频什么的都崩溃的情况。如果你安装找个网页视频测试，可以全屏程序不崩溃的话就成功了。</p>\n\n    ",
+      "text": "今年早些时候，很多结尾带G的老型号核显进入了Legacy Support阶段，基本算是该淘汰的程度了，然而某想的电脑上仍然大量采用了这类老型号显卡，坑了一大批人。这些电脑在运行Windows 10的时候，系统有时候会单独给独显更新显卡驱动（独显是支持新驱动的），但是因为核显的存在（貌似独显的输出是接到核显上的）这些机器在更新时可能会出现自动重启，然后无法进入系统。或者是有些同学加入Windows Insider计划之后，系统更新可能导致驱动一起更新或者驱动被卸载重装的情况，这样也会出现之前的问题。在被这个问题折磨了好久之后，摸索很久找到一个可以解决的方案，贴出来，希望能对遇到同样问题的朋友有所帮助。 我的机器：Lenovo Y485P, 显卡：AMD Radeon HD 8650G + HD 8790M Dual Graphics。 言简意赅的说，停止驱动更新，卸载显卡驱动及其管理软件，一定要全删光，包括没有卸载程序的那部分，手动删除，否则会出现装好驱动后全屏视频和程序崩溃的现象！ 问题分为两个阶段：停止驱动更新，安装正确的显卡驱动。 一、停止驱动更新。 这个问题其实网上有不少的解决方案，这里推荐一下这个办法。 首先，刚装系统的时候推送的显卡驱动一般是没事的，所以不需要一开始就把驱动更新关了，等到出现问题的时候通常我们其他驱动都是好的，所以可以简单点直接屏蔽所有的驱动更新推送，方法如下。（如果只想屏蔽显卡更新，可以百度搜一下用组策略屏蔽驱动更新的办法，或使用微软发布的屏蔽更新的疑难解答程序）（这个有时候会失败，不知道为什么，似乎有点看脸的意思，如果关了这个还是推送驱动更新的的话可以试试其他方法屏蔽更新） 1.进入安全模式。系统崩溃后无法开机，会出现自动重启的现象，连续3次会进入修复计算机的阶段，等到提示出现“你的电脑无法正确启动”，这个时候会有两个选项，选择“高级启动”。 然后在后面的提示选择“疑难解答”，然后找“高级启动”或者“启动选项”之类的东西，反正能看到有安全模式的选项。找对了地方那里有个重启按钮，点击，重启后按4就能进入安全模式。 2.卸载所有显卡驱动。 按下Windows + X或右键开始菜单，选择“设备管理器”，找到显示适配器，把独显和核显的驱动全部卸载，并勾选“同时删除驱动程序文件”。 然后重启计算机，这时候应该就能进入系统了。 3.重启后时刻关注自动更新。重启进入系统后先打开设置，进入更新页面，这时候要时刻注意着，一旦这里提示“正在准备安装更新”，而更新名又是显卡驱动的话，停止一切操作，直接开始，重启计算机，防止再度打上那个大坑驱动。通常重启后这里会显示安装失败，这样就安全了，一时半会不会再打这个驱动了，可以放心进行下面的操作。 4.关闭驱动更新。 右键开始，或者Window + X，选择“系统”。在弹出的窗口中选择左侧“高级系统设置”。 找到“硬件”选项卡，点击“设备安装设置”。 选择“否（你的设备可能无法正常工作）”，并保存更改。 5.关闭自动更新服务。右键开始，或者Window + X，选择“计算机管理”。在打开的计算机管理中，查看各个服务的状况，找到“Windows Update”的服务。 双击，在弹出的窗口中把启动方式更改为“手动”，然后“停用”，确定。 6.删除更新缓存。进入“C:\\Windows\\SoftwareDistribution\\Download”文件夹下，删除所有文件。 7.启动Windows Update服务。右键开始或者Windows + X选择“计算机管理” ，找到Windows Update，双击，选择“启动”。 到现在就已经关掉了驱动更新了，可以安心收拾驱动而不用担心再次系统崩溃了。 二、安装合适的驱动。 1. 重复步骤“一-2”的操作，删除全部显卡驱动。注意不要选回滚，回滚了可能重新装完显卡驱动后会出现全屏幕视频和软件崩溃的情况。 2.卸载驱动管理工具。右键开始或Windows + X，打开“程序和功能”，卸载AMD驱动相关全部软件。 3.手动删除其他AMD相关文件。打开任务管理器（右键任务栏即可），可以根据描述来结束相应进程。 然后删除C:\\Program Files下的AMD和ATI Technology的文件夹以及C:\\AMD文件夹，然后从开始菜单找到显卡相关快捷方式，用“打开文件位置”找到对应的文件夹，删除全部文件，如果提示某个程序正在运行，可以再回到任务管理器把刚才漏下的程序结束进程。这时候可能会报什么Qt5的库dll缺失，不用管。反正尽量把相关的软件都卸载了或者手动删除掉。 4.重新安装兼容的驱动。我安装的是WHQL的15.7.1，这个是最后一个兼容的WHQL驱动，Beta版的16.3.2我没有试过，各位可以自己试试看能不能用。前面三步都是为了防止出现重装驱动后全屏幕的程序和网页视频什么的都崩溃的情况。如果你安装找个网页视频测试，可以全屏程序不崩溃的话就成功了。",
+      "categories": [
+        {
+          "name": "水的一笔",
+          "url": "/categories/水的一笔/"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "url": "/2016/07/18/uwp-e5-bc-80-e5-8f-91-e7-ac-94-e8-ae-b0-e5-9b-be-e6-a0-87-e7-9b-b8-e5-85-b3-e4-bd-bf-e7-94-a8/",
+      "title": "UWP开发笔记 图标相关使用",
+      "date": "2016-07-18",
+      "html": "\n\n      \n        <p>玩了一段时间，差不多玩够了，开始打算写一款UWP应用试试~ 这里记录开发过程中所需要的笔记和遇到的问题。 首先是对于各种图标的使用。 微软本身内置了很多图标  关于内置图标具体可以在 <a href=\"https://msdn.microsoft.com/zh-cn/library/windows/apps/windows.ui.xaml.controls.symbol.aspx\" target=\"_blank\" rel=\"noopener\">https://msdn.microsoft.com/zh-cn/library/windows/apps/windows.ui.xaml.controls.symbol.aspx</a> 查看 内置图标使用 <img src=\"http://rmbgame.net/wp-content/uploads/2016/07/nIBFRjQ.png\" alt=\"nIBFRjQ\"> 然后也可以使用字体图标 web常用的<a href=\"http://fontawesome.io/icons/\" target=\"_blank\" rel=\"noopener\">http://fontawesome.io/icons/</a> 亦或者是微软推荐的<a href=\"https://msdn.microsoft.com/windows/uwp/controls-and-patterns/segoe-ui-symbol-font\" target=\"_blank\" rel=\"noopener\">https://msdn.microsoft.com/windows/uwp/controls-and-patterns/segoe-ui-symbol-font</a> 字体图标使用 就是添加资源文件对应字体，然后使用字体图标对应的unicode的编码设置FontIcon的Glyph属性即可。</p>\n\n    ",
+      "text": "玩了一段时间，差不多玩够了，开始打算写一款UWP应用试试~ 这里记录开发过程中所需要的笔记和遇到的问题。 首先是对于各种图标的使用。 微软本身内置了很多图标 关于内置图标具体可以在 https://msdn.microsoft.com/zh-cn/library/windows/apps/windows.ui.xaml.controls.symbol.aspx 查看 内置图标使用 然后也可以使用字体图标 web常用的http://fontawesome.io/icons/ 亦或者是微软推荐的https://msdn.microsoft.com/windows/uwp/controls-and-patterns/segoe-ui-symbol-font 字体图标使用 就是添加资源文件对应字体，然后使用字体图标对应的unicode的编码设置FontIcon的Glyph属性即可。",
+      "categories": [
+        {
+          "name": "Csharp",
+          "url": "/categories/Csharp/"
+        },
+        {
+          "name": "编程",
+          "url": "/categories/Csharp/编程/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "C#",
+          "url": "/tags/C/"
+        },
+        {
+          "name": "UWP",
+          "url": "/tags/UWP/"
+        },
+        {
+          "name": "XAML",
+          "url": "/tags/XAML/"
+        }
+      ]
+    },
+    {
+      "url": "/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/",
+      "title": "2016最新webQQ协议分析",
+      "date": "2016-05-19",
+      "html": "\n\n      \n        <p>最近打开以前的webqq协议项目 结果发现貌似挂了。 重新抓包分析了下。这里贴一下接口 做个记录。</p>\n<p>1、第一次登陆</p>\n<p>方法：Get</p>\n<p>地址： \\“<a href=\"https://ssl.ptlogin2.qq.com/ptqrshow?appid=501004106&amp;\" target=\"_blank\" rel=\"noopener\">https://ssl.ptlogin2.qq.com/ptqrshow?appid=501004106&amp;</a><br>e=0&amp;l=M&amp;s=5&amp;d=72&amp;v=4&amp;t=0.\\“ + 随机9位数 + 随机7位数;</p>\n<p>地址返回结果是个二维码， 扫描二维码登陆。 这期间循环 2.验证登陆状态。</p>\n<p>访问后记录Cookie后面要用到.</p>\n<p>2、验证登陆状态</p>\n<p>方法：POST</p>\n<p>地址：<a href=\"https://ssl.ptlogin2.qq.com/ptqrlogin\" target=\"_blank\" rel=\"noopener\">https://ssl.ptlogin2.qq.com/ptqrlogin</a></p>\n<p>参数：webqq_type=10&amp;remember_uin=1&amp;login2qq=1&amp;aid=501004106&amp;<br>u1=http%3A%2F%2Fw.qq.com%2Fproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&amp;<br>ptredirect=0&amp;ptlang=2052&amp;daid=164&amp;from_ui=1&amp;pttype=1&amp;<br>dumy=&amp;fp=loginerroralert&amp;action=0-0-18099&amp;<br>mibao_css=m_webqq&amp;t=1&amp;g=1&amp;<br>js_type=0&amp;js_ver=10135&amp;login_sig=&amp;pt_randsalt=0</p>\n<p>返回结果为：ptuiCB(\\‘66\\‘,\\‘0\\‘,\\‘\\‘,\\‘0\\‘,\\‘二维码未失效。(1891650816)\\‘, \\‘\\‘);<br>ptuiCB(\\‘67\\‘,\\‘0\\‘,\\‘\\‘,\\‘0\\‘,\\‘二维码认证中。(1891650816)\\‘, \\‘\\‘);<br>ptuiCB(\\‘0\\‘,\\‘0\\‘,\\‘<a href=\"http://ptlogin4.web2.qq.com/check_sig?pttype=1&amp;uin=%E3%80%90QQ%E5%8F%B7%E7%A0%81%E3%80%91&amp;service=ptqrlogin&amp;nodirect=0&amp;\" target=\"_blank\" rel=\"noopener\">http://ptlogin4.web2.qq.com/check_sig?pttype=1&amp;uin=【QQ号码】&amp;service=ptqrlogin&amp;nodirect=0&amp;</a><br>ptsigx=c4b277a9cbb5ec2e9dbcdf25645ac2b36e27aeffe18395a8c10316f65bdc116f<br>846fd8b5d4893696a58ce4a0663111fbded905eb3f27c1b309e6a3af49d989b6&amp;<br>s_url=http%3A%2F%2Fw.qq.com%2Fproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&amp;<br>f_url=&amp;ptlang=2052&amp;ptredirect=100&amp;aid=501004106&amp;daid=164&amp;<br>j_later=0&amp;low_login_hour=0&amp;regmaster=0&amp;pt_login_type=3&amp;<br>pt_aid=0&amp;pt_aaid=16&amp;pt_light=0&amp;pt_3rd_aid=0\\‘,\\‘0\\‘,\\‘登录成功！\\‘, \\‘XX\\‘);</p>\n<p>所以这里检测开头第一个数字是0 就好了。 随后取出中间的网址并进行3、第一次登陆成功后返回回调地址。</p>\n<p>3、第一次登陆成功后返回回调地址</p>\n<p>方法：Get</p>\n<p>地址：在上一个步骤返回的回调地址</p>\n<p>直接访问一次即可，随后进入4、第二次登陆.</p>\n<p>4、第二次登陆</p>\n<p>方法：Post</p>\n<p>地址：<a href=\"http://d1.web2.qq.com/channel/login2\" target=\"_blank\" rel=\"noopener\">http://d1.web2.qq.com/channel/login2</a></p>\n<p>参数：r={ {\\“ptwebqq\\“:\\“[这里填之前cookie记录的 ptwebqq 的值]\\“<br>,\\“clientid\\“:53999199,\\“psessionid\\“:\\“\\“,\\“status\\“:\\“online\\“}}</p>\n<p>返回结果是个json 取其中psessionid</p>\n<p>然后这里还需要获取vfwebqq值<br>地址： <a href=\"http://s.web2.qq.com/api/getvfwebqq\" target=\"_blank\" rel=\"noopener\">http://s.web2.qq.com/api/getvfwebqq</a></p>\n<p>方法：post</p>\n<p>参数：ptwebqq=[之前cookie的ptwebqq值]&amp;clientid=[53999199]&amp;psessionid=&amp;t=[13位时间戳]</p>\n<p>返回json中取值：vfwebqq</p>\n<p>记录好这一部存下的值 psessionid 和 vfwebqq<br>到这一步 登陆就已经成功了。</p>\n<p>之后就是获取好友 获取群组 获取消息 和 发送消息了。 先只搞到这 orz..</p>\n\n    ",
+      "text": "最近打开以前的webqq协议项目 结果发现貌似挂了。 重新抓包分析了下。这里贴一下接口 做个记录。 1、第一次登陆 方法：Get 地址： \\“https://ssl.ptlogin2.qq.com/ptqrshow?appid=501004106&e=0&l=M&s=5&d=72&v=4&t=0.\\“ + 随机9位数 + 随机7位数; 地址返回结果是个二维码， 扫描二维码登陆。 这期间循环 2.验证登陆状态。 访问后记录Cookie后面要用到. 2、验证登陆状态 方法：POST 地址：https://ssl.ptlogin2.qq.com/ptqrlogin 参数：webqq_type=10&remember_uin=1&login2qq=1&aid=501004106&u1=http%3A%2F%2Fw.qq.com%2Fproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&ptredirect=0&ptlang=2052&daid=164&from_ui=1&pttype=1&dumy=&fp=loginerroralert&action=0-0-18099&mibao_css=m_webqq&t=1&g=1&js_type=0&js_ver=10135&login_sig=&pt_randsalt=0 返回结果为：ptuiCB(\\‘66\\‘,\\‘0\\‘,\\‘\\‘,\\‘0\\‘,\\‘二维码未失效。(1891650816)\\‘, \\‘\\‘);ptuiCB(\\‘67\\‘,\\‘0\\‘,\\‘\\‘,\\‘0\\‘,\\‘二维码认证中。(1891650816)\\‘, \\‘\\‘);ptuiCB(\\‘0\\‘,\\‘0\\‘,\\‘http://ptlogin4.web2.qq.com/check_sig?pttype=1&uin=【QQ号码】&service=ptqrlogin&nodirect=0&ptsigx=c4b277a9cbb5ec2e9dbcdf25645ac2b36e27aeffe18395a8c10316f65bdc116f846fd8b5d4893696a58ce4a0663111fbded905eb3f27c1b309e6a3af49d989b6&s_url=http%3A%2F%2Fw.qq.com%2Fproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&f_url=&ptlang=2052&ptredirect=100&aid=501004106&daid=164&j_later=0&low_login_hour=0&regmaster=0&pt_login_type=3&pt_aid=0&pt_aaid=16&pt_light=0&pt_3rd_aid=0\\‘,\\‘0\\‘,\\‘登录成功！\\‘, \\‘XX\\‘); 所以这里检测开头第一个数字是0 就好了。 随后取出中间的网址并进行3、第一次登陆成功后返回回调地址。 3、第一次登陆成功后返回回调地址 方法：Get 地址：在上一个步骤返回的回调地址 直接访问一次即可，随后进入4、第二次登陆. 4、第二次登陆 方法：Post 地址：http://d1.web2.qq.com/channel/login2 参数：r={ {\\“ptwebqq\\“:\\“[这里填之前cookie记录的 ptwebqq 的值]\\“,\\“clientid\\“:53999199,\\“psessionid\\“:\\“\\“,\\“status\\“:\\“online\\“}} 返回结果是个json 取其中psessionid 然后这里还需要获取vfwebqq值地址： http://s.web2.qq.com/api/getvfwebqq 方法：post 参数：ptwebqq=[之前cookie的ptwebqq值]&clientid=[53999199]&psessionid=&t=[13位时间戳] 返回json中取值：vfwebqq 记录好这一部存下的值 psessionid 和 vfwebqq到这一步 登陆就已经成功了。 之后就是获取好友 获取群组 获取消息 和 发送消息了。 先只搞到这 orz..",
+      "categories": [
+        {
+          "name": "心得技巧",
+          "url": "/categories/心得技巧/"
+        },
+        {
+          "name": "编程",
+          "url": "/categories/心得技巧/编程/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "HTTP",
+          "url": "/tags/HTTP/"
+        },
+        {
+          "name": "webqq",
+          "url": "/tags/webqq/"
+        },
+        {
+          "name": "编程",
+          "url": "/tags/编程/"
+        }
+      ]
+    },
+    {
+      "url": "/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/",
+      "title": ".NET IL 指令详解",
+      "date": "2016-05-19",
+      "html": "\n\n      \n        <p>名称</p>\n<p>说明</p>\n<p>Add</p>\n<p>将两个值相加并将结果推送到计算堆栈上。</p>\n<p>Add.Ovf</p>\n<p>将两个整数相加，执行溢出检查，并且将结果推送到计算堆栈上。</p>\n<p>Add.Ovf.Un</p>\n<p>将两个无符号整数值相加，执行溢出检查，并且将结果推送到计算堆栈上。</p>\n<p>And</p>\n<p>计算两个值的按位“与”并将结果推送到计算堆栈上。</p>\n<p>Arglist</p>\n<p>返回指向当前方法的参数列表的非托管指针。</p>\n<p>Beq</p>\n<p>如果两个值相等，则将控制转移到目标指令。</p>\n<p>Beq.S</p>\n<p>如果两个值相等，则将控制转移到目标指令（短格式）。</p>\n<p>Bge</p>\n<p>如果第一个值大于或等于第二个值，则将控制转移到目标指令。</p>\n<p>Bge.S</p>\n<p>如果第一个值大于或等于第二个值，则将控制转移到目标指令（短格式）。</p>\n<p>Bge.Un</p>\n<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令。</p>\n<p>Bge.Un.S</p>\n<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。</p>\n<p>Bgt</p>\n<p>如果第一个值大于第二个值，则将控制转移到目标指令。</p>\n<p>Bgt.S</p>\n<p>如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。</p>\n<p>Bgt.Un</p>\n<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令。</p>\n<p>Bgt.Un.S</p>\n<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。</p>\n<p>Ble</p>\n<p>如果第一个值小于或等于第二个值，则将控制转移到目标指令。</p>\n<p>Ble.S</p>\n<p>如果第一个值小于或等于第二个值，则将控制转移到目标指令（短格式）。</p>\n<p>Ble.Un</p>\n<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于或等于第二个值，则将控制转移到目标指令。</p>\n<p>Ble.Un.S</p>\n<p>当比较无符号整数值或不可排序的浮点值时，如果第一个值小于或等于第二个值，则将控制权转移到目标指令（短格式）。</p>\n<p>Blt</p>\n<p>如果第一个值小于第二个值，则将控制转移到目标指令。</p>\n<p>Blt.S</p>\n<p>如果第一个值小于第二个值，则将控制转移到目标指令（短格式）。</p>\n<p>Blt.Un</p>\n<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于第二个值，则将控制转移到目标指令。</p>\n<p>Blt.Un.S</p>\n<p>当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于第二个值，则将控制转移到目标指令（短格式）。</p>\n<p>Bne.Un</p>\n<p>当两个无符号整数值或不可排序的浮点型值不相等时，将控制转移到目标指令。</p>\n<p>Bne.Un.S</p>\n<p>当两个无符号整数值或不可排序的浮点型值不相等时，将控制转移到目标指令（短格式）。</p>\n<p>Box</p>\n<p>将值类转换为对象引用（O 类型）。</p>\n<p>Br</p>\n<p>无条件地将控制转移到目标指令。</p>\n<p>Br.S</p>\n<p>无条件地将控制转移到目标指令（短格式）。</p>\n<p>Break</p>\n<p>向公共语言结构 (CLI) 发出信号以通知调试器已撞上了一个断点。</p>\n<p>Brfalse</p>\n<p>如果 value 为 false、空引用（Visual Basic 中的 Nothing）或零，则将控制转移到目标指令。</p>\n<p>Brfalse.S</p>\n<p>如果 value 为 false、空引用或零，则将控制转移到目标指令。</p>\n<p>Brtrue</p>\n<p>如果 value 为 true、非空或非零，则将控制转移到目标指令。</p>\n<p>Brtrue.S</p>\n<p>如果 value 为 true、非空或非零，则将控制转移到目标指令（短格式）。</p>\n<p>Call</p>\n<p>调用由传递的方法说明符指示的方法。</p>\n<p>Calli</p>\n<p>通过调用约定描述的参数调用在计算堆栈上指示的方法（作为指向入口点的指针）。</p>\n<p>Callvirt</p>\n<p>对对象调用后期绑定方法，并且将返回值推送到计算堆栈上。</p>\n<p>Castclass</p>\n<p>尝试将引用传递的对象转换为指定的类。</p>\n<p>Ceq</p>\n<p>比较两个值。如果这两个值相等，则将整数值 1 (int32) 推送到计算堆栈上；否则，将 0 (int32) 推送到计算堆栈上。</p>\n<p>Cgt</p>\n<p>比较两个值。如果第一个值大于第二个值，则将整数值 1 (int32) 推送到计算堆栈上；反之，将 0 (int32) 推送到计算堆栈上。</p>\n<p>Cgt.Un</p>\n<p>比较两个无符号的或不可排序的值。如果第一个值大于第二个值，则将整数值 1 (int32) 推送到计算堆栈上；反之，将 0 (int32) 推送到计算堆栈上。</p>\n<p>Ckfinite</p>\n<p>如果值不是有限数，则引发 ArithmeticException。</p>\n<p>Clt</p>\n<p>比较两个值。如果第一个值小于第二个值，则将整数值 1 (int32) 推送到计算堆栈上；反之，将 0 (int32) 推送到计算堆栈上。</p>\n<p>Clt.Un</p>\n<p>比较无符号的或不可排序的值 value1 和 value2。如果 value1 小于 value2，则将整数值 1 (int32 ) 推送到计算堆栈上；反之，将 0 ( int32 ) 推送到计算堆栈上。</p>\n<p>Constrained</p>\n<p>约束要对其进行虚方法调用的类型。</p>\n<p>Conv.I</p>\n<p>将位于计算堆栈顶部的值转换为 native int。</p>\n<p>Conv.I1</p>\n<p>将位于计算堆栈顶部的值转换为 int8，然后将其扩展（填充）为 int32。</p>\n<p>Conv.I2</p>\n<p>将位于计算堆栈顶部的值转换为 int16，然后将其扩展（填充）为 int32。</p>\n<p>Conv.I4</p>\n<p>将位于计算堆栈顶部的值转换为 int32。</p>\n<p>Conv.I8</p>\n<p>将位于计算堆栈顶部的值转换为 int64。</p>\n<p>Conv.Ovf.I</p>\n<p>将位于计算堆栈顶部的有符号值转换为有符号 native int，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.I.Un</p>\n<p>将位于计算堆栈顶部的无符号值转换为有符号 native int，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.I1</p>\n<p>将位于计算堆栈顶部的有符号值转换为有符号 int8 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.I1.Un</p>\n<p>将位于计算堆栈顶部的无符号值转换为有符号 int8 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.I2</p>\n<p>将位于计算堆栈顶部的有符号值转换为有符号 int16 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.I2.Un</p>\n<p>将位于计算堆栈顶部的无符号值转换为有符号 int16 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.I4</p>\n<p>将位于计算堆栈顶部的有符号值转换为有符号 int32，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.I4.Un</p>\n<p>将位于计算堆栈顶部的无符号值转换为有符号 int32，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.I8</p>\n<p>将位于计算堆栈顶部的有符号值转换为有符号 int64，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.I8.Un</p>\n<p>将位于计算堆栈顶部的无符号值转换为有符号 int64，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.U</p>\n<p>将位于计算堆栈顶部的有符号值转换为 unsigned native int，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.U.Un</p>\n<p>将位于计算堆栈顶部的无符号值转换为 unsigned native int，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.U1</p>\n<p>将位于计算堆栈顶部的有符号值转换为 unsigned int8 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.U1.Un</p>\n<p>将位于计算堆栈顶部的无符号值转换为 unsigned int8 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.U2</p>\n<p>将位于计算堆栈顶部的有符号值转换为 unsigned int16 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.U2.Un</p>\n<p>将位于计算堆栈顶部的无符号值转换为 unsigned int16 并将其扩展为 int32，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.U4</p>\n<p>将位于计算堆栈顶部的有符号值转换为 unsigned int32，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.U4.Un</p>\n<p>将位于计算堆栈顶部的无符号值转换为 unsigned int32，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.U8</p>\n<p>将位于计算堆栈顶部的有符号值转换为 unsigned int64，并在溢出时引发 OverflowException。</p>\n<p>Conv.Ovf.U8.Un</p>\n<p>将位于计算堆栈顶部的无符号值转换为 unsigned int64，并在溢出时引发 OverflowException。</p>\n<p>Conv.R.Un</p>\n<p>将位于计算堆栈顶部的无符号整数值转换为 float32。</p>\n<p>Conv.R4</p>\n<p>将位于计算堆栈顶部的值转换为 float32。</p>\n<p>Conv.R8</p>\n<p>将位于计算堆栈顶部的值转换为 float64。</p>\n<p>Conv.U</p>\n<p>将位于计算堆栈顶部的值转换为 unsigned native int，然后将其扩展为 native int。</p>\n<p>Conv.U1</p>\n<p>将位于计算堆栈顶部的值转换为 unsigned int8，然后将其扩展为 int32。</p>\n<p>Conv.U2</p>\n<p>将位于计算堆栈顶部的值转换为 unsigned int16，然后将其扩展为 int32。</p>\n<p>Conv.U4</p>\n<p>将位于计算堆栈顶部的值转换为 unsigned int32，然后将其扩展为 int32。</p>\n<p>Conv.U8</p>\n<p>将位于计算堆栈顶部的值转换为 unsigned int64，然后将其扩展为 int64。</p>\n<p>Cpblk</p>\n<p>将指定数目的字节从源地址复制到目标地址。</p>\n<p>Cpobj</p>\n<p>将位于对象（&amp;、* 或 native int 类型）地址的值类型复制到目标对象（&amp;、* 或 native int 类型）的地址。</p>\n<p>Div</p>\n<p>将两个值相除并将结果作为浮点（F 类型）或商（int32 类型）推送到计算堆栈上。</p>\n<p>Div.Un</p>\n<p>两个无符号整数值相除并将结果 ( int32 ) 推送到计算堆栈上。</p>\n<p>Dup</p>\n<p>复制计算堆栈上当前最顶端的值，然后将副本推送到计算堆栈上。</p>\n<p>Endfilter</p>\n<p>将控制从异常的 filter 子句转移回公共语言结构 (CLI) 异常处理程序。</p>\n<p>Endfinally</p>\n<p>将控制从异常块的 fault 或 finally 子句转移回公共语言结构 (CLI) 异常处理程序。</p>\n<p>Initblk</p>\n<p>将位于特定地址的内存的指定块初始化为给定大小和初始值。</p>\n<p>Initobj</p>\n<p>将位于指定地址的值类型的每个字段初始化为空引用或适当的基元类型的 0。</p>\n<p>Isinst</p>\n<p>测试对象引用（O 类型）是否为特定类的实例。</p>\n<p>Jmp</p>\n<p>退出当前方法并跳至指定方法。</p>\n<p>Ldarg</p>\n<p>将参数（由指定索引值引用）加载到堆栈上。</p>\n<p>Ldarg.0</p>\n<p>将索引为 0 的参数加载到计算堆栈上。</p>\n<p>Ldarg.1</p>\n<p>将索引为 1 的参数加载到计算堆栈上。</p>\n<p>Ldarg.2</p>\n<p>将索引为 2 的参数加载到计算堆栈上。</p>\n<p>Ldarg.3</p>\n<p>将索引为 3 的参数加载到计算堆栈上。</p>\n<p>Ldarg.S</p>\n<p>将参数（由指定的短格式索引引用）加载到计算堆栈上。</p>\n<p>Ldarga</p>\n<p>将参数地址加载到计算堆栈上。</p>\n<p>Ldarga.S</p>\n<p>以短格式将参数地址加载到计算堆栈上。</p>\n<p>Ldc.I4</p>\n<p>将所提供的 int32 类型的值作为 int32 推送到计算堆栈上。</p>\n<p>Ldc.I4.0</p>\n<p>将整数值 0 作为 int32 推送到计算堆栈上。</p>\n<p>Ldc.I4.1</p>\n<p>将整数值 1 作为 int32 推送到计算堆栈上。</p>\n<p>Ldc.I4.2</p>\n<p>将整数值 2 作为 int32 推送到计算堆栈上。</p>\n<p>Ldc.I4.3</p>\n<p>将整数值 3 作为 int32 推送到计算堆栈上。</p>\n<p>Ldc.I4.4</p>\n<p>将整数值 4 作为 int32 推送到计算堆栈上。</p>\n<p>Ldc.I4.5</p>\n<p>将整数值 5 作为 int32 推送到计算堆栈上。</p>\n<p>Ldc.I4.6</p>\n<p>将整数值 6 作为 int32 推送到计算堆栈上。</p>\n<p>Ldc.I4.7</p>\n<p>将整数值 7 作为 int32 推送到计算堆栈上。</p>\n<p>Ldc.I4.8</p>\n<p>将整数值 8 作为 int32 推送到计算堆栈上。</p>\n<p>Ldc.I4.M1</p>\n<p>将整数值 -1 作为 int32 推送到计算堆栈上。</p>\n<p>Ldc.I4.S</p>\n<p>将提供的 int8 值作为 int32 推送到计算堆栈上（短格式）。</p>\n<p>Ldc.I8</p>\n<p>将所提供的 int64 类型的值作为 int64 推送到计算堆栈上。</p>\n<p>Ldc.R4</p>\n<p>将所提供的 float32 类型的值作为 F (float) 类型推送到计算堆栈上。</p>\n<p>Ldc.R8</p>\n<p>将所提供的 float64 类型的值作为 F (float) 类型推送到计算堆栈上。</p>\n<p>Ldelem</p>\n<p>按照指令中指定的类型，将指定数组索引中的元素加载到计算堆栈的顶部。</p>\n<p>Ldelem.I</p>\n<p>将位于指定数组索引处的 native int 类型的元素作为 native int 加载到计算堆栈的顶部。</p>\n<p>Ldelem.I1</p>\n<p>将位于指定数组索引处的 int8 类型的元素作为 int32 加载到计算堆栈的顶部。</p>\n<p>Ldelem.I2</p>\n<p>将位于指定数组索引处的 int16 类型的元素作为 int32 加载到计算堆栈的顶部。</p>\n<p>Ldelem.I4</p>\n<p>将位于指定数组索引处的 int32 类型的元素作为 int32 加载到计算堆栈的顶部。</p>\n<p>Ldelem.I8</p>\n<p>将位于指定数组索引处的 int64 类型的元素作为 int64 加载到计算堆栈的顶部。</p>\n<p>Ldelem.R4</p>\n<p>将位于指定数组索引处的 float32 类型的元素作为 F 类型（浮点型）加载到计算堆栈的顶部。</p>\n<p>Ldelem.R8</p>\n<p>将位于指定数组索引处的 float64 类型的元素作为 F 类型（浮点型）加载到计算堆栈的顶部。</p>\n<p>Ldelem.Ref</p>\n<p>将位于指定数组索引处的包含对象引用的元素作为 O 类型（对象引用）加载到计算堆栈的顶部。</p>\n<p>Ldelem.U1</p>\n<p>将位于指定数组索引处的 unsigned int8 类型的元素作为 int32 加载到计算堆栈的顶部。</p>\n<p>Ldelem.U2</p>\n<p>将位于指定数组索引处的 unsigned int16 类型的元素作为 int32 加载到计算堆栈的顶部。</p>\n<p>Ldelem.U4</p>\n<p>将位于指定数组索引处的 unsigned int32 类型的元素作为 int32 加载到计算堆栈的顶部。</p>\n<p>Ldelema</p>\n<p>将位于指定数组索引的数组元素的地址作为 &amp; 类型（托管指针）加载到计算堆栈的顶部。</p>\n<p>Ldfld</p>\n<p>查找对象中其引用当前位于计算堆栈的字段的值。</p>\n<p>Ldflda</p>\n<p>查找对象中其引用当前位于计算堆栈的字段的地址。</p>\n<p>Ldftn</p>\n<p>将指向实现特定方法的本机代码的非托管指针（native int 类型）推送到计算堆栈上。</p>\n<p>Ldind.I</p>\n<p>将 native int 类型的值作为 native int 间接加载到计算堆栈上。</p>\n<p>Ldind.I1</p>\n<p>将 int8 类型的值作为 int32 间接加载到计算堆栈上。</p>\n<p>Ldind.I2</p>\n<p>将 int16 类型的值作为 int32 间接加载到计算堆栈上。</p>\n<p>Ldind.I4</p>\n<p>将 int32 类型的值作为 int32 间接加载到计算堆栈上。</p>\n<p>Ldind.I8</p>\n<p>将 int64 类型的值作为 int64 间接加载到计算堆栈上。</p>\n<p>Ldind.R4</p>\n<p>将 float32 类型的值作为 F (float) 类型间接加载到计算堆栈上。</p>\n<p>Ldind.R8</p>\n<p>将 float64 类型的值作为 F (float) 类型间接加载到计算堆栈上。</p>\n<p>Ldind.Ref</p>\n<p>将对象引用作为 O（对象引用）类型间接加载到计算堆栈上。</p>\n<p>Ldind.U1</p>\n<p>将 unsigned int8 类型的值作为 int32 间接加载到计算堆栈上。</p>\n<p>Ldind.U2</p>\n<p>将 unsigned int16 类型的值作为 int32 间接加载到计算堆栈上。</p>\n<p>Ldind.U4</p>\n<p>将 unsigned int32 类型的值作为 int32 间接加载到计算堆栈上。</p>\n<p>Ldlen</p>\n<p>将从零开始的、一维数组的元素的数目推送到计算堆栈上。</p>\n<p>Ldloc</p>\n<p>将指定索引处的局部变量加载到计算堆栈上。</p>\n<p>Ldloc.0</p>\n<p>将索引 0 处的局部变量加载到计算堆栈上。</p>\n<p>Ldloc.1</p>\n<p>将索引 1 处的局部变量加载到计算堆栈上。</p>\n<p>Ldloc.2</p>\n<p>将索引 2 处的局部变量加载到计算堆栈上。</p>\n<p>Ldloc.3</p>\n<p>将索引 3 处的局部变量加载到计算堆栈上。</p>\n<p>Ldloc.S</p>\n<p>将特定索引处的局部变量加载到计算堆栈上（短格式）。</p>\n<p>Ldloca</p>\n<p>将位于特定索引处的局部变量的地址加载到计算堆栈上。</p>\n<p>Ldloca.S</p>\n<p>将位于特定索引处的局部变量的地址加载到计算堆栈上（短格式）。</p>\n<p>Ldnull</p>\n<p>将空引用（O 类型）推送到计算堆栈上。</p>\n<p>Ldobj</p>\n<p>将地址指向的值类型对象复制到计算堆栈的顶部。</p>\n<p>Ldsfld</p>\n<p>将静态字段的值推送到计算堆栈上。</p>\n<p>Ldsflda</p>\n<p>将静态字段的地址推送到计算堆栈上。</p>\n<p>Ldstr</p>\n<p>推送对元数据中存储的字符串的新对象引用。</p>\n<p>Ldtoken</p>\n<p>将元数据标记转换为其运行时表示形式，并将其推送到计算堆栈上。</p>\n<p>Ldvirtftn</p>\n<p>将指向实现与指定对象关联的特定虚方法的本机代码的非托管指针（native int 类型）推送到计算堆栈上。</p>\n<p>Leave</p>\n<p>退出受保护的代码区域，无条件将控制转移到特定目标指令。</p>\n<p>Leave.S</p>\n<p>退出受保护的代码区域，无条件将控制转移到目标指令（缩写形式）。</p>\n<p>Localloc</p>\n<p>从本地动态内存池分配特定数目的字节并将第一个分配的字节的地址（瞬态指针，* 类型）推送到计算堆栈上。</p>\n<p>Mkrefany</p>\n<p>将对特定类型实例的类型化引用推送到计算堆栈上。</p>\n<p>Mul</p>\n<p>将两个值相乘并将结果推送到计算堆栈上。</p>\n<p>Mul.Ovf</p>\n<p>将两个整数值相乘，执行溢出检查，并将结果推送到计算堆栈上。</p>\n<p>Mul.Ovf.Un</p>\n<p>将两个无符号整数值相乘，执行溢出检查，并将结果推送到计算堆栈上。</p>\n<p>Neg</p>\n<p>对一个值执行求反并将结果推送到计算堆栈上。</p>\n<p>Newarr</p>\n<p>将对新的从零开始的一维数组（其元素属于特定类型）的对象引用推送到计算堆栈上。</p>\n<p>Newobj</p>\n<p>创建一个值类型的新对象或新实例，并将对象引用（O 类型）推送到计算堆栈上。</p>\n<p>Nop</p>\n<p>如果修补操作码，则填充空间。尽管可能消耗处理周期，但未执行任何有意义的操作。</p>\n<p>Not</p>\n<p>计算堆栈顶部整数值的按位求补并将结果作为相同的类型推送到计算堆栈上。</p>\n<p>Or</p>\n<p>计算位于堆栈顶部的两个整数值的按位求补并将结果推送到计算堆栈上。</p>\n<p>Pop</p>\n<p>移除当前位于计算堆栈顶部的值。</p>\n<p>Prefix1</p>\n<p>基础结构。此指令为保留指令。</p>\n<p>Prefix2</p>\n<p>基础结构。此指令为保留指令。</p>\n<p>Prefix3</p>\n<p>基础结构。此指令为保留指令。</p>\n<p>Prefix4</p>\n<p>基础结构。此指令为保留指令。</p>\n<p>Prefix5</p>\n<p>基础结构。此指令为保留指令。</p>\n<p>Prefix6</p>\n<p>基础结构。此指令为保留指令。</p>\n<p>Prefix7</p>\n<p>基础结构。此指令为保留指令。</p>\n<p>Prefixref</p>\n<p>基础结构。此指令为保留指令。</p>\n<p>Readonly</p>\n<p>指定后面的数组地址操作在运行时不执行类型检查，并且返回可变性受限的托管指针。</p>\n<p>Refanytype</p>\n<p>检索嵌入在类型化引用内的类型标记。</p>\n<p>Refanyval</p>\n<p>检索嵌入在类型化引用内的地址（&amp; 类型）。</p>\n<p>Rem</p>\n<p>将两个值相除并将余数推送到计算堆栈上。</p>\n<p>Rem.Un</p>\n<p>将两个无符号值相除并将余数推送到计算堆栈上。</p>\n<p>Ret</p>\n<p>从当前方法返回，并将返回值（如果存在）从调用方的计算堆栈推送到被调用方的计算堆栈上。</p>\n<p>Rethrow</p>\n<p>再次引发当前异常。</p>\n<p>Shl</p>\n<p>将整数值左移（用零填充）指定的位数，并将结果推送到计算堆栈上。</p>\n<p>Shr</p>\n<p>将整数值右移（保留符号）指定的位数，并将结果推送到计算堆栈上。</p>\n<p>Shr.Un</p>\n<p>将无符号整数值右移（用零填充）指定的位数，并将结果推送到计算堆栈上。</p>\n<p>Sizeof</p>\n<p>将提供的值类型的大小（以字节为单位）推送到计算堆栈上。</p>\n<p>Starg</p>\n<p>将位于计算堆栈顶部的值存储到位于指定索引的参数槽中。</p>\n<p>Starg.S</p>\n<p>将位于计算堆栈顶部的值存储在参数槽中的指定索引处（短格式）。</p>\n<p>Stelem</p>\n<p>用计算堆栈中的值替换给定索引处的数组元素，其类型在指令中指定。</p>\n<p>Stelem.I</p>\n<p>用计算堆栈上的 native int 值替换给定索引处的数组元素。</p>\n<p>Stelem.I1</p>\n<p>用计算堆栈上的 int8 值替换给定索引处的数组元素。</p>\n<p>Stelem.I2</p>\n<p>用计算堆栈上的 int16 值替换给定索引处的数组元素。</p>\n<p>Stelem.I4</p>\n<p>用计算堆栈上的 int32 值替换给定索引处的数组元素。</p>\n<p>Stelem.I8</p>\n<p>用计算堆栈上的 int64 值替换给定索引处的数组元素。</p>\n<p>Stelem.R4</p>\n<p>用计算堆栈上的 float32 值替换给定索引处的数组元素。</p>\n<p>Stelem.R8</p>\n<p>用计算堆栈上的 float64 值替换给定索引处的数组元素。</p>\n<p>Stelem.Ref</p>\n<p>用计算堆栈上的对象 ref 值（O 类型）替换给定索引处的数组元素。</p>\n<p>Stfld</p>\n<p>用新值替换在对象引用或指针的字段中存储的值。</p>\n<p>Stind.I</p>\n<p>在所提供的地址存储 native int 类型的值。</p>\n<p>Stind.I1</p>\n<p>在所提供的地址存储 int8 类型的值。</p>\n<p>Stind.I2</p>\n<p>在所提供的地址存储 int16 类型的值。</p>\n<p>Stind.I4</p>\n<p>在所提供的地址存储 int32 类型的值。</p>\n<p>Stind.I8</p>\n<p>在所提供的地址存储 int64 类型的值。</p>\n<p>Stind.R4</p>\n<p>在所提供的地址存储 float32 类型的值。</p>\n<p>Stind.R8</p>\n<p>在所提供的地址存储 float64 类型的值。</p>\n<p>Stind.Ref</p>\n<p>存储所提供地址处的对象引用值。</p>\n<p>Stloc</p>\n<p>从计算堆栈的顶部弹出当前值并将其存储到指定索引处的局部变量列表中。</p>\n<p>Stloc.0</p>\n<p>从计算堆栈的顶部弹出当前值并将其存储到索引 0 处的局部变量列表中。</p>\n<p>Stloc.1</p>\n<p>从计算堆栈的顶部弹出当前值并将其存储到索引 1 处的局部变量列表中。</p>\n<p>Stloc.2</p>\n<p>从计算堆栈的顶部弹出当前值并将其存储到索引 2 处的局部变量列表中。</p>\n<p>Stloc.3</p>\n<p>从计算堆栈的顶部弹出当前值并将其存储到索引 3 处的局部变量列表中。</p>\n<p>Stloc.S</p>\n<p>从计算堆栈的顶部弹出当前值并将其存储在局部变量列表中的 index 处（短格式）。</p>\n<p>Stobj</p>\n<p>将指定类型的值从计算堆栈复制到所提供的内存地址中。</p>\n<p>Stsfld</p>\n<p>用来自计算堆栈的值替换静态字段的值。</p>\n<p>Sub</p>\n<p>从其他值中减去一个值并将结果推送到计算堆栈上。</p>\n<p>Sub.Ovf</p>\n<p>从另一值中减去一个整数值，执行溢出检查，并且将结果推送到计算堆栈上。</p>\n<p>Sub.Ovf.Un</p>\n<p>从另一值中减去一个无符号整数值，执行溢出检查，并且将结果推送到计算堆栈上。</p>\n<p>Switch</p>\n<p>实现跳转表。</p>\n<p>Tailcall</p>\n<p>执行后缀的方法调用指令，以便在执行实际调用指令前移除当前方法的堆栈帧。</p>\n<p>Throw</p>\n<p>引发当前位于计算堆栈上的异常对象。</p>\n<p>Unaligned</p>\n<p>指示当前位于计算堆栈上的地址可能没有与紧接的 ldind、stind、ldfld、stfld、ldobj、stobj、initblk 或 cpblk 指令的自然大小对齐。</p>\n<p>Unbox</p>\n<p>将值类型的已装箱的表示形式转换为其未装箱的形式。</p>\n<p>Unbox.Any</p>\n<p>将指令中指定类型的已装箱的表示形式转换成未装箱形式。</p>\n<p>Volatile</p>\n<p>指定当前位于计算堆栈顶部的地址可以是易失的，并且读取该位置的结果不能被缓存，或者对该地址的多个存储区不能被取消。</p>\n<p>Xor</p>\n<p>计算位于计算堆栈顶部的两个值的按位异或，并且将结果推送到计算堆栈上。</p>\n\n    ",
+      "text": "名称 说明 Add 将两个值相加并将结果推送到计算堆栈上。 Add.Ovf 将两个整数相加，执行溢出检查，并且将结果推送到计算堆栈上。 Add.Ovf.Un 将两个无符号整数值相加，执行溢出检查，并且将结果推送到计算堆栈上。 And 计算两个值的按位“与”并将结果推送到计算堆栈上。 Arglist 返回指向当前方法的参数列表的非托管指针。 Beq 如果两个值相等，则将控制转移到目标指令。 Beq.S 如果两个值相等，则将控制转移到目标指令（短格式）。 Bge 如果第一个值大于或等于第二个值，则将控制转移到目标指令。 Bge.S 如果第一个值大于或等于第二个值，则将控制转移到目标指令（短格式）。 Bge.Un 当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令。 Bge.Un.S 当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。 Bgt 如果第一个值大于第二个值，则将控制转移到目标指令。 Bgt.S 如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。 Bgt.Un 当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令。 Bgt.Un.S 当比较无符号整数值或不可排序的浮点型值时，如果第一个值大于第二个值，则将控制转移到目标指令（短格式）。 Ble 如果第一个值小于或等于第二个值，则将控制转移到目标指令。 Ble.S 如果第一个值小于或等于第二个值，则将控制转移到目标指令（短格式）。 Ble.Un 当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于或等于第二个值，则将控制转移到目标指令。 Ble.Un.S 当比较无符号整数值或不可排序的浮点值时，如果第一个值小于或等于第二个值，则将控制权转移到目标指令（短格式）。 Blt 如果第一个值小于第二个值，则将控制转移到目标指令。 Blt.S 如果第一个值小于第二个值，则将控制转移到目标指令（短格式）。 Blt.Un 当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于第二个值，则将控制转移到目标指令。 Blt.Un.S 当比较无符号整数值或不可排序的浮点型值时，如果第一个值小于第二个值，则将控制转移到目标指令（短格式）。 Bne.Un 当两个无符号整数值或不可排序的浮点型值不相等时，将控制转移到目标指令。 Bne.Un.S 当两个无符号整数值或不可排序的浮点型值不相等时，将控制转移到目标指令（短格式）。 Box 将值类转换为对象引用（O 类型）。 Br 无条件地将控制转移到目标指令。 Br.S 无条件地将控制转移到目标指令（短格式）。 Break 向公共语言结构 (CLI) 发出信号以通知调试器已撞上了一个断点。 Brfalse 如果 value 为 false、空引用（Visual Basic 中的 Nothing）或零，则将控制转移到目标指令。 Brfalse.S 如果 value 为 false、空引用或零，则将控制转移到目标指令。 Brtrue 如果 value 为 true、非空或非零，则将控制转移到目标指令。 Brtrue.S 如果 value 为 true、非空或非零，则将控制转移到目标指令（短格式）。 Call 调用由传递的方法说明符指示的方法。 Calli 通过调用约定描述的参数调用在计算堆栈上指示的方法（作为指向入口点的指针）。 Callvirt 对对象调用后期绑定方法，并且将返回值推送到计算堆栈上。 Castclass 尝试将引用传递的对象转换为指定的类。 Ceq 比较两个值。如果这两个值相等，则将整数值 1 (int32) 推送到计算堆栈上；否则，将 0 (int32) 推送到计算堆栈上。 Cgt 比较两个值。如果第一个值大于第二个值，则将整数值 1 (int32) 推送到计算堆栈上；反之，将 0 (int32) 推送到计算堆栈上。 Cgt.Un 比较两个无符号的或不可排序的值。如果第一个值大于第二个值，则将整数值 1 (int32) 推送到计算堆栈上；反之，将 0 (int32) 推送到计算堆栈上。 Ckfinite 如果值不是有限数，则引发 ArithmeticException。 Clt 比较两个值。如果第一个值小于第二个值，则将整数值 1 (int32) 推送到计算堆栈上；反之，将 0 (int32) 推送到计算堆栈上。 Clt.Un 比较无符号的或不可排序的值 value1 和 value2。如果 value1 小于 value2，则将整数值 1 (int32 ) 推送到计算堆栈上；反之，将 0 ( int32 ) 推送到计算堆栈上。 Constrained 约束要对其进行虚方法调用的类型。 Conv.I 将位于计算堆栈顶部的值转换为 native int。 Conv.I1 将位于计算堆栈顶部的值转换为 int8，然后将其扩展（填充）为 int32。 Conv.I2 将位于计算堆栈顶部的值转换为 int16，然后将其扩展（填充）为 int32。 Conv.I4 将位于计算堆栈顶部的值转换为 int32。 Conv.I8 将位于计算堆栈顶部的值转换为 int64。 Conv.Ovf.I 将位于计算堆栈顶部的有符号值转换为有符号 native int，并在溢出时引发 OverflowException。 Conv.Ovf.I.Un 将位于计算堆栈顶部的无符号值转换为有符号 native int，并在溢出时引发 OverflowException。 Conv.Ovf.I1 将位于计算堆栈顶部的有符号值转换为有符号 int8 并将其扩展为 int32，并在溢出时引发 OverflowException。 Conv.Ovf.I1.Un 将位于计算堆栈顶部的无符号值转换为有符号 int8 并将其扩展为 int32，并在溢出时引发 OverflowException。 Conv.Ovf.I2 将位于计算堆栈顶部的有符号值转换为有符号 int16 并将其扩展为 int32，并在溢出时引发 OverflowException。 Conv.Ovf.I2.Un 将位于计算堆栈顶部的无符号值转换为有符号 int16 并将其扩展为 int32，并在溢出时引发 OverflowException。 Conv.Ovf.I4 将位于计算堆栈顶部的有符号值转换为有符号 int32，并在溢出时引发 OverflowException。 Conv.Ovf.I4.Un 将位于计算堆栈顶部的无符号值转换为有符号 int32，并在溢出时引发 OverflowException。 Conv.Ovf.I8 将位于计算堆栈顶部的有符号值转换为有符号 int64，并在溢出时引发 OverflowException。 Conv.Ovf.I8.Un 将位于计算堆栈顶部的无符号值转换为有符号 int64，并在溢出时引发 OverflowException。 Conv.Ovf.U 将位于计算堆栈顶部的有符号值转换为 unsigned native int，并在溢出时引发 OverflowException。 Conv.Ovf.U.Un 将位于计算堆栈顶部的无符号值转换为 unsigned native int，并在溢出时引发 OverflowException。 Conv.Ovf.U1 将位于计算堆栈顶部的有符号值转换为 unsigned int8 并将其扩展为 int32，并在溢出时引发 OverflowException。 Conv.Ovf.U1.Un 将位于计算堆栈顶部的无符号值转换为 unsigned int8 并将其扩展为 int32，并在溢出时引发 OverflowException。 Conv.Ovf.U2 将位于计算堆栈顶部的有符号值转换为 unsigned int16 并将其扩展为 int32，并在溢出时引发 OverflowException。 Conv.Ovf.U2.Un 将位于计算堆栈顶部的无符号值转换为 unsigned int16 并将其扩展为 int32，并在溢出时引发 OverflowException。 Conv.Ovf.U4 将位于计算堆栈顶部的有符号值转换为 unsigned int32，并在溢出时引发 OverflowException。 Conv.Ovf.U4.Un 将位于计算堆栈顶部的无符号值转换为 unsigned int32，并在溢出时引发 OverflowException。 Conv.Ovf.U8 将位于计算堆栈顶部的有符号值转换为 unsigned int64，并在溢出时引发 OverflowException。 Conv.Ovf.U8.Un 将位于计算堆栈顶部的无符号值转换为 unsigned int64，并在溢出时引发 OverflowException。 Conv.R.Un 将位于计算堆栈顶部的无符号整数值转换为 float32。 Conv.R4 将位于计算堆栈顶部的值转换为 float32。 Conv.R8 将位于计算堆栈顶部的值转换为 float64。 Conv.U 将位于计算堆栈顶部的值转换为 unsigned native int，然后将其扩展为 native int。 Conv.U1 将位于计算堆栈顶部的值转换为 unsigned int8，然后将其扩展为 int32。 Conv.U2 将位于计算堆栈顶部的值转换为 unsigned int16，然后将其扩展为 int32。 Conv.U4 将位于计算堆栈顶部的值转换为 unsigned int32，然后将其扩展为 int32。 Conv.U8 将位于计算堆栈顶部的值转换为 unsigned int64，然后将其扩展为 int64。 Cpblk 将指定数目的字节从源地址复制到目标地址。 Cpobj 将位于对象（&、* 或 native int 类型）地址的值类型复制到目标对象（&、* 或 native int 类型）的地址。 Div 将两个值相除并将结果作为浮点（F 类型）或商（int32 类型）推送到计算堆栈上。 Div.Un 两个无符号整数值相除并将结果 ( int32 ) 推送到计算堆栈上。 Dup 复制计算堆栈上当前最顶端的值，然后将副本推送到计算堆栈上。 Endfilter 将控制从异常的 filter 子句转移回公共语言结构 (CLI) 异常处理程序。 Endfinally 将控制从异常块的 fault 或 finally 子句转移回公共语言结构 (CLI) 异常处理程序。 Initblk 将位于特定地址的内存的指定块初始化为给定大小和初始值。 Initobj 将位于指定地址的值类型的每个字段初始化为空引用或适当的基元类型的 0。 Isinst 测试对象引用（O 类型）是否为特定类的实例。 Jmp 退出当前方法并跳至指定方法。 Ldarg 将参数（由指定索引值引用）加载到堆栈上。 Ldarg.0 将索引为 0 的参数加载到计算堆栈上。 Ldarg.1 将索引为 1 的参数加载到计算堆栈上。 Ldarg.2 将索引为 2 的参数加载到计算堆栈上。 Ldarg.3 将索引为 3 的参数加载到计算堆栈上。 Ldarg.S 将参数（由指定的短格式索引引用）加载到计算堆栈上。 Ldarga 将参数地址加载到计算堆栈上。 Ldarga.S 以短格式将参数地址加载到计算堆栈上。 Ldc.I4 将所提供的 int32 类型的值作为 int32 推送到计算堆栈上。 Ldc.I4.0 将整数值 0 作为 int32 推送到计算堆栈上。 Ldc.I4.1 将整数值 1 作为 int32 推送到计算堆栈上。 Ldc.I4.2 将整数值 2 作为 int32 推送到计算堆栈上。 Ldc.I4.3 将整数值 3 作为 int32 推送到计算堆栈上。 Ldc.I4.4 将整数值 4 作为 int32 推送到计算堆栈上。 Ldc.I4.5 将整数值 5 作为 int32 推送到计算堆栈上。 Ldc.I4.6 将整数值 6 作为 int32 推送到计算堆栈上。 Ldc.I4.7 将整数值 7 作为 int32 推送到计算堆栈上。 Ldc.I4.8 将整数值 8 作为 int32 推送到计算堆栈上。 Ldc.I4.M1 将整数值 -1 作为 int32 推送到计算堆栈上。 Ldc.I4.S 将提供的 int8 值作为 int32 推送到计算堆栈上（短格式）。 Ldc.I8 将所提供的 int64 类型的值作为 int64 推送到计算堆栈上。 Ldc.R4 将所提供的 float32 类型的值作为 F (float) 类型推送到计算堆栈上。 Ldc.R8 将所提供的 float64 类型的值作为 F (float) 类型推送到计算堆栈上。 Ldelem 按照指令中指定的类型，将指定数组索引中的元素加载到计算堆栈的顶部。 Ldelem.I 将位于指定数组索引处的 native int 类型的元素作为 native int 加载到计算堆栈的顶部。 Ldelem.I1 将位于指定数组索引处的 int8 类型的元素作为 int32 加载到计算堆栈的顶部。 Ldelem.I2 将位于指定数组索引处的 int16 类型的元素作为 int32 加载到计算堆栈的顶部。 Ldelem.I4 将位于指定数组索引处的 int32 类型的元素作为 int32 加载到计算堆栈的顶部。 Ldelem.I8 将位于指定数组索引处的 int64 类型的元素作为 int64 加载到计算堆栈的顶部。 Ldelem.R4 将位于指定数组索引处的 float32 类型的元素作为 F 类型（浮点型）加载到计算堆栈的顶部。 Ldelem.R8 将位于指定数组索引处的 float64 类型的元素作为 F 类型（浮点型）加载到计算堆栈的顶部。 Ldelem.Ref 将位于指定数组索引处的包含对象引用的元素作为 O 类型（对象引用）加载到计算堆栈的顶部。 Ldelem.U1 将位于指定数组索引处的 unsigned int8 类型的元素作为 int32 加载到计算堆栈的顶部。 Ldelem.U2 将位于指定数组索引处的 unsigned int16 类型的元素作为 int32 加载到计算堆栈的顶部。 Ldelem.U4 将位于指定数组索引处的 unsigned int32 类型的元素作为 int32 加载到计算堆栈的顶部。 Ldelema 将位于指定数组索引的数组元素的地址作为 & 类型（托管指针）加载到计算堆栈的顶部。 Ldfld 查找对象中其引用当前位于计算堆栈的字段的值。 Ldflda 查找对象中其引用当前位于计算堆栈的字段的地址。 Ldftn 将指向实现特定方法的本机代码的非托管指针（native int 类型）推送到计算堆栈上。 Ldind.I 将 native int 类型的值作为 native int 间接加载到计算堆栈上。 Ldind.I1 将 int8 类型的值作为 int32 间接加载到计算堆栈上。 Ldind.I2 将 int16 类型的值作为 int32 间接加载到计算堆栈上。 Ldind.I4 将 int32 类型的值作为 int32 间接加载到计算堆栈上。 Ldind.I8 将 int64 类型的值作为 int64 间接加载到计算堆栈上。 Ldind.R4 将 float32 类型的值作为 F (float) 类型间接加载到计算堆栈上。 Ldind.R8 将 float64 类型的值作为 F (float) 类型间接加载到计算堆栈上。 Ldind.Ref 将对象引用作为 O（对象引用）类型间接加载到计算堆栈上。 Ldind.U1 将 unsigned int8 类型的值作为 int32 间接加载到计算堆栈上。 Ldind.U2 将 unsigned int16 类型的值作为 int32 间接加载到计算堆栈上。 Ldind.U4 将 unsigned int32 类型的值作为 int32 间接加载到计算堆栈上。 Ldlen 将从零开始的、一维数组的元素的数目推送到计算堆栈上。 Ldloc 将指定索引处的局部变量加载到计算堆栈上。 Ldloc.0 将索引 0 处的局部变量加载到计算堆栈上。 Ldloc.1 将索引 1 处的局部变量加载到计算堆栈上。 Ldloc.2 将索引 2 处的局部变量加载到计算堆栈上。 Ldloc.3 将索引 3 处的局部变量加载到计算堆栈上。 Ldloc.S 将特定索引处的局部变量加载到计算堆栈上（短格式）。 Ldloca 将位于特定索引处的局部变量的地址加载到计算堆栈上。 Ldloca.S 将位于特定索引处的局部变量的地址加载到计算堆栈上（短格式）。 Ldnull 将空引用（O 类型）推送到计算堆栈上。 Ldobj 将地址指向的值类型对象复制到计算堆栈的顶部。 Ldsfld 将静态字段的值推送到计算堆栈上。 Ldsflda 将静态字段的地址推送到计算堆栈上。 Ldstr 推送对元数据中存储的字符串的新对象引用。 Ldtoken 将元数据标记转换为其运行时表示形式，并将其推送到计算堆栈上。 Ldvirtftn 将指向实现与指定对象关联的特定虚方法的本机代码的非托管指针（native int 类型）推送到计算堆栈上。 Leave 退出受保护的代码区域，无条件将控制转移到特定目标指令。 Leave.S 退出受保护的代码区域，无条件将控制转移到目标指令（缩写形式）。 Localloc 从本地动态内存池分配特定数目的字节并将第一个分配的字节的地址（瞬态指针，* 类型）推送到计算堆栈上。 Mkrefany 将对特定类型实例的类型化引用推送到计算堆栈上。 Mul 将两个值相乘并将结果推送到计算堆栈上。 Mul.Ovf 将两个整数值相乘，执行溢出检查，并将结果推送到计算堆栈上。 Mul.Ovf.Un 将两个无符号整数值相乘，执行溢出检查，并将结果推送到计算堆栈上。 Neg 对一个值执行求反并将结果推送到计算堆栈上。 Newarr 将对新的从零开始的一维数组（其元素属于特定类型）的对象引用推送到计算堆栈上。 Newobj 创建一个值类型的新对象或新实例，并将对象引用（O 类型）推送到计算堆栈上。 Nop 如果修补操作码，则填充空间。尽管可能消耗处理周期，但未执行任何有意义的操作。 Not 计算堆栈顶部整数值的按位求补并将结果作为相同的类型推送到计算堆栈上。 Or 计算位于堆栈顶部的两个整数值的按位求补并将结果推送到计算堆栈上。 Pop 移除当前位于计算堆栈顶部的值。 Prefix1 基础结构。此指令为保留指令。 Prefix2 基础结构。此指令为保留指令。 Prefix3 基础结构。此指令为保留指令。 Prefix4 基础结构。此指令为保留指令。 Prefix5 基础结构。此指令为保留指令。 Prefix6 基础结构。此指令为保留指令。 Prefix7 基础结构。此指令为保留指令。 Prefixref 基础结构。此指令为保留指令。 Readonly 指定后面的数组地址操作在运行时不执行类型检查，并且返回可变性受限的托管指针。 Refanytype 检索嵌入在类型化引用内的类型标记。 Refanyval 检索嵌入在类型化引用内的地址（& 类型）。 Rem 将两个值相除并将余数推送到计算堆栈上。 Rem.Un 将两个无符号值相除并将余数推送到计算堆栈上。 Ret 从当前方法返回，并将返回值（如果存在）从调用方的计算堆栈推送到被调用方的计算堆栈上。 Rethrow 再次引发当前异常。 Shl 将整数值左移（用零填充）指定的位数，并将结果推送到计算堆栈上。 Shr 将整数值右移（保留符号）指定的位数，并将结果推送到计算堆栈上。 Shr.Un 将无符号整数值右移（用零填充）指定的位数，并将结果推送到计算堆栈上。 Sizeof 将提供的值类型的大小（以字节为单位）推送到计算堆栈上。 Starg 将位于计算堆栈顶部的值存储到位于指定索引的参数槽中。 Starg.S 将位于计算堆栈顶部的值存储在参数槽中的指定索引处（短格式）。 Stelem 用计算堆栈中的值替换给定索引处的数组元素，其类型在指令中指定。 Stelem.I 用计算堆栈上的 native int 值替换给定索引处的数组元素。 Stelem.I1 用计算堆栈上的 int8 值替换给定索引处的数组元素。 Stelem.I2 用计算堆栈上的 int16 值替换给定索引处的数组元素。 Stelem.I4 用计算堆栈上的 int32 值替换给定索引处的数组元素。 Stelem.I8 用计算堆栈上的 int64 值替换给定索引处的数组元素。 Stelem.R4 用计算堆栈上的 float32 值替换给定索引处的数组元素。 Stelem.R8 用计算堆栈上的 float64 值替换给定索引处的数组元素。 Stelem.Ref 用计算堆栈上的对象 ref 值（O 类型）替换给定索引处的数组元素。 Stfld 用新值替换在对象引用或指针的字段中存储的值。 Stind.I 在所提供的地址存储 native int 类型的值。 Stind.I1 在所提供的地址存储 int8 类型的值。 Stind.I2 在所提供的地址存储 int16 类型的值。 Stind.I4 在所提供的地址存储 int32 类型的值。 Stind.I8 在所提供的地址存储 int64 类型的值。 Stind.R4 在所提供的地址存储 float32 类型的值。 Stind.R8 在所提供的地址存储 float64 类型的值。 Stind.Ref 存储所提供地址处的对象引用值。 Stloc 从计算堆栈的顶部弹出当前值并将其存储到指定索引处的局部变量列表中。 Stloc.0 从计算堆栈的顶部弹出当前值并将其存储到索引 0 处的局部变量列表中。 Stloc.1 从计算堆栈的顶部弹出当前值并将其存储到索引 1 处的局部变量列表中。 Stloc.2 从计算堆栈的顶部弹出当前值并将其存储到索引 2 处的局部变量列表中。 Stloc.3 从计算堆栈的顶部弹出当前值并将其存储到索引 3 处的局部变量列表中。 Stloc.S 从计算堆栈的顶部弹出当前值并将其存储在局部变量列表中的 index 处（短格式）。 Stobj 将指定类型的值从计算堆栈复制到所提供的内存地址中。 Stsfld 用来自计算堆栈的值替换静态字段的值。 Sub 从其他值中减去一个值并将结果推送到计算堆栈上。 Sub.Ovf 从另一值中减去一个整数值，执行溢出检查，并且将结果推送到计算堆栈上。 Sub.Ovf.Un 从另一值中减去一个无符号整数值，执行溢出检查，并且将结果推送到计算堆栈上。 Switch 实现跳转表。 Tailcall 执行后缀的方法调用指令，以便在执行实际调用指令前移除当前方法的堆栈帧。 Throw 引发当前位于计算堆栈上的异常对象。 Unaligned 指示当前位于计算堆栈上的地址可能没有与紧接的 ldind、stind、ldfld、stfld、ldobj、stobj、initblk 或 cpblk 指令的自然大小对齐。 Unbox 将值类型的已装箱的表示形式转换为其未装箱的形式。 Unbox.Any 将指令中指定类型的已装箱的表示形式转换成未装箱形式。 Volatile 指定当前位于计算堆栈顶部的地址可以是易失的，并且读取该位置的结果不能被缓存，或者对该地址的多个存储区不能被取消。 Xor 计算位于计算堆栈顶部的两个值的按位异或，并且将结果推送到计算堆栈上。",
+      "categories": [
+        {
+          "name": "Csharp",
+          "url": "/categories/Csharp/"
+        },
+        {
+          "name": "心得技巧",
+          "url": "/categories/Csharp/心得技巧/"
+        },
+        {
+          "name": "编程",
+          "url": "/categories/Csharp/心得技巧/编程/"
+        }
+      ],
+      "tags": [
+        {
+          "name": ".NET",
+          "url": "/tags/NET/"
+        },
+        {
+          "name": "IL",
+          "url": "/tags/IL/"
+        }
+      ]
+    },
+    {
+      "url": "/2016/05/13/e6-a1-8c-e6-b8-b8-e5-ae-89-e5-88-a9-e3-80-8a-e7-8a-af-e4-ba-ba-e5-9c-a8-e8-b7-b3-e8-88-9e-e3-80-8b/",
+      "title": "桌游安利《犯人在跳舞》~",
+      "date": "2016-05-13",
+      "html": "\n\n      \n        <p><img src=\"http://rmbgame.net/wp-content/uploads/2016/05/20140520_872759.png\" alt=\"20140520_872759\"> 经过朋友消息得知了这款桌游， 看着挺有意思。这里放一下说明规则</p>\n<ul>\n<li>游戏名称:<strong>《犯人在跳舞》/《犯人は踊る》/《Criminal Dance》</strong></li>\n<li>建议游戏人数：<strong>3~8人</strong></li>\n</ul>\n<p>《犯人在跳舞》是一款类似杀人游戏的游戏，你可以把他理解成蛇精病版的杀人游戏…… 当然啦，说蛇精病不是没理由的，大家从游戏名称就可看出这是一款“抓贼”类游戏。 但是与“杀人”、“狼人”这类游戏不同的是，在《犯人在跳舞》中<strong>每个人的身份角色都是在随时变化的</strong>，直到游戏的最后一刻你才能知道谁赢谁输，谁是犯人。 再加上游戏的核心内容除了<strong>“猜测身份</strong>”以外，还有<strong>“交换手牌”</strong>，所以大大加强了随机性。 而且这款游戏不会出现像“杀人”这样被首刀后发呆半小时的尴尬场面，提高了每个人的参与度。 同时该游戏<strong>文字量极少</strong>，也不需要过多发言，手牌数永远小于等于四张，流程简单，计分省力，节奏明快。</p>\n<h4 id=\"1：游戏准备\"><a href=\"#1%EF%BC%9A%E6%B8%B8%E6%88%8F%E5%87%86%E5%A4%87\" class=\"headerlink\" title=\"1：游戏准备\"></a>1：游戏准备</h4><p>好，说了那么多，这游戏到底咋玩呢？ <img src=\"http://rmbgame.net/wp-content/uploads/2016/05/20131022_711530.png\" alt=\"20131022_711530\"> 上图大致意思就是在必备卡牌的基础上根据人数加入一定数目的随机卡牌，以达到最终每人能拿到四张手牌。 把按照上述原则选出来的牌库<strong>打乱</strong>后开始<strong>发牌</strong>，正好每人4张。 Tips:大家可以在一到三局游戏过后<strong>更换随机部分</strong>的卡牌，以提高趣味性(这在每个人都熟悉游戏后是<strong>非常必要</strong>的)。</p>\n<h4 id=\"2：游戏流程\"><a href=\"#2%EF%BC%9A%E6%B8%B8%E6%88%8F%E6%B5%81%E7%A8%8B\" class=\"headerlink\" title=\"2：游戏流程\"></a>2：游戏流程</h4><p><img src=\"http://rmbgame.net/wp-content/uploads/2016/05/20131022_711531.png\" alt=\"20131022_711531\"> 别看画的很复杂，其实炒鸡简单，你只要记住，你需要做的就是:</p>\n<ul>\n<li>出一张牌</li>\n<li>照牌上说的做</li>\n<li>然后下一家继续重复上述动作……</li>\n</ul>\n<p>Tips：当你有手牌时，<strong>必须出牌</strong>。当你没有手牌时，不需要出牌，也无需因为“情报交换”、“交易”或者“谣言”来给别人手牌。</p>\n<h4 id=\"3：胜负判定\"><a href=\"#3%EF%BC%9A%E8%83%9C%E8%B4%9F%E5%88%A4%E5%AE%9A\" class=\"headerlink\" title=\"3：胜负判定\"></a>3：胜负判定</h4><p>游戏可大致分为“犯人、共犯”，以及“其他人”两个阵营。</p>\n<p>当有人打出“犯人”卡时，游戏结束，犯人阵营胜利。 当通过“侦探”/神犬”卡的效果推测/抓住犯人时，除“犯人、共犯”以外的“其他人”胜利。</p>\n<p>胜利后根据计分表给各个阵营的人加分，计分表如下：</p>\n<p>计分规则： 进行3-4局游戏     先赢得5分的玩家获胜 进行6-8局游戏    先赢得10分的玩家获胜 结算情况： 1.最后一次使用侦探牌的玩家得到2分，被该侦探牌抓到的犯人玩家以及身份为共犯的玩家得到0分，剩下的玩家得到1分。 2.最后一次使用神犬牌的玩家得到3分，被该神犬牌咬到的犯人玩家以及身份为共犯的玩家得到0分，剩下的玩家得到1分。 3.打出犯人牌的玩家以及身份为共犯的玩家得到2分，剩下的玩家得到0分。  </p>\n<h4 id=\"4：牌类使用条件及效果\"><a href=\"#4%EF%BC%9A%E7%89%8C%E7%B1%BB%E4%BD%BF%E7%94%A8%E6%9D%A1%E4%BB%B6%E5%8F%8A%E6%95%88%E6%9E%9C\" class=\"headerlink\" title=\"4：牌类使用条件及效果\"></a>4：牌类使用条件及效果</h4><p><img src=\"http://rmbgame.net/wp-content/uploads/2016/05/20131029_716945.png\" alt=\"20131029_716945\"> <strong>第一发现者</strong>：游戏从拿到这张卡牌的玩家<strong>开始</strong>，由该玩家打出这张牌后，<strong>顺时针</strong>依次出牌。 <strong>犯人</strong>：该卡牌只能作为<strong>最后一张</strong>手牌时打出，即当你没有其他手牌时，才能打出“犯人”，一旦打出这张牌，则游戏结束，“犯人”以及“共犯”获胜。 <strong>不在场证明</strong>：打出该牌无任何效果。当你拥有该卡牌时，你被视作<strong>不是</strong>犯人。这牌其实就是一块免死金牌，无论你手里有没有“犯人”卡，只要你有“不在场证明”，那你就是好人。 也就是说，当别人侦探你，并且让你承认自己是“犯人”，需要满足两个条件，一个条件是你手里有“犯人”牌，另一个条件便是你手里没“不在场证明”。   <img src=\"http://rmbgame.net/wp-content/uploads/2016/05/20131029_716943.png\" alt=\"20131029_716943\"> <strong>情报交换:</strong>当你打出该牌后，由你开始沿顺时针方向，每个玩家依次自行选择一张手牌，并且传递给他左手边的玩家， 接收到的牌请卡背朝上放在自己面前，直到所有人传递牌结束后再拿起放入手牌。 <strong>谣言</strong>：当你打出该牌后，由你开始沿<strong>顺时针</strong>方向，每个玩家依次向他右手边的人那里<strong>随机抽</strong>一张牌， 抽到的牌请<strong>卡背朝上放在自己面前</strong>，直到所有人抽牌结束后再拿起放入手牌。 这样做是为了防止下家抽走你从上家抽的牌。当然啦，大家熟悉规则和游戏后就变成了同时抽右手边玩家的一张卡了…… <strong>交易</strong>：打出该牌后指定一名玩家，双方各自选择一张自己的手牌进行交换。无论双方有无手牌，都可交易。 比方说当你打出交易后如果<strong>没手牌</strong>了，那你仍然可以得到对方的一张牌，对方却不能得到任何牌，反之亦然。 <img src=\"http://rmbgame.net/wp-content/uploads/2016/05/20131029_716942.png\" alt=\"20131029_716942\"> <strong>神犬</strong>：打出该牌时指定一名玩家，被指定的玩家自行选择一张手牌并且弃掉， 接下来被指定的玩家可以把对方打出的那张“神犬”卡<strong>收进手牌</strong>也可以把“神犬”也同时<strong>一起弃掉</strong>。 当被指定玩家丢弃的牌是“犯人”牌时，游戏结束，好人阵营以及神犬获胜。 <strong>一般人</strong>：打出前打出后都无任何效果。 <strong>目击者</strong>：打出该牌后可指定一名除你以外的玩家，<strong>单独观看</strong>他的所有手牌。  </p>\n<h4 id=\"5：变体规则\"><a href=\"#5%EF%BC%9A%E5%8F%98%E4%BD%93%E8%A7%84%E5%88%99\" class=\"headerlink\" title=\"5：变体规则\"></a>5：变体规则</h4><p>华语版本中，日本的设计师特意为我们设计了两张新卡牌：“警部”和“少年”，还有相应的变体规则。 <img src=\"http://rmbgame.net/wp-content/uploads/2016/05/c303df63b5c69d60f92cb96be493cbeb.jpg\" alt=\"c303df63b5c69d60f92cb96be493cbeb\"> <strong>少年</strong>：打出之后，系统会通知该玩家现在犯人牌在哪个玩家手中。 直接打出此卡牌无任何效果。拥有此卡牌的玩家在游戏开始前知道烦人卡在哪位玩家手中。 <strong>警部</strong>：手牌拥有此卡牌的玩儿家。一直保持此卡牌正面朝向其他玩家(展示)，将此卡牌打在你认为是犯人的玩儿家面(lian)前(shang)，游戏结束时，如果该玩家成为犯人，妳赢得游戏。(3分)   打算同时尝试一下这款游戏的开发。~   目前正在设计中~~</p>\n\n    ",
+      "text": "经过朋友消息得知了这款桌游， 看着挺有意思。这里放一下说明规则 游戏名称:《犯人在跳舞》/《犯人は踊る》/《Criminal Dance》 建议游戏人数：3~8人 《犯人在跳舞》是一款类似杀人游戏的游戏，你可以把他理解成蛇精病版的杀人游戏…… 当然啦，说蛇精病不是没理由的，大家从游戏名称就可看出这是一款“抓贼”类游戏。 但是与“杀人”、“狼人”这类游戏不同的是，在《犯人在跳舞》中每个人的身份角色都是在随时变化的，直到游戏的最后一刻你才能知道谁赢谁输，谁是犯人。 再加上游戏的核心内容除了“猜测身份”以外，还有“交换手牌”，所以大大加强了随机性。 而且这款游戏不会出现像“杀人”这样被首刀后发呆半小时的尴尬场面，提高了每个人的参与度。 同时该游戏文字量极少，也不需要过多发言，手牌数永远小于等于四张，流程简单，计分省力，节奏明快。 1：游戏准备好，说了那么多，这游戏到底咋玩呢？ 上图大致意思就是在必备卡牌的基础上根据人数加入一定数目的随机卡牌，以达到最终每人能拿到四张手牌。 把按照上述原则选出来的牌库打乱后开始发牌，正好每人4张。 Tips:大家可以在一到三局游戏过后更换随机部分的卡牌，以提高趣味性(这在每个人都熟悉游戏后是非常必要的)。 2：游戏流程 别看画的很复杂，其实炒鸡简单，你只要记住，你需要做的就是: 出一张牌 照牌上说的做 然后下一家继续重复上述动作…… Tips：当你有手牌时，必须出牌。当你没有手牌时，不需要出牌，也无需因为“情报交换”、“交易”或者“谣言”来给别人手牌。 3：胜负判定游戏可大致分为“犯人、共犯”，以及“其他人”两个阵营。 当有人打出“犯人”卡时，游戏结束，犯人阵营胜利。 当通过“侦探”/神犬”卡的效果推测/抓住犯人时，除“犯人、共犯”以外的“其他人”胜利。 胜利后根据计分表给各个阵营的人加分，计分表如下： 计分规则： 进行3-4局游戏 先赢得5分的玩家获胜 进行6-8局游戏 先赢得10分的玩家获胜 结算情况： 1.最后一次使用侦探牌的玩家得到2分，被该侦探牌抓到的犯人玩家以及身份为共犯的玩家得到0分，剩下的玩家得到1分。 2.最后一次使用神犬牌的玩家得到3分，被该神犬牌咬到的犯人玩家以及身份为共犯的玩家得到0分，剩下的玩家得到1分。 3.打出犯人牌的玩家以及身份为共犯的玩家得到2分，剩下的玩家得到0分。 4：牌类使用条件及效果 第一发现者：游戏从拿到这张卡牌的玩家开始，由该玩家打出这张牌后，顺时针依次出牌。 犯人：该卡牌只能作为最后一张手牌时打出，即当你没有其他手牌时，才能打出“犯人”，一旦打出这张牌，则游戏结束，“犯人”以及“共犯”获胜。 不在场证明：打出该牌无任何效果。当你拥有该卡牌时，你被视作不是犯人。这牌其实就是一块免死金牌，无论你手里有没有“犯人”卡，只要你有“不在场证明”，那你就是好人。 也就是说，当别人侦探你，并且让你承认自己是“犯人”，需要满足两个条件，一个条件是你手里有“犯人”牌，另一个条件便是你手里没“不在场证明”。 情报交换:当你打出该牌后，由你开始沿顺时针方向，每个玩家依次自行选择一张手牌，并且传递给他左手边的玩家， 接收到的牌请卡背朝上放在自己面前，直到所有人传递牌结束后再拿起放入手牌。 谣言：当你打出该牌后，由你开始沿顺时针方向，每个玩家依次向他右手边的人那里随机抽一张牌， 抽到的牌请卡背朝上放在自己面前，直到所有人抽牌结束后再拿起放入手牌。 这样做是为了防止下家抽走你从上家抽的牌。当然啦，大家熟悉规则和游戏后就变成了同时抽右手边玩家的一张卡了…… 交易：打出该牌后指定一名玩家，双方各自选择一张自己的手牌进行交换。无论双方有无手牌，都可交易。 比方说当你打出交易后如果没手牌了，那你仍然可以得到对方的一张牌，对方却不能得到任何牌，反之亦然。 神犬：打出该牌时指定一名玩家，被指定的玩家自行选择一张手牌并且弃掉， 接下来被指定的玩家可以把对方打出的那张“神犬”卡收进手牌也可以把“神犬”也同时一起弃掉。 当被指定玩家丢弃的牌是“犯人”牌时，游戏结束，好人阵营以及神犬获胜。 一般人：打出前打出后都无任何效果。 目击者：打出该牌后可指定一名除你以外的玩家，单独观看他的所有手牌。 5：变体规则华语版本中，日本的设计师特意为我们设计了两张新卡牌：“警部”和“少年”，还有相应的变体规则。 少年：打出之后，系统会通知该玩家现在犯人牌在哪个玩家手中。 直接打出此卡牌无任何效果。拥有此卡牌的玩家在游戏开始前知道烦人卡在哪位玩家手中。 警部：手牌拥有此卡牌的玩儿家。一直保持此卡牌正面朝向其他玩家(展示)，将此卡牌打在你认为是犯人的玩儿家面(lian)前(shang)，游戏结束时，如果该玩家成为犯人，妳赢得游戏。(3分) 打算同时尝试一下这款游戏的开发。~ 目前正在设计中~~",
+      "categories": [
+        {
+          "name": "游戏分享",
+          "url": "/categories/游戏分享/"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "url": "/2016/05/13/e8-bf-99-e9-87-8c-e5-88-86-e4-ba-ab-e4-b8-80-e4-b8-aa-e8-87-aa-e5-b7-b1-e5-86-99-e7-9a-84-e5-a3-81-e7-ba-b8-e8-8e-b7-e5-8f-96-e5-8a-a0-e6-9b-b4-e6-8d-a2-e7-9a-84-e8-bd-af-e4-bb-b6-trashed/",
+      "title": "这里分享一个自己写的壁纸获取加更换的软件~",
+      "date": "2016-05-13",
+      "html": "\n\n      \n        <p>一个壁纸用久了总会腻，想经常换新壁纸。但是又经常懒得找，就能使用这款小软件了，比较方便嘿嘿嘿 自动识别当前电脑分辨率然后找相同分辨率的图片。 <del>~ 保证都是高清图嘿嘿嘿。 截图在下面 使用说明应该也不用详细介绍，很简单。  双击可查看大图，右键有复制图片， 复制图片地址 （外链网址） 保存图片（就是下载下来）  设置背景 <img src=\"http://rmbgame.net/wp-content/uploads/2016/05/QQjt20160513093915.png\" alt=\"QQjt20160513093915\"> 底下有两个单选按钮可以 换 动漫 或游戏的。       红色地方按钮在滚动条移动到底部时候单击可加载新图片出来， 理论上 可以无限加载下去</del>   查看高清图截图： <img src=\"http://rmbgame.net/wp-content/uploads/2016/05/QQjt20160513093924.png\" alt=\"QQjt20160513093924\"> 完全绿色纯净， 无任何广告病毒~ 有好的建议可以告诉我~ </p>\n<p><img src=\"file:///H:QQUsers469574284ImageGroupImage4IUUXIZ%5DI6(3QPG$QSHG)81D.jpg\" alt></p>\n<p><img src=\"file:///H:QQUsers469574284ImageGroupImage4IUUXIZ%5DI6(3QPG$QSHG)81D.jpg\" alt>链接: <a href=\"http://pan.baidu.com/s/1c1UzMnA\" target=\"_blank\" rel=\"noopener\">http://pan.baidu.com/s/1c1UzMnA</a> 密码: 7x24</p>\n\n    ",
+      "text": "一个壁纸用久了总会腻，想经常换新壁纸。但是又经常懒得找，就能使用这款小软件了，比较方便嘿嘿嘿 自动识别当前电脑分辨率然后找相同分辨率的图片。 ~ 保证都是高清图嘿嘿嘿。 截图在下面 使用说明应该也不用详细介绍，很简单。 双击可查看大图，右键有复制图片， 复制图片地址 （外链网址） 保存图片（就是下载下来） 设置背景 底下有两个单选按钮可以 换 动漫 或游戏的。 红色地方按钮在滚动条移动到底部时候单击可加载新图片出来， 理论上 可以无限加载下去 查看高清图截图： 完全绿色纯净， 无任何广告病毒~ 有好的建议可以告诉我~ 链接: http://pan.baidu.com/s/1c1UzMnA 密码: 7x24",
+      "categories": [
+        {
+          "name": "编程",
+          "url": "/categories/编程/"
+        },
+        {
+          "name": "软件分享",
+          "url": "/categories/编程/软件分享/"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "url": "/2016/05/12/e5-b8-a6virtio-e9-a9-b1-e5-8a-a8-e7-9a-84-e6-9c-8d-e5-8a-a1-e5-99-a8-e7-b3-bb-e7-bb-9f-e9-95-9c-e5-83-8f/",
+      "title": "带Virtio驱动 的 服务器系统镜像",
+      "date": "2016-05-12",
+      "html": "\n\n      \n        <p>Windows 8.1, 8, 7, XP, Server 2012, 2008, 2003的ISO镜像 <a href=\"http://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_x64_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.iso\" target=\"_blank\" rel=\"noopener\">http://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_x64_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.iso</a> <a href=\"http://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.iso\" target=\"_blank\" rel=\"noopener\">http://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.iso</a> <a href=\"http://dl03.miefen.com/os/en_win_xp_pro_x64_with_sp2_vl_incl_virtio_X13-140502-homemade-by-Jetso.iso\" target=\"_blank\" rel=\"noopener\">http://dl03.miefen.com/os/en_win_xp_pro_x64_with_sp2_vl_incl_virtio_X13-140502-homemade-by-Jetso.iso</a> <a href=\"http://dl03.miefen.com/os/zh-hans_windows_xp_professional_with_service_pack_3_x86_cd_vl_incl_virtio_x14-140508-homemade-by-Jetso.iso\" target=\"_blank\" rel=\"noopener\">http://dl03.miefen.com/os/zh-hans_windows_xp_professional_with_service_pack_3_x86_cd_vl_incl_virtio_x14-140508-homemade-by-Jetso.iso</a> <a href=\"http://dl03.miefen.com/os/cn_windows_server_2008_r2_standard_enterprise_datacenter_and_web_with_sp1_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso\" target=\"_blank\" rel=\"noopener\">http://dl03.miefen.com/os/cn_windows_server_2008_r2_standard_enterprise_datacenter_and_web_with_sp1_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href=\"http://dl02.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x86_dvd_u_incl_virtio-140506-homemade-by-Jetso.iso\" target=\"_blank\" rel=\"noopener\">http://dl02.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x86_dvd_u_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href=\"http://dl02.miefen.com/os/cn_windows_8_1_pro_vl_x86_dvd_incl_virtio-140506-homemade-by-Jetso.iso\" target=\"_blank\" rel=\"noopener\">http://dl02.miefen.com/os/cn_windows_8_1_pro_vl_x86_dvd_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href=\"http://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_x64_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.isohttp://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.isohttp://dl03.miefen.com/os/en_win_xp_pro_x64_with_sp2_vl_incl_virtio_X13-140502-homemade-by-Jetso.isohttp://dl03.miefen.com/os/zh-hans_windows_xp_professional_with_service_pack_3_x86_cd_vl_incl_virtio_x14-140508-homemade-by-Jetso.isohttp://dl03.miefen.com/os/cn_windows_server_2008_r2_standard_enterprise_datacenter_and_web_with_sp1_x64_dvd_incl_virtio-140506-homemade-by-Jetso.isohttp://dl02.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x86_dvd_u_incl_virtio-140506-homemade-by-Jetso.isohttp://dl02.miefen.com/os/cn_windows_8_1_pro_vl_x86_dvd_incl_virtio-140506-homemade-by-Jetso.isohttp://dl02.miefen.com/os/cn_windows_8_pro_vl_x86_dvd_incl_virtio-140506-homemade-by-Jetso.isohttp://dl01.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x64_dvd_u_incl_virtio-140506-homemade-by-Jetso.isohttp://dl01.miefen.com/os/cn_windows_8_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.isohttp://dl01.miefen.com/os/cn_windows_8_1_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.isohttp://dl01.miefen.com/os/cn_windows_server_2012_r2_x64_dvd_incl_virtio-140505-homemade-by-Jetso.iso\" target=\"_blank\" rel=\"noopener\">http://dl02.miefen.com/os/cn_windows_8_pro_vl_x86_dvd_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href=\"http://dl01.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x64_dvd_u_incl_virtio-140506-homemade-by-Jetso.iso\" target=\"_blank\" rel=\"noopener\">http://dl01.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x64_dvd_u_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href=\"http://dl01.miefen.com/os/cn_windows_8_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso\" target=\"_blank\" rel=\"noopener\">http://dl01.miefen.com/os/cn_windows_8_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href=\"http://dl01.miefen.com/os/cn_windows_8_1_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso\" target=\"_blank\" rel=\"noopener\">http://dl01.miefen.com/os/cn_windows_8_1_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso</a> <a href=\"http://dl01.miefen.com/os/cn_windows_server_2012_r2_x64_dvd_incl_virtio-140505-homemade-by-Jetso.iso\" target=\"_blank\" rel=\"noopener\">http://dl01.miefen.com/os/cn_windows_server_2012_r2_x64_dvd_incl_virtio-140505-homemade-by-Jetso.iso</a>   记录一下。 补充一下server 2012 r2安装秘钥</p>\n<p>ServerStandard = NB4WH-BBBYV-3MPPC-9RCMV-46XCB<br>ServerStandardCore = NB4WH-BBBYV-3MPPC-9RCMV-46XCB<br>ServerDatacenter = BH9T4-4N7CW-67J3M-64J36-WW98Y<br>ServerDatacenterCore = BH9T4-4N7CW-67J3M-64J36-WW98Y<br>ServerHyperCore = Q8R8C-T2W6H-7MGPB-4CQ9R-KR36H<br>ServerWinFoundation = 7JGXN-BW8X3-DTJCK-WG7XB-YWP26<br>ServerStorageStandard = H2K4M-QNKQ2-64699-FYQHD-2WDYT<br>ServerStorageWorkgroup = 8N7PM-D3C64-RQVYF-MX8T7-G6MB2<br>ServerSolutionCore = 326N4-6GMBX-PD2QT-M7HX4-TVHM8gvlk<br>ServerSolutionCore = KNC87-3J2TX-XB4WP-VCPJV-M4FWM</p>\n\n    ",
+      "text": "Windows 8.1, 8, 7, XP, Server 2012, 2008, 2003的ISO镜像 http://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_x64_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.iso http://dl03.miefen.com/os/cn_win_srv_2003_r2_enterprise_with_sp2_vl_cd_merger_incl_virtio_X13-140502-homemade-by-Jetso.iso http://dl03.miefen.com/os/en_win_xp_pro_x64_with_sp2_vl_incl_virtio_X13-140502-homemade-by-Jetso.iso http://dl03.miefen.com/os/zh-hans_windows_xp_professional_with_service_pack_3_x86_cd_vl_incl_virtio_x14-140508-homemade-by-Jetso.iso http://dl03.miefen.com/os/cn_windows_server_2008_r2_standard_enterprise_datacenter_and_web_with_sp1_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso http://dl02.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x86_dvd_u_incl_virtio-140506-homemade-by-Jetso.iso http://dl02.miefen.com/os/cn_windows_8_1_pro_vl_x86_dvd_incl_virtio-140506-homemade-by-Jetso.iso http://dl02.miefen.com/os/cn_windows_8_pro_vl_x86_dvd_incl_virtio-140506-homemade-by-Jetso.iso http://dl01.miefen.com/os/cn_windows_7_professional_with_sp1_vl_build_x64_dvd_u_incl_virtio-140506-homemade-by-Jetso.iso http://dl01.miefen.com/os/cn_windows_8_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso http://dl01.miefen.com/os/cn_windows_8_1_pro_vl_x64_dvd_incl_virtio-140506-homemade-by-Jetso.iso http://dl01.miefen.com/os/cn_windows_server_2012_r2_x64_dvd_incl_virtio-140505-homemade-by-Jetso.iso 记录一下。 补充一下server 2012 r2安装秘钥 ServerStandard = NB4WH-BBBYV-3MPPC-9RCMV-46XCBServerStandardCore = NB4WH-BBBYV-3MPPC-9RCMV-46XCBServerDatacenter = BH9T4-4N7CW-67J3M-64J36-WW98YServerDatacenterCore = BH9T4-4N7CW-67J3M-64J36-WW98YServerHyperCore = Q8R8C-T2W6H-7MGPB-4CQ9R-KR36HServerWinFoundation = 7JGXN-BW8X3-DTJCK-WG7XB-YWP26ServerStorageStandard = H2K4M-QNKQ2-64699-FYQHD-2WDYTServerStorageWorkgroup = 8N7PM-D3C64-RQVYF-MX8T7-G6MB2ServerSolutionCore = 326N4-6GMBX-PD2QT-M7HX4-TVHM8gvlkServerSolutionCore = KNC87-3J2TX-XB4WP-VCPJV-M4FWM",
+      "categories": [
+        {
+          "name": "水的一笔",
+          "url": "/categories/水的一笔/"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "url": "/2016/05/11/vc14vc2015-e5-ae-89-e8-a3-85-e5-a4-b1-e8-b4-a50x80240017-e6-9c-aa-e6-8c-87-e5-ae-9a-e7-9a-84-e9-94-99-e8-af-af-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/",
+      "title": "VC14(VC2015)安装失败,0x80240017 - 未指定的错误 解决办法",
+      "date": "2016-05-11",
+      "html": "\n\n      \n        <p>闲的蛋疼升级PHP7  然而遇到VC14无法安装的问题。按照如下方法解决了。 （但是目前发现云签到系统没法在PHP7下运行，貌似我又要换回去QAQ） 找到了解决方法，给云签专门挂了PHP5。<del>~</del>   ——————————————————————————————————————–   VC2015、VC14 在 Windows 2012 R2 安装失败,0x80240017 - 未指定的错误，解决办法 据朋友反应VC2013一样存在这个问题……; <img src=\"http://www.iszip.com/uploads/allimg/160112/1-1601121AH01W.jpg\" alt> 查资料说是没有安装 KB2999226 补丁，查看错误日志文件，里面有一行C:\\ProgramData\\Package Cache\\FC6260C33678BB17FB8B88536C476B4015B7C5E9\\packages\\Patch\\x64\\Windows8.1-KB2999226-x64.msu” /quiet /norestart’</p>\n<p>可见，该补丁是带了的，而它安装失败，直接去点击这个补丁，弹出错误：此更新不适用你的计算机。 <img src=\"http://www.iszip.com/uploads/allimg/160112/1-1601121A934Z4.jpg\" alt>可见，安装此补丁失败的原因是，它又需要前置条件，原文摘录如下：</p>\n<p>系统必备组件</p>\n<p>若要安装此更新，您必须 2014 年 4 月累积更新 Windows RT 8.1、 Windows 8.1 和 Windows Server 2012 R2 (2919355) 安装在 Windows 8.1 或 Windows Server 2012 R2 上。或者安装 Windows 7 的 Windows Server 2008 R2 的 Service Pack 1.或者安装 Service Pack 2 适用于 Windows Vista 和 Windows server 2008.</p>\n<p>那么，需要安装 2919355 号补丁，页面地址<a href=\"https://support.microsoft.com/zh-cn/kb/2919355\" target=\"_blank\" rel=\"noopener\">https://support.microsoft.com/zh-cn/kb/2919355</a></p>\n<p>下载页面在：<a href=\"https://www.microsoft.com/en-us/download/details.aspx?id=42334\" target=\"_blank\" rel=\"noopener\">https://www.microsoft.com/en-us/download/details.aspx?id=42334</a></p>\n<p>以下复制该问题的解决办法之二：</p>\n<blockquote>\n<h3 id=\"Microsoft-下载中心\"><a href=\"#Microsoft-%E4%B8%8B%E8%BD%BD%E4%B8%AD%E5%BF%83\" class=\"headerlink\" title=\"Microsoft 下载中心\"></a>Microsoft 下载中心</h3><p>您还可以获得通过 Microsoft 下载中心的独立更新软件包。 <a href=\"http://www.microsoft.com/downloads/details.aspx?FamilyId=47b21d89-3f78-477f-9402-8021e61bef59\" target=\"_blank\" rel=\"noopener\">立即下载基于 x86 的 Windows 8.1 更新软件包。</a> <a href=\"http://www.microsoft.com/downloads/details.aspx?FamilyId=f2917221-a8b3-4024-b755-818ad0e7703d\" target=\"_blank\" rel=\"noopener\">立即下载基于 x64 的 Windows 8.1 更新软件包。</a> <a href=\"http://www.microsoft.com/downloads/details.aspx?FamilyId=373b1bb0-6d55-462e-98b7-6cb7d9ef1448\" target=\"_blank\" rel=\"noopener\">立即下载基于 x64 的 Windows Server 2012 R2 更新软件包。</a> 注意:适用于Windows RT 8.1的更新只能从Windows Update获取。 注意:必须按以下顺序安装更新: clearcompressionflag.exe、 KB2919355、 KB2932046、 KB2959977、 KB2937592、 KB2938439 和 KB2934018。</p>\n</blockquote>\n<p>然后，KB2919355，又需要前置补丁KB2919442，<a href=\"https://www.microsoft.com/zh-cn/download/details.aspx?id=42153\" target=\"_blank\" rel=\"noopener\">立即下载基于 x64 的 Windows Server 2012 R2 的KB2919442补丁</a>。 解决办法之一：就是开启Windows自动更新，打全补丁，估计微软是为了告诉我们：他们不但修补了漏洞还增加了新功能。 注：补丁必须按照顺序安装.   转自：<a href=\"http://www.iszip.com/post/VC14setupfailed.html\" target=\"_blank\" rel=\"noopener\">http://www.iszip.com/post/VC14setupfailed.html</a></p>\n\n    ",
+      "text": "闲的蛋疼升级PHP7 然而遇到VC14无法安装的问题。按照如下方法解决了。 （但是目前发现云签到系统没法在PHP7下运行，貌似我又要换回去QAQ） 找到了解决方法，给云签专门挂了PHP5。~ ——————————————————————————————————————– VC2015、VC14 在 Windows 2012 R2 安装失败,0x80240017 - 未指定的错误，解决办法 据朋友反应VC2013一样存在这个问题……; 查资料说是没有安装 KB2999226 补丁，查看错误日志文件，里面有一行C:\\ProgramData\\Package Cache\\FC6260C33678BB17FB8B88536C476B4015B7C5E9\\packages\\Patch\\x64\\Windows8.1-KB2999226-x64.msu” /quiet /norestart’ 可见，该补丁是带了的，而它安装失败，直接去点击这个补丁，弹出错误：此更新不适用你的计算机。 可见，安装此补丁失败的原因是，它又需要前置条件，原文摘录如下： 系统必备组件 若要安装此更新，您必须 2014 年 4 月累积更新 Windows RT 8.1、 Windows 8.1 和 Windows Server 2012 R2 (2919355) 安装在 Windows 8.1 或 Windows Server 2012 R2 上。或者安装 Windows 7 的 Windows Server 2008 R2 的 Service Pack 1.或者安装 Service Pack 2 适用于 Windows Vista 和 Windows server 2008. 那么，需要安装 2919355 号补丁，页面地址https://support.microsoft.com/zh-cn/kb/2919355 下载页面在：https://www.microsoft.com/en-us/download/details.aspx?id=42334 以下复制该问题的解决办法之二： Microsoft 下载中心您还可以获得通过 Microsoft 下载中心的独立更新软件包。 立即下载基于 x86 的 Windows 8.1 更新软件包。 立即下载基于 x64 的 Windows 8.1 更新软件包。 立即下载基于 x64 的 Windows Server 2012 R2 更新软件包。 注意:适用于Windows RT 8.1的更新只能从Windows Update获取。 注意:必须按以下顺序安装更新: clearcompressionflag.exe、 KB2919355、 KB2932046、 KB2959977、 KB2937592、 KB2938439 和 KB2934018。 然后，KB2919355，又需要前置补丁KB2919442，立即下载基于 x64 的 Windows Server 2012 R2 的KB2919442补丁。 解决办法之一：就是开启Windows自动更新，打全补丁，估计微软是为了告诉我们：他们不但修补了漏洞还增加了新功能。 注：补丁必须按照顺序安装. 转自：http://www.iszip.com/post/VC14setupfailed.html",
+      "categories": [
+        {
+          "name": "心得技巧",
+          "url": "/categories/心得技巧/"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "url": "/2016/04/21/e4-bb-a3-e7-a0-81-e5-b0-91-e5-a5-b3collection-e8-af-95-e7-8e-a9/",
+      "title": "代码少女Collection 试玩",
+      "date": "2016-04-21",
+      "html": "\n\n      \n        <p>首先 看到这个名字 就瞬间 被惊讶 。 <img src=\"https://rmbgame.net/wp-content/uploads/2016/04/codecollection-2.jpg\" alt=\"codecollection\"> <img src=\"https://rmbgame.net/wp-content/uploads/2016/04/codecollection-3.jpg\" alt=\"codecollection\"> CodeGirlCollection     红红火火恍恍惚惚 广大技术宅福音 简直     放几张体验图 <img src=\"https://rmbgame.net/wp-content/uploads/2016/04/codecollection-1.jpg\" alt=\"codecollection\"> <img src=\"https://rmbgame.net/wp-content/uploads/2016/04/codecollection-1.png\" alt=\"codecollection\">   简直学习编程利器，  虽然只有 php 和ruby   不知道以后能支持更多语言吗 233333 ps： 游戏已经更新啦！ 现在有了java 和python 了哦<del>~   游戏地址链接:    <a href=\"https://paiza.jp/cgc\" target=\"_blank\" rel=\"noopener\">https://paiza.jp/cgc</a>   注册很简单， 只要填写 邮箱 昵称 密码   验证邮箱完成 即可游玩</del></p>\n\n    ",
+      "text": "首先 看到这个名字 就瞬间 被惊讶 。 CodeGirlCollection 红红火火恍恍惚惚 广大技术宅福音 简直 放几张体验图 简直学习编程利器， 虽然只有 php 和ruby 不知道以后能支持更多语言吗 233333 ps： 游戏已经更新啦！ 现在有了java 和python 了哦~ 游戏地址链接: https://paiza.jp/cgc 注册很简单， 只要填写 邮箱 昵称 密码 验证邮箱完成 即可游玩",
+      "categories": [
+        {
+          "name": "游戏分享",
+          "url": "/categories/游戏分享/"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "url": "/2016/03/16/e5-85-b3-e4-ba-8ec-e6-97-a0-e8-be-b9-e6-a1-86-e7-aa-97-e4-bd-93-e7-9a-84-e6-8b-96-e6-8b-bd-e5-ae-9e-e7-8e-b0/",
+      "title": "关于C# 无边框窗体的拖拽实现",
+      "date": "2016-03-16",
+      "html": "\n\n      \n        <p>每个窗口会有一个称为窗口过程的回调函数(WndProc)，它带有四个参数，分别为： 窗口句柄(Window Handle) HWND, 消息ID(Message ID) UINT, 和两个消息参数(wParam, lParam)WPARAM、LPARAM, WndProc的第一个参数hWnd就是当前接收消息的窗口句柄，第二个参数就是被传送过来的消息，第三、第四个参数都是附加在消息上的数据，这和MSG结构体是一样的。 代码如下：</p>\n<p>//窗口拖拽<br>protected override void WndProc(ref Message m)<br>{<br>const int WM_NCHITTEST = 0x84;<br>const int HTCLIENT = 0x01;<br>const int HTCAPTION = 0x02;<br>const int WM_NCLBUTTONDBLCLK = 0xA3;<br>switch (m.Msg)<br>{<br>case 0x4e:<br>case 0xd:<br>case 0xe:<br>case 0x14:<br>base.WndProc(ref m);<br>break;<br>case WM_NCHITTEST://鼠标点任意位置后可以拖动窗体</p>\n<p>this.DefWndProc(ref m);<br>if (m.Result.ToInt32() == HTCLIENT)<br>{<br>m.Result = new IntPtr(HTCAPTION);<br>return;<br>}<br>break;<br>case WM_NCLBUTTONDBLCLK://禁止双击最大化<br>Console.WriteLine(this.WindowState);</p>\n<p>return;</p>\n<p>default:</p>\n<p>base.WndProc(ref m);<br>break;<br>}<br>}</p>\n<p>  亦或者可以使用其它方法 比如窗口鼠标点击事件和移动事件。 ~ PS： 其实我就是想看看代码插件效果</p>\n\n    ",
+      "text": "每个窗口会有一个称为窗口过程的回调函数(WndProc)，它带有四个参数，分别为： 窗口句柄(Window Handle) HWND, 消息ID(Message ID) UINT, 和两个消息参数(wParam, lParam)WPARAM、LPARAM, WndProc的第一个参数hWnd就是当前接收消息的窗口句柄，第二个参数就是被传送过来的消息，第三、第四个参数都是附加在消息上的数据，这和MSG结构体是一样的。 代码如下： //窗口拖拽protected override void WndProc(ref Message m){const int WM_NCHITTEST = 0x84;const int HTCLIENT = 0x01;const int HTCAPTION = 0x02;const int WM_NCLBUTTONDBLCLK = 0xA3;switch (m.Msg){case 0x4e:case 0xd:case 0xe:case 0x14:base.WndProc(ref m);break;case WM_NCHITTEST://鼠标点任意位置后可以拖动窗体 this.DefWndProc(ref m);if (m.Result.ToInt32() == HTCLIENT){m.Result = new IntPtr(HTCAPTION);return;}break;case WM_NCLBUTTONDBLCLK://禁止双击最大化Console.WriteLine(this.WindowState); return; default: base.WndProc(ref m);break;}} 亦或者可以使用其它方法 比如窗口鼠标点击事件和移动事件。 ~ PS： 其实我就是想看看代码插件效果",
+      "categories": [
+        {
+          "name": "Csharp",
+          "url": "/categories/Csharp/"
+        },
+        {
+          "name": "心得技巧",
+          "url": "/categories/Csharp/心得技巧/"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "url": "/2016/01/25/wpf-e5-8a-a0-e8-bd-bd-e7-9b-b8-e5-af-b9-e8-b7-af-e5-be-84-e7-9a-84-e5-9b-be-e7-89-87-e8-ae-be-e8-ae-a1-e5-99-a8-e8-83-bd-e7-9c-8b-e5-88-b0-e8-bf-90-e8-a1-8c-e4-b8-8d-e6-98-be-e7-a4-ba-e7-9a-84/",
+      "title": "WPF加载相对路径的图片设计器能看到 运行不显示 的解决方法",
+      "date": "2016-01-25",
+      "html": "\n\n      \n        <p>相对路径： 在项目中添加一个文件夹Image，在文件夹下添加一个background.jpg的图片，打开图片文件的属性，将“复制到输出目录”选中“始终复制”，将“生成操作”选择为“内容”，这样，编译后，会在bin/debug目录下生成一个含有background图片的名为Image的文件夹。</p>\n<p>this.HeadImg.Source = new BitmapImage(new Uri(@\\“default.jpg\\“, UriKind.Relative));</p>\n<p>//绝对路径：就很简单了，获取到工作目录，附加相对路径<br>this.HeadImg.Source = new BitmapImage(newUri(Path.GetDirectoryName(Application.ResourceAssembly.Location)<br>+ @\\“default.jpg\\“, UriKind.Absolute));</p>\n\n    ",
+      "text": "相对路径： 在项目中添加一个文件夹Image，在文件夹下添加一个background.jpg的图片，打开图片文件的属性，将“复制到输出目录”选中“始终复制”，将“生成操作”选择为“内容”，这样，编译后，会在bin/debug目录下生成一个含有background图片的名为Image的文件夹。 this.HeadImg.Source = new BitmapImage(new Uri(@\\“default.jpg\\“, UriKind.Relative)); //绝对路径：就很简单了，获取到工作目录，附加相对路径this.HeadImg.Source = new BitmapImage(newUri(Path.GetDirectoryName(Application.ResourceAssembly.Location)+ @\\“default.jpg\\“, UriKind.Absolute));",
+      "categories": [
+        {
+          "name": "Csharp",
+          "url": "/categories/Csharp/"
+        }
+      ],
+      "tags": [
+        {
+          "name": "C#",
+          "url": "/tags/C/"
+        },
+        {
+          "name": "WPF",
+          "url": "/tags/WPF/"
+        }
+      ]
+    },
+    {
+      "url": "/2015/12/29/e5-88-9d-e9-9b-aa-e6-a8-b1-e9-80-9a-e5-85-b3-e6-84-9f-e6-83-b3-e8-a1-a8-e7-99-bd-e5-b0-8f-e5-9d-82-e4-ba-95-e7-bb-ab/",
+      "title": "初雪樱通关感想(表白小坂井绫)",
+      "date": "2015-12-29",
+      "html": "\n\n      \n        <p>最喜欢的CG，最爱的绫 <img src=\"http://rmbgame.net/wp-content/uploads/2015/12/%E5%B0%8F%E5%9D%82%E4%BA%95%E7%BB%AB-Fourteen-1024x576.png\" alt=\"小坂井绫\"> www米娜桑好<del>哇嘞哇丶木下灬秀吉！ 这次是游戏推荐哦</del>大名鼎鼎的初雪(出血)樱！ ….好像有什么不对不过也不用去在意啦 ….说起来笔者知道这个游戏的方式很特别呢，当时啊在逛后宫动漫吧，然后看到某位仙贝的小尾巴：<strong>春夏秋冬四季交替，完结的1095日， 是如Ghost般消逝了呢，还是虚幻地走过然后完结了呢， 但愿就如樱花般，残留着向着未来再次绽放的预感。</strong> ….噢噢噢Sakura，然后就去找了游戏….不，请不要在意这个，有时候人啊是会很冲动的哦~ ….之后没玩多久游戏就崩了，存档也没了….不  我没有在哭哦，这是高兴的眼泪，第一次写感想 再次打开的时候距离那天应该有两个月了吧、因为很无聊所以才会玩，坦白说，这是当时的心情 之后，我遇上了我大概会喜欢一辈子的人、 小坂井绫 ….不对..这个之后再说 嗯，三天就玩通了。小坂井绫，虽然只是配角，连属于自己的路线都没有，却最让人震撼。 最开始的绫，很有大姐姐的风范，对于不成熟的男主有诸多照顾、初雪虽然嘴上说着烦人，多管闲事什么的，其实很 关心她哦www，….嘛他对每个人都是这样的吧 往后的剧情里，慢慢地我们看到了绫的少女心，虽然是前辈但是就和同级的女孩一样，让人小鹿乱撞，心跳不已。并没有什么一见钟情，而是在这平淡而又温馨的的日常中，渐渐倾心于她。 <img src=\"http://rmbgame.net/wp-content/uploads/2015/12/%E5%B0%8F%E5%9D%82%E4%BA%95%E7%BB%AB-ten-1024x576.png\" alt=\"小坂井绫\"> 再往后的剧情，我们逐渐接触到了绫的家庭关系。在此之前，印象中的绫就如前文所说，是一个可靠的大姐姐，即使很烦恼，有很多苦，也不会让我们看到、是啊，真是可靠呢、啊，顺便一说这也让人心碎，同时也让我心动。我、真想成为守护她的人，如果能跨越次元 绫的第一个故事，发生在所有路线之前。虽然失忆了，失去了那充满回忆的记忆，就连初雪，我绫最喜欢的人也忘记了，但是在最后的毕业典礼后，她微笑的与初雪打了招呼    白白    。啊啊，虽然不记得了，不过那时候的我    大概和初雪一样，泪流….才没有哭呢！这是幸福的眼泪 <img src=\"http://rmbgame.net/wp-content/uploads/2015/12/Aya-Fifteen-1024x576.png\" alt=\"Aya\">   ….绫最后的物语….不太想多回忆。因为那并不是一个美好的结局，即使对她来说已经满足了，作为第三者却无论如何也接受不了。。。我果然也成为了新岛夕受害者之一呢_ 虽然故事并不是以完美的形式落下帷幕，虽然故事的剧情在后期跳跃太大以至于争议纷纷。虽然啊、虽然啊….但是初雪樱仍给我留下不可忘却的痕迹，那是即使在黑夜中也闪闪发耀的，樱色的灵魂 最后的最后，我要说：“绫，我爱你，我们结婚吧” “….嗯，我好高兴” PS: (….因为游戏最开始并没有给出绫的名字….只有浪人….所以就自称浪人啦！) ——浪人红</p>\n\n    ",
+      "text": "最喜欢的CG，最爱的绫 www米娜桑好哇嘞哇丶木下灬秀吉！ 这次是游戏推荐哦大名鼎鼎的初雪(出血)樱！ ….好像有什么不对不过也不用去在意啦 ….说起来笔者知道这个游戏的方式很特别呢，当时啊在逛后宫动漫吧，然后看到某位仙贝的小尾巴：春夏秋冬四季交替，完结的1095日， 是如Ghost般消逝了呢，还是虚幻地走过然后完结了呢， 但愿就如樱花般，残留着向着未来再次绽放的预感。 ….噢噢噢Sakura，然后就去找了游戏….不，请不要在意这个，有时候人啊是会很冲动的哦~ ….之后没玩多久游戏就崩了，存档也没了….不 我没有在哭哦，这是高兴的眼泪，第一次写感想 再次打开的时候距离那天应该有两个月了吧、因为很无聊所以才会玩，坦白说，这是当时的心情 之后，我遇上了我大概会喜欢一辈子的人、 小坂井绫 ….不对..这个之后再说 嗯，三天就玩通了。小坂井绫，虽然只是配角，连属于自己的路线都没有，却最让人震撼。 最开始的绫，很有大姐姐的风范，对于不成熟的男主有诸多照顾、初雪虽然嘴上说着烦人，多管闲事什么的，其实很 关心她哦www，….嘛他对每个人都是这样的吧 往后的剧情里，慢慢地我们看到了绫的少女心，虽然是前辈但是就和同级的女孩一样，让人小鹿乱撞，心跳不已。并没有什么一见钟情，而是在这平淡而又温馨的的日常中，渐渐倾心于她。 再往后的剧情，我们逐渐接触到了绫的家庭关系。在此之前，印象中的绫就如前文所说，是一个可靠的大姐姐，即使很烦恼，有很多苦，也不会让我们看到、是啊，真是可靠呢、啊，顺便一说这也让人心碎，同时也让我心动。我、真想成为守护她的人，如果能跨越次元 绫的第一个故事，发生在所有路线之前。虽然失忆了，失去了那充满回忆的记忆，就连初雪，我绫最喜欢的人也忘记了，但是在最后的毕业典礼后，她微笑的与初雪打了招呼 白白 。啊啊，虽然不记得了，不过那时候的我 大概和初雪一样，泪流….才没有哭呢！这是幸福的眼泪 ….绫最后的物语….不太想多回忆。因为那并不是一个美好的结局，即使对她来说已经满足了，作为第三者却无论如何也接受不了。。。我果然也成为了新岛夕受害者之一呢_ 虽然故事并不是以完美的形式落下帷幕，虽然故事的剧情在后期跳跃太大以至于争议纷纷。虽然啊、虽然啊….但是初雪樱仍给我留下不可忘却的痕迹，那是即使在黑夜中也闪闪发耀的，樱色的灵魂 最后的最后，我要说：“绫，我爱你，我们结婚吧” “….嗯，我好高兴” PS: (….因为游戏最开始并没有给出绫的名字….只有浪人….所以就自称浪人啦！) ——浪人红",
+      "categories": [
+        {
+          "name": "吐槽盘点",
+          "url": "/categories/吐槽盘点/"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "url": "/2015/12/26/57/",
+      "title": "hurtworld 初体验~",
+      "date": "2015-12-26",
+      "html": "\n\n      \n        <p>昨天圣诞节，  愉快的剁手买游戏=v= 新入了个hurtworld     目前正在摸索怎么玩233 晚点上图，让我在浪一会~ 恩，好，实时的编辑更新=v=， 首先进入游戏我稍微改了改画质设定~ <img src=\"http://rmbgame.net/wp-content/uploads/2015/12/20151226114515-1024x658.png\" alt=\"20151226114515\"> 然后想表达一下，是我配置不够好还是怎么，开高了还略卡233   然后找服务器进行体验~ <img src=\"http://rmbgame.net/wp-content/uploads/2015/12/20151226114820-620x280.png\" alt=\"20151226114820\">   服务器还是很多的。 随便找个进去先~ <img src=\"http://rmbgame.net/wp-content/uploads/2015/12/20151226115122-1024x638.png\" alt=\"20151226115122\">   刚进来乱按了一下 按键，  发现 打开背包是Tab    然后其余跑走跳 都差不多， F2   切换第一第三人称视角~  刚进来看到只兔子大概吧<del>~ 截个图  地上的木头和石头可以捡的，貌似刚开始也只能捡东西</del> (我就发现我空手什么都不能干！！)   过了一会，我捡了好多木头和石头 合成一个斧子也不能砍树，还只能打大一点的地上的木材，  而且突然天黑了，人物一直冷的哆嗦2333  左下角出现了寒冷状态！！！ <img src=\"http://rmbgame.net/wp-content/uploads/2015/12/20151226115626-1024x639.png\" alt=\"20151226115626\">   卧槽我要冷死了，先不更！   差点就冷死拉！ 在寒冷的持续掉血和呻吟中熬过了黑夜QAQ <img src=\"http://rmbgame.net/wp-content/uploads/2015/12/20151226120219-1024x571.png\" alt=\"20151226120219\"></p>\n\n    ",
+      "text": "昨天圣诞节， 愉快的剁手买游戏=v= 新入了个hurtworld 目前正在摸索怎么玩233 晚点上图，让我在浪一会~ 恩，好，实时的编辑更新=v=， 首先进入游戏我稍微改了改画质设定~ 然后想表达一下，是我配置不够好还是怎么，开高了还略卡233 然后找服务器进行体验~ 服务器还是很多的。 随便找个进去先~ 刚进来乱按了一下 按键， 发现 打开背包是Tab 然后其余跑走跳 都差不多， F2 切换第一第三人称视角~ 刚进来看到只兔子大概吧~ 截个图 地上的木头和石头可以捡的，貌似刚开始也只能捡东西 (我就发现我空手什么都不能干！！) 过了一会，我捡了好多木头和石头 合成一个斧子也不能砍树，还只能打大一点的地上的木材， 而且突然天黑了，人物一直冷的哆嗦2333 左下角出现了寒冷状态！！！ 卧槽我要冷死了，先不更！ 差点就冷死拉！ 在寒冷的持续掉血和呻吟中熬过了黑夜QAQ",
+      "categories": [
+        {
+          "name": "游戏分享",
+          "url": "/categories/游戏分享/"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "url": "/2015/12/25/merry-christmas-to-all/",
+      "title": "Merry Christmas To All!!!",
+      "date": "2015-12-25",
+      "html": "\n\n      \n        <p>Single dog ~ single dog ~ single all the day. See AV, hit the plane, they are doing all the day. Hey! Single dog , single dog , why not be a gay? No more wait, no more afraid, make him be a gay!   <img src=\"http://rmbgame.net/wp-content/uploads/2015/12/20151225082359-300x169.png\" alt=\"20151225082359\"></p>\n\n    ",
+      "text": "Single dog ~ single dog ~ single all the day. See AV, hit the plane, they are doing all the day. Hey! Single dog , single dog , why not be a gay? No more wait, no more afraid, make him be a gay!",
+      "categories": [
+        {
+          "name": "水的一笔",
+          "url": "/categories/水的一笔/"
+        }
+      ],
+      "tags": []
+    }
+  ],
+  "routes": [
+    {
+      "url": "/2015/12/25/merry-christmas-to-all/",
+      "kind": "post"
+    },
+    {
+      "url": "/2015/12/26/57/",
+      "kind": "post"
+    },
+    {
+      "url": "/2015/12/29/e5-88-9d-e9-9b-aa-e6-a8-b1-e9-80-9a-e5-85-b3-e6-84-9f-e6-83-b3-e8-a1-a8-e7-99-bd-e5-b0-8f-e5-9d-82-e4-ba-95-e7-bb-ab/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/01/25/wpf-e5-8a-a0-e8-bd-bd-e7-9b-b8-e5-af-b9-e8-b7-af-e5-be-84-e7-9a-84-e5-9b-be-e7-89-87-e8-ae-be-e8-ae-a1-e5-99-a8-e8-83-bd-e7-9c-8b-e5-88-b0-e8-bf-90-e8-a1-8c-e4-b8-8d-e6-98-be-e7-a4-ba-e7-9a-84/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/03/16/e5-85-b3-e4-ba-8ec-e6-97-a0-e8-be-b9-e6-a1-86-e7-aa-97-e4-bd-93-e7-9a-84-e6-8b-96-e6-8b-bd-e5-ae-9e-e7-8e-b0/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/04/21/e4-bb-a3-e7-a0-81-e5-b0-91-e5-a5-b3collection-e8-af-95-e7-8e-a9/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/05/11/vc14vc2015-e5-ae-89-e8-a3-85-e5-a4-b1-e8-b4-a50x80240017-e6-9c-aa-e6-8c-87-e5-ae-9a-e7-9a-84-e9-94-99-e8-af-af-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/05/12/e5-b8-a6virtio-e9-a9-b1-e5-8a-a8-e7-9a-84-e6-9c-8d-e5-8a-a1-e5-99-a8-e7-b3-bb-e7-bb-9f-e9-95-9c-e5-83-8f/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/05/13/e6-a1-8c-e6-b8-b8-e5-ae-89-e5-88-a9-e3-80-8a-e7-8a-af-e4-ba-ba-e5-9c-a8-e8-b7-b3-e8-88-9e-e3-80-8b/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/05/13/e8-bf-99-e9-87-8c-e5-88-86-e4-ba-ab-e4-b8-80-e4-b8-aa-e8-87-aa-e5-b7-b1-e5-86-99-e7-9a-84-e5-a3-81-e7-ba-b8-e8-8e-b7-e5-8f-96-e5-8a-a0-e6-9b-b4-e6-8d-a2-e7-9a-84-e8-bd-af-e4-bb-b6-trashed/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/07/18/uwp-e5-bc-80-e5-8f-91-e7-ac-94-e8-ae-b0-e5-9b-be-e6-a0-87-e7-9b-b8-e5-85-b3-e4-bd-bf-e7-94-a8/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/08/14/amd-e8-80-81-e5-9e-8b-e5-8f-b7-e6-a0-b8-e6-98-be-e9-a9-b1-e5-8a-a8-e6-9b-b4-e6-96-b0-e5-af-bc-e8-87-b4-e7-b3-bb-e7-bb-9f-e5-b4-a9-e6-ba-83-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/",
+      "kind": "post"
+    },
+    {
+      "url": "/2016/12/31/e5-ae-8c-e7-be-8e-e5-a4-87-e4-bb-bdwin8-e5-92-8cwin10-e5-8c-85-e6-8b-acoffice-e6-bf-80-e6-b4-bb-e4-bf-a1-e6-81-af/",
+      "kind": "post"
+    },
+    {
+      "url": "/2017/08/16/react-weui-e4-b8-adtab-e3-80-81tabbaritem-e9-81-87-e5-88-b0-e7-9a-84-e5-9d-91/",
+      "kind": "post"
+    },
+    {
+      "url": "/2017/08/30/nvidia-e5-ae-89-e8-a3-85-e7-a8-8b-e5-ba-8f-e6-97-a0-e6-b3-95-e7-bb-a7-e7-bb-ad-e3-80-82-e9-9c-80-e8-a6-81-e9-87-8d-e6-96-b0-e5-90-af-e5-8a-a8-e7-b3-bb-e7-bb-9f-e3-80-82/",
+      "kind": "post"
+    },
+    {
+      "url": "/about/",
+      "kind": "about",
+      "html": "\n        \n          <h2 id=\"关于我\"><a href=\"#%E5%85%B3%E4%BA%8E%E6%88%91\" class=\"headerlink\" title=\"关于我\"></a>关于我</h2><p>也被称为软软     .NET程序员。</p>\n<p>虽然是叫软妹币玩家，但是我并没有多少软妹币。sigh…</p>\n<p>关于软妹币玩家名字的由来只是纯粹的懒的起名（曾经玩某个游戏就用的这名字所以就用着了），结果现在反而想改。</p>\n<p>感觉自己其实根本不擅长弄博客写文章，只擅长看。</p>\n<p>双子座。</p>\n<p>目前在长沙工作。</p>\n<p>爱好是编程，折腾PC，也会一小点儿编曲，喜欢纯音乐和萌妹子。</p>\n<p>一般都很懒，但是代码敲起来根本停不下来。</p>\n<p>曾经会弹钢琴，现在或许不会了(因为忘了)。</p>\n<p>什么其它优点太多了我都不好意思说，其实并没有啊哈哈。</p>\n<p>2015年7月23日  找到了人生第一份工作，工作是GIS相关的。</p>\n<p>2016年5月12日  今天打算辞职掉第一份工作了(因为感觉我对GIS确实兴趣不高啊。)。</p>\n<p>2016年6月16日  离开第一家公司， 打算找兴趣所在的工作。借用某名言：做自己喜欢的事 做自己擅长的事。</p>\n<p>2016年8月22日 在新的公司上班，是一家商务公司，除了我没有其它程序员了。。。（工作一段时间发现确实有点难受）</p>\n<p>2017年6月25日 再次成为了无业游民，这次是真的要认真做东西了（除非坚持不下去了）！</p>\n<p>这个博客并不只有我一个人噢， 还没把它们加上来呢。  @冷然  @Jonos</p>\n<p>恩，  还有他们俩  (但是貌似他们都不经常上来)</p>\n<h2 id=\"关于这个博客\"><a href=\"#%E5%85%B3%E4%BA%8E%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2\" class=\"headerlink\" title=\"关于这个博客\"></a>关于这个博客</h2><p>2015年12月25日 正式搭建完成。</p>\n<p>2016年3月16日  稍微修改了部分交互界面。</p>\n<p>2016年5月12日 更换了新主题，修改了部分细节。</p>\n<p>2016年6月06日  升级到SSL 协议（然而并未启用，虽然用https也可以访问，但是会有错误）。</p>\n<p>2016年11月3日 服务器搬家到了香港，速度比之前快了好几倍。 虽然价格也高了一些。。</p>\n<p>目前正常。</p>\n<p>以上。</p>\n\n        \n      "
+    },
+    {
+      "url": "/archives/2015/12/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2015/12/29/e5-88-9d-e9-9b-aa-e6-a8-b1-e9-80-9a-e5-85-b3-e6-84-9f-e6-83-b3-e8-a1-a8-e7-99-bd-e5-b0-8f-e5-9d-82-e4-ba-95-e7-bb-ab/",
+        "/2015/12/26/57/",
+        "/2015/12/25/merry-christmas-to-all/"
+      ]
+    },
+    {
+      "url": "/archives/2015/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2015/12/29/e5-88-9d-e9-9b-aa-e6-a8-b1-e9-80-9a-e5-85-b3-e6-84-9f-e6-83-b3-e8-a1-a8-e7-99-bd-e5-b0-8f-e5-9d-82-e4-ba-95-e7-bb-ab/",
+        "/2015/12/26/57/",
+        "/2015/12/25/merry-christmas-to-all/"
+      ]
+    },
+    {
+      "url": "/archives/2016/01/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2016/01/25/wpf-e5-8a-a0-e8-bd-bd-e7-9b-b8-e5-af-b9-e8-b7-af-e5-be-84-e7-9a-84-e5-9b-be-e7-89-87-e8-ae-be-e8-ae-a1-e5-99-a8-e8-83-bd-e7-9c-8b-e5-88-b0-e8-bf-90-e8-a1-8c-e4-b8-8d-e6-98-be-e7-a4-ba-e7-9a-84/"
+      ]
+    },
+    {
+      "url": "/archives/2016/03/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2016/03/16/e5-85-b3-e4-ba-8ec-e6-97-a0-e8-be-b9-e6-a1-86-e7-aa-97-e4-bd-93-e7-9a-84-e6-8b-96-e6-8b-bd-e5-ae-9e-e7-8e-b0/"
+      ]
+    },
+    {
+      "url": "/archives/2016/04/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2016/04/21/e4-bb-a3-e7-a0-81-e5-b0-91-e5-a5-b3collection-e8-af-95-e7-8e-a9/"
+      ]
+    },
+    {
+      "url": "/archives/2016/05/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/",
+        "/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/",
+        "/2016/05/13/e6-a1-8c-e6-b8-b8-e5-ae-89-e5-88-a9-e3-80-8a-e7-8a-af-e4-ba-ba-e5-9c-a8-e8-b7-b3-e8-88-9e-e3-80-8b/",
+        "/2016/05/13/e8-bf-99-e9-87-8c-e5-88-86-e4-ba-ab-e4-b8-80-e4-b8-aa-e8-87-aa-e5-b7-b1-e5-86-99-e7-9a-84-e5-a3-81-e7-ba-b8-e8-8e-b7-e5-8f-96-e5-8a-a0-e6-9b-b4-e6-8d-a2-e7-9a-84-e8-bd-af-e4-bb-b6-trashed/",
+        "/2016/05/12/e5-b8-a6virtio-e9-a9-b1-e5-8a-a8-e7-9a-84-e6-9c-8d-e5-8a-a1-e5-99-a8-e7-b3-bb-e7-bb-9f-e9-95-9c-e5-83-8f/",
+        "/2016/05/11/vc14vc2015-e5-ae-89-e8-a3-85-e5-a4-b1-e8-b4-a50x80240017-e6-9c-aa-e6-8c-87-e5-ae-9a-e7-9a-84-e9-94-99-e8-af-af-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/"
+      ]
+    },
+    {
+      "url": "/archives/2016/07/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2016/07/18/uwp-e5-bc-80-e5-8f-91-e7-ac-94-e8-ae-b0-e5-9b-be-e6-a0-87-e7-9b-b8-e5-85-b3-e4-bd-bf-e7-94-a8/"
+      ]
+    },
+    {
+      "url": "/archives/2016/08/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2016/08/14/amd-e8-80-81-e5-9e-8b-e5-8f-b7-e6-a0-b8-e6-98-be-e9-a9-b1-e5-8a-a8-e6-9b-b4-e6-96-b0-e5-af-bc-e8-87-b4-e7-b3-bb-e7-bb-9f-e5-b4-a9-e6-ba-83-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/"
+      ]
+    },
+    {
+      "url": "/archives/2016/12/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2016/12/31/e5-ae-8c-e7-be-8e-e5-a4-87-e4-bb-bdwin8-e5-92-8cwin10-e5-8c-85-e6-8b-acoffice-e6-bf-80-e6-b4-bb-e4-bf-a1-e6-81-af/",
+        "/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/",
+        "/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/"
+      ]
+    },
+    {
+      "url": "/archives/2016/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2016/12/31/e5-ae-8c-e7-be-8e-e5-a4-87-e4-bb-bdwin8-e5-92-8cwin10-e5-8c-85-e6-8b-acoffice-e6-bf-80-e6-b4-bb-e4-bf-a1-e6-81-af/",
+        "/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/",
+        "/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/",
+        "/2016/08/14/amd-e8-80-81-e5-9e-8b-e5-8f-b7-e6-a0-b8-e6-98-be-e9-a9-b1-e5-8a-a8-e6-9b-b4-e6-96-b0-e5-af-bc-e8-87-b4-e7-b3-bb-e7-bb-9f-e5-b4-a9-e6-ba-83-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/",
+        "/2016/07/18/uwp-e5-bc-80-e5-8f-91-e7-ac-94-e8-ae-b0-e5-9b-be-e6-a0-87-e7-9b-b8-e5-85-b3-e4-bd-bf-e7-94-a8/",
+        "/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/",
+        "/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/",
+        "/2016/05/13/e6-a1-8c-e6-b8-b8-e5-ae-89-e5-88-a9-e3-80-8a-e7-8a-af-e4-ba-ba-e5-9c-a8-e8-b7-b3-e8-88-9e-e3-80-8b/",
+        "/2016/05/13/e8-bf-99-e9-87-8c-e5-88-86-e4-ba-ab-e4-b8-80-e4-b8-aa-e8-87-aa-e5-b7-b1-e5-86-99-e7-9a-84-e5-a3-81-e7-ba-b8-e8-8e-b7-e5-8f-96-e5-8a-a0-e6-9b-b4-e6-8d-a2-e7-9a-84-e8-bd-af-e4-bb-b6-trashed/",
+        "/2016/05/12/e5-b8-a6virtio-e9-a9-b1-e5-8a-a8-e7-9a-84-e6-9c-8d-e5-8a-a1-e5-99-a8-e7-b3-bb-e7-bb-9f-e9-95-9c-e5-83-8f/"
+      ]
+    },
+    {
+      "url": "/archives/2016/page/2/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2016/05/11/vc14vc2015-e5-ae-89-e8-a3-85-e5-a4-b1-e8-b4-a50x80240017-e6-9c-aa-e6-8c-87-e5-ae-9a-e7-9a-84-e9-94-99-e8-af-af-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/",
+        "/2016/04/21/e4-bb-a3-e7-a0-81-e5-b0-91-e5-a5-b3collection-e8-af-95-e7-8e-a9/",
+        "/2016/03/16/e5-85-b3-e4-ba-8ec-e6-97-a0-e8-be-b9-e6-a1-86-e7-aa-97-e4-bd-93-e7-9a-84-e6-8b-96-e6-8b-bd-e5-ae-9e-e7-8e-b0/",
+        "/2016/01/25/wpf-e5-8a-a0-e8-bd-bd-e7-9b-b8-e5-af-b9-e8-b7-af-e5-be-84-e7-9a-84-e5-9b-be-e7-89-87-e8-ae-be-e8-ae-a1-e5-99-a8-e8-83-bd-e7-9c-8b-e5-88-b0-e8-bf-90-e8-a1-8c-e4-b8-8d-e6-98-be-e7-a4-ba-e7-9a-84/"
+      ]
+    },
+    {
+      "url": "/archives/2017/08/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2017/08/30/nvidia-e5-ae-89-e8-a3-85-e7-a8-8b-e5-ba-8f-e6-97-a0-e6-b3-95-e7-bb-a7-e7-bb-ad-e3-80-82-e9-9c-80-e8-a6-81-e9-87-8d-e6-96-b0-e5-90-af-e5-8a-a8-e7-b3-bb-e7-bb-9f-e3-80-82/",
+        "/2017/08/16/react-weui-e4-b8-adtab-e3-80-81tabbaritem-e9-81-87-e5-88-b0-e7-9a-84-e5-9d-91/"
+      ]
+    },
+    {
+      "url": "/archives/2017/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2017/08/30/nvidia-e5-ae-89-e8-a3-85-e7-a8-8b-e5-ba-8f-e6-97-a0-e6-b3-95-e7-bb-a7-e7-bb-ad-e3-80-82-e9-9c-80-e8-a6-81-e9-87-8d-e6-96-b0-e5-90-af-e5-8a-a8-e7-b3-bb-e7-bb-9f-e3-80-82/",
+        "/2017/08/16/react-weui-e4-b8-adtab-e3-80-81tabbaritem-e9-81-87-e5-88-b0-e7-9a-84-e5-9d-91/"
+      ]
+    },
+    {
+      "url": "/archives/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2017/08/30/nvidia-e5-ae-89-e8-a3-85-e7-a8-8b-e5-ba-8f-e6-97-a0-e6-b3-95-e7-bb-a7-e7-bb-ad-e3-80-82-e9-9c-80-e8-a6-81-e9-87-8d-e6-96-b0-e5-90-af-e5-8a-a8-e7-b3-bb-e7-bb-9f-e3-80-82/",
+        "/2017/08/16/react-weui-e4-b8-adtab-e3-80-81tabbaritem-e9-81-87-e5-88-b0-e7-9a-84-e5-9d-91/",
+        "/2016/12/31/e5-ae-8c-e7-be-8e-e5-a4-87-e4-bb-bdwin8-e5-92-8cwin10-e5-8c-85-e6-8b-acoffice-e6-bf-80-e6-b4-bb-e4-bf-a1-e6-81-af/",
+        "/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/",
+        "/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/",
+        "/2016/08/14/amd-e8-80-81-e5-9e-8b-e5-8f-b7-e6-a0-b8-e6-98-be-e9-a9-b1-e5-8a-a8-e6-9b-b4-e6-96-b0-e5-af-bc-e8-87-b4-e7-b3-bb-e7-bb-9f-e5-b4-a9-e6-ba-83-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/",
+        "/2016/07/18/uwp-e5-bc-80-e5-8f-91-e7-ac-94-e8-ae-b0-e5-9b-be-e6-a0-87-e7-9b-b8-e5-85-b3-e4-bd-bf-e7-94-a8/",
+        "/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/",
+        "/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/",
+        "/2016/05/13/e6-a1-8c-e6-b8-b8-e5-ae-89-e5-88-a9-e3-80-8a-e7-8a-af-e4-ba-ba-e5-9c-a8-e8-b7-b3-e8-88-9e-e3-80-8b/"
+      ]
+    },
+    {
+      "url": "/archives/page/2/",
+      "kind": "listing",
+      "title": "归档",
+      "posts": [
+        "/2016/05/13/e8-bf-99-e9-87-8c-e5-88-86-e4-ba-ab-e4-b8-80-e4-b8-aa-e8-87-aa-e5-b7-b1-e5-86-99-e7-9a-84-e5-a3-81-e7-ba-b8-e8-8e-b7-e5-8f-96-e5-8a-a0-e6-9b-b4-e6-8d-a2-e7-9a-84-e8-bd-af-e4-bb-b6-trashed/",
+        "/2016/05/12/e5-b8-a6virtio-e9-a9-b1-e5-8a-a8-e7-9a-84-e6-9c-8d-e5-8a-a1-e5-99-a8-e7-b3-bb-e7-bb-9f-e9-95-9c-e5-83-8f/",
+        "/2016/05/11/vc14vc2015-e5-ae-89-e8-a3-85-e5-a4-b1-e8-b4-a50x80240017-e6-9c-aa-e6-8c-87-e5-ae-9a-e7-9a-84-e9-94-99-e8-af-af-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/",
+        "/2016/04/21/e4-bb-a3-e7-a0-81-e5-b0-91-e5-a5-b3collection-e8-af-95-e7-8e-a9/",
+        "/2016/03/16/e5-85-b3-e4-ba-8ec-e6-97-a0-e8-be-b9-e6-a1-86-e7-aa-97-e4-bd-93-e7-9a-84-e6-8b-96-e6-8b-bd-e5-ae-9e-e7-8e-b0/",
+        "/2016/01/25/wpf-e5-8a-a0-e8-bd-bd-e7-9b-b8-e5-af-b9-e8-b7-af-e5-be-84-e7-9a-84-e5-9b-be-e7-89-87-e8-ae-be-e8-ae-a1-e5-99-a8-e8-83-bd-e7-9c-8b-e5-88-b0-e8-bf-90-e8-a1-8c-e4-b8-8d-e6-98-be-e7-a4-ba-e7-9a-84/",
+        "/2015/12/29/e5-88-9d-e9-9b-aa-e6-a8-b1-e9-80-9a-e5-85-b3-e6-84-9f-e6-83-b3-e8-a1-a8-e7-99-bd-e5-b0-8f-e5-9d-82-e4-ba-95-e7-bb-ab/",
+        "/2015/12/26/57/",
+        "/2015/12/25/merry-christmas-to-all/"
+      ]
+    },
+    {
+      "url": "/categories/Csharp/",
+      "kind": "listing",
+      "title": "分类: Csharp",
+      "posts": [
+        "/2016/07/18/uwp-e5-bc-80-e5-8f-91-e7-ac-94-e8-ae-b0-e5-9b-be-e6-a0-87-e7-9b-b8-e5-85-b3-e4-bd-bf-e7-94-a8/",
+        "/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/",
+        "/2016/03/16/e5-85-b3-e4-ba-8ec-e6-97-a0-e8-be-b9-e6-a1-86-e7-aa-97-e4-bd-93-e7-9a-84-e6-8b-96-e6-8b-bd-e5-ae-9e-e7-8e-b0/",
+        "/2016/01/25/wpf-e5-8a-a0-e8-bd-bd-e7-9b-b8-e5-af-b9-e8-b7-af-e5-be-84-e7-9a-84-e5-9b-be-e7-89-87-e8-ae-be-e8-ae-a1-e5-99-a8-e8-83-bd-e7-9c-8b-e5-88-b0-e8-bf-90-e8-a1-8c-e4-b8-8d-e6-98-be-e7-a4-ba-e7-9a-84/"
+      ]
+    },
+    {
+      "url": "/categories/Csharp/心得技巧/",
+      "kind": "listing",
+      "title": "分类: 心得技巧",
+      "posts": [
+        "/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/",
+        "/2016/03/16/e5-85-b3-e4-ba-8ec-e6-97-a0-e8-be-b9-e6-a1-86-e7-aa-97-e4-bd-93-e7-9a-84-e6-8b-96-e6-8b-bd-e5-ae-9e-e7-8e-b0/"
+      ]
+    },
+    {
+      "url": "/categories/Csharp/心得技巧/编程/",
+      "kind": "listing",
+      "title": "分类: 编程",
+      "posts": [
+        "/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/"
+      ]
+    },
+    {
+      "url": "/categories/Csharp/编程/",
+      "kind": "listing",
+      "title": "分类: 编程",
+      "posts": [
+        "/2016/07/18/uwp-e5-bc-80-e5-8f-91-e7-ac-94-e8-ae-b0-e5-9b-be-e6-a0-87-e7-9b-b8-e5-85-b3-e4-bd-bf-e7-94-a8/"
+      ]
+    },
+    {
+      "url": "/categories/前端/",
+      "kind": "listing",
+      "title": "分类: 前端",
+      "posts": [
+        "/2017/08/16/react-weui-e4-b8-adtab-e3-80-81tabbaritem-e9-81-87-e5-88-b0-e7-9a-84-e5-9d-91/"
+      ]
+    },
+    {
+      "url": "/categories/前端/水的一笔/",
+      "kind": "listing",
+      "title": "分类: 水的一笔",
+      "posts": [
+        "/2017/08/16/react-weui-e4-b8-adtab-e3-80-81tabbaritem-e9-81-87-e5-88-b0-e7-9a-84-e5-9d-91/"
+      ]
+    },
+    {
+      "url": "/categories/前端/水的一笔/编程/",
+      "kind": "listing",
+      "title": "分类: 编程",
+      "posts": [
+        "/2017/08/16/react-weui-e4-b8-adtab-e3-80-81tabbaritem-e9-81-87-e5-88-b0-e7-9a-84-e5-9d-91/"
+      ]
+    },
+    {
+      "url": "/categories/吐槽盘点/",
+      "kind": "listing",
+      "title": "分类: 吐槽盘点",
+      "posts": [
+        "/2015/12/29/e5-88-9d-e9-9b-aa-e6-a8-b1-e9-80-9a-e5-85-b3-e6-84-9f-e6-83-b3-e8-a1-a8-e7-99-bd-e5-b0-8f-e5-9d-82-e4-ba-95-e7-bb-ab/"
+      ]
+    },
+    {
+      "url": "/categories/心得技巧/",
+      "kind": "listing",
+      "title": "分类: 心得技巧",
+      "posts": [
+        "/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/",
+        "/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/",
+        "/2016/05/11/vc14vc2015-e5-ae-89-e8-a3-85-e5-a4-b1-e8-b4-a50x80240017-e6-9c-aa-e6-8c-87-e5-ae-9a-e7-9a-84-e9-94-99-e8-af-af-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/"
+      ]
+    },
+    {
+      "url": "/categories/心得技巧/日常/",
+      "kind": "listing",
+      "title": "分类: 日常",
+      "posts": [
+        "/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/"
+      ]
+    },
+    {
+      "url": "/categories/心得技巧/日常/水的一笔/",
+      "kind": "listing",
+      "title": "分类: 水的一笔",
+      "posts": [
+        "/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/"
+      ]
+    },
+    {
+      "url": "/categories/心得技巧/编程/",
+      "kind": "listing",
+      "title": "分类: 编程",
+      "posts": [
+        "/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/"
+      ]
+    },
+    {
+      "url": "/categories/日常/",
+      "kind": "listing",
+      "title": "分类: 日常",
+      "posts": [
+        "/2017/08/30/nvidia-e5-ae-89-e8-a3-85-e7-a8-8b-e5-ba-8f-e6-97-a0-e6-b3-95-e7-bb-a7-e7-bb-ad-e3-80-82-e9-9c-80-e8-a6-81-e9-87-8d-e6-96-b0-e5-90-af-e5-8a-a8-e7-b3-bb-e7-bb-9f-e3-80-82/"
+      ]
+    },
+    {
+      "url": "/categories/日常/水的一笔/",
+      "kind": "listing",
+      "title": "分类: 水的一笔",
+      "posts": [
+        "/2017/08/30/nvidia-e5-ae-89-e8-a3-85-e7-a8-8b-e5-ba-8f-e6-97-a0-e6-b3-95-e7-bb-a7-e7-bb-ad-e3-80-82-e9-9c-80-e8-a6-81-e9-87-8d-e6-96-b0-e5-90-af-e5-8a-a8-e7-b3-bb-e7-bb-9f-e3-80-82/"
+      ]
+    },
+    {
+      "url": "/categories/水的一笔/",
+      "kind": "listing",
+      "title": "分类: 水的一笔",
+      "posts": [
+        "/2016/12/31/e5-ae-8c-e7-be-8e-e5-a4-87-e4-bb-bdwin8-e5-92-8cwin10-e5-8c-85-e6-8b-acoffice-e6-bf-80-e6-b4-bb-e4-bf-a1-e6-81-af/",
+        "/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/",
+        "/2016/08/14/amd-e8-80-81-e5-9e-8b-e5-8f-b7-e6-a0-b8-e6-98-be-e9-a9-b1-e5-8a-a8-e6-9b-b4-e6-96-b0-e5-af-bc-e8-87-b4-e7-b3-bb-e7-bb-9f-e5-b4-a9-e6-ba-83-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-b3-95/",
+        "/2016/05/12/e5-b8-a6virtio-e9-a9-b1-e5-8a-a8-e7-9a-84-e6-9c-8d-e5-8a-a1-e5-99-a8-e7-b3-bb-e7-bb-9f-e9-95-9c-e5-83-8f/",
+        "/2015/12/25/merry-christmas-to-all/"
+      ]
+    },
+    {
+      "url": "/categories/水的一笔/软件分享/",
+      "kind": "listing",
+      "title": "分类: 软件分享",
+      "posts": [
+        "/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/"
+      ]
+    },
+    {
+      "url": "/categories/游戏分享/",
+      "kind": "listing",
+      "title": "分类: 游戏分享",
+      "posts": [
+        "/2016/05/13/e6-a1-8c-e6-b8-b8-e5-ae-89-e5-88-a9-e3-80-8a-e7-8a-af-e4-ba-ba-e5-9c-a8-e8-b7-b3-e8-88-9e-e3-80-8b/",
+        "/2016/04/21/e4-bb-a3-e7-a0-81-e5-b0-91-e5-a5-b3collection-e8-af-95-e7-8e-a9/",
+        "/2015/12/26/57/"
+      ]
+    },
+    {
+      "url": "/categories/编程/",
+      "kind": "listing",
+      "title": "分类: 编程",
+      "posts": [
+        "/2016/05/13/e8-bf-99-e9-87-8c-e5-88-86-e4-ba-ab-e4-b8-80-e4-b8-aa-e8-87-aa-e5-b7-b1-e5-86-99-e7-9a-84-e5-a3-81-e7-ba-b8-e8-8e-b7-e5-8f-96-e5-8a-a0-e6-9b-b4-e6-8d-a2-e7-9a-84-e8-bd-af-e4-bb-b6-trashed/"
+      ]
+    },
+    {
+      "url": "/categories/编程/软件分享/",
+      "kind": "listing",
+      "title": "分类: 软件分享",
+      "posts": [
+        "/2016/05/13/e8-bf-99-e9-87-8c-e5-88-86-e4-ba-ab-e4-b8-80-e4-b8-aa-e8-87-aa-e5-b7-b1-e5-86-99-e7-9a-84-e5-a3-81-e7-ba-b8-e8-8e-b7-e5-8f-96-e5-8a-a0-e6-9b-b4-e6-8d-a2-e7-9a-84-e8-bd-af-e4-bb-b6-trashed/"
+      ]
+    },
+    {
+      "url": "/",
+      "kind": "home",
+      "page": 1
+    },
+    {
+      "url": "/page/2/",
+      "kind": "home",
+      "page": 2
+    },
+    {
+      "url": "/tags/API/",
+      "kind": "listing",
+      "title": "标签: API",
+      "posts": [
+        "/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/"
+      ]
+    },
+    {
+      "url": "/tags/C/",
+      "kind": "listing",
+      "title": "标签: C#",
+      "posts": [
+        "/2016/07/18/uwp-e5-bc-80-e5-8f-91-e7-ac-94-e8-ae-b0-e5-9b-be-e6-a0-87-e7-9b-b8-e5-85-b3-e4-bd-bf-e7-94-a8/",
+        "/2016/01/25/wpf-e5-8a-a0-e8-bd-bd-e7-9b-b8-e5-af-b9-e8-b7-af-e5-be-84-e7-9a-84-e5-9b-be-e7-89-87-e8-ae-be-e8-ae-a1-e5-99-a8-e8-83-bd-e7-9c-8b-e5-88-b0-e8-bf-90-e8-a1-8c-e4-b8-8d-e6-98-be-e7-a4-ba-e7-9a-84/"
+      ]
+    },
+    {
+      "url": "/tags/HTTP/",
+      "kind": "listing",
+      "title": "标签: HTTP",
+      "posts": [
+        "/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/"
+      ]
+    },
+    {
+      "url": "/tags/IL/",
+      "kind": "listing",
+      "title": "标签: IL",
+      "posts": [
+        "/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/"
+      ]
+    },
+    {
+      "url": "/tags/JSON/",
+      "kind": "listing",
+      "title": "标签: JSON",
+      "posts": [
+        "/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/"
+      ]
+    },
+    {
+      "url": "/tags/NET/",
+      "kind": "listing",
+      "title": "标签: .NET",
+      "posts": [
+        "/2016/05/19/net-il-e6-8c-87-e4-bb-a4-e8-af-a6-e8-a7-a3/"
+      ]
+    },
+    {
+      "url": "/tags/NVIDIA/",
+      "kind": "listing",
+      "title": "标签: NVIDIA",
+      "posts": [
+        "/2017/08/30/nvidia-e5-ae-89-e8-a3-85-e7-a8-8b-e5-ba-8f-e6-97-a0-e6-b3-95-e7-bb-a7-e7-bb-ad-e3-80-82-e9-9c-80-e8-a6-81-e9-87-8d-e6-96-b0-e5-90-af-e5-8a-a8-e7-b3-bb-e7-bb-9f-e3-80-82/"
+      ]
+    },
+    {
+      "url": "/tags/Preview/",
+      "kind": "listing",
+      "title": "标签: Preview",
+      "posts": [
+        "/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/"
+      ]
+    },
+    {
+      "url": "/tags/Shadowsocks/",
+      "kind": "listing",
+      "title": "标签: Shadowsocks",
+      "posts": [
+        "/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/"
+      ]
+    },
+    {
+      "url": "/tags/UWP/",
+      "kind": "listing",
+      "title": "标签: UWP",
+      "posts": [
+        "/2016/07/18/uwp-e5-bc-80-e5-8f-91-e7-ac-94-e8-ae-b0-e5-9b-be-e6-a0-87-e7-9b-b8-e5-85-b3-e4-bd-bf-e7-94-a8/"
+      ]
+    },
+    {
+      "url": "/tags/WPF/",
+      "kind": "listing",
+      "title": "标签: WPF",
+      "posts": [
+        "/2016/01/25/wpf-e5-8a-a0-e8-bd-bd-e7-9b-b8-e5-af-b9-e8-b7-af-e5-be-84-e7-9a-84-e5-9b-be-e7-89-87-e8-ae-be-e8-ae-a1-e5-99-a8-e8-83-bd-e7-9c-8b-e5-88-b0-e8-bf-90-e8-a1-8c-e4-b8-8d-e6-98-be-e7-a4-ba-e7-9a-84/"
+      ]
+    },
+    {
+      "url": "/tags/Windows-10/",
+      "kind": "listing",
+      "title": "标签: Windows 10",
+      "posts": [
+        "/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/"
+      ]
+    },
+    {
+      "url": "/tags/Windows-Insider/",
+      "kind": "listing",
+      "title": "标签: Windows Insider",
+      "posts": [
+        "/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/"
+      ]
+    },
+    {
+      "url": "/tags/XAML/",
+      "kind": "listing",
+      "title": "标签: XAML",
+      "posts": [
+        "/2016/07/18/uwp-e5-bc-80-e5-8f-91-e7-ac-94-e8-ae-b0-e5-9b-be-e6-a0-87-e7-9b-b8-e5-85-b3-e4-bd-bf-e7-94-a8/"
+      ]
+    },
+    {
+      "url": "/tags/webqq/",
+      "kind": "listing",
+      "title": "标签: webqq",
+      "posts": [
+        "/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/"
+      ]
+    },
+    {
+      "url": "/tags/故障处理/",
+      "kind": "listing",
+      "title": "标签: 故障处理",
+      "posts": [
+        "/2017/08/30/nvidia-e5-ae-89-e8-a3-85-e7-a8-8b-e5-ba-8f-e6-97-a0-e6-b3-95-e7-bb-a7-e7-bb-ad-e3-80-82-e9-9c-80-e8-a6-81-e9-87-8d-e6-96-b0-e5-90-af-e5-8a-a8-e7-b3-bb-e7-bb-9f-e3-80-82/"
+      ]
+    },
+    {
+      "url": "/tags/编程/",
+      "kind": "listing",
+      "title": "标签: 编程",
+      "posts": [
+        "/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/"
+      ]
+    },
+    {
+      "url": "/tags/网易云音乐/",
+      "kind": "listing",
+      "title": "标签: 网易云音乐",
+      "posts": [
+        "/2016/12/29/e7-ae-80-e5-8d-95-e7-9a-84-e7-bd-91-e6-98-93-e4-ba-91-e9-9f-b3-e4-b9-90-e6-90-9c-e7-b4-a2-e4-b8-8b-e8-bd-bdapi/"
+      ]
+    },
+    {
+      "url": "/tags/预览版/",
+      "kind": "listing",
+      "title": "标签: 预览版",
+      "posts": [
+        "/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/"
+      ]
+    },
+    {
+      "url": "/tags/驱动/",
+      "kind": "listing",
+      "title": "标签: 驱动",
+      "posts": [
+        "/2017/08/30/nvidia-e5-ae-89-e8-a3-85-e7-a8-8b-e5-ba-8f-e6-97-a0-e6-b3-95-e7-bb-a7-e7-bb-ad-e3-80-82-e9-9c-80-e8-a6-81-e9-87-8d-e6-96-b0-e5-90-af-e5-8a-a8-e7-b3-bb-e7-bb-9f-e3-80-82/"
+      ]
+    },
+    {
+      "url": "/categories/",
+      "title": "分类",
+      "kind": "listing",
+      "posts": []
+    },
+    {
+      "url": "/tags/",
+      "title": "标签",
+      "kind": "listing",
+      "posts": []
+    }
+  ]
+}

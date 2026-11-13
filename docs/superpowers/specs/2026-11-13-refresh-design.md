@@ -1,0 +1,2 @@
+# Blog refresh
+Keep the deployed static-site architecture, all 76 existing URLs, CNAME and historical article bodies. Replace the Hexo/NexT presentation with a modern blue-violet editorial design inspired by the reference site's spacious cards, sidebar and appearance controls, without copying its content. Add responsive navigation, accessible local search, light/dark mode, article outlines, GitHub-based comments configured but disabled until owner setup. No remote publication or permissions changes.
