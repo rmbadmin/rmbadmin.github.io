@@ -1,0 +1,30 @@
+{
+  "title": "VC14(VC2015)安装失败,0x80240017 - 未指定的错误 解决办法",
+  "date": "2016-05-11",
+  "url": "/2016/05/11/vc14vc2015-e5-ae-89-e8-a3-85-e5-a4-b1-e8-b4-a50x80240017-e6-9c-aa-e6-8c-87-e5-ae-9a-e7-9a-84-e9-94-99-e8-af-af-e8-a7-a3-e5-86-b3-e5-8a-9e-e6-b3-95/",
+  "type": "posts",
+  "categorylinks": [
+    {
+      "name": "心得技巧",
+      "url": "/categories/心得技巧/"
+    }
+  ],
+  "taglinks": [],
+  "description": "闲的蛋疼升级PHP7 然而遇到VC14无法安装的问题。按照如下方法解决了。 （但是目前发现云签到系统没法在PHP7下运行，貌似我又要换回去QAQ） 找到了解决方法，给云签专门挂了PHP5。~ ——————————————————————————————————————– VC2015、VC14 在 Windows 20"
+}
+
+
+      
+        <p>闲的蛋疼升级PHP7  然而遇到VC14无法安装的问题。按照如下方法解决了。 （但是目前发现云签到系统没法在PHP7下运行，貌似我又要换回去QAQ） 找到了解决方法，给云签专门挂了PHP5。<del>~</del>   ——————————————————————————————————————–   VC2015、VC14 在 Windows 2012 R2 安装失败,0x80240017 - 未指定的错误，解决办法 据朋友反应VC2013一样存在这个问题……; <img src="http://www.iszip.com/uploads/allimg/160112/1-1601121AH01W.jpg" alt> 查资料说是没有安装 KB2999226 补丁，查看错误日志文件，里面有一行C:\ProgramData\Package Cache\FC6260C33678BB17FB8B88536C476B4015B7C5E9\packages\Patch\x64\Windows8.1-KB2999226-x64.msu” /quiet /norestart’</p>
+<p>可见，该补丁是带了的，而它安装失败，直接去点击这个补丁，弹出错误：此更新不适用你的计算机。 <img src="http://www.iszip.com/uploads/allimg/160112/1-1601121A934Z4.jpg" alt>可见，安装此补丁失败的原因是，它又需要前置条件，原文摘录如下：</p>
+<p>系统必备组件</p>
+<p>若要安装此更新，您必须 2014 年 4 月累积更新 Windows RT 8.1、 Windows 8.1 和 Windows Server 2012 R2 (2919355) 安装在 Windows 8.1 或 Windows Server 2012 R2 上。或者安装 Windows 7 的 Windows Server 2008 R2 的 Service Pack 1.或者安装 Service Pack 2 适用于 Windows Vista 和 Windows server 2008.</p>
+<p>那么，需要安装 2919355 号补丁，页面地址<a href="https://support.microsoft.com/zh-cn/kb/2919355" target="_blank" rel="noopener">https://support.microsoft.com/zh-cn/kb/2919355</a></p>
+<p>下载页面在：<a href="https://www.microsoft.com/en-us/download/details.aspx?id=42334" target="_blank" rel="noopener">https://www.microsoft.com/en-us/download/details.aspx?id=42334</a></p>
+<p>以下复制该问题的解决办法之二：</p>
+<blockquote>
+<h3 id="Microsoft-下载中心"><a href="#Microsoft-%E4%B8%8B%E8%BD%BD%E4%B8%AD%E5%BF%83" class="headerlink" title="Microsoft 下载中心"></a>Microsoft 下载中心</h3><p>您还可以获得通过 Microsoft 下载中心的独立更新软件包。 <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=47b21d89-3f78-477f-9402-8021e61bef59" target="_blank" rel="noopener">立即下载基于 x86 的 Windows 8.1 更新软件包。</a> <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=f2917221-a8b3-4024-b755-818ad0e7703d" target="_blank" rel="noopener">立即下载基于 x64 的 Windows 8.1 更新软件包。</a> <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=373b1bb0-6d55-462e-98b7-6cb7d9ef1448" target="_blank" rel="noopener">立即下载基于 x64 的 Windows Server 2012 R2 更新软件包。</a> 注意:适用于Windows RT 8.1的更新只能从Windows Update获取。 注意:必须按以下顺序安装更新: clearcompressionflag.exe、 KB2919355、 KB2932046、 KB2959977、 KB2937592、 KB2938439 和 KB2934018。</p>
+</blockquote>
+<p>然后，KB2919355，又需要前置补丁KB2919442，<a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=42153" target="_blank" rel="noopener">立即下载基于 x64 的 Windows Server 2012 R2 的KB2919442补丁</a>。 解决办法之一：就是开启Windows自动更新，打全补丁，估计微软是为了告诉我们：他们不但修补了漏洞还增加了新功能。 注：补丁必须按照顺序安装.   转自：<a href="http://www.iszip.com/post/VC14setupfailed.html" target="_blank" rel="noopener">http://www.iszip.com/post/VC14setupfailed.html</a></p>
+
+    

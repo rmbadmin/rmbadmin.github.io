@@ -1,0 +1,1 @@
+{{ define "main" }}<div class="feed-heading"><h1>文章</h1><a href="/archives/">归档 ↗</a></div>{{ $pager := .Paginate (where site.RegularPages "Type" "posts").ByDate.Reverse }}<div class="post-grid">{{ range $pager.Pages }}{{ partial "card.html" . }}{{ end }}</div>{{ partial "pager.html" $pager }}{{ end }}

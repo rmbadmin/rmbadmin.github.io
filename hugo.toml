@@ -1,0 +1,19 @@
+assetDir = "hugo-assets"
+defaultContentLanguage = 'zh'
+ignoreFiles = ['site\.json$']
+baseURL = 'https://blog.rmbgame.net/'
+languageCode = 'zh-CN'
+title = '软妹币游戏'
+disableKinds = ['taxonomy', 'term', 'section', 'RSS']
+disablePathToLower = true
+[build]
+  writeStats = false
+[pagination]
+  pagerSize = 10
+[markup.goldmark.renderer]
+  unsafe = true
+[outputs]
+  home = ['HTML', 'JSON']
+[outputFormats.JSON]
+  baseName = 'search'
+  mediaType = 'application/json'

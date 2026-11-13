@@ -1,0 +1,31 @@
+{
+  "title": "WPF加载相对路径的图片设计器能看到 运行不显示 的解决方法",
+  "date": "2016-01-25",
+  "url": "/2016/01/25/wpf-e5-8a-a0-e8-bd-bd-e7-9b-b8-e5-af-b9-e8-b7-af-e5-be-84-e7-9a-84-e5-9b-be-e7-89-87-e8-ae-be-e8-ae-a1-e5-99-a8-e8-83-bd-e7-9c-8b-e5-88-b0-e8-bf-90-e8-a1-8c-e4-b8-8d-e6-98-be-e7-a4-ba-e7-9a-84/",
+  "type": "posts",
+  "categorylinks": [
+    {
+      "name": "Csharp",
+      "url": "/categories/Csharp/"
+    }
+  ],
+  "taglinks": [
+    {
+      "name": "C#",
+      "url": "/tags/C/"
+    },
+    {
+      "name": "WPF",
+      "url": "/tags/WPF/"
+    }
+  ],
+  "description": "相对路径： 在项目中添加一个文件夹Image，在文件夹下添加一个background.jpg的图片，打开图片文件的属性，将“复制到输出目录”选中“始终复制”，将“生成操作”选择为“内容”，这样，编译后，会在bin/debug目录下生成一个含有background图片的名为Image的文件夹。 this.HeadImg."
+}
+
+
+      
+        <p>相对路径： 在项目中添加一个文件夹Image，在文件夹下添加一个background.jpg的图片，打开图片文件的属性，将“复制到输出目录”选中“始终复制”，将“生成操作”选择为“内容”，这样，编译后，会在bin/debug目录下生成一个含有background图片的名为Image的文件夹。</p>
+<p>this.HeadImg.Source = new BitmapImage(new Uri(@\“default.jpg\“, UriKind.Relative));</p>
+<p>//绝对路径：就很简单了，获取到工作目录，附加相对路径<br>this.HeadImg.Source = new BitmapImage(newUri(Path.GetDirectoryName(Application.ResourceAssembly.Location)<br>+ @\“default.jpg\“, UriKind.Absolute));</p>
+
+    

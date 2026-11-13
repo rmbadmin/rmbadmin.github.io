@@ -1,0 +1,29 @@
+{
+  "title": "react-weui中Tab、TabBarItem遇到的坑",
+  "date": "2017-08-16",
+  "url": "/2017/08/16/react-weui-e4-b8-adtab-e3-80-81tabbaritem-e9-81-87-e5-88-b0-e7-9a-84-e5-9d-91/",
+  "type": "posts",
+  "categorylinks": [
+    {
+      "name": "前端",
+      "url": "/categories/前端/"
+    },
+    {
+      "name": "水的一笔",
+      "url": "/categories/前端/水的一笔/"
+    },
+    {
+      "name": "编程",
+      "url": "/categories/前端/水的一笔/编程/"
+    }
+  ],
+  "taglinks": [],
+  "description": "近期在琢磨React, 同时需要开发微信端的东西使用了react-weui 结果发现react-weui的文档说明真的是不全, 遇到好几个坑 在这里记录一下 在使用TabBarItem前观看了 react-weui 文档 可以根据active属性 得知设定是否激活，默认为fasle <TabBarItem icon={"
+}
+
+
+      
+        <p>近期在琢磨React,  同时需要开发微信端的东西使用了react-weui 结果发现react-weui的文档说明真的是不全, 遇到好几个坑 在这里记录一下 在使用TabBarItem前观看了 <a href="https://weui.github.io/react-weui/docs/#/react-weui/docs/page/0/articles/0" target="_blank" rel="noopener">react-weui 文档 </a> <img src="http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816173155-1024x589.png" alt> 可以根据active属性 得知设定是否激活，默认为fasle <tab type="tabbar"> &lt;TabBarItem icon={<img>} label=”11” active={true}/&gt; &lt;TabBarItem icon={<img>} label=”22” active={true}/&gt; </tab> 照上面代码看应该会两个都是高亮激活的样式       但在实际使用中我设置了fasle和true都没有反应 郁闷的找了很久的原因 最后在还是在React-Weui的源码中发现了问题所在 因为TabBarItme是写在Tab组件里用的 【官方例子也是这样的】 然后Tab组件里有个props属性 “defaultindex” <img src="http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816173612.png" alt> <img src="http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816173622.png" alt> 该属性会影响子节点的active ,导致在TabBarItme里设置active在一开始是会被Tab组件里的defaultindex刷掉的= =   所以最后应该 把初始要激活的菜单写在tab组件的 defaultindex props属性里 <tab type="tabbar" defaultindex="{0}"> &lt;TabBarItem icon={<img>} label=”11” active={true}/&gt; &lt;TabBarItem icon={<img>} label=”22” active={true}/&gt; </tab>   然而在文档中Tab组件是没有props属性的… <img src="http://rmbgame.net/wp-content/uploads/2017/08/QQ%E6%88%AA%E5%9B%BE20170816174152-1024x703.png" alt>   </p>
+<p><img src="file:///C:%5CUsers%5CDark%5CAppData%5CRoaming%5CTencent%5CQQ%5CTemp_8Y%5BT0S$NV~B$Q_CDNWY" alt>I1.jpg)<img src="http://rmbgame.net/wp-content/uploads/2017/08/8YT0SNVBQ_CDNWYI1.jpg" alt><img src="http://rmbgame.net/wp-content/uploads/2017/08/8YT0SNVBQ_CDNWYI1.jpg" alt><img src="http://rmbgame.net/wp-content/uploads/2017/08/8YT0SNVBQ_CDNWYI1.jpg" alt></p>
+
+    

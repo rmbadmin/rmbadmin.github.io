@@ -1,0 +1,1 @@
+{{ if gt .TotalPages 1 }}<nav class="pagination" aria-label="分页">{{ range .Pagers }}<a href="{{ .URL }}" {{ if eq .PageNumber $.PageNumber }}aria-current="page"{{ end }}>{{ .PageNumber }}</a>{{ end }}</nav>{{ end }}

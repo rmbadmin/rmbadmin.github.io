@@ -1,0 +1,16 @@
+{{ define "main" }}
+{{ $route := .Params.route }}{{ $posts := (where site.RegularPages "Type" "posts").ByDate.Reverse }}
+<section class="panel listing"><h1>{{ .Title }}</h1>
+{{ if or (eq $route "/categories/") (eq $route "/tags/") }}
+{{ $key := cond (eq $route "/categories/") "categorylinks" "taglinks" }}{{ $links := dict }}
+{{ range $posts }}{{ range index .Params $key }}{{ $links = merge $links (dict .url .name) }}{{ end }}{{ end }}
+<div class="taxonomy">{{ range $url,$name := $links }}<a href="{{ $url }}">{{ $name }} ↗</a>{{ end }}</div>
+{{ else }}
+<div class="archive-list">{{ range $posts }}
+{{ $show := false }}
+{{ if hasPrefix $route "/archives/" }}
+{{ $datePrefix := replaceRE "^/archives/([0-9]{4})(?:/([0-9]{2}))?/.*$" "$1-$2" $route }}
+{{ if or (eq $route "/archives/") (hasPrefix $route "/archives/page/") }}{{ $show = true }}{{ else }}{{ $show = hasPrefix (.Date.Format "2006-01") (strings.TrimSuffix "-" $datePrefix) }}{{ end }}
+{{ else }}{{ range .Params.categorylinks }}{{ if eq .url $route }}{{ $show = true }}{{ end }}{{ end }}{{ range .Params.taglinks }}{{ if eq .url $route }}{{ $show = true }}{{ end }}{{ end }}{{ end }}
+{{ if $show }}<a href="{{ .RelPermalink }}"><time>{{ .Date.Format "2006-01-02" }}</time><span>{{ .Title }}</span><b>↗</b></a>{{ end }}
+{{ end }}</div>{{ end }}</section>{{ end }}

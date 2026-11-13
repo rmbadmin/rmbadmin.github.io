@@ -20,7 +20,7 @@ class SiteTests(unittest.TestCase):
   for p in d['posts']:
    if p['date'].startswith('2016'): self.assertIn('href="'+p['url']+'"',page)
  def test_all_distinct_categories_accessible(self):
-  self.assertTrue((R/'categories/index.html').is_file());d=json.loads((R/'content/site.json').read_text());page=(R/'categories/index.html').read_text()
+  self.assertTrue((R/'categories/index.html').is_file());d=json.loads((R/'content/site.json').read_text());page=__import__('urllib.parse',fromlist=['unquote']).unquote((R/'categories/index.html').read_text())
   for p in d['posts']:
    for c in p['categories']:self.assertIn('href="'+c['url']+'"',page)
  def test_article_html_preserved(self):

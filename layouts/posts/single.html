@@ -1,0 +1,1 @@
+{{ define "main" }}<article class="article panel"><div class="article-meta"><time>{{ .Date.Format "2006-01-02" }}</time></div><h1>{{ .Title }}</h1><div class="chips">{{ range .Params.categorylinks }}<a class="chip" href="{{ .url }}">{{ .name }}</a>{{ end }}</div><div class="prose" id="article-body">{{ .Content }}</div></article>{{ partial "comments.html" . }}{{ end }}

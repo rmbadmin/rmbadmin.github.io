@@ -1,0 +1,1 @@
+(() => { try { const saved = localStorage.getItem('blog-theme'); document.documentElement.dataset.theme = saved === 'dark' || saved === 'light' ? saved : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch {} })();

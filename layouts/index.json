@@ -1,0 +1,1 @@
+{{- $items := slice -}}{{- range (where site.RegularPages "Type" "posts").ByDate.Reverse -}}{{- $cats := slice -}}{{- range .Params.categorylinks -}}{{- $cats = $cats | append .name -}}{{- end -}}{{- $items = $items | append (dict "title" .Title "url" .RelPermalink "date" (.Date.Format "2006-01-02") "text" .Plain "categories" $cats) -}}{{- end -}}{{- $items | jsonify -}}

@@ -1,0 +1,20 @@
+{
+  "title": "完美备份WIN8和WIN10包括Office激活信息",
+  "date": "2016-12-31",
+  "url": "/2016/12/31/e5-ae-8c-e7-be-8e-e5-a4-87-e4-bb-bdwin8-e5-92-8cwin10-e5-8c-85-e6-8b-acoffice-e6-bf-80-e6-b4-bb-e4-bf-a1-e6-81-af/",
+  "type": "posts",
+  "categorylinks": [
+    {
+      "name": "水的一笔",
+      "url": "/categories/水的一笔/"
+    }
+  ],
+  "taglinks": [],
+  "description": "今天是2016的最后一天啦，各位跨年快乐 该方法仅在Windows8.1企业版、专业版（批量）Windows10企业版测试，其他版本自测 前期准备你系统和Office激活且装好驱动 一：将系统镜像解压的install.wim提取到D盘根目录。 二：D盘先建立一个文件夹install 三：管理员命令提示符Dism /mo"
+}
+
+
+      
+        <p>今天是2016的最后一天啦<del>，各位跨年快乐</del>   该方法仅在Windows8.1企业版、专业版（批量）Windows10企业版测试，其他版本自测   前期准备你系统和Office激活且装好驱动   一：将系统镜像解压的install.wim提取到D盘根目录。   二：D盘先建立一个文件夹install   三：管理员命令提示符Dism /mount-image /imageFile:D:\install.wim /index:1 /mountdir:D:\install   四：cache.dat、data.dat、tokens.dat三个文件替换，替换D盘的D: \install \Windows\System32\spp\store\2.0 三个文件信息地址C:\Windows\System32\spp\store\2.0 <img src="http://rmbgame.net/wp-content/uploads/2016/12/back8.png" alt> <img src="http://rmbgame.net/wp-content/uploads/2016/12/back10.png" alt>       五：Dism /Image:D:\install /Set-ProductKey: xxxxx-xxxxx-xxxxx-xxxxx-xxxxx（windows密钥）   六：Dism /unmount-wim /mountdir:D:\install /commit   七：install替换系统镜像里的install.wim     八：完工。安装系统去吧。   九：安装系统后，打上所有驱动，安装Office输入office密钥即可激活 如找不到输入Office密钥的地方则管理员命令提示符slmgr.vbs -ipk xxxxx-xxxxx-xxxxx-xxxxx-xxxxx（Office密钥）,打开Office任意组件关掉Office提示的激活窗口，文件–账户–更换密钥，即可激活Office</p>
+
+    

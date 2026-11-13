@@ -21,7 +21,7 @@
   function renderSearch() {
     results.replaceChildren();
     const query = input.value.trim().toLocaleLowerCase();
-    if (!query) { status.textContent = '输入关键词，找到一段过去的记录。'; return; }
+    if (!query) { status.textContent = '输入关键词搜索'; return; }
     if (!records) return;
     const found = records.filter(p => `${p.title} ${p.categories.join(' ')} ${p.text}`.toLocaleLowerCase().includes(query));
     status.textContent = found.length ? `找到 ${found.length} 篇文章` : '没有找到匹配文章，换个关键词试试。';
@@ -30,7 +30,7 @@
   async function openSearch() {
     dialog.showModal(); input.focus();
     if (!records) { status.textContent = '正在加载文章索引…';
-      try { pending ||= fetch('/assets/search.json').then(r => { if (!r.ok) throw Error('search'); return r.json(); }); records = await pending; renderSearch(); }
+      try { pending ||= fetch('/search.json').then(r => { if (!r.ok) throw Error('search'); return r.json(); }); records = await pending; renderSearch(); }
       catch { pending = null; status.textContent = '索引加载失败，请关闭后重试。'; }
     } else renderSearch();
   }

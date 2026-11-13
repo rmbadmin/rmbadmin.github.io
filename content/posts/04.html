@@ -1,0 +1,48 @@
+{
+  "title": "Windows 10 149XX 中 Shadowsocks-Windows （Shadowsocks-GUI） 无法正常使用的解决方案",
+  "date": "2016-12-06",
+  "url": "/2016/12/06/windows-10-149xx-e4-b8-ad-shadowsocks-windows-ef-bc-88shadowsocks-gui-ef-bc-89-e6-97-a0-e6-b3-95-e6-ad-a3-e5-b8-b8-e4-bd-bf-e7-94-a8-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/",
+  "type": "posts",
+  "categorylinks": [
+    {
+      "name": "水的一笔",
+      "url": "/categories/水的一笔/"
+    },
+    {
+      "name": "软件分享",
+      "url": "/categories/水的一笔/软件分享/"
+    }
+  ],
+  "taglinks": [
+    {
+      "name": "Preview",
+      "url": "/tags/Preview/"
+    },
+    {
+      "name": "Shadowsocks",
+      "url": "/tags/Shadowsocks/"
+    },
+    {
+      "name": "Windows 10",
+      "url": "/tags/Windows-10/"
+    },
+    {
+      "name": "Windows Insider",
+      "url": "/tags/Windows-Insider/"
+    },
+    {
+      "name": "预览版",
+      "url": "/tags/预览版/"
+    }
+  ],
+  "description": "更新了最近的几个预览版后一直在使用的Shadowsocks-GUI都不能用了，无奈之下转了ShadowsocksR，刚刚查了Github上的issue，发现这个问题是最近的预览版中Win10的一个网络配置API挂了。具体的情况参见这里。 临时解决方案是： 一、换用ShadowsocksR，这个客户端使用的注册表的方法配"
+}
+
+
+      
+        <p>更新了最近的几个预览版后一直在使用的Shadowsocks-GUI都不能用了，无奈之下转了ShadowsocksR，刚刚查了Github上的issue，发现这个问题是最近的预览版中Win10的一个网络配置API挂了。具体的情况参见<a href="https://github.com/shadowsocks/shadowsocks-windows/issues/814" target="_blank" rel="noopener">这里</a>。 临时解决方案是：</p>
+<p>一、换用ShadowsocksR，这个客户端使用的注册表的方法配置代理，不受API挂掉的影响。</p>
+<p>二、手动在设置APP里配置代理，填写代理服务器127.0.0.1，以及SS客户端的端口。暂时还没解决PAC问题，只能全局。</p>
+<p><em>PAC读下源码应该能看到是怎么实现的，照着手动模仿一个应该也行，然而期末考试期间还是不作死了……哪位大神有空看看呗……</em> 2016-12-25 更新： 忽然发现这个问题已经修复，不知道是SS改了代理设置方法还是微软终于修复了那个API的错误。现在<a href="https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso" target="_blank" rel="noopener">更新到14986版系统</a>，搭配<a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">最新版SS</a>是可以使用的。（SSR就不用再用了）</p>
+
+    

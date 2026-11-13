@@ -1,0 +1,63 @@
+{
+  "title": "2016最新webQQ协议分析",
+  "date": "2016-05-19",
+  "url": "/2016/05/19/2016-e6-9c-80-e6-96-b0webqq-e5-8d-8f-e8-ae-ae-e5-88-86-e6-9e-90/",
+  "type": "posts",
+  "categorylinks": [
+    {
+      "name": "心得技巧",
+      "url": "/categories/心得技巧/"
+    },
+    {
+      "name": "编程",
+      "url": "/categories/心得技巧/编程/"
+    }
+  ],
+  "taglinks": [
+    {
+      "name": "HTTP",
+      "url": "/tags/HTTP/"
+    },
+    {
+      "name": "webqq",
+      "url": "/tags/webqq/"
+    },
+    {
+      "name": "编程",
+      "url": "/tags/编程/"
+    }
+  ],
+  "description": "最近打开以前的webqq协议项目 结果发现貌似挂了。 重新抓包分析了下。这里贴一下接口 做个记录。 1、第一次登陆 方法：Get 地址： \\“https://ssl.ptlogin2.qq.com/ptqrshow?appid=501004106&e=0&l=M&s=5&d=72&v=4&t=0.\\“ + 随机9位数 "
+}
+
+
+      
+        <p>最近打开以前的webqq协议项目 结果发现貌似挂了。 重新抓包分析了下。这里贴一下接口 做个记录。</p>
+<p>1、第一次登陆</p>
+<p>方法：Get</p>
+<p>地址： \“<a href="https://ssl.ptlogin2.qq.com/ptqrshow?appid=501004106&amp;" target="_blank" rel="noopener">https://ssl.ptlogin2.qq.com/ptqrshow?appid=501004106&amp;</a><br>e=0&amp;l=M&amp;s=5&amp;d=72&amp;v=4&amp;t=0.\“ + 随机9位数 + 随机7位数;</p>
+<p>地址返回结果是个二维码， 扫描二维码登陆。 这期间循环 2.验证登陆状态。</p>
+<p>访问后记录Cookie后面要用到.</p>
+<p>2、验证登陆状态</p>
+<p>方法：POST</p>
+<p>地址：<a href="https://ssl.ptlogin2.qq.com/ptqrlogin" target="_blank" rel="noopener">https://ssl.ptlogin2.qq.com/ptqrlogin</a></p>
+<p>参数：webqq_type=10&amp;remember_uin=1&amp;login2qq=1&amp;aid=501004106&amp;<br>u1=http%3A%2F%2Fw.qq.com%2Fproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&amp;<br>ptredirect=0&amp;ptlang=2052&amp;daid=164&amp;from_ui=1&amp;pttype=1&amp;<br>dumy=&amp;fp=loginerroralert&amp;action=0-0-18099&amp;<br>mibao_css=m_webqq&amp;t=1&amp;g=1&amp;<br>js_type=0&amp;js_ver=10135&amp;login_sig=&amp;pt_randsalt=0</p>
+<p>返回结果为：ptuiCB(\‘66\‘,\‘0\‘,\‘\‘,\‘0\‘,\‘二维码未失效。(1891650816)\‘, \‘\‘);<br>ptuiCB(\‘67\‘,\‘0\‘,\‘\‘,\‘0\‘,\‘二维码认证中。(1891650816)\‘, \‘\‘);<br>ptuiCB(\‘0\‘,\‘0\‘,\‘<a href="http://ptlogin4.web2.qq.com/check_sig?pttype=1&amp;uin=%E3%80%90QQ%E5%8F%B7%E7%A0%81%E3%80%91&amp;service=ptqrlogin&amp;nodirect=0&amp;" target="_blank" rel="noopener">http://ptlogin4.web2.qq.com/check_sig?pttype=1&amp;uin=【QQ号码】&amp;service=ptqrlogin&amp;nodirect=0&amp;</a><br>ptsigx=c4b277a9cbb5ec2e9dbcdf25645ac2b36e27aeffe18395a8c10316f65bdc116f<br>846fd8b5d4893696a58ce4a0663111fbded905eb3f27c1b309e6a3af49d989b6&amp;<br>s_url=http%3A%2F%2Fw.qq.com%2Fproxy.html%3Flogin2qq%3D1%26webqq_type%3D10&amp;<br>f_url=&amp;ptlang=2052&amp;ptredirect=100&amp;aid=501004106&amp;daid=164&amp;<br>j_later=0&amp;low_login_hour=0&amp;regmaster=0&amp;pt_login_type=3&amp;<br>pt_aid=0&amp;pt_aaid=16&amp;pt_light=0&amp;pt_3rd_aid=0\‘,\‘0\‘,\‘登录成功！\‘, \‘XX\‘);</p>
+<p>所以这里检测开头第一个数字是0 就好了。 随后取出中间的网址并进行3、第一次登陆成功后返回回调地址。</p>
+<p>3、第一次登陆成功后返回回调地址</p>
+<p>方法：Get</p>
+<p>地址：在上一个步骤返回的回调地址</p>
+<p>直接访问一次即可，随后进入4、第二次登陆.</p>
+<p>4、第二次登陆</p>
+<p>方法：Post</p>
+<p>地址：<a href="http://d1.web2.qq.com/channel/login2" target="_blank" rel="noopener">http://d1.web2.qq.com/channel/login2</a></p>
+<p>参数：r={ {\“ptwebqq\“:\“[这里填之前cookie记录的 ptwebqq 的值]\“<br>,\“clientid\“:53999199,\“psessionid\“:\“\“,\“status\“:\“online\“}}</p>
+<p>返回结果是个json 取其中psessionid</p>
+<p>然后这里还需要获取vfwebqq值<br>地址： <a href="http://s.web2.qq.com/api/getvfwebqq" target="_blank" rel="noopener">http://s.web2.qq.com/api/getvfwebqq</a></p>
+<p>方法：post</p>
+<p>参数：ptwebqq=[之前cookie的ptwebqq值]&amp;clientid=[53999199]&amp;psessionid=&amp;t=[13位时间戳]</p>
+<p>返回json中取值：vfwebqq</p>
+<p>记录好这一部存下的值 psessionid 和 vfwebqq<br>到这一步 登陆就已经成功了。</p>
+<p>之后就是获取好友 获取群组 获取消息 和 发送消息了。 先只搞到这 orz..</p>
+
+    

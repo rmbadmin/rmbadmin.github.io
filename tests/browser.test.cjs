@@ -18,6 +18,6 @@ async function page(route='/') {
  input.value='<script>no-such-word';input.dispatchEvent(new w.Event('input'));assert.equal(d.querySelectorAll('#search-results li').length,0);assert.match(d.querySelector('#search-status').textContent,/没有找到/);
  input.value='';input.dispatchEvent(new w.Event('input'));assert.match(d.querySelector('#search-status').textContent,/输入关键词/);
  d.querySelector('[data-search-close]').click();assert.equal(d.querySelector('dialog').open,false);w.close();
- w=await page('/about/');d=w.document;assert.ok(d.querySelectorAll('#outline li').length>=2);assert.match(d.querySelector('#github-comments').textContent,/尚未启用/);assert.equal(d.querySelectorAll('script[src="https://giscus.app/client.js"]').length,0);w.close();
+ w=await page('/about/');d=w.document;assert.ok(d.querySelectorAll('#outline li').length>=2);assert.match(d.querySelector('#github-comments').textContent,/暂未开启/);assert.equal(d.querySelectorAll('script[src="https://giscus.app/client.js"]').length,0);w.close();
  console.log('PASS: theme persistence, menu, keyboard search, search results/empty/XSS text, close, article outline, comments disabled');
 })().catch(e=>{console.error(e);process.exit(1)});

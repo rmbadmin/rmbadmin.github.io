@@ -1,0 +1,30 @@
+{
+  "title": "关于C# 无边框窗体的拖拽实现",
+  "date": "2016-03-16",
+  "url": "/2016/03/16/e5-85-b3-e4-ba-8ec-e6-97-a0-e8-be-b9-e6-a1-86-e7-aa-97-e4-bd-93-e7-9a-84-e6-8b-96-e6-8b-bd-e5-ae-9e-e7-8e-b0/",
+  "type": "posts",
+  "categorylinks": [
+    {
+      "name": "Csharp",
+      "url": "/categories/Csharp/"
+    },
+    {
+      "name": "心得技巧",
+      "url": "/categories/Csharp/心得技巧/"
+    }
+  ],
+  "taglinks": [],
+  "description": "每个窗口会有一个称为窗口过程的回调函数(WndProc)，它带有四个参数，分别为： 窗口句柄(Window Handle) HWND, 消息ID(Message ID) UINT, 和两个消息参数(wParam, lParam)WPARAM、LPARAM, WndProc的第一个参数hWnd就是当前接收消息的窗口句柄，"
+}
+
+
+      
+        <p>每个窗口会有一个称为窗口过程的回调函数(WndProc)，它带有四个参数，分别为： 窗口句柄(Window Handle) HWND, 消息ID(Message ID) UINT, 和两个消息参数(wParam, lParam)WPARAM、LPARAM, WndProc的第一个参数hWnd就是当前接收消息的窗口句柄，第二个参数就是被传送过来的消息，第三、第四个参数都是附加在消息上的数据，这和MSG结构体是一样的。 代码如下：</p>
+<p>//窗口拖拽<br>protected override void WndProc(ref Message m)<br>{<br>const int WM_NCHITTEST = 0x84;<br>const int HTCLIENT = 0x01;<br>const int HTCAPTION = 0x02;<br>const int WM_NCLBUTTONDBLCLK = 0xA3;<br>switch (m.Msg)<br>{<br>case 0x4e:<br>case 0xd:<br>case 0xe:<br>case 0x14:<br>base.WndProc(ref m);<br>break;<br>case WM_NCHITTEST://鼠标点任意位置后可以拖动窗体</p>
+<p>this.DefWndProc(ref m);<br>if (m.Result.ToInt32() == HTCLIENT)<br>{<br>m.Result = new IntPtr(HTCAPTION);<br>return;<br>}<br>break;<br>case WM_NCLBUTTONDBLCLK://禁止双击最大化<br>Console.WriteLine(this.WindowState);</p>
+<p>return;</p>
+<p>default:</p>
+<p>base.WndProc(ref m);<br>break;<br>}<br>}</p>
+<p>  亦或者可以使用其它方法 比如窗口鼠标点击事件和移动事件。 ~ PS： 其实我就是想看看代码插件效果</p>
+
+    
