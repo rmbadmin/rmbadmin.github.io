@@ -1,10 +1,10 @@
 {
-  "enabled": false,
+  "enabled": true,
   "provider": "giscus",
   "repo": "rmbadmin/rmbadmin.github.io",
-  "repoId": "",
-  "category": "Blog comments",
-  "categoryId": "",
+  "repoId": "MDEwOlJlcG9zaXRvcnkyMDk5MjA3Mzk=",
+  "category": "Announcements",
+  "categoryId": "DIC_kwDODIMi484DLCDZ",
   "mapping": "pathname",
   "lang": "zh-CN"
 }

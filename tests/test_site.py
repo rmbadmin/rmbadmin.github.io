@@ -43,5 +43,5 @@ class SiteTests(unittest.TestCase):
      target=R/unquote(urlsplit(link).path).lstrip('/')
      if target.is_dir():target=target/'index.html'
      self.assertTrue(target.is_file(),f'{p}: {link}')
- def test_comments_disabled_without_ids(self):
-  config=json.loads((R/'assets/comments.json').read_text());self.assertFalse(config['enabled']);self.assertEqual(config['repo'],'rmbadmin/rmbadmin.github.io')
+ def test_comments_configuration(self):
+  config=json.loads((R/'assets/comments.json').read_text());self.assertTrue(config['enabled']);self.assertEqual(config['repo'],'rmbadmin/rmbadmin.github.io');self.assertEqual(config['category'],'Announcements');self.assertEqual(config['categoryId'],'DIC_kwDODIMi484DLCDZ');self.assertEqual(config['repoId'],'MDEwOlJlcG9zaXRvcnkyMDk5MjA3Mzk=');self.assertEqual(config,json.loads((R/'static/assets/comments.json').read_text()))
