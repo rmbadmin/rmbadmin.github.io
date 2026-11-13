@@ -1,0 +1,11 @@
+{
+  "name": "rmbgame-blog-refresh",
+  "private": true,
+  "scripts": {
+    "test": "node tests/browser.test.cjs",
+    "build": "python3 scripts/build.py"
+  },
+  "devDependencies": {
+    "jsdom": "31.0.1"
+  }
+}
